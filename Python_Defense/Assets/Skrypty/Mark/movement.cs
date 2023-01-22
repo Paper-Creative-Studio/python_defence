@@ -9,7 +9,7 @@ public class movement : MonoBehaviour
     private Vector2 input;
     private Vector2 smoothmove;
     private Vector2 smoothInputVelocity;
-    [SerializeField] private float Smoothing_Speed;
+    [SerializeField] private float smoothing_speed;
     private Vector2 direction;
     // Start is called before the first frame update
     void Start()
@@ -20,12 +20,16 @@ public class movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-        smoothmove = Vector2.SmoothDamp(smoothmove, input, ref smoothInputVelocity, Smoothing_Speed);
+        input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")).normalized;
+        smoothmove = Vector2.SmoothDamp(smoothmove, input, ref smoothInputVelocity, smoothing_speed);
         
         
+        
+    }
+    private void FixedUpdate()
+    {
         rb.velocity = smoothmove * speed;
         Debug.Log(rb.velocity);
     }
-    
+
 }
