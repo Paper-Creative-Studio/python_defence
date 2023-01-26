@@ -12,6 +12,7 @@ public class movement : MonoBehaviour
     [SerializeField] private float smoothing_speed;
     [SerializeField] private Animator anim_controller;
     private Vector2 direction;
+    private bool facingLeft = true;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,30 +25,47 @@ public class movement : MonoBehaviour
         input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")).normalized;
         smoothmove = Vector2.SmoothDamp(smoothmove, input, ref smoothInputVelocity, smoothing_speed);
 
-        if (Input.GetAxisRaw("Horizontal") != 0 && Input.GetAxisRaw("Vertical") <= 0)
+        if(Input.GetAxisRaw("Horizontal") > 0 && facingLeft)
+        {
+            Flip();
+        }
+        if (Input.GetAxisRaw("Horizontal") < 0 && !facingLeft)
+        {
+            Flip();
+        }
+
+
+        // triggery animacji
+        if (Input.GetAxisRaw("Horizontal") != 0)
         {
             anim_controller.SetBool("MovingLeftRight", true);
             anim_controller.SetBool("MovingUp", false);
         }
-        else if(Input.GetAxisRaw("Vertical") > 0)
+        else if(Input.GetAxisRaw("Horizontal") == 0 && Input.GetAxisRaw("Vertical") > 0)
         {
             anim_controller.SetBool("MovingLeftRight", false);
             anim_controller.SetBool("MovingUp", true);
         }
-        else if(Input.GetAxisRaw("Horizontal") == 0 && Input.GetAxisRaw("Vertical") == 0)
+        
+        else if (Input.GetAxisRaw("Horizontal") == 0 && Input.GetAxisRaw("Vertical") == 0)
         {
             anim_controller.SetBool("MovingLeftRight", false);
             anim_controller.SetBool("MovingUp", false);
         }
-        
-
-
 
     }
     private void FixedUpdate()
     {
         rb.velocity = smoothmove * speed;
         Debug.Log(anim_controller.GetBool("MovingLeftRight") + " " + anim_controller.GetBool("MovingUp"));
+    }
+
+    void Flip()
+    {
+        Vector3 currentscale = gameObject.transform.localScale;
+        currentscale.x *= -1;
+        gameObject.transform.localScale= currentscale;
+        facingLeft = !facingLeft;
     }
 
 }
