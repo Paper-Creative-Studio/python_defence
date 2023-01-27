@@ -33,6 +33,10 @@ public class movement : MonoBehaviour
         {
             Flip();
         }
+        if (Input.GetAxisRaw("Vertical") > 0 && !facingLeft && Input.GetAxisRaw("Horizontal") == 0)
+        {
+            Flip();
+        }
 
 
         // triggery animacji
