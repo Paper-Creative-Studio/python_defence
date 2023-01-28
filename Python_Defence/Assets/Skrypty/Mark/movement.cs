@@ -11,7 +11,7 @@ public class movement : MonoBehaviour
     private Vector2 smoothInputVelocity;
     [SerializeField] private float smoothing_speed;
     [SerializeField] private Animator anim_controller;
-    private Vector2 direction;
+    
     private bool facingLeft = true;
     // Start is called before the first frame update
     void Start()
