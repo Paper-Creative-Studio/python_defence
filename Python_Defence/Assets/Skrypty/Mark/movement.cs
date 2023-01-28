@@ -22,6 +22,7 @@ public class movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")).normalized;
         smoothmove = Vector2.SmoothDamp(smoothmove, input, ref smoothInputVelocity, smoothing_speed);
 
@@ -61,7 +62,7 @@ public class movement : MonoBehaviour
     private void FixedUpdate()
     {
         rb.velocity = smoothmove * speed;
-        Debug.Log(anim_controller.GetBool("MovingLeftRight") + " " + anim_controller.GetBool("MovingUp"));
+       
     }
 
     void Flip()
