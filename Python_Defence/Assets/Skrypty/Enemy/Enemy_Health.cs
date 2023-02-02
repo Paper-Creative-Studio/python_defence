@@ -13,7 +13,13 @@ public class Enemy_Health : MonoBehaviour
         currentHealth = maxHealth;
         healthbar.SetMaxHealth(currentHealth);
     }
-
+    private void Update()
+    {
+        if(currentHealth <= 0)
+        {
+            Destroy(gameObject);
+        }
+    }
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;

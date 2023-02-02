@@ -63,6 +63,7 @@ public class movement : MonoBehaviour
     {
         rb.velocity = smoothmove * speed;
        
+       
     }
 
     void Flip()

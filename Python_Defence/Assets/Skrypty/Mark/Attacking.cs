@@ -31,8 +31,8 @@ public class Attacking : MonoBehaviour
             enemy.GetComponent<Enemy_Health>().TakeDamage(5);
         }
     }
-    private void OnDrawGizmosSelected()
-    {
-        Gizmos.DrawSphere(attackPoint.position, attackRange);
-    }
+    //private void OnDrawGizmosSelected()
+    //{
+    //    Gizmos.DrawSphere(attackPoint.position, attackRange);
+    //}
 }
