@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy_Health : MonoBehaviour
+public class Health : MonoBehaviour
 {
     public int maxHealth = 20;
     public int currentHealth;
-    public Enemy_Healthbar healthbar;
+    public Healthbar healthbar;
     // Start is called before the first frame update
     void Start()
     {
