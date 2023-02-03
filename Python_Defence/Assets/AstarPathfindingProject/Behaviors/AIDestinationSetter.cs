@@ -23,7 +23,9 @@ namespace Pathfinding
 		IAstarAI ai;
 		private float dist;
 		public float lostRange;
-		
+		public Animator anim;
+		public float CastleSpeed;
+		public float PlayerSpeed;
 		
         void OnEnable () {
 			ai = GetComponent<IAstarAI>();
@@ -48,7 +50,7 @@ namespace Pathfinding
 				if (target != null && ai != null)
 				{
 					ai.destination = SecondaryTarget.position;
-					ai.maxSpeed = 1.5f;
+					ai.maxSpeed = PlayerSpeed;
 
 				}
 
@@ -59,14 +61,19 @@ namespace Pathfinding
 				if (target != null && ai != null)
 				{
 					ai.destination = target.position;
-					ai.maxSpeed = 1.2f;
+					ai.maxSpeed = CastleSpeed;
 
 				}
 
 
 			}
-            
-			
+			if (ai.velocity.x != 0)
+				anim.SetBool("WalkingHor", true);
+				
+			else
+			{
+                anim.SetBool("WalkingHor", false);
+            }
 		}
         
     }

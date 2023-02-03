@@ -11,7 +11,9 @@ public class Attack_Enemy : MonoBehaviour
     [SerializeField] private float attackRange;
     [SerializeField] private Transform attackPoint;
     [SerializeField] private LayerMask playerLayer;
+    [SerializeField] private int damage;
     private float attackcooldown;
+    public Animator anim;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,22 +27,31 @@ public class Attack_Enemy : MonoBehaviour
         {
             canAttack= false;
             attackcooldown = Random.Range(minAS, maxAS);
-            Collider2D[] hitPlayer = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, playerLayer);
-
-            foreach (Collider2D player in hitPlayer)
-            {
-                Debug.Log("Attacked: " + player);
-                player.GetComponent<Health>().TakeDamage(5);
-                
-            }
+            anim.SetTrigger("Attacking");
+            
             
             StartCoroutine(Cooldown());
         }
         
     }
+    public void attack()
+    {
+        Collider2D[] hitPlayer = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, playerLayer);
+
+        foreach (Collider2D player in hitPlayer)
+        {
+
+            player.GetComponent<Health>().TakeDamage(damage);
+
+        }
+    }
     IEnumerator Cooldown()
     {
         yield return new WaitForSeconds(attackcooldown);
         canAttack = true;
+    }
+    private void OnDrawGizmosSelected()
+    {
+       Gizmos.DrawSphere(attackPoint.position, attackRange);
     }
 }

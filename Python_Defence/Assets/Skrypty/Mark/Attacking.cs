@@ -9,6 +9,8 @@ public class Attacking : MonoBehaviour
     [SerializeField] private float attackRange;
     [SerializeField] private LayerMask enemyLayers;
     [SerializeField] private float attackCooldown = 0.5f;
+    [SerializeField] private Animator anim_controller;
+    [SerializeField] private int damage;
     private bool canAttack = true;
     // Start is called before the first frame update
     void Start()
@@ -23,20 +25,23 @@ public class Attacking : MonoBehaviour
         //atak
         if(Input.GetButtonDown("Fire1") && canAttack)
         {
+            
             canAttack= false;
-            Attack();
+            anim_controller.SetTrigger("Attacking");
+            
             StartCoroutine(Cooldown());
-
+            
         }
     }
-    private void Attack()
+    public void Attack()
     {
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
 
         foreach (Collider2D enemy in hitEnemies)
         {
-            enemy.GetComponent<Enemy_Health>().TakeDamage(5);
+            enemy.GetComponent<Enemy_Health>().TakeDamage(damage);
         }
+        
     }
     IEnumerator Cooldown()
     {
