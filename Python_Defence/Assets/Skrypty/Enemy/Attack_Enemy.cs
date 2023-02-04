@@ -50,8 +50,8 @@ public class Attack_Enemy : MonoBehaviour
         yield return new WaitForSeconds(attackcooldown);
         canAttack = true;
     }
-    private void OnDrawGizmosSelected()
-    {
-       Gizmos.DrawSphere(attackPoint.position, attackRange);
-    }
+    //private void OnDrawGizmosSelected()
+    //{
+    //   Gizmos.DrawSphere(attackPoint.position, attackRange);
+    //}
 }

@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using Microsoft.Scripting.Actions;
 
 namespace Pathfinding 
 {
@@ -26,7 +27,9 @@ namespace Pathfinding
 		public Animator anim;
 		public float CastleSpeed;
 		public float PlayerSpeed;
-		
+		public float stopRange;
+
+
         void OnEnable () {
 			ai = GetComponent<IAstarAI>();
 			// Update the destination right before searching for a path as well.
@@ -51,7 +54,14 @@ namespace Pathfinding
 				{
 					ai.destination = SecondaryTarget.position;
 					ai.maxSpeed = PlayerSpeed;
-
+					if(dist <= stopRange)
+					{
+						ai.canMove = false;
+					}
+					else
+					{
+						ai.canMove = true;
+					}
 				}
 
 			}

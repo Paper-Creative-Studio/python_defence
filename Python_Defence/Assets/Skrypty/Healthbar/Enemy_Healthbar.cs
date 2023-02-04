@@ -6,6 +6,7 @@ public class Enemy_Healthbar : MonoBehaviour
 {
     [SerializeField] private Transform enemy;
     [SerializeField] private Slider slider;
+    public Vector3 offset = new Vector3(-0.1f, 0.75f, 0);
     // Start is called before the first frame update
     void Start()
     {
@@ -14,7 +15,7 @@ public class Enemy_Healthbar : MonoBehaviour
     }
     private void Update()
     {
-        transform.position = enemy.transform.position + new Vector3(-0.1f, 0.75f, 0);
+        transform.position = enemy.transform.position + offset;
     }
 
     public void SetHealth(int health)
