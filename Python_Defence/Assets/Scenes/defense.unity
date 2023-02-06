@@ -2022,6 +2022,7 @@ GameObject:
   - component: {fileID: 565959660}
   - component: {fileID: 565959659}
   - component: {fileID: 565959662}
+  - component: {fileID: 565959663}
   m_Layer: 9
   m_Name: 'Archer '
   m_TagString: Untagged
@@ -2089,7 +2090,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 565959656}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.925, y: 4.215, z: 10}
+  m_LocalPosition: {x: 5.87, y: 4.28, z: 10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2110,7 +2111,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   arrow: {fileID: 312024135112198859, guid: 017a54f0d19f1a1419dcf789273c2272, type: 3}
+  target: {fileID: 0}
   shootPoint: {fileID: 2001406206}
+  anim_controller: {fileID: 565959662}
+  enemyLayers:
+    serializedVersion: 2
+    m_Bits: 64
+  FOVAngle: 120
+  attackRange: 5
 --- !u!61 &565959660
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2124,7 +2132,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.10860312, y: -0.07092476}
+  m_Offset: {x: 0.6059729, y: -0.58772326}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -2135,7 +2143,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.78279376, y: 0.8581505}
+  m_Size: {x: 0.75170827, y: 0.834836}
   m_EdgeRadius: 0
 --- !u!50 &565959661
 Rigidbody2D:
@@ -2178,6 +2186,20 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+--- !u!114 &565959663
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 565959656}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1722cf0e29472f641b3a5646d7aab73b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterCollider: {fileID: 565959660}
+  TileMap: {fileID: 550732880}
 --- !u!1 &571727370
 GameObject:
   m_ObjectHideFlags: 0
@@ -2996,7 +3018,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 982581467}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.162, y: 0.145, z: 0}
+  m_LocalPosition: {x: 0.55, y: 1.72, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -3455,7 +3477,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5.2602286
+  orthographic size: 6.735951
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -4016,8 +4038,8 @@ BoxCollider2D:
   m_Offset: {x: -0.07210922, y: -0.0053587854}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.38, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    pivot: {x: 0.32, y: 0.5}
+    oldSize: {x: 1.40625, y: 1}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
