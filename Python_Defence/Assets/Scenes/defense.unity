@@ -2090,11 +2090,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 565959656}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.87, y: 4.28, z: 10}
+  m_LocalPosition: {x: 4.62, y: 3.26, z: 10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2001406206}
+  - {fileID: 1079331364}
   m_Father: {fileID: 1120368049}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2111,14 +2112,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   arrow: {fileID: 312024135112198859, guid: 017a54f0d19f1a1419dcf789273c2272, type: 3}
-  target: {fileID: 0}
+  target: {fileID: 982581468}
   shootPoint: {fileID: 2001406206}
   anim_controller: {fileID: 565959662}
   enemyLayers:
     serializedVersion: 2
     m_Bits: 64
-  FOVAngle: 120
   attackRange: 5
+  controlPoint: {fileID: 1079331364}
 --- !u!61 &565959660
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2193,7 +2194,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 565959656}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1722cf0e29472f641b3a5646d7aab73b, type: 3}
   m_Name: 
@@ -3018,9 +3019,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 982581467}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.55, y: 1.72, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 1
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 696254556}
   - {fileID: 165081418}
@@ -3107,7 +3108,7 @@ MonoBehaviour:
   lostRange: 10
   anim: {fileID: 982581470}
   CastleSpeed: 0.5
-  PlayerSpeed: 0.8
+  PlayerSpeed: 1
   stopRange: 1
 --- !u!114 &982581473
 MonoBehaviour:
@@ -3391,6 +3392,37 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!1 &1079331363
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1079331364}
+  m_Layer: 9
+  m_Name: BezierControlPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1079331364
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1079331363}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -3.46, y: 3.57, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 565959658}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1120368048
 GameObject:
   m_ObjectHideFlags: 0
@@ -4402,7 +4434,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1608668886}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -26.84, y: -0.71, z: 1.11}
+  m_LocalPosition: {x: -25.66, y: -0.62, z: 1.11}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 1
   m_Children:
