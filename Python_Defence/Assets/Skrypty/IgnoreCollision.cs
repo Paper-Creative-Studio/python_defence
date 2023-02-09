@@ -5,12 +5,16 @@ using UnityEngine.Tilemaps;
 
 public class IgnoreCollision : MonoBehaviour
 {
-    [SerializeField] private BoxCollider2D characterCollider;
+    [SerializeField] private Collider2D[] characterColliders;
     [SerializeField] private TilemapCollider2D TileMap;
     // Start is called before the first frame update
     void Start()
     {
-        Physics2D.IgnoreCollision(characterCollider, TileMap, true);
+        for(int i = 0; i<=characterColliders.Length - 1; i++)
+        {
+            Physics2D.IgnoreCollision(characterColliders[i], TileMap, true);
+        }
+        
     }
 
     // Update is called once per frame
