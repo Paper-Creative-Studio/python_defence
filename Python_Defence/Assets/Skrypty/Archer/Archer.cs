@@ -30,7 +30,7 @@ public class Archer : MonoBehaviour
     private bool canAttack = true;
 
     public LayerMask enemyLayer;
-
+    public Vector2 aggropos;
     // Start is called before the first frame update
     void Start()
     {
@@ -40,6 +40,11 @@ public class Archer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(target != null)
+        {
+            //Debug.Log(transform.position.x - target.position.x); //2.50
+        }
+        
         if (canAttack)
         {
             if(target != null)
@@ -71,31 +76,48 @@ public class Archer : MonoBehaviour
         arrowNextPos = createdArrow.transform.position;
         
         coroutineAllowed = false;
-        while (CurveTime < 1)
-        {
+        
+       
+            while (CurveTime < 1)
+            {
             //Movement strzaly
-            
-            CurveTime += Time.deltaTime * arrowSpeed;
-            
-            createdArrow.transform.position = Vector3.MoveTowards(createdArrow.transform.position, arrowNextPos, arrowSpeed);
-            arrowNextPos = Mathf.Pow(1 - CurveTime, 2) * shootPoint.position + 2 * (1 - CurveTime) * CurveTime * controlPoint.position + Mathf.Pow(CurveTime, 2) * enemy;
-            
-            //Rotacja strzaly
+                if (transform.position.x - enemy.x <= 4.5f)
+                {
+                arrowSpeed = 0.85f;
+                CurveTime += Time.deltaTime * arrowSpeed;
+                createdArrow.transform.position = Vector3.MoveTowards(createdArrow.transform.position, enemy, arrowSpeed * Time.fixedDeltaTime);
+                Vector3 dir = enemy - createdArrow.transform.position;
+                var angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+                createdArrow.transform.rotation = Quaternion.AngleAxis(angle - 45f, Vector3.forward);
+                Debug.Log("elo");
+                }
+                else
+                {
+                CurveTime += Time.deltaTime * arrowSpeed;
 
-            Vector3 dir = arrowNextPos - createdArrow.transform.position;
-            var angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-            createdArrow.transform.rotation = Quaternion.AngleAxis(angle - 45f, Vector3.forward);
-            if (createdArrow.transform.position.y - arrowNextPos.y <= 0)
-            {
-                arrowSpeed = 0.5f; 
-            }
-            else
-            {
+                createdArrow.transform.position = Vector3.MoveTowards(createdArrow.transform.position, arrowNextPos, arrowSpeed);
+                arrowNextPos = Mathf.Pow(1 - CurveTime, 2) * shootPoint.position + 2 * (1 - CurveTime) * CurveTime * controlPoint.position + Mathf.Pow(CurveTime, 2) * enemy;
 
-                arrowSpeed -= -0.87f * Time.deltaTime; //default gravity to -9.14
+                //Rotacja strzaly
+
+                Vector3 dir = arrowNextPos - createdArrow.transform.position;
+                var angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+                createdArrow.transform.rotation = Quaternion.AngleAxis(angle - 45f, Vector3.forward);
+                if (createdArrow.transform.position.y - arrowNextPos.y <= 0)
+                {
+                    arrowSpeed = 0.5f;
+                }
+                else
+                {
+
+                    arrowSpeed -= -0.87f * Time.deltaTime; //default gravity to -9.14
+                }
             }
-            yield return new WaitForEndOfFrame();
-        }
+                
+                yield return new WaitForEndOfFrame();
+            }
+            
+        
         CurveTime = 0f;
         coroutineAllowed = true;
     }
@@ -107,8 +129,9 @@ public class Archer : MonoBehaviour
     IEnumerator FOVCheck()
     {
         yield return new WaitForSeconds(0.2f);
-        Collider2D foundEnemy = Physics2D.OverlapCircle(transform.position + new Vector3(-6f, 0, 0), attackRange, enemyLayer);
-        Debug.Log(foundEnemy);
+       
+        Collider2D foundEnemy = Physics2D.OverlapCircle(aggropos, attackRange, enemyLayer);
+        
         if (foundEnemy != null)
         {
             if (foundEnemy.transform.position.x < transform.position.x)
@@ -125,15 +148,20 @@ public class Archer : MonoBehaviour
 
     }
 
-    //private void OnDrawGizmos()
-    //{
-    //    for (float t = 0; t <= 1; t += 0.05f)
-    //    {
-    //        gizmosPosition = Mathf.Pow(1 - t, 2) * shootPoint.position + 2 * (1 - t) * t * controlPoint.position + Mathf.Pow(t, 2) * target.position;
+    private void OnDrawGizmos()
+    {
+        //for (float t = 0; t <= 1; t += 0.05f)
+        //{
+        //    gizmosPosition = Mathf.Pow(1 - t, 2) * shootPoint.position + 2 * (1 - t) * t * controlPoint.position + Mathf.Pow(t, 2) * target.position;
 
-    //        Gizmos.DrawSphere(gizmosPosition, 0.25f);
-    //    }
-    //    Gizmos.DrawLine(new Vector3(shootPoint.position.x, shootPoint.position.y, shootPoint.position.z), new Vector3(controlPoint.position.x, controlPoint.position.y, controlPoint.position.z));
-    //    Gizmos.DrawLine(new Vector3(controlPoint.position.x, controlPoint.position.y, controlPoint.position.z), new Vector3(target.position.x, target.position.y, target.position.z));
-    //}
+        //    Gizmos.DrawSphere(gizmosPosition, 0.25f);
+        //}
+        //Gizmos.DrawLine(new Vector3(shootPoint.position.x, shootPoint.position.y, shootPoint.position.z), new Vector3(controlPoint.position.x, controlPoint.position.y, controlPoint.position.z));
+
+        //Gizmos.DrawLine(new Vector3(controlPoint.position.x, controlPoint.position.y, controlPoint.position.z), new Vector3(target.position.x, target.position.y, target.position.z));
+    }
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.DrawWireSphere(aggropos, attackRange);
+    }
 }

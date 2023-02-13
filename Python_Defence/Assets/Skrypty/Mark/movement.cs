@@ -7,10 +7,12 @@ public class movement : MonoBehaviour
     [SerializeField] private float speed;
     private Rigidbody2D rb;
     private Vector2 input;
-    private Vector2 smoothmove;
-    private Vector2 smoothInputVelocity;
+    private Vector3 smoothmove;
+    private Vector3 smoothInputVelocity;
     [SerializeField] private float smoothing_speed;
     [SerializeField] private Animator anim_controller;
+    public ContactFilter2D movementFilter;
+    private List<RaycastHit2D> hits = new List<RaycastHit2D>();
     
     private bool facingLeft = true;
     // Start is called before the first frame update
@@ -24,7 +26,7 @@ public class movement : MonoBehaviour
     {
         
         input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")).normalized;
-        smoothmove = Vector2.SmoothDamp(smoothmove, input, ref smoothInputVelocity, smoothing_speed);
+        smoothmove = Vector3.SmoothDamp(smoothmove, input, ref smoothInputVelocity, smoothing_speed);
 
         if(Input.GetAxisRaw("Horizontal") > 0 && facingLeft)
         {
@@ -61,9 +63,16 @@ public class movement : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        rb.velocity = smoothmove * speed;
-       
-       
+        //rb.MovePosition(transform.position + (smoothmove * speed * Time.fixedDeltaTime));
+        bool success = MovePlayer(smoothmove);
+       if(!success)
+       {
+            success = MovePlayer(new Vector2(smoothmove.x, 0));
+            if(!success)
+            {
+                success = MovePlayer(new Vector2(0, smoothmove.y));
+            }
+       }
     }
 
     void Flip()
@@ -72,6 +81,20 @@ public class movement : MonoBehaviour
         currentscale.x *= -1;
         gameObject.transform.localScale= currentscale;
         facingLeft = !facingLeft;
+    }
+    bool MovePlayer(Vector3 direction)
+    {
+        int collisionCount = rb.Cast(direction, movementFilter, hits, speed * Time.fixedDeltaTime + 0.2f);
+        if(collisionCount ==0)
+        {
+            rb.MovePosition(transform.position + (direction * speed * Time.fixedDeltaTime));
+            return true;
+        }
+        else
+        {
+            
+            return false;
+        }
     }
 
 }

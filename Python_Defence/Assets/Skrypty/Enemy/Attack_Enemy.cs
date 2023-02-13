@@ -14,6 +14,7 @@ public class Attack_Enemy : MonoBehaviour
     [SerializeField] private int damage;
     private float attackcooldown;
     public Animator anim;
+    public bool triggered = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,15 +24,19 @@ public class Attack_Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (canAttack)
+        if (triggered)
         {
-            canAttack= false;
-            attackcooldown = Random.Range(minAS, maxAS);
-            anim.SetTrigger("Attacking");
-            
-            
-            StartCoroutine(Cooldown());
+            if (canAttack)
+            {
+                canAttack = false;
+                attackcooldown = Random.Range(minAS, maxAS);
+                anim.SetTrigger("Attacking");
+
+
+                StartCoroutine(Cooldown());
+            }
         }
+        
         
     }
     public void attack()
@@ -52,6 +57,7 @@ public class Attack_Enemy : MonoBehaviour
     }
     //private void OnDrawGizmosSelected()
     //{
-    //   Gizmos.DrawSphere(attackPoint.position, attackRange);
+    //    Gizmos.DrawSphere(attackPoint.position, attackRange);
     //}
+
 }
