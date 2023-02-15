@@ -68,7 +68,7 @@ namespace Pathfinding
 				}
 
 			}
-			else if (dist < lostRange)
+			else if (dist > lostRange)
 			{
 
 				if (target != null && ai != null)

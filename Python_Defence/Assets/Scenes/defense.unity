@@ -3291,7 +3291,7 @@ MonoBehaviour:
   target: {fileID: 1726962827}
   SecondaryTarget: {fileID: 1398872386}
   viewRange: 5
-  lostRange: 10
+  lostRange: 5
   anim: {fileID: 982581470}
   CastleSpeed: 0.5
   PlayerSpeed: 1
@@ -3352,6 +3352,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   aipath: {fileID: 982581473}
+  print: 0
 --- !u!114 &982581475
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3968,8 +3969,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1188910615}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.99, y: 0, z: 1}
-  m_LocalScale: {x: 1.02, y: 1, z: 1}
+  m_LocalPosition: {x: -4.23, y: 0, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 948360666}
@@ -4026,12 +4027,12 @@ MonoBehaviour:
   version: 1
   target: {fileID: 1726962827}
   SecondaryTarget: {fileID: 1398872386}
-  viewRange: 1
-  lostRange: 10
+  viewRange: 5
+  lostRange: 5
   anim: {fileID: 1188910617}
   CastleSpeed: 0.7
   PlayerSpeed: 0.9
-  stopRange: 1
+  stopRange: 4
   move: 0
 --- !u!114 &1188910620
 MonoBehaviour:
@@ -4088,6 +4089,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   aipath: {fileID: 1188910620}
+  print: 1
 --- !u!114 &1188910622
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4130,7 +4132,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minAS: 2
   maxAS: 3
-  attackRange: 1
+  attackRange: 5
   attackPoint: {fileID: 948360666}
   playerLayer:
     serializedVersion: 2
@@ -4807,11 +4809,11 @@ MonoBehaviour:
   target: {fileID: 1726962827}
   SecondaryTarget: {fileID: 1398872386}
   viewRange: 5
-  lostRange: 10
+  lostRange: 5
   anim: {fileID: 1472899112}
   CastleSpeed: 1.1
   PlayerSpeed: 1.5
-  stopRange: 1
+  stopRange: 2
   move: 0
 --- !u!114 &1472899108
 MonoBehaviour:
@@ -4892,6 +4894,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   aipath: {fileID: 1472899108}
+  print: 0
 --- !u!114 &1472899111
 MonoBehaviour:
   m_ObjectHideFlags: 0
