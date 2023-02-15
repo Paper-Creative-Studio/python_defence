@@ -14,7 +14,7 @@ public class Archer : MonoBehaviour
     public Transform shootPoint;
     public Transform controlPoint;
 
-    private Vector2 gizmosPosition;
+    
 
     private Vector3 arrowNextPos;
     private Vector3 enemy;

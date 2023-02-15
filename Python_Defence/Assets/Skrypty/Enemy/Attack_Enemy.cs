@@ -1,3 +1,4 @@
+using Microsoft.Scripting.Utils;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -14,8 +15,13 @@ public class Attack_Enemy : MonoBehaviour
     [SerializeField] private int damage;
     private float attackcooldown;
     public Animator anim;
-    public bool triggered = false;
-    private Collider2D[] hitPlayer;
+   
+    public Collider2D[] hitPlayer;
+    private GameObject spell;
+    public GameObject bullet;
+    public float speed;
+    
+
     // Start is called before the first frame update
     void Start()
     {
@@ -31,10 +37,12 @@ public class Attack_Enemy : MonoBehaviour
                 canAttack = false;
                 attackcooldown = Random.Range(minAS, maxAS);
                 hitPlayer = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, playerLayer);
-                Debug.Log(hitPlayer);
-                if(hitPlayer != null)
+                
+                
+                if(hitPlayer.Length != 0)
                 {
                     anim.SetTrigger("Attacking");
+                    Debug.Log(hitPlayer.Length);
                 }
                 
                 
@@ -53,12 +61,19 @@ public class Attack_Enemy : MonoBehaviour
             player.GetComponent<Health>().TakeDamage(damage);
         }
     }
+    public void MageAttack()
+    {
+        spell = (GameObject)Instantiate(bullet, attackPoint.position, Quaternion.identity);
+        spell.transform.parent = transform;
+        
+    }
         
     IEnumerator Cooldown()
     {
         yield return new WaitForSeconds(attackcooldown);
         canAttack = true;
     }
+    
     //private void OnDrawGizmosSelected()
     //{
     //    Gizmos.DrawSphere(attackPoint.position, attackRange);

@@ -19,6 +19,7 @@ public class Health : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        //Debug.Log(transform.position);
     }
     public void TakeDamage(int damage)
     {
