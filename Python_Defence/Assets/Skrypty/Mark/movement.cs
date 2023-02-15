@@ -84,7 +84,7 @@ public class movement : MonoBehaviour
     }
     bool MovePlayer(Vector3 direction)
     {
-        int collisionCount = rb.Cast(direction, movementFilter, hits, speed * Time.fixedDeltaTime + 0.2f);
+        int collisionCount = rb.Cast(direction, movementFilter, hits, speed * Time.fixedDeltaTime + 0.0f);
         if(collisionCount ==0)
         {
             rb.MovePosition(transform.position + (direction * speed * Time.fixedDeltaTime));

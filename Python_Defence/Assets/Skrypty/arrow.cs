@@ -7,6 +7,7 @@ using static UnityEngine.GraphicsBuffer;
 
 public class arrow : MonoBehaviour
 {
+    public int damage;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,8 +23,14 @@ public class arrow : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        //Debug.Log("Collided with: " + collision);
-    }
+        
+        if(collision.gameObject.layer == 6)
+        {
+            collision.gameObject.GetComponent<Enemy_Health>().TakeDamage(damage);
+        }
+        Destroy(gameObject);
 
+
+    }
 
 }

@@ -1,3 +1,4 @@
+using Pathfinding;
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
@@ -56,9 +57,11 @@ public class Attacking : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         collision.gameObject.GetComponent<Attack_Enemy>().triggered = true;
+        collision.gameObject.GetComponent<AIDestinationSetter>().move = false;
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
         collision.gameObject.GetComponent<Attack_Enemy>().triggered = false;
+        collision.gameObject.GetComponent<AIDestinationSetter>().move = true;
     }
 }

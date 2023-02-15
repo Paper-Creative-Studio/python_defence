@@ -15,6 +15,7 @@ public class Attack_Enemy : MonoBehaviour
     private float attackcooldown;
     public Animator anim;
     public bool triggered = false;
+    private Collider2D[] hitPlayer;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,32 +25,35 @@ public class Attack_Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (triggered)
-        {
+        
             if (canAttack)
             {
                 canAttack = false;
                 attackcooldown = Random.Range(minAS, maxAS);
-                anim.SetTrigger("Attacking");
+                hitPlayer = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, playerLayer);
+                Debug.Log(hitPlayer);
+                if(hitPlayer != null)
+                {
+                    anim.SetTrigger("Attacking");
+                }
+                
+                
 
 
                 StartCoroutine(Cooldown());
             }
-        }
+        
         
         
     }
     public void attack()
     {
-        Collider2D[] hitPlayer = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, playerLayer);
-
         foreach (Collider2D player in hitPlayer)
         {
-
             player.GetComponent<Health>().TakeDamage(damage);
-
         }
     }
+        
     IEnumerator Cooldown()
     {
         yield return new WaitForSeconds(attackcooldown);

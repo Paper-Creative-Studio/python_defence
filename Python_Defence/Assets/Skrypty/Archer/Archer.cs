@@ -80,39 +80,43 @@ public class Archer : MonoBehaviour
        
             while (CurveTime < 1)
             {
-            //Movement strzaly
-                if (transform.position.x - enemy.x <= 4.5f)
+                //Movement strzaly
+                if(createdArrow != null)
                 {
-                arrowSpeed = 0.85f;
-                CurveTime += Time.deltaTime * arrowSpeed;
-                createdArrow.transform.position = Vector3.MoveTowards(createdArrow.transform.position, enemy, arrowSpeed * Time.fixedDeltaTime);
-                Vector3 dir = enemy - createdArrow.transform.position;
-                var angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-                createdArrow.transform.rotation = Quaternion.AngleAxis(angle - 45f, Vector3.forward);
-                Debug.Log("elo");
+                    if (transform.position.x - enemy.x <= 4.5f)
+                    {
+                        arrowSpeed = 0.85f;
+                        CurveTime += Time.deltaTime * arrowSpeed;
+                        createdArrow.transform.position = Vector3.MoveTowards(createdArrow.transform.position, enemy, arrowSpeed * Time.fixedDeltaTime);
+                        Vector3 dir = enemy - createdArrow.transform.position;
+                        var angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+                        createdArrow.transform.rotation = Quaternion.AngleAxis(angle - 45f, Vector3.forward);
+                        Debug.Log("elo");
+                    }
+                    else
+                    {
+                        CurveTime += Time.deltaTime * arrowSpeed;
+
+                        createdArrow.transform.position = Vector3.MoveTowards(createdArrow.transform.position, arrowNextPos, arrowSpeed);
+                        arrowNextPos = Mathf.Pow(1 - CurveTime, 2) * shootPoint.position + 2 * (1 - CurveTime) * CurveTime * controlPoint.position + Mathf.Pow(CurveTime, 2) * enemy;
+
+                        //Rotacja strzaly
+
+                        Vector3 dir = arrowNextPos - createdArrow.transform.position;
+                        var angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+                        createdArrow.transform.rotation = Quaternion.AngleAxis(angle - 45f, Vector3.forward);
+                        if (createdArrow.transform.position.y - arrowNextPos.y <= 0)
+                        {
+                            arrowSpeed = 0.5f;
+                        }
+                        else
+                        {
+
+                            arrowSpeed -= -0.87f * Time.deltaTime; //default gravity to -9.14
+                        }
+                    }
+               
                 }
-                else
-                {
-                CurveTime += Time.deltaTime * arrowSpeed;
-
-                createdArrow.transform.position = Vector3.MoveTowards(createdArrow.transform.position, arrowNextPos, arrowSpeed);
-                arrowNextPos = Mathf.Pow(1 - CurveTime, 2) * shootPoint.position + 2 * (1 - CurveTime) * CurveTime * controlPoint.position + Mathf.Pow(CurveTime, 2) * enemy;
-
-                //Rotacja strzaly
-
-                Vector3 dir = arrowNextPos - createdArrow.transform.position;
-                var angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-                createdArrow.transform.rotation = Quaternion.AngleAxis(angle - 45f, Vector3.forward);
-                if (createdArrow.transform.position.y - arrowNextPos.y <= 0)
-                {
-                    arrowSpeed = 0.5f;
-                }
-                else
-                {
-
-                    arrowSpeed -= -0.87f * Time.deltaTime; //default gravity to -9.14
-                }
-            }
                 
                 yield return new WaitForEndOfFrame();
             }

@@ -2963,7 +2963,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 982581467}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.416, y: 2.12, z: 0}
+  m_LocalPosition: {x: 0.416, y: 0.96, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3052,7 +3052,8 @@ MonoBehaviour:
   anim: {fileID: 982581470}
   CastleSpeed: 0.5
   PlayerSpeed: 1
-  stopRange: 1
+  stopRange: 2
+  move: 0
 --- !u!114 &982581473
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3846,8 +3847,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd4175ad0f492684fb5b9ebd72c69849, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 20
-  currentHealth: 20
+  maxHealth: 50
+  currentHealth: 50
   healthbar: {fileID: 261561880}
 --- !u!1 &1421929039
 GameObject:
@@ -3966,7 +3967,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1472899096}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.71, y: 0, z: 0}
+  m_LocalPosition: {x: -9.21, y: 0.13, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -4071,6 +4072,7 @@ MonoBehaviour:
   CastleSpeed: 1.1
   PlayerSpeed: 1.5
   stopRange: 1
+  move: 0
 --- !u!114 &1472899108
 MonoBehaviour:
   m_ObjectHideFlags: 0

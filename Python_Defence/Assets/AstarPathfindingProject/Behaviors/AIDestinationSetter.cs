@@ -28,7 +28,7 @@ namespace Pathfinding
 		public float CastleSpeed;
 		public float PlayerSpeed;
 		public float stopRange;
-
+		public bool move;
 
         void OnEnable () {
 			ai = GetComponent<IAstarAI>();
@@ -46,8 +46,9 @@ namespace Pathfinding
 		/// <summary>Updates the AI's destination every frame</summary>
 		void Update () 
 		{
+			
             dist = Vector3.Distance(SecondaryTarget.position, transform.position);
-
+			
 			if (dist <= viewRange)
 			{
 				if (target != null && ai != null)
@@ -57,10 +58,12 @@ namespace Pathfinding
 					if(dist <= stopRange)
 					{
 						ai.canMove = false;
+						
 					}
 					else
 					{
 						ai.canMove = true;
+						
 					}
 				}
 
@@ -77,9 +80,10 @@ namespace Pathfinding
 
 
 			}
-			if (ai.velocity.x != 0)
-				anim.SetBool("WalkingHor", true);
-				
+			if (ai.canMove)
+			{
+                anim.SetBool("WalkingHor", true);
+            }	
 			else
 			{
                 anim.SetBool("WalkingHor", false);
