@@ -5,21 +5,24 @@ using UnityEngine;
 public class spell : MonoBehaviour
 {
     public int damage;
-   
+    private Rigidbody2D rb;
+    
     public float speed;
-    private Vector3 playerAlly;
-    void start()
+    public Vector3 target;
+    void Start()
     {
-        
+        rb = GetComponent<Rigidbody2D>();
+        Vector3 dir = target - transform.position;
+        rb.velocity = new Vector2(dir.x, dir.y).normalized * speed;
+        var angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+        Debug.Log(target);
     }
 
     void Update()
     {
-        playerAlly = GetComponentInParent<Attack_Enemy>().hitPlayer[0].transform.position;
-        transform.position = Vector3.MoveTowards(transform.position, playerAlly, speed * Time.fixedDeltaTime);
-        Vector3 dir = playerAlly - transform.position;
-        var angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+        
+        
        
         Destroy(gameObject, 3);
 

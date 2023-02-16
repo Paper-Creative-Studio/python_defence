@@ -3186,7 +3186,6 @@ GameObject:
   - component: {fileID: 982581469}
   - component: {fileID: 982581476}
   - component: {fileID: 982581475}
-  - component: {fileID: 982581474}
   - component: {fileID: 982581473}
   - component: {fileID: 982581472}
   - component: {fileID: 982581471}
@@ -3297,6 +3296,7 @@ MonoBehaviour:
   PlayerSpeed: 1
   stopRange: 2
   move: 0
+  aipath: {fileID: 982581473}
 --- !u!114 &982581473
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3339,20 +3339,6 @@ MonoBehaviour:
   slowWhenNotFacingTarget: 1
   whenCloseToDestination: 0
   constrainInsideGraph: 0
---- !u!114 &982581474
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 982581467}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7314b95b37211cb4e9689829d5311aad, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  aipath: {fileID: 982581473}
-  print: 0
 --- !u!114 &982581475
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3393,6 +3379,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 706dde9325dbec441b8177645e478503, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isattacking: 0
   minAS: 2.5
   maxAS: 4
   attackRange: 2.5
@@ -3405,6 +3392,7 @@ MonoBehaviour:
   hitPlayer: []
   bullet: {fileID: 0}
   speed: 0
+  spelltarget: {x: 0, y: 0, z: 0}
 --- !u!50 &982581477
 Rigidbody2D:
   serializedVersion: 4
@@ -3949,7 +3937,6 @@ GameObject:
   - component: {fileID: 1188910624}
   - component: {fileID: 1188910623}
   - component: {fileID: 1188910622}
-  - component: {fileID: 1188910621}
   - component: {fileID: 1188910620}
   - component: {fileID: 1188910619}
   - component: {fileID: 1188910618}
@@ -4027,13 +4014,14 @@ MonoBehaviour:
   version: 1
   target: {fileID: 1726962827}
   SecondaryTarget: {fileID: 1398872386}
-  viewRange: 5
-  lostRange: 5
+  viewRange: 7
+  lostRange: 8
   anim: {fileID: 1188910617}
   CastleSpeed: 0.7
   PlayerSpeed: 0.9
-  stopRange: 4
+  stopRange: 6
   move: 0
+  aipath: {fileID: 1188910620}
 --- !u!114 &1188910620
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4076,20 +4064,6 @@ MonoBehaviour:
   slowWhenNotFacingTarget: 1
   whenCloseToDestination: 0
   constrainInsideGraph: 0
---- !u!114 &1188910621
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1188910615}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7314b95b37211cb4e9689829d5311aad, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  aipath: {fileID: 1188910620}
-  print: 1
 --- !u!114 &1188910622
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4130,6 +4104,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 706dde9325dbec441b8177645e478503, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isattacking: 0
   minAS: 2
   maxAS: 3
   attackRange: 5
@@ -4142,6 +4117,7 @@ MonoBehaviour:
   hitPlayer: []
   bullet: {fileID: 8312402596195369198, guid: 13e552566735da8458e90bc016560467, type: 3}
   speed: 5
+  spelltarget: {x: 0, y: 0, z: 0}
 --- !u!61 &1188910624
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4638,7 +4614,6 @@ GameObject:
   - component: {fileID: 1472899102}
   - component: {fileID: 1472899109}
   - component: {fileID: 1472899106}
-  - component: {fileID: 1472899110}
   - component: {fileID: 1472899108}
   - component: {fileID: 1472899107}
   - component: {fileID: 1472899111}
@@ -4815,6 +4790,7 @@ MonoBehaviour:
   PlayerSpeed: 1.5
   stopRange: 2
   move: 0
+  aipath: {fileID: 1472899108}
 --- !u!114 &1472899108
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4869,6 +4845,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 706dde9325dbec441b8177645e478503, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isattacking: 0
   minAS: 0.3
   maxAS: 1
   attackRange: 1
@@ -4881,20 +4858,7 @@ MonoBehaviour:
   hitPlayer: []
   bullet: {fileID: 0}
   speed: 0
---- !u!114 &1472899110
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1472899096}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7314b95b37211cb4e9689829d5311aad, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  aipath: {fileID: 1472899108}
-  print: 0
+  spelltarget: {x: 0, y: 0, z: 0}
 --- !u!114 &1472899111
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using Microsoft.Scripting.Actions;
+using System.IO;
 
 namespace Pathfinding 
 {
@@ -29,6 +30,7 @@ namespace Pathfinding
 		public float PlayerSpeed;
 		public float stopRange;
 		public bool move;
+        public AIPath aipath;
 
         void OnEnable () {
 			ai = GetComponent<IAstarAI>();
@@ -87,8 +89,36 @@ namespace Pathfinding
 			else
 			{
                 anim.SetBool("WalkingHor", false);
+			}
+            if (target != null && ai != null)
+			{
+				if(ai.destination == target.position)
+				{
+                    if (aipath.desiredVelocity.x >= 0.01f)
+                    {
+                        transform.localScale = new Vector3(1f, 1f, 1f);
+                    }
+                    else
+                    {
+                        transform.localScale = new Vector3(-1f, 1f, 1f);
+                    }
+                }
+				else if (ai.destination == SecondaryTarget.position)
+				{
+					float distance = SecondaryTarget.position.x - transform.position.x;
+					if (distance >= 0.01f)
+					{
+                        transform.localScale = new Vector3(1f, 1f, 1f);
+                    }
+					else
+					{
+                        transform.localScale = new Vector3(-1f, 1f, 1f);
+                    }
+				}
+                
             }
-		}
+            
+        }
         
     }
 }
