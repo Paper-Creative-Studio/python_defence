@@ -31,7 +31,7 @@ namespace Pathfinding
 		public float stopRange;
 		public bool move;
         public AIPath aipath;
-
+        
         void OnEnable () {
 			ai = GetComponent<IAstarAI>();
 			// Update the destination right before searching for a path as well.
@@ -39,9 +39,15 @@ namespace Pathfinding
 			// frame as the destination is used for debugging and may be used for other things by other
 			// scripts as well. So it makes sense that it is up to date every frame.
 			if (ai != null) ai.onSearchPath += Update;
-		}
+			
 
-		void OnDisable () {
+        }
+        private void Start()
+        {
+            SecondaryTarget = GameObject.FindGameObjectWithTag("Player").transform;
+            target = GameObject.FindGameObjectWithTag("EndGoal").transform;
+        }
+        void OnDisable () {
 			if (ai != null) ai.onSearchPath -= Update;
 		}
 
