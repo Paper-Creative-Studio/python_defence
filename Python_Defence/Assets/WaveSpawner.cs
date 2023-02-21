@@ -46,7 +46,7 @@ public class WaveSpawner : MonoBehaviour
             }
             if (aliveEnemies.Count == 0)
             {
-                Debug.Log("halo ");
+                
                 wave = false;
                 SpawnWave(waveCount);
                 if(waveCount < 4)

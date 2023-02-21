@@ -41,24 +41,27 @@ public class movement : MonoBehaviour
             Flip();
         }
 
+        if(Time.timeScale == 1)
+        {
+            // triggery animacji
+            if (Input.GetAxisRaw("Horizontal") != 0)
+            {
+                anim_controller.SetBool("MovingLeftRight", true);
+                anim_controller.SetBool("MovingUp", false);
+            }
+            else if (Input.GetAxisRaw("Horizontal") == 0 && Input.GetAxisRaw("Vertical") > 0)
+            {
+                anim_controller.SetBool("MovingLeftRight", false);
+                anim_controller.SetBool("MovingUp", true);
+            }
 
-        // triggery animacji
-        if (Input.GetAxisRaw("Horizontal") != 0)
-        {
-            anim_controller.SetBool("MovingLeftRight", true);
-            anim_controller.SetBool("MovingUp", false);
-        }
-        else if(Input.GetAxisRaw("Horizontal") == 0 && Input.GetAxisRaw("Vertical") > 0)
-        {
-            anim_controller.SetBool("MovingLeftRight", false);
-            anim_controller.SetBool("MovingUp", true);
+            else if (Input.GetAxisRaw("Horizontal") == 0 && Input.GetAxisRaw("Vertical") == 0)
+            {
+                anim_controller.SetBool("MovingLeftRight", false);
+                anim_controller.SetBool("MovingUp", false);
+            }
         }
         
-        else if (Input.GetAxisRaw("Horizontal") == 0 && Input.GetAxisRaw("Vertical") == 0)
-        {
-            anim_controller.SetBool("MovingLeftRight", false);
-            anim_controller.SetBool("MovingUp", false);
-        }
 
     }
     private void FixedUpdate()
@@ -77,10 +80,14 @@ public class movement : MonoBehaviour
 
     void Flip()
     {
-        Vector3 currentscale = gameObject.transform.localScale;
-        currentscale.x *= -1;
-        gameObject.transform.localScale= currentscale;
-        facingLeft = !facingLeft;
+        if(Time.timeScale == 1)
+        {
+            Vector3 currentscale = gameObject.transform.localScale;
+            currentscale.x *= -1;
+            gameObject.transform.localScale = currentscale;
+            facingLeft = !facingLeft;
+        }
+        
     }
     bool MovePlayer(Vector3 direction)
     {

@@ -13,23 +13,27 @@ public class PythonGame : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        skrypt = canvas.transform.GetChild(0).GetComponent<compiler>();
+        skrypt = canvas.transform.GetChild(0).GetChild(0).GetComponent<compiler>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(skrypt.result && Time.timeScale == 1)
+        if (skrypt != null)
         {
-            dependentBuilding.sprite = nextStages[0];
-            nextStages.RemoveAt(0);
-            if(nextStages.Count == 0)
+            if (skrypt.result && Time.timeScale == 1)
             {
-                dependentBuilding.gameObject.GetComponent<Collider2D>().enabled = true;
-                dependentBuilding.gameObject.GetComponent<BoxCollider2D>().enabled = true;
+                dependentBuilding.sprite = nextStages[0];
+                nextStages.RemoveAt(0);
+                if (nextStages.Count == 0)
+                {
+                    dependentBuilding.gameObject.GetComponent<Collider2D>().enabled = true;
+                    dependentBuilding.gameObject.GetComponent<BoxCollider2D>().enabled = true;
+                }
+                skrypt.result = false;
             }
-            skrypt.result = false;
         }
+        
     }
     
     private void OnTriggerStay2D(Collider2D collision)
