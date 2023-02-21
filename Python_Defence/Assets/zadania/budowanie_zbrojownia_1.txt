@@ -1,0 +1,4 @@
+napisz pętlę for która wypisze wszystkie numery łuczników pomiędzy x i y
+
+for z in range(x, y):
+	print z

@@ -1,0 +1,8 @@
+policz całe wykopane złoto znajdujące się na liście
+
+
+kopanie = ["kamień", "miedź", "kamień", "kamień", "kamień", "złoto", "srebro", "kamień", "miedź", "miedź" ]
+for x in kopanie:
+  print(x) 
+  if x == "złoto":
+    i++

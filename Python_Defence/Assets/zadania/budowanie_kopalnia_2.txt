@@ -1,0 +1,14 @@
+z listy zawierającej rzeczy potrzebne do budowy kopalni usuń jabłko i posortuj alfabetycznie
+
+
+
+stałe:
+list = ['podpory', 'wagonik', 'kilof', 'łopata', 'tory', 'jabłko']
+
+rozwiazanie:
+list.remowe(x)
+list.sort
+
+sprawdzenie:
+sprawdzasz jak powinna wygladac lista
+

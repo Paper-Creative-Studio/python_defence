@@ -1,0 +1,13 @@
+do listy zawierającej materiały do budowy kopalni dopisz tory
+
+
+
+stałe:
+list = ['podpory', 'wagonik', 'kilof', 'łopata']
+
+rozwiazanie:
+list.append lub cokolwiek innego co wstawi tory na dowolna pozycje
+
+sprawdzenie:
+fruits.count('tory')
+
