@@ -1,0 +1,8 @@
+napisz if'a który w przypadku wystąpienia liczby 3 wypisze "koń" 4 wypisze "owca" a w każdej innej "osioł"
+
+if i == 3:
+	print("koń")
+elif i == 4:
+	print("owca")
+else:
+	print("osioł")

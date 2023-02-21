@@ -1,0 +1,4 @@
+napisz if'a który w przypadku wystąpienia liczby 3 lub 4 wypisze "koń"
+
+if i == 3 || i == 4:
+	print("koń")

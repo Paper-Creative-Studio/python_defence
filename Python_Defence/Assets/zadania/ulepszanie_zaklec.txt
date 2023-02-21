@@ -1,0 +1,6 @@
+napisz sortowanie w funkcji "sortowanie"
+
+def sort (liczba1, liczba2, liczba3, liczba4, liczba5)
+	albo sort
+albo bąbelkowe
+cokolwiek do sortowania

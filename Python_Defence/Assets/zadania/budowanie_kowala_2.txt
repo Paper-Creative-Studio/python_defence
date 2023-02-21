@@ -1,0 +1,6 @@
+Wyświetl liczby całkowite od 5 do 100 z krokiem równym 5.
+
+liczba = 5
+while liczba <= 100:
+    print(liczba)
+    liczba += 5

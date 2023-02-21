@@ -1,0 +1,4 @@
+za pomoca petli for dopisuj do listy "łucznik" dopóki wartość z będzie większa niż ilość słów "łucznik"
+
+for i in range (x, z):
+	list.append("lucznik")

@@ -1,0 +1,6 @@
+Wyświetl liczby całkowite z przedziału <x, y> malejąco co 2 
+
+
+while x >= y:
+    print(x)
+    x -= 2

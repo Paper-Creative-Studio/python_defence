@@ -1,0 +1,7 @@
+napisz if'a który w przypadku wystąpienia liczby parzystej wypisze "koń" a nieparzystej wypisze "owca"
+
+
+if i%2 == 0:
+	print("koń")
+elif i%2 == 1:
+	print ("owca")

@@ -1,0 +1,4 @@
+napisz pętle for która wypisze wszystkie liczby podzielne przez 3 pomiędzy 0 i 31
+
+for i in range(0, 31, 3):
+    print(i)

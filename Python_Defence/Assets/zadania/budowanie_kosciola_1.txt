@@ -1,0 +1,5 @@
+napisz funkcję o nazwie "dodawanie" która przyjmie 2 argumnety i doda je do siebie i zwróci
+
+def funkcjaPrzykladowa (liczba, liczba2):
+	liczba3 = liczba + liczba2 
+    	return liczba3

@@ -1,0 +1,5 @@
+napisz funkcję o nazwie pierwsza która zwróci pierwszą literę danego tekstu 
+
+def pierwsza (string):
+	string = [len(string)-1]
+    	return string
