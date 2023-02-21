@@ -54,14 +54,14 @@ public class Attacking : MonoBehaviour
     //{
     //    Gizmos.DrawSphere(attackPoint.position, attackRange);
     //}
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
+    //private void OnTriggerEnter2D(Collider2D collision)
+    //{
         
-        collision.gameObject.GetComponent<AIDestinationSetter>().move = false;
-    }
-    private void OnTriggerExit2D(Collider2D collision)
-    {
+    //    collision.gameObject.GetComponent<AIDestinationSetter>().move = false;
+    //}
+    //private void OnTriggerExit2D(Collider2D collision)
+    //{
         
-        collision.gameObject.GetComponent<AIDestinationSetter>().move = true;
-    }
+    //    collision.gameObject.GetComponent<AIDestinationSetter>().move = true;
+    //}
 }
