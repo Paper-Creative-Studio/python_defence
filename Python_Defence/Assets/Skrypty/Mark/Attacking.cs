@@ -12,7 +12,7 @@ public class Attacking : MonoBehaviour
     [SerializeField] private float attackCooldown = 0.5f;
     [SerializeField] private Animator anim_controller;
     [SerializeField] private int damage;
-    private bool canAttack = true;
+    public bool canAttack = true;
     // Start is called before the first frame update
     void Start()
     {

@@ -84,7 +84,7 @@ public class compiler : MonoBehaviour
         kod = "";
         tmpro.text = kod;
         Time.timeScale = 1; 
-        transform.parent.gameObject.SetActive(false);
+        transform.parent.parent.gameObject.SetActive(false);
         
     }
 
