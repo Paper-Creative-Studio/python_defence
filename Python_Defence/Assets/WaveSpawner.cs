@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.U2D.Sprites;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class WaveSpawner : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class WaveSpawner : MonoBehaviour
     public GameObject[] enemyWave3;
     public GameObject[] enemyWave4;
     public Transform[] spawnPoints;
+    
     private int waveCount = 1;
     public List<GameObject> aliveEnemies = new List<GameObject>();
     
@@ -27,11 +29,7 @@ public class WaveSpawner : MonoBehaviour
     void Update()
     {
         
-        if(Input.GetKeyDown(KeyCode.Alpha1))
-        {
-            SpawnWave(waveCount);
-            waveCount++;
-        }
+       
 
         if(wave)
         {
@@ -60,6 +58,11 @@ public class WaveSpawner : MonoBehaviour
 
         
 
+    }
+    public void Activate()
+    {
+        SpawnWave(waveCount);
+        waveCount++;
     }
     void SpawnWave(int waveNumber)
     {
