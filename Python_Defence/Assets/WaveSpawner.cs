@@ -13,7 +13,7 @@ public class WaveSpawner : MonoBehaviour
     public GameObject[] enemyWave3;
     public GameObject[] enemyWave4;
     public Transform[] spawnPoints;
-    
+    [SerializeField] private GameObject waveSeeker;
     private int waveCount = 1;
     public List<GameObject> aliveEnemies = new List<GameObject>();
     
@@ -62,6 +62,8 @@ public class WaveSpawner : MonoBehaviour
     public void Activate()
     {
         SpawnWave(waveCount);
+        transform.position = new Vector3 (transform.position.x, transform.position.y, -1);
+        waveSeeker.SetActive(true);
         waveCount++;
     }
     void SpawnWave(int waveNumber)

@@ -31,7 +31,7 @@ namespace Pathfinding
 		public float stopRange;
 		public bool move;
         public AIPath aipath;
-        
+		private Transform enemyObject;
         void OnEnable () {
 			ai = GetComponent<IAstarAI>();
 			// Update the destination right before searching for a path as well.
@@ -44,6 +44,7 @@ namespace Pathfinding
         }
         private void Start()
         {
+			enemyObject = transform.GetChild(0);
             SecondaryTarget = GameObject.FindGameObjectWithTag("Player").transform;
             target = GameObject.FindGameObjectWithTag("EndGoal").transform;
         }
@@ -55,7 +56,7 @@ namespace Pathfinding
 		void Update () 
 		{
 			
-            dist = Vector3.Distance(SecondaryTarget.position, transform.position);
+            dist = Vector3.Distance(SecondaryTarget.position, enemyObject.position);
 			
 			if (dist <= viewRange)
 			{
@@ -102,23 +103,23 @@ namespace Pathfinding
 				{
                     if (aipath.desiredVelocity.x >= 0.01f)
                     {
-                        transform.localScale = new Vector3(1f, 1f, 1f);
+                        enemyObject.localScale = new Vector3(1f, 1f, 1f);
                     }
                     else
                     {
-                        transform.localScale = new Vector3(-1f, 1f, 1f);
+                        enemyObject.localScale = new Vector3(-1f, 1f, 1f);
                     }
                 }
 				else if (ai.destination == SecondaryTarget.position)
 				{
-					float distance = SecondaryTarget.position.x - transform.position.x;
+					float distance = SecondaryTarget.position.x - enemyObject.position.x;
 					if (distance >= 0.01f)
 					{
-                        transform.localScale = new Vector3(1f, 1f, 1f);
+                        enemyObject.localScale = new Vector3(1f, 1f, 1f);
                     }
 					else
 					{
-                        transform.localScale = new Vector3(-1f, 1f, 1f);
+                        enemyObject.localScale = new Vector3(-1f, 1f, 1f);
                     }
 				}
                 

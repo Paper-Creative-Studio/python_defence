@@ -62,7 +62,11 @@ public class Archer : MonoBehaviour
     {
         
             createdArrow = (GameObject)Instantiate(arrow, shootPoint.position, Quaternion.identity);
-            enemy = target.position;
+            if(target != null)
+            {
+                enemy = target.position;
+            }
+            
             if (coroutineAllowed)
             {
                 StartCoroutine(ArrowMove());
