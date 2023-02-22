@@ -22,6 +22,7 @@ public class TradeButton : MonoBehaviour
     public TMP_Text buy;
     public GameObject canvasParent;
     public GameObject player;
+    [SerializeField] private GameObject mainCanvas;
     void Start()
     {
         
@@ -51,6 +52,7 @@ public class TradeButton : MonoBehaviour
     public void Close()
     {
         canvasParent.SetActive(false);
+        mainCanvas.SetActive(true);
         player.GetComponent<Attacking>().canAttack = true;
         player.gameObject.GetComponent<movement>().moving = true;
     }

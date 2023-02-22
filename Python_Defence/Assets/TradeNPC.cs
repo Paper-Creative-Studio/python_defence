@@ -26,7 +26,7 @@ public class TradeNPC : MonoBehaviour
             {
                 collision.gameObject.GetComponent<Attacking>().canAttack = false;
                 collision.gameObject.GetComponent<movement>().moving = false;
-                //hpCanvas.gameObject.SetActive(false);
+                hpCanvas.gameObject.SetActive(false);
                 canvas.gameObject.SetActive(true);
             }
         }
