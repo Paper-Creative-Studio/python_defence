@@ -6,6 +6,8 @@ public class TradeNPC : MonoBehaviour
 {
     public GameObject canvas;
     public GameObject hpCanvas;
+    private bool talk;
+    private GameObject col;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,21 +18,41 @@ public class TradeNPC : MonoBehaviour
     void Update()
     {
         
+        
+        
+            if(Input.GetKeyDown(KeyCode.E))
+            {
+                if (talk)
+                { 
+                    col.GetComponent<Attacking>().canAttack = false;
+                    col.GetComponent<movement>().moving = false;
+                    hpCanvas.gameObject.SetActive(false);
+                    canvas.gameObject.SetActive(true);
+                }
+            }
+        
     }
-    private void OnTriggerStay2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         
+        
+        
+            
+            if (collision.CompareTag("Player"))
+            {
+                col = collision.gameObject;
+                talk= true;
+            }
+        
+        
+        
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
         if (collision.CompareTag("Player"))
         {
-            if (Input.GetKeyDown(KeyCode.E))
-            {
-                collision.gameObject.GetComponent<Attacking>().canAttack = false;
-                collision.gameObject.GetComponent<movement>().moving = false;
-                hpCanvas.gameObject.SetActive(false);
-                canvas.gameObject.SetActive(true);
-            }
+            col = null;
+            talk = false;
         }
-        
-        
     }
 }

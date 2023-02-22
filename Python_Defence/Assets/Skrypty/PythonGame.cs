@@ -1,15 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.Events;
 public class PythonGame : MonoBehaviour
 {
     public string output;
     public GameObject canvas;
     public GameObject hpCanvas;
     private compiler skrypt;
-    public SpriteRenderer dependentBuilding;
-    public List<Sprite> nextStages;
+    public SpriteRenderer building;
+    public List<Sprite> stages = new List<Sprite>();
+    private bool talk;
+    public bool talking;
+    [SerializeField] private UnityEvent onInteract;
+    public string aftermath;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,39 +23,62 @@ public class PythonGame : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         if (skrypt != null)
         {
+           
             if (skrypt.result && Time.timeScale == 1)
             {
-                dependentBuilding.sprite = nextStages[0];
-                nextStages.RemoveAt(0);
-                if (nextStages.Count == 0)
+                
+                
+                hpCanvas.SetActive(true);
+                building.sprite = stages[0];
+                stages.RemoveAt(0);
+                if (stages.Count == 0)
                 {
-                    dependentBuilding.gameObject.GetComponent<Collider2D>().enabled = true;
-                    dependentBuilding.gameObject.GetComponent<BoxCollider2D>().enabled = true;
+                    building.gameObject.GetComponent<Collider2D>().enabled = true;
+                    building.gameObject.GetComponent<BoxCollider2D>().enabled = true;
                 }
                 skrypt.result = false;
             }
         }
-        
-    }
-    
-    private void OnTriggerStay2D(Collider2D collision)
-    {
-        if(nextStages.Count != 0)
+        if(talk)
         {
-            if (collision.CompareTag("Player"))
+            if(!talking)
             {
                 if (Input.GetKeyDown(KeyCode.E))
                 {
-                    canvas.SetActive(true);
+                    
+                    onInteract.Invoke();
 
-                    skrypt.desiredOutput = output;
-                    hpCanvas.SetActive(false);
-                    Time.timeScale = 0;
+
                 }
             }
+            
         }
         
+    }
+    
+    
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
+        {
+            talk = true;
+        }
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
+        {
+            talk = false;
+        }
+    }
+    public void LaunchPython()
+    {
+        canvas.SetActive(true);
+        skrypt.desiredOutput = output;
+        hpCanvas.SetActive(false);
+        Time.timeScale = 0;
     }
 }
