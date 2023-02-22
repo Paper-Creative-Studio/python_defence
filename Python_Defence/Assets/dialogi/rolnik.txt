@@ -1,5 +1,13 @@
-R: Stary się robię, masz może czas mi pomóc?
+M: Duże to pole...
+R: 15 arów, a ja jestem stary. Masz może czas mi pomóc?
 M: Co potrzeba?
-
+R: Zasiać rośliny
 
 R: Plony będą za x fal
+
+
+R: Przyszedłeś zebrać plony?
+M: Tak
+
+R: Przyszedłeś zasiać pole?
+M: Tak
