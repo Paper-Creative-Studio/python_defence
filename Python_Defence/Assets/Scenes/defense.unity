@@ -8293,6 +8293,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   aftermath: 
+  waveSpawner: {fileID: 1028385548}
 --- !u!58 &560606467
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -11098,6 +11099,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   aftermath: Python
+  waveSpawner: {fileID: 1028385548}
 --- !u!58 &937017157
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -11707,6 +11709,7 @@ MonoBehaviour:
   - {fileID: 727624203}
   - {fileID: 276068446}
   waveSeeker: {fileID: 1473518006}
+  doneWaves: 0
   aliveEnemies: []
 --- !u!114 &1028385551
 MonoBehaviour:
@@ -18926,7 +18929,7 @@ MonoBehaviour:
     m_Bits: 64
   attackCooldown: 0.5
   anim_controller: {fileID: 1398872389}
-  damage: 10
+  damage: 999
   canAttack: 1
 --- !u!114 &1398872396
 MonoBehaviour:
@@ -18940,8 +18943,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd4175ad0f492684fb5b9ebd72c69849, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 50
-  currentHealth: 50
+  maxHealth: 999
+  currentHealth: 999
   healthbar: {fileID: 261561880}
 --- !u!114 &1398872397
 MonoBehaviour:

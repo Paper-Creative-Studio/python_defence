@@ -14,6 +14,7 @@ public class WaveSpawner : MonoBehaviour
     public GameObject[] enemyWave4;
     public Transform[] spawnPoints;
     [SerializeField] private GameObject waveSeeker;
+    public int doneWaves = 0;
     private int waveCount = 1;
     public List<GameObject> aliveEnemies = new List<GameObject>();
     
@@ -44,14 +45,15 @@ public class WaveSpawner : MonoBehaviour
             }
             if (aliveEnemies.Count == 0)
             {
-                
+                doneWaves++;
                 wave = false;
-                SpawnWave(waveCount);
+                
                 if(waveCount < 4)
                 {
                     waveCount++;
                 }
-                
+                transform.position = new Vector3(transform.position.x, transform.position.y, 1);
+
             }
         }
         
