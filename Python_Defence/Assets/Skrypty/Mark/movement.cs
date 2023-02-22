@@ -12,7 +12,7 @@ public class movement : MonoBehaviour
     [SerializeField] private float smoothing_speed;
     [SerializeField] private Animator anim_controller;
     public ContactFilter2D movementFilter;
-    public bool canMove;
+    public bool moving = true;
     private List<RaycastHit2D> hits = new List<RaycastHit2D>();
     
     private bool facingLeft = true;
@@ -25,7 +25,8 @@ public class movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(canMove)
+        
+        if(moving)
         {
             input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")).normalized;
             smoothmove = Vector3.SmoothDamp(smoothmove, input, ref smoothInputVelocity, smoothing_speed);
@@ -70,7 +71,7 @@ public class movement : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        if(canMove)
+        if(moving)
         {
             //rb.MovePosition(transform.position + (smoothmove * speed * Time.fixedDeltaTime));
             bool success = MovePlayer(smoothmove);
