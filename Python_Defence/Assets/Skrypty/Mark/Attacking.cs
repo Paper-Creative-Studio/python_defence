@@ -13,26 +13,29 @@ public class Attacking : MonoBehaviour
     [SerializeField] private Animator anim_controller;
     [SerializeField] private int damage;
     public bool canAttack = true;
+    private Health health;
     // Start is called before the first frame update
     void Start()
     {
-        
+        health = GetComponent<Health>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        //Debug.Log(canAttack);   
-        //atak
-        if(Input.GetButtonDown("Fire1") && canAttack)
+       if(health.alive)
         {
-            
-            canAttack= false;
-            anim_controller.SetTrigger("Attacking");
-            
-            StartCoroutine(Cooldown());
-            
+            if (Input.GetButtonDown("Fire1") && canAttack)
+            {
+
+                canAttack = false;
+                anim_controller.SetTrigger("Attacking");
+
+                StartCoroutine(Cooldown());
+
+            }
         }
+        
     }
     public void Attack()
     {

@@ -14,76 +14,84 @@ public class movement : MonoBehaviour
     public ContactFilter2D movementFilter;
     public bool moving = true;
     private List<RaycastHit2D> hits = new List<RaycastHit2D>();
-    
+    private Health health;
     private bool facingLeft = true;
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        health= GetComponent<Health>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
-        if(moving)
+        if(health.alive)
         {
-            input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")).normalized;
-            smoothmove = Vector3.SmoothDamp(smoothmove, input, ref smoothInputVelocity, smoothing_speed);
+            if (moving)
+            {
+                input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")).normalized;
+                smoothmove = Vector3.SmoothDamp(smoothmove, input, ref smoothInputVelocity, smoothing_speed);
 
-            if (Input.GetAxisRaw("Horizontal") > 0 && facingLeft)
-            {
-                Flip();
-            }
-            if (Input.GetAxisRaw("Horizontal") < 0 && !facingLeft)
-            {
-                Flip();
-            }
-            if (Input.GetAxisRaw("Vertical") > 0 && !facingLeft && Input.GetAxisRaw("Horizontal") == 0)
-            {
-                Flip();
-            }
-
-            if (Time.timeScale == 1)
-            {
-                // triggery animacji
-                if (Input.GetAxisRaw("Horizontal") != 0)
+                if (Input.GetAxisRaw("Horizontal") > 0 && facingLeft)
                 {
-                    anim_controller.SetBool("MovingLeftRight", true);
-                    anim_controller.SetBool("MovingUp", false);
+                    Flip();
                 }
-                else if (Input.GetAxisRaw("Horizontal") == 0 && Input.GetAxisRaw("Vertical") > 0)
+                if (Input.GetAxisRaw("Horizontal") < 0 && !facingLeft)
                 {
-                    anim_controller.SetBool("MovingLeftRight", false);
-                    anim_controller.SetBool("MovingUp", true);
+                    Flip();
+                }
+                if (Input.GetAxisRaw("Vertical") > 0 && !facingLeft && Input.GetAxisRaw("Horizontal") == 0)
+                {
+                    Flip();
                 }
 
-                else if (Input.GetAxisRaw("Horizontal") == 0 && Input.GetAxisRaw("Vertical") == 0)
+                if (Time.timeScale == 1)
                 {
-                    anim_controller.SetBool("MovingLeftRight", false);
-                    anim_controller.SetBool("MovingUp", false);
+                    // triggery animacji
+                    if (Input.GetAxisRaw("Horizontal") != 0)
+                    {
+                        anim_controller.SetBool("MovingLeftRight", true);
+                        anim_controller.SetBool("MovingUp", false);
+                    }
+                    else if (Input.GetAxisRaw("Horizontal") == 0 && Input.GetAxisRaw("Vertical") > 0)
+                    {
+                        anim_controller.SetBool("MovingLeftRight", false);
+                        anim_controller.SetBool("MovingUp", true);
+                    }
+
+                    else if (Input.GetAxisRaw("Horizontal") == 0 && Input.GetAxisRaw("Vertical") == 0)
+                    {
+                        anim_controller.SetBool("MovingLeftRight", false);
+                        anim_controller.SetBool("MovingUp", false);
+                    }
                 }
+
             }
-        
         }
+        
         
 
     }
     private void FixedUpdate()
     {
-        if(moving)
+        if(health.alive)
         {
-            //rb.MovePosition(transform.position + (smoothmove * speed * Time.fixedDeltaTime));
-            bool success = MovePlayer(smoothmove);
-            if (!success)
+            if (moving)
             {
-                success = MovePlayer(new Vector2(smoothmove.x, 0));
+                //rb.MovePosition(transform.position + (smoothmove * speed * Time.fixedDeltaTime));
+                bool success = MovePlayer(smoothmove);
                 if (!success)
                 {
-                    success = MovePlayer(new Vector2(0, smoothmove.y));
+                    success = MovePlayer(new Vector2(smoothmove.x, 0));
+                    if (!success)
+                    {
+                        success = MovePlayer(new Vector2(0, smoothmove.y));
+                    }
                 }
             }
         }
+        
         
     }
 

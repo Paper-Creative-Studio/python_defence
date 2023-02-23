@@ -28,7 +28,7 @@ public class PythonGame : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(wavescript.doneWaves + " " + neededwaves);
+        
         if (skrypt != null)
         {
            
