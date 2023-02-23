@@ -1,2 +1,2 @@
-H: czego ci potrzeba?
-M: pokaż mi swoje towary
+H: How can I help you?
+M: Show me your goods

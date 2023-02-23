@@ -1,16 +1,15 @@
-M: Co to za jaskinia?
-G: Stara kopalnia... nieużywana od 30 lat. 
-M: Czemu jej nie używacie?
-G: Zalęgły się tam potwory i nie ma podpór, z opowieści ojca słyszałem, że jest całkiem bogata w minerały
-M: Może uda się ją przystosować?
-G: Możemy spróbować. Pomóż odbudować mi kopalnię, a ja odpłacę minerałami
+M: What's this cave?
+G: Old mine... not used for 30 years.
+M: Why don't you use it?
+G: Monsters have infested there and there are no mine supports, from my father's stories I heard that it is quite rich in minerals
+M: Maybe we could adapt it?
+G: We can try. Help me rebuild the mine, and I'll repay you in minerals
+
+
+M: How is the rebuilding of the mine going?
+G: We're on the right track, but an extra pair of hands will be useful. Got a moment off?
 
 
 
-M: Jak idzie odbudowa kopalni?
-G: Jesteśmy na dobrej drodze, ale przyda sie dodatkowa para rąk. Masz chwilę wolnego?
-
-
-
-G: Czego potrzeba?
-M: Dodatkowe srebro zawsze się przyda...
+G: What do you need?
+M: Extra minerals is always useful...

@@ -1,0 +1,11 @@
+K: Since the monsters attacked us and destroyed the previous forge, I have no place to work
+M: I will help you rebuild it. What do you need?
+
+
+K: it's starting to look like an old building. Do you have a moment to help me?
+M: No problem. What do you need help with?
+
+
+
+K: Hi, Mark. Do you need help with something?
+M: I'd like to forge my weapon. Do you have a moment?
