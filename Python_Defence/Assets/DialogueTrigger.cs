@@ -5,12 +5,13 @@ using UnityEngine;
 public class DialogueTrigger : MonoBehaviour
 {
     // Start is called before the first frame update
-    public Dialogue dialogue;
+    public List<Dialogue> dialogues = new List<Dialogue>();
+    public int index = 0;
     public GameObject dialogueCanvas;
     [SerializeField] private DialogueManager dialmanager;
     public void TriggerDialogue()
     {
         dialogueCanvas.SetActive(true);
-        dialmanager.StartDialogue(dialogue);
+        dialmanager.StartDialogue(dialogues[index]);
     }
 }

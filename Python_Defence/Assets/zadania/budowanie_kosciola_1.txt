@@ -1,4 +1,5 @@
 napisz funkcję o nazwie "dodawanie" która przyjmie 2 argumnety i doda je do siebie i zwróci
+write a function called "addition" that takes 2 arguments, adds them together and returns value 
 
 def funkcjaPrzykladowa (liczba, liczba2):
 	liczba3 = liczba + liczba2 

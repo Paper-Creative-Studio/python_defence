@@ -8469,7 +8469,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &560606465
 Transform:
   m_ObjectHideFlags: 0
@@ -8497,7 +8497,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92fb23e443f56ae4aab0970205e4ca5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  output: 5
+  tasks: []
   canvas: {fileID: 2017472308}
   hpCanvas: {fileID: 1550929144}
   building: {fileID: 0}
@@ -8508,6 +8508,7 @@ MonoBehaviour:
       m_Calls: []
   aftermath: 
   waveSpawner: {fileID: 1028385548}
+  dialTrigger: {fileID: 0}
 --- !u!58 &560606467
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -11289,7 +11290,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92fb23e443f56ae4aab0970205e4ca5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  output: 3
+  tasks:
+  - Polecenie: 'write a function called "addition" that takes 2 arguments (name them
+      arg1, arg2), adds them together and returns this value '
+    output: Returned value is addition result of two arguments
+    addition: "\narg1=5\r\narg2=6\r\nwynik = addition(arg1, arg2)\r\nif arg1 + arg2
+      == addition(arg1, arg2):\r\n\tprint(\"Returned value is addition result of
+      two arguments\")\r\nelse:\r\n\tprint(\"Returned value is not addition result
+      of two arguments\")"
+  - Polecenie: write a function called "first" which will return first letter of
+      given word
+    output: It returns first letter of given word
+    addition: "\nslowo=\"slowo\"\nif(slowo[0] == first(slowo)):\r\n\tprint(\"It returns
+      first letter of given word\")\r\nelse:\r\n\tprint(\"It does not returns first
+      letter of given word\")"
   canvas: {fileID: 2017472308}
   hpCanvas: {fileID: 1550929144}
   building: {fileID: 684148388}
@@ -11314,6 +11328,7 @@ MonoBehaviour:
         m_CallState: 2
   aftermath: Python
   waveSpawner: {fileID: 1028385548}
+  dialTrigger: {fileID: 0}
 --- !u!58 &937017157
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -11342,13 +11357,38 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a1219fed81f90442a5079b6f946312f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogue:
-    npcName: Villager
+  dialogues:
+  - npcName: Villager
     speech:
     - avatar: {fileID: 21300000, guid: f9f269a86a6508d408cebf6bdfea75c8, type: 3}
-      sentence: HI can you help me build this church?
+      sentence: Can you help me build a church?
     - avatar: {fileID: 21300000, guid: b19b85a032f1d5f48963621392681696, type: 3}
       sentence: Sure thing
+    aftermath: Python
+  - npcName: Villager
+    speech:
+    - avatar: {fileID: 21300000, guid: b19b85a032f1d5f48963621392681696, type: 3}
+      sentence: How is renovation going?
+    - avatar: {fileID: 21300000, guid: f9f269a86a6508d408cebf6bdfea75c8, type: 3}
+      sentence: I'm gonna need more help
+    aftermath: Python
+  - npcName: Villager
+    speech:
+    - avatar: {fileID: 21300000, guid: b19b85a032f1d5f48963621392681696, type: 3}
+      sentence: What a beautiful church
+    - avatar: {fileID: 21300000, guid: f9f269a86a6508d408cebf6bdfea75c8, type: 3}
+      sentence: Yes! Thank you for your help
+    aftermath: 
+  - npcName: Villager
+    speech:
+    - avatar: {fileID: 21300000, guid: b19b85a032f1d5f48963621392681696, type: 3}
+      sentence: How is renovation going?
+    - avatar: {fileID: 21300000, guid: f9f269a86a6508d408cebf6bdfea75c8, type: 3}
+      sentence: I'm gonna need more time
+    - avatar: {fileID: 21300000, guid: b19b85a032f1d5f48963621392681696, type: 3}
+      sentence: No problem. I'll be back in some time
+    aftermath: 
+  index: 0
   dialogueCanvas: {fileID: 1797485694}
   dialmanager: {fileID: 1584948959}
 --- !u!1 &938016281
@@ -19376,8 +19416,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd4175ad0f492684fb5b9ebd72c69849, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 20
-  currentHealth: 20
+  maxHealth: 999
+  currentHealth: 999
   healthbar: {fileID: 261561880}
   onDeath:
     m_PersistentCalls:
@@ -22954,6 +22994,8 @@ MonoBehaviour:
   desiredOutput: 
   desOut: {fileID: 1154747714}
   result: 0
+  addition: 
+  polecenie: 
 --- !u!114 &1825767133
 MonoBehaviour:
   m_ObjectHideFlags: 0

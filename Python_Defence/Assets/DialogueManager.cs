@@ -18,7 +18,7 @@ public class DialogueManager : MonoBehaviour
     private PythonGame npcscript;
     private movement playermove;
     private Attacking playerattack;
-    
+    private string aftermath;
     private void Start()
     {
         npcscript = npc.GetComponent<PythonGame>();
@@ -39,6 +39,7 @@ public class DialogueManager : MonoBehaviour
             avatars.Enqueue(dialarray.avatar);
             sentences.Enqueue(dialarray.sentence);
         }
+        aftermath = dialogue.aftermath;
         DisplayNextSentence();
     }
     public void DisplayNextSentence()
@@ -51,7 +52,7 @@ public class DialogueManager : MonoBehaviour
             npcscript.talking = false;
             playermove.moving = true;
             playerattack.canAttack = true;
-            if (npcscript.aftermath == "Python")
+            if (aftermath== "Python")
             {
                 npcscript.LaunchPython();
             }

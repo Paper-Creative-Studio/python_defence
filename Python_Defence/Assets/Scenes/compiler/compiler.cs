@@ -22,10 +22,12 @@ public class compiler : MonoBehaviour
     public TMP_Text desOut;
     public bool result;
     string replacement;
+    public string addition;
+    public string polecenie;
     // Start is called before the first frame update
     void Start()
     {
-        desOut.text= desiredOutput;
+        desOut.text= polecenie;
     }
 
     // Update is called once per frame
@@ -41,9 +43,10 @@ public class compiler : MonoBehaviour
             var engine = Python.CreateEngine();
 
             string plik = Application.dataPath + "/pyton.py";
-            string testplik = Application.dataPath + "/pyton2.py";
+            
             kod = tmpro.text;
             File.WriteAllText(plik, kod);
+            File.AppendAllText(plik, addition);
             var source = engine.CreateScriptSourceFromFile(plik);
             var eIO = engine.Runtime.IO;
             var errors = new MemoryStream();

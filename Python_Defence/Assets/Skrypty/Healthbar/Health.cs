@@ -26,10 +26,6 @@ public class Health : MonoBehaviour
     private void Update()
     {
         
-        if(Input.GetKeyDown(KeyCode.Alpha1))
-        {
-            currentHealth = 0;
-        }
         if(currentHealth <= 0)
         {
             if(doonce)

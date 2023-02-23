@@ -8,7 +8,7 @@ public class Dialogue
     public string npcName;
     
     public Array2DForDialogue[] speech;
-    
+    public string aftermath;
 }
 [System.Serializable]
 public class Array2DForDialogue
