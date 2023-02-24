@@ -7,7 +7,7 @@ public class Task
 {
     
     public string Polecenie;
-    public string output;
+    [TextArea]public string output;
     [TextArea]public string stale;
     [TextArea]public string addition;
 }

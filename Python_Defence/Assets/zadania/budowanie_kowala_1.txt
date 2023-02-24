@@ -1,4 +1,4 @@
-Wyświetl liczby całkowite z przedziału <1, 20>
+Wyświetl liczby całkowite z przedziału <1, 20> from left to right
 
 
 

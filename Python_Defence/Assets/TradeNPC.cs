@@ -1,13 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.Events;
 public class TradeNPC : MonoBehaviour
 {
     public GameObject canvas;
     public GameObject hpCanvas;
     private bool talk;
     private GameObject col;
+    [SerializeField] private UnityEvent onInteract;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,11 +24,8 @@ public class TradeNPC : MonoBehaviour
             if(Input.GetKeyDown(KeyCode.E))
             {
                 if (talk)
-                { 
-                    col.GetComponent<Attacking>().canAttack = false;
-                    col.GetComponent<movement>().moving = false;
-                    hpCanvas.gameObject.SetActive(false);
-                    canvas.gameObject.SetActive(true);
+                {
+                    onInteract.Invoke();
                 }
             }
         
@@ -54,5 +52,12 @@ public class TradeNPC : MonoBehaviour
             col = null;
             talk = false;
         }
+    }
+    public void StartShop()
+    {
+        col.GetComponent<Attacking>().canAttack = false;
+        col.GetComponent<movement>().moving = false;
+        hpCanvas.gameObject.SetActive(false);
+        canvas.gameObject.SetActive(true);
     }
 }

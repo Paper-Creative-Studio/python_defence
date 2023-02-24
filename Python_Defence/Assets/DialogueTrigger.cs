@@ -10,14 +10,17 @@ public class DialogueTrigger : MonoBehaviour
     public GameObject dialogueCanvas;
     [SerializeField] private DialogueManager dialmanager;
     private PythonGame pg;
+    private TradeNPC tn;
     private void Start()
     {
         pg = GetComponent<PythonGame>();
+        tn = GetComponent<TradeNPC>();
     }
     public void TriggerDialogue()
     {
         dialogueCanvas.SetActive(true);
         dialmanager.npcscript = pg;
+        dialmanager.tradescript = tn;
         dialmanager.StartDialogue(dialogues[index]);
     }
 }

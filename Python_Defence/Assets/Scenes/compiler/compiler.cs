@@ -60,7 +60,7 @@ public class compiler : MonoBehaviour
             source.Execute(scope);
             string str(byte[] x) => Encoding.UTF8.GetString(x);
             output.text = str(results.ToArray());
-            
+           
             replacement = Regex.Replace(output.text, @"\t|\n|\r", "");
 
         }

@@ -17,6 +17,7 @@ public class DialogueManager : MonoBehaviour
     private Queue<string> sentences= new Queue<string>();
     private Queue<Sprite> avatars= new Queue<Sprite>();
     public PythonGame npcscript;
+    public TradeNPC tradescript;
     private movement playermove;
     private Attacking playerattack;
     private string aftermath;
@@ -30,7 +31,11 @@ public class DialogueManager : MonoBehaviour
     {
         
         main_Canvas.SetActive(false);
-        npcscript.talking = true;
+        if (npcscript != null) 
+        {
+            npcscript.talking = true;
+        }
+        
         playermove.moving = false;
         playerattack.canAttack = false;
         
@@ -51,12 +56,17 @@ public class DialogueManager : MonoBehaviour
             dialogueCanvas.SetActive(false);
             avatars.Clear();
             sentences.Clear();
-            npcscript.talking = false;
+            if (npcscript != null)
+                npcscript.talking = false;
             playermove.moving = true;
             playerattack.canAttack = true;
             if (aftermath== "Python")
             {
                 npcscript.LaunchPython();
+            }
+            else if(aftermath == "Shop")
+            {
+                tradescript.StartShop();
             }
             else
             {
