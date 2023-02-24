@@ -10,6 +10,7 @@ public class IgnoreCollision : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        TileMap = GameObject.FindGameObjectWithTag("Tilemap").GetComponent<TilemapCollider2D>();
         for(int i = 0; i<=characterColliders.Length - 1; i++)
         {
             Physics2D.IgnoreCollision(characterColliders[i], TileMap, true);

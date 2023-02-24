@@ -6,6 +6,7 @@ TagManager:
   tags:
   - EndGoal
   - Deathscreen
+  - Tilemap
   layers:
   - Default
   - TransparentFX

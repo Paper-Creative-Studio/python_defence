@@ -47,10 +47,10 @@ public class WaveSpawner : MonoBehaviour
             {
                 doneWaves++;
                 wave = false;
-                
-                if(waveCount < 4)
+                waveCount++;
+                if (waveCount > 4)
                 {
-                    waveCount++;
+                    waveCount = 1;
                 }
                 transform.position = new Vector3(transform.position.x, transform.position.y, 1);
 

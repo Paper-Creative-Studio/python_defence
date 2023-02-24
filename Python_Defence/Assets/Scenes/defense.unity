@@ -328,6 +328,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 16891487}
   m_CullTransparentMesh: 1
+--- !u!1 &65213221
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 65213222}
+  m_Layer: 0
+  m_Name: archerSpawn (4)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &65213222
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 65213221}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -22.06, y: 2.88, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 107611365}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &68730574
 GameObject:
   m_ObjectHideFlags: 0
@@ -573,6 +604,39 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 106100891}
   m_CullTransparentMesh: 1
+--- !u!1 &107611364
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 107611365}
+  m_Layer: 0
+  m_Name: LeftSpawnpoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &107611365
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 107611364}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1797831063}
+  - {fileID: 65213222}
+  m_Father: {fileID: 1120368049}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &125019570
 GameObject:
   m_ObjectHideFlags: 0
@@ -3141,67 +3205,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 342615198}
   m_CullTransparentMesh: 1
---- !u!1001 &355038548
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 1120368049}
-    m_Modifications:
-    - target: {fileID: 7587057097143417913, guid: 1ab49d7945fc9b341b68d42668426a59, type: 3}
-      propertyPath: m_Name
-      value: Archer  (2)
-      objectReference: {fileID: 0}
-    - target: {fileID: 7587057097143417915, guid: 1ab49d7945fc9b341b68d42668426a59, type: 3}
-      propertyPath: m_RootOrder
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7587057097143417915, guid: 1ab49d7945fc9b341b68d42668426a59, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -6.14
-      objectReference: {fileID: 0}
-    - target: {fileID: 7587057097143417915, guid: 1ab49d7945fc9b341b68d42668426a59, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -10.9
-      objectReference: {fileID: 0}
-    - target: {fileID: 7587057097143417915, guid: 1ab49d7945fc9b341b68d42668426a59, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7587057097143417915, guid: 1ab49d7945fc9b341b68d42668426a59, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7587057097143417915, guid: 1ab49d7945fc9b341b68d42668426a59, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7587057097143417915, guid: 1ab49d7945fc9b341b68d42668426a59, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7587057097143417915, guid: 1ab49d7945fc9b341b68d42668426a59, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7587057097143417915, guid: 1ab49d7945fc9b341b68d42668426a59, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7587057097143417915, guid: 1ab49d7945fc9b341b68d42668426a59, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7587057097143417915, guid: 1ab49d7945fc9b341b68d42668426a59, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7587057097143417918, guid: 1ab49d7945fc9b341b68d42668426a59, type: 3}
-      propertyPath: TileMap
-      value: 
-      objectReference: {fileID: 550732880}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 1ab49d7945fc9b341b68d42668426a59, type: 3}
 --- !u!1 &356221572
 GameObject:
   m_ObjectHideFlags: 0
@@ -4022,7 +4025,7 @@ MonoBehaviour:
       sentence: Welcome in our armory. How could i help you?
     - avatar: {fileID: 21300000, guid: b19b85a032f1d5f48963621392681696, type: 3}
       sentence: We'll see what you could do for me.
-    aftermath: 
+    aftermath: Python
   - npcName: Villager
     speech:
     - avatar: {fileID: 21300000, guid: b19b85a032f1d5f48963621392681696, type: 3}
@@ -4032,7 +4035,7 @@ MonoBehaviour:
     - avatar: {fileID: 21300000, guid: b19b85a032f1d5f48963621392681696, type: 3}
       sentence: No problem. I'll be back in some time
     aftermath: 
-  index: 0
+  index: 2
   dialogueCanvas: {fileID: 1797485694}
   dialmanager: {fileID: 1584948959}
 --- !u!114 &433536007
@@ -4078,6 +4081,27 @@ MonoBehaviour:
     onSuccesful:
       m_PersistentCalls:
         m_Calls: []
+  - Polecenie: dupa
+    output: 3
+    secondaryoutput: 
+    stale: 
+    addition: 
+    condition: 
+    onSuccesful:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1120368050}
+          m_TargetAssemblyTypeName: SpawnArcher, Assembly-CSharp
+          m_MethodName: SpawnArch
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
   canvas: {fileID: 2017472308}
   hpCanvas: {fileID: 1550929144}
   result: 0
@@ -4647,7 +4671,7 @@ GameObject:
   - component: {fileID: 550732881}
   m_Layer: 7
   m_Name: Tilemap
-  m_TagString: Untagged
+  m_TagString: Tilemap
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9022,6 +9046,39 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 609894333}
   m_CullTransparentMesh: 1
+--- !u!1 &613692167
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 613692168}
+  m_Layer: 0
+  m_Name: DownSpawnpoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &613692168
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 613692167}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 986064840}
+  - {fileID: 636074311}
+  m_Father: {fileID: 1120368049}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &629013202
 GameObject:
   m_ObjectHideFlags: 0
@@ -9099,6 +9156,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 629013202}
   m_CullTransparentMesh: 1
+--- !u!1 &636074310
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 636074311}
+  m_Layer: 0
+  m_Name: archerSpawn (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &636074311
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 636074310}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -6.9, y: -10.9, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 613692168}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &654123051
 GameObject:
   m_ObjectHideFlags: 0
@@ -10125,6 +10213,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Archer  (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 7587057097143417914, guid: 1ab49d7945fc9b341b68d42668426a59, type: 3}
+      propertyPath: aggropos.x
+      value: -9.48
+      objectReference: {fileID: 0}
+    - target: {fileID: 7587057097143417914, guid: 1ab49d7945fc9b341b68d42668426a59, type: 3}
+      propertyPath: aggropos.y
+      value: 6.42
+      objectReference: {fileID: 0}
+    - target: {fileID: 7587057097143417914, guid: 1ab49d7945fc9b341b68d42668426a59, type: 3}
+      propertyPath: attackRange
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 7587057097143417915, guid: 1ab49d7945fc9b341b68d42668426a59, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -10135,7 +10235,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7587057097143417915, guid: 1ab49d7945fc9b341b68d42668426a59, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.5400004
+      value: 4.1600003
       objectReference: {fileID: 0}
     - target: {fileID: 7587057097143417915, guid: 1ab49d7945fc9b341b68d42668426a59, type: 3}
       propertyPath: m_LocalPosition.z
@@ -11536,6 +11636,37 @@ MonoBehaviour:
   canvasParent: {fileID: 2134279426}
   player: {fileID: 1398872383}
   mainCanvas: {fileID: 0}
+--- !u!1 &986064839
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 986064840}
+  m_Layer: 0
+  m_Name: archerSpawn (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &986064840
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 986064839}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.13, y: -10.9, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 613692168}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &990131441
 GameObject:
   m_ObjectHideFlags: 0
@@ -12126,6 +12257,14 @@ PrefabInstance:
     - target: {fileID: 7587057097143417913, guid: 1ab49d7945fc9b341b68d42668426a59, type: 3}
       propertyPath: m_Name
       value: Archer  (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7587057097143417914, guid: 1ab49d7945fc9b341b68d42668426a59, type: 3}
+      propertyPath: aggropos.x
+      value: 17.97
+      objectReference: {fileID: 0}
+    - target: {fileID: 7587057097143417914, guid: 1ab49d7945fc9b341b68d42668426a59, type: 3}
+      propertyPath: aggropos.y
+      value: -21.1
       objectReference: {fileID: 0}
     - target: {fileID: 7587057097143417915, guid: 1ab49d7945fc9b341b68d42668426a59, type: 3}
       propertyPath: m_RootOrder
@@ -12765,6 +12904,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1120368049}
+  - component: {fileID: 1120368050}
   m_Layer: 0
   m_Name: Archers_ally
   m_TagString: Untagged
@@ -12786,11 +12926,35 @@ Transform:
   m_Children:
   - {fileID: 565959658}
   - {fileID: 2102676314}
-  - {fileID: 1398450950}
+  - {fileID: 7587057096793753967}
   - {fileID: 1774301423}
+  - {fileID: 107611365}
+  - {fileID: 613692168}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1120368050
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1120368048}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be0b9ecd860e7fd48ba71f57a0d7de03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  leftarcher: {fileID: 7587057097143417913, guid: 1ab49d7945fc9b341b68d42668426a59, type: 3}
+  downarcher: {fileID: 8760343585613271512, guid: fdf4710ff17647e4f89cdaa3d84d8a55, type: 3}
+  leftSpawnpoint:
+  - {fileID: 1797831063}
+  - {fileID: 65213222}
+  downSpawnpoint:
+  - {fileID: 986064840}
+  - {fileID: 636074311}
+  arrow: {fileID: 312024135112198859, guid: 017a54f0d19f1a1419dcf789273c2272, type: 3}
+  arscript: {fileID: 0}
 --- !u!1 &1126898962
 GameObject:
   m_ObjectHideFlags: 0
@@ -19801,11 +19965,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1397450226}
   m_CullTransparentMesh: 1
---- !u!4 &1398450950 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7587057097143417915, guid: 1ab49d7945fc9b341b68d42668426a59, type: 3}
-  m_PrefabInstance: {fileID: 355038548}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1398872383
 GameObject:
   m_ObjectHideFlags: 0
@@ -22925,6 +23084,37 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 10
   m_TargetDisplay: 0
+--- !u!1 &1797831062
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1797831063}
+  m_Layer: 0
+  m_Name: archerSpawn (3)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1797831063
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1797831062}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -22.06, y: 9.97, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 107611365}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1800832238
 GameObject:
   m_ObjectHideFlags: 0
@@ -26442,6 +26632,72 @@ MonoBehaviour:
   tradeSrebro: {fileID: 380586354}
   tradeGold: {fileID: 1760025102}
   tradeHajs: {fileID: 311611484}
+--- !u!1001 &1213819231215704245
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1120368049}
+    m_Modifications:
+    - target: {fileID: 8760343585613271512, guid: fdf4710ff17647e4f89cdaa3d84d8a55, type: 3}
+      propertyPath: m_Name
+      value: Archer  (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8760343585613271514, guid: fdf4710ff17647e4f89cdaa3d84d8a55, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8760343585613271514, guid: fdf4710ff17647e4f89cdaa3d84d8a55, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -6.14
+      objectReference: {fileID: 0}
+    - target: {fileID: 8760343585613271514, guid: fdf4710ff17647e4f89cdaa3d84d8a55, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -10.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 8760343585613271514, guid: fdf4710ff17647e4f89cdaa3d84d8a55, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8760343585613271514, guid: fdf4710ff17647e4f89cdaa3d84d8a55, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8760343585613271514, guid: fdf4710ff17647e4f89cdaa3d84d8a55, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8760343585613271514, guid: fdf4710ff17647e4f89cdaa3d84d8a55, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8760343585613271514, guid: fdf4710ff17647e4f89cdaa3d84d8a55, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8760343585613271514, guid: fdf4710ff17647e4f89cdaa3d84d8a55, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8760343585613271514, guid: fdf4710ff17647e4f89cdaa3d84d8a55, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8760343585613271514, guid: fdf4710ff17647e4f89cdaa3d84d8a55, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8760343585613271519, guid: fdf4710ff17647e4f89cdaa3d84d8a55, type: 3}
+      propertyPath: TileMap
+      value: 
+      objectReference: {fileID: 550732880}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: fdf4710ff17647e4f89cdaa3d84d8a55, type: 3}
+--- !u!4 &7587057096793753967 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8760343585613271514, guid: fdf4710ff17647e4f89cdaa3d84d8a55, type: 3}
+  m_PrefabInstance: {fileID: 1213819231215704245}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7587057097656575953
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -26453,6 +26709,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: 'Archer '
       objectReference: {fileID: 0}
+    - target: {fileID: 7587057097143417914, guid: 1ab49d7945fc9b341b68d42668426a59, type: 3}
+      propertyPath: aggropos.x
+      value: -9.48
+      objectReference: {fileID: 0}
+    - target: {fileID: 7587057097143417914, guid: 1ab49d7945fc9b341b68d42668426a59, type: 3}
+      propertyPath: aggropos.y
+      value: 6.42
+      objectReference: {fileID: 0}
+    - target: {fileID: 7587057097143417914, guid: 1ab49d7945fc9b341b68d42668426a59, type: 3}
+      propertyPath: attackRange
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 7587057097143417915, guid: 1ab49d7945fc9b341b68d42668426a59, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -26463,7 +26731,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7587057097143417915, guid: 1ab49d7945fc9b341b68d42668426a59, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 8.68
+      value: 9.3
       objectReference: {fileID: 0}
     - target: {fileID: 7587057097143417915, guid: 1ab49d7945fc9b341b68d42668426a59, type: 3}
       propertyPath: m_LocalPosition.z

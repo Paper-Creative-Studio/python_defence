@@ -78,7 +78,7 @@ GameObject:
   - component: {fileID: 7587057097143417919}
   - component: {fileID: 7587057097143417918}
   m_Layer: 9
-  m_Name: 'Archer '
+  m_Name: Archer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -216,12 +216,12 @@ MonoBehaviour:
   shootPoint: {fileID: 7587057095756099375}
   controlPoint: {fileID: 7587057096579378677}
   anim_controller: {fileID: 7587057097143417919}
-  attackRange: 7
+  attackRange: 8
   angle: 90
   enemyLayer:
     serializedVersion: 2
     m_Bits: 64
-  aggropos: {x: -9.69, y: 0.53}
+  aggropos: {x: -9.48, y: 6.42}
 --- !u!95 &7587057097143417919
 Animator:
   serializedVersion: 5
