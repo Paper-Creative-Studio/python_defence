@@ -16,6 +16,10 @@ public class DialogueTrigger : MonoBehaviour
         pg = GetComponent<PythonGame>();
         tn = GetComponent<TradeNPC>();
     }
+    private void Update()
+    {
+        //Debug.Log(gameObject.name + " " + index);
+    }
     public void TriggerDialogue()
     {
         dialogueCanvas.SetActive(true);

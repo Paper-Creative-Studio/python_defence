@@ -4074,6 +4074,7 @@ MonoBehaviour:
     condition: for
   canvas: {fileID: 2017472308}
   hpCanvas: {fileID: 1550929144}
+  result: 0
   building: {fileID: 433536012}
   stages:
   - {fileID: 21300000, guid: 315606530e53ce9418614c9d2c643e3f, type: 3}
@@ -4111,7 +4112,7 @@ MonoBehaviour:
         m_CallState: 2
   aftermath: Python
   waveSpawner: {fileID: 1028385548}
-  dialTrigger: {fileID: 0}
+  dialTrigger: {fileID: 433536006}
 --- !u!58 &433536008
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -10934,6 +10935,7 @@ MonoBehaviour:
     condition: 
   canvas: {fileID: 2017472308}
   hpCanvas: {fileID: 1550929144}
+  result: 0
   building: {fileID: 684148388}
   stages:
   - {fileID: 21300000, guid: 5968338052b6ef747b50fa0438845618, type: 3}
@@ -10971,7 +10973,7 @@ MonoBehaviour:
         m_CallState: 2
   aftermath: Python
   waveSpawner: {fileID: 1028385548}
-  dialTrigger: {fileID: 0}
+  dialTrigger: {fileID: 937017158}
 --- !u!58 &937017157
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -11715,6 +11717,7 @@ MonoBehaviour:
     condition: 
   canvas: {fileID: 2017472308}
   hpCanvas: {fileID: 1550929144}
+  result: 0
   building: {fileID: 684148388}
   stages:
   - {fileID: 21300000, guid: 5968338052b6ef747b50fa0438845618, type: 3}
@@ -11752,7 +11755,7 @@ MonoBehaviour:
         m_CallState: 2
   aftermath: Python
   waveSpawner: {fileID: 1028385548}
-  dialTrigger: {fileID: 0}
+  dialTrigger: {fileID: 997326384}
 --- !u!58 &997326386
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -12394,6 +12397,7 @@ MonoBehaviour:
     condition: 'if i%2==0:'
   canvas: {fileID: 2017472308}
   hpCanvas: {fileID: 1550929144}
+  result: 0
   building: {fileID: 2068751343}
   stages:
   - {fileID: 21300000, guid: fe7dc815ddec5f841896e2daccf786e1, type: 3}
@@ -12431,7 +12435,7 @@ MonoBehaviour:
         m_CallState: 2
   aftermath: Python
   waveSpawner: {fileID: 1028385548}
-  dialTrigger: {fileID: 0}
+  dialTrigger: {fileID: 1094362092}
 --- !u!58 &1094362094
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -19414,7 +19418,9 @@ MonoBehaviour:
   - Polecenie: To a list of materials needed for building a mine add "tracks"
     output: List contains all needed materials
     secondaryoutput: 
-    stale: list = ['supports', 'minecart', 'pickaxe', 'shovel']
+    stale: 'list = [''supports'', ''minecart'', ''pickaxe'', ''shovel'']
+
+'
     addition: "\ncorrect = ['supports', 'minecart', 'pickaxe', 'shovel', 'tracks']\r\nif
       all(value in list for value in correct):\r\n\tprint(\"List contains all needed
       materials\")\r\nelse:\r\n\tprint(\"List does not contains all needed materials\")"
@@ -19429,6 +19435,7 @@ MonoBehaviour:
     condition: 
   canvas: {fileID: 2017472308}
   hpCanvas: {fileID: 1550929144}
+  result: 0
   building: {fileID: 763941363}
   stages:
   - {fileID: 21300000, guid: 9e6102a74d4362442b3103aa333cf820, type: 3}
@@ -19466,7 +19473,7 @@ MonoBehaviour:
         m_CallState: 2
   aftermath: Python
   waveSpawner: {fileID: 1028385548}
-  dialTrigger: {fileID: 0}
+  dialTrigger: {fileID: 1346207673}
 --- !u!58 &1346207675
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -23376,6 +23383,7 @@ MonoBehaviour:
   condition: 
   stale: 
   textplace: {fileID: 0}
+  scriptwyw: {fileID: 0}
 --- !u!114 &1825767133
 MonoBehaviour:
   m_ObjectHideFlags: 0

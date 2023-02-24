@@ -1,6 +1,5 @@
-list = ['supports', 'minecart', 'pickaxe', 'shovel']list.append("tracks")
-correct = ['supports', 'minecart', 'pickaxe', 'shovel', 'tracks']
-if all(value in list for value in correct):
-	print("List contains all needed materials")
-else:
-	print("List does not contains all needed materials")
+list=[]
+for z in range(0+1,31):
+	if z%3 == 0:
+		list.append(z)
+print(list)

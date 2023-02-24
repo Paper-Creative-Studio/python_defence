@@ -11,6 +11,7 @@ public class PythonGame : MonoBehaviour
     public GameObject canvas;
     public GameObject hpCanvas;
     private compiler skrypt;
+    public bool result;
     public SpriteRenderer building;
     public List<Sprite> stages = new List<Sprite>();
     private bool talk;
@@ -24,12 +25,12 @@ public class PythonGame : MonoBehaviour
     private bool coding = false;
     
     bool doonce = true;
-    [SerializeField] public DialogueTrigger dialTrigger;
+    [SerializeField] private DialogueTrigger dialTrigger;
     private int previousindex;
     // Start is called before the first frame update
     void Start()
     {
-        dialTrigger = GetComponent<DialogueTrigger>();
+        
         skrypt = canvas.transform.GetChild(0).GetChild(0).GetComponent<compiler>();
         wavescript = waveSpawner.GetComponent<WaveSpawner>();
     }
@@ -50,7 +51,7 @@ public class PythonGame : MonoBehaviour
         if (skrypt != null)
         {
             
-            if (skrypt.result && Time.timeScale == 1)
+            if (result && Time.timeScale == 1)
             {
                 
                 
@@ -78,7 +79,7 @@ public class PythonGame : MonoBehaviour
                         
                     }
                     doonce = true;
-                    skrypt.result = false;
+                    result = false;
                 }
                 
                 
@@ -126,12 +127,12 @@ public class PythonGame : MonoBehaviour
     }
     public void LaunchPython()
     {
+        skrypt.scriptwyw = this;
         coding = true;
         skrypt.addition = tasks[dialTrigger.index].addition;
         canvas.SetActive(true);
         skrypt.desiredOutput = tasks[dialTrigger.index].output;
         skrypt.secOutput = tasks[dialTrigger.index].secondaryoutput;
-        
         skrypt.polecenie = tasks[dialTrigger.index].Polecenie;
         skrypt.stale = tasks[dialTrigger.index].stale;
         skrypt.condition = tasks[dialTrigger.index].condition;

@@ -30,6 +30,7 @@ public class compiler : MonoBehaviour
     public string condition;
     public string stale;
     public TMP_Text textplace;
+    public PythonGame scriptwyw;
     // Start is called before the first frame update
     void Start()
     {
@@ -78,8 +79,8 @@ public class compiler : MonoBehaviour
             Debug.Log("condition exists");
             if (!tmpro.text.Contains(condition))
             {
-                
-                result = false;
+
+                scriptwyw.result = false;
                 output.color = Color.red;
                 output.text = "Your code doesn't meet conditions";
             }
@@ -89,46 +90,85 @@ public class compiler : MonoBehaviour
                 {
                     if (replacement == desiredOutput)
                     {
-                        result = true;
+                        Debug.Log("good output");
+                        scriptwyw.result = true;
                         output.color = Color.green;
                         StartCoroutine(WaitSeconds());
                     }
                     else if (replacement == secOutput)
                     {
-                        result = true;
+                        Debug.Log("good output");
+                        scriptwyw.result = true;
                         output.color = Color.green;
                         StartCoroutine(WaitSeconds());
 
                     }
                     else
                     {
-                        result = false;
+                        Debug.Log("Bad output");
+                        scriptwyw.result = false;
                         output.color = Color.red;
                     }
                 }
-                
+                else
+                {
+                    if (replacement == desiredOutput)
+                    {
+                        Debug.Log("good output");
+                        scriptwyw.result = true;
+                        output.color = Color.green;
+                        StartCoroutine(WaitSeconds());
+                    }
+                    else
+                    {
+                        Debug.Log("Bad output");
+                        scriptwyw.result = false;
+                        output.color = Color.red;
+                    }
+                }
+
             }
         }
         else
         {
+            Debug.Log("condition does not exists");
             if (secOutput != string.Empty)
             {
                 if (replacement == desiredOutput)
                 {
-                    result = true;
+                    Debug.Log("good output");
+                    scriptwyw.result = true;
                     output.color = Color.green;
                     StartCoroutine(WaitSeconds());
                 }
                 else if (replacement == secOutput)
                 {
-                    result = true;
+                    Debug.Log("good output");
+                    scriptwyw.result = true;
                     output.color = Color.green;
                     StartCoroutine(WaitSeconds());
 
                 }
                 else
                 {
-                    result = false;
+                    Debug.Log("Bad output");
+                    scriptwyw.result = false;
+                    output.color = Color.red;
+                }
+            }
+            else
+            {
+                if (replacement == desiredOutput)
+                {
+                    Debug.Log("good output");
+                    scriptwyw.result = true;
+                    output.color = Color.green;
+                    StartCoroutine(WaitSeconds());
+                }
+                else
+                {
+                    Debug.Log("Bad output");
+                    scriptwyw.result = false;
                     output.color = Color.red;
                 }
             }
