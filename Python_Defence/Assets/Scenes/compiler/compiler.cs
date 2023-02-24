@@ -22,6 +22,7 @@ public class compiler : MonoBehaviour
     public TMP_Text prereq;
     public string desiredOutput;
     public string secOutput;
+   
     public TMP_Text desOut;
     public bool result;
     string replacement;

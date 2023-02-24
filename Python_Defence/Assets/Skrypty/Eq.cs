@@ -10,10 +10,14 @@ public class Eq : MonoBehaviour
     [SerializeField] private TMP_Text srebroText;
     [SerializeField] private TMP_Text goldText;
     [SerializeField] private TMP_Text Hajstext;
+    [SerializeField] private TMP_Text Silatext;
+
     public int kamienCount;
     public int srebroCount;
     public int GoldCount;
     public int HajsCount;
+    public int silaCount;
+    private Attacking attackScript;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,6 +25,9 @@ public class Eq : MonoBehaviour
         srebroText.text = srebroCount.ToString();
         goldText.text = GoldCount.ToString();
         Hajstext.text = HajsCount.ToString();
+        attackScript = GetComponent<Attacking>();
+        silaCount = attackScript.damage * 3;
+        Silatext.text = silaCount.ToString();
     }
 
     // Update is called once per frame
@@ -32,5 +39,11 @@ public class Eq : MonoBehaviour
     {
         GoldCount += 2;
         goldText.text = GoldCount.ToString();
+    }
+    public void ChangeStrength()
+    {
+        attackScript.damage += 20;
+        silaCount = attackScript.damage * 3;
+        Silatext.text = silaCount.ToString();
     }
 }

@@ -11,7 +11,7 @@ public class Attacking : MonoBehaviour
     [SerializeField] private LayerMask enemyLayers;
     [SerializeField] private float attackCooldown = 0.5f;
     [SerializeField] private Animator anim_controller;
-    [SerializeField] private int damage;
+    public int damage;
     public bool canAttack = true;
     private Health health;
     // Start is called before the first frame update

@@ -1,6 +1,10 @@
-mining = ["stone", "copper", "gold", "stone", "stone", "gold", "silver", "stone", "copper", "copper" ]
 i=0
-for x in mining:
-	if x=="gold":
-		i+=1
-print(i);
+animal=""
+if i == 3:
+	animal = "Horse"
+elif i == 4:
+	animal = "Sheep"
+else:
+	animal = "Donkey"
+if animal == "Horse" or "Sheep" or "Donkey":
+	print("It's correct")
