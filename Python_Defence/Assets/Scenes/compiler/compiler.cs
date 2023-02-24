@@ -19,6 +19,7 @@ public class compiler : MonoBehaviour
     public TMP_InputField tmpro;
     private string kod;
     public TMP_Text output;
+    public TMP_Text prereq;
     public string desiredOutput;
     public string secOutput;
     public TMP_Text desOut;
@@ -50,7 +51,8 @@ public class compiler : MonoBehaviour
             string plik = Application.dataPath + "/pyton.py";
             
             kod = tmpro.text;
-            File.WriteAllText(plik, kod);
+            File.WriteAllText(plik, stale);
+            File.AppendAllText(plik, kod);
             File.AppendAllText(plik, addition);
             var source = engine.CreateScriptSourceFromFile(plik);
             var eIO = engine.Runtime.IO;
@@ -141,7 +143,7 @@ public class compiler : MonoBehaviour
         desOut.text = string.Empty;
         tmpro.text = string.Empty;
         desOut.text = polecenie;
-        tmpro.text = stale;
+        prereq.text = stale;
         
     }
     IEnumerator WaitSeconds()

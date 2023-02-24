@@ -1,5 +1,6 @@
-i = 2
-if i%2==0:
-    print("Horse")
+list = ['supports', 'minecart', 'pickaxe', 'shovel']list.append("tracks")
+correct = ['supports', 'minecart', 'pickaxe', 'shovel', 'tracks']
+if all(value in list for value in correct):
+	print("List contains all needed materials")
 else:
-    print("Sheep")
+	print("List does not contains all needed materials")
