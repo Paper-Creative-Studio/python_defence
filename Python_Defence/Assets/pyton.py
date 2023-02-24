@@ -1,6 +1,5 @@
-liczba = 5
-tab = []
-while liczba <= 100:
-    tab.append(liczba)
-    liczba += 5
-print(tab)
+i = 2
+if i%2==0:
+    print("Horse")
+else:
+    print("Sheep")

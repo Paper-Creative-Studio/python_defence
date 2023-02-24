@@ -130,9 +130,11 @@ public class PythonGame : MonoBehaviour
         skrypt.addition = tasks[dialTrigger.index].addition;
         canvas.SetActive(true);
         skrypt.desiredOutput = tasks[dialTrigger.index].output;
+        skrypt.secOutput = tasks[dialTrigger.index].secondaryoutput;
         
         skrypt.polecenie = tasks[dialTrigger.index].Polecenie;
         skrypt.stale = tasks[dialTrigger.index].stale;
+        skrypt.condition = tasks[dialTrigger.index].condition;
         onNewTask.Invoke();
         hpCanvas.SetActive(false);
         Time.timeScale = 0;

@@ -20,11 +20,13 @@ public class compiler : MonoBehaviour
     private string kod;
     public TMP_Text output;
     public string desiredOutput;
+    public string secOutput;
     public TMP_Text desOut;
     public bool result;
     string replacement;
     public string addition;
     public string polecenie;
+    public string condition;
     public string stale;
     public TMP_Text textplace;
     // Start is called before the first frame update
@@ -69,17 +71,68 @@ public class compiler : MonoBehaviour
             output.text = ex.Message;
             
         }
-        if(replacement == desiredOutput)  
+        if(condition!= string.Empty)
         {
-            result = true;
-            output.color = Color.green;
-            StartCoroutine(WaitSeconds());
+            Debug.Log("condition exists");
+            if (!tmpro.text.Contains(condition))
+            {
+                
+                result = false;
+                output.color = Color.red;
+                output.text = "Your code doesn't meet conditions";
+            }
+            else
+            {
+                if(secOutput != string.Empty)
+                {
+                    if (replacement == desiredOutput)
+                    {
+                        result = true;
+                        output.color = Color.green;
+                        StartCoroutine(WaitSeconds());
+                    }
+                    else if (replacement == secOutput)
+                    {
+                        result = true;
+                        output.color = Color.green;
+                        StartCoroutine(WaitSeconds());
+
+                    }
+                    else
+                    {
+                        result = false;
+                        output.color = Color.red;
+                    }
+                }
+                
+            }
         }
         else
         {
-            result = false;
-            output.color = Color.red;
+            if (secOutput != string.Empty)
+            {
+                if (replacement == desiredOutput)
+                {
+                    result = true;
+                    output.color = Color.green;
+                    StartCoroutine(WaitSeconds());
+                }
+                else if (replacement == secOutput)
+                {
+                    result = true;
+                    output.color = Color.green;
+                    StartCoroutine(WaitSeconds());
+
+                }
+                else
+                {
+                    result = false;
+                    output.color = Color.red;
+                }
+            }
         }
+        
+        
        
     }
     public void LoadNewTask()
@@ -96,10 +149,12 @@ public class compiler : MonoBehaviour
         yield return new WaitForSecondsRealtime(3);
         output.text = "";
         kod = "";
+        
         tmpro.text = kod;
         Time.timeScale = 1; 
         transform.parent.parent.gameObject.SetActive(false);
         
     }
+   
 
 }
