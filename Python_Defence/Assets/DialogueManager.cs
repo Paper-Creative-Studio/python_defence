@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-
+using System.Diagnostics;
 public class DialogueManager : MonoBehaviour
 {
     [SerializeField] GameObject main_Canvas;
@@ -12,26 +12,28 @@ public class DialogueManager : MonoBehaviour
     public Image npcAvatar;
     public GameObject dialogueCanvas;
     public GameObject npc;
+    
     public GameObject player;
     private Queue<string> sentences= new Queue<string>();
     private Queue<Sprite> avatars= new Queue<Sprite>();
-    private PythonGame npcscript;
+    public PythonGame npcscript;
     private movement playermove;
     private Attacking playerattack;
     private string aftermath;
     private void Start()
     {
-        npcscript = npc.GetComponent<PythonGame>();
+        //npcscript = npc.GetComponent<PythonGame>();
         playermove = player.GetComponent<movement>();
         playerattack = player.GetComponent<Attacking>();
     }
     public void StartDialogue(Dialogue dialogue)
     {
+        
         main_Canvas.SetActive(false);
         npcscript.talking = true;
         playermove.moving = false;
         playerattack.canAttack = false;
-        Debug.Log(dialogue.npcName);
+        
         sentences.Clear();
         avatars.Clear();
         foreach(Array2DForDialogue dialarray in dialogue.speech)

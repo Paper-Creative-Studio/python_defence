@@ -13,6 +13,7 @@ using System.Linq;
 using System.Text.RegularExpressions;
 using static IronPython.Modules.PythonDateTime;
 
+
 public class compiler : MonoBehaviour
 {
     public TMP_InputField tmpro;
@@ -24,10 +25,12 @@ public class compiler : MonoBehaviour
     string replacement;
     public string addition;
     public string polecenie;
+    public string stale;
+    public TMP_Text textplace;
     // Start is called before the first frame update
     void Start()
     {
-        desOut.text= polecenie;
+        
     }
 
     // Update is called once per frame
@@ -79,7 +82,15 @@ public class compiler : MonoBehaviour
         }
        
     }
-
+    public void LoadNewTask()
+    {
+        output.text = string.Empty;
+        desOut.text = string.Empty;
+        tmpro.text = string.Empty;
+        desOut.text = polecenie;
+        tmpro.text = stale;
+        
+    }
     IEnumerator WaitSeconds()
     {
         yield return new WaitForSecondsRealtime(3);

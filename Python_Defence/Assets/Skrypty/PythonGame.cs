@@ -16,6 +16,7 @@ public class PythonGame : MonoBehaviour
     private bool talk;
     public bool talking;
     [SerializeField] private UnityEvent onInteract;
+    [SerializeField] private UnityEvent onNewTask;
     public string aftermath;
     [SerializeField] private GameObject waveSpawner;
     private WaveSpawner wavescript;
@@ -36,7 +37,8 @@ public class PythonGame : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(canvas.active == true)
+       
+        if(canvas.activeSelf == true)
         {
             coding = true;
         }
@@ -44,7 +46,7 @@ public class PythonGame : MonoBehaviour
         {
             coding = false;
         }
-        Debug.Log(dialTrigger.index + " " + previousindex);
+       
         if (skrypt != null)
         {
             
@@ -91,6 +93,7 @@ public class PythonGame : MonoBehaviour
                     if (!coding)
                     {
                         onInteract.Invoke();
+                        
                     }
                     
 
@@ -127,8 +130,10 @@ public class PythonGame : MonoBehaviour
         skrypt.addition = tasks[dialTrigger.index].addition;
         canvas.SetActive(true);
         skrypt.desiredOutput = tasks[dialTrigger.index].output;
+        
         skrypt.polecenie = tasks[dialTrigger.index].Polecenie;
-
+        skrypt.stale = tasks[dialTrigger.index].stale;
+        onNewTask.Invoke();
         hpCanvas.SetActive(false);
         Time.timeScale = 0;
     }

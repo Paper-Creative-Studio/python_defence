@@ -1,8 +1,7 @@
-def first(word):
-	return word[0]
-	
-slowo="slowo"
-if(slowo[0] == first(slowo)):
-	print("It returns first letter of given word")
+list = ['supports', 'minecart', 'pickaxe', 'shovel', 'tracks', 'apple']
+list.remove("apple")
+list.sort()
+if list == ['minecart', 'pickaxe', 'shovel', 'supports', 'tracks']:
+	print("List is organized")
 else:
-	print("It does not returns first letter of given word")
+	print("List is not organized")
