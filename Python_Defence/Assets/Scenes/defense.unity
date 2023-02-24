@@ -4063,6 +4063,9 @@ MonoBehaviour:
 '
     addition: 
     condition: 'for z in range(x+1,y):'
+    onSuccesful:
+      m_PersistentCalls:
+        m_Calls: []
   - Polecenie: 'Write for loop which will append all numbers divisible by 3 between
       0 and 31 to an array
 
@@ -4072,6 +4075,9 @@ MonoBehaviour:
     stale: 
     addition: 
     condition: for
+    onSuccesful:
+      m_PersistentCalls:
+        m_Calls: []
   canvas: {fileID: 2017472308}
   hpCanvas: {fileID: 1550929144}
   result: 0
@@ -10924,6 +10930,9 @@ MonoBehaviour:
       two arguments\")\r\nelse:\r\n\tprint(\"Returned value is not addition result
       of two arguments\")"
     condition: 
+    onSuccesful:
+      m_PersistentCalls:
+        m_Calls: []
   - Polecenie: write a function called "first" which will return first letter of
       given word
     output: It returns first letter of given word
@@ -10933,6 +10942,9 @@ MonoBehaviour:
       first letter of given word\")\r\nelse:\r\n\tprint(\"It does not returns first
       letter of given word\")"
     condition: 
+    onSuccesful:
+      m_PersistentCalls:
+        m_Calls: []
   canvas: {fileID: 2017472308}
   hpCanvas: {fileID: 1550929144}
   result: 0
@@ -11035,7 +11047,7 @@ MonoBehaviour:
     - avatar: {fileID: 21300000, guid: b19b85a032f1d5f48963621392681696, type: 3}
       sentence: No problem. I'll be back in some time
     aftermath: 
-  index: 0
+  index: 2
   dialogueCanvas: {fileID: 1797485694}
   dialmanager: {fileID: 1584948959}
 --- !u!1 &938016281
@@ -11707,6 +11719,9 @@ MonoBehaviour:
     stale: 
     addition: 
     condition: 
+    onSuccesful:
+      m_PersistentCalls:
+        m_Calls: []
   - Polecenie: Append every 5 integer from 5 to 100 to an array starting with 5 and
       print that array
     output: '[5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85,
@@ -11715,6 +11730,9 @@ MonoBehaviour:
     stale: 
     addition: 
     condition: 
+    onSuccesful:
+      m_PersistentCalls:
+        m_Calls: []
   canvas: {fileID: 2017472308}
   hpCanvas: {fileID: 1550929144}
   result: 0
@@ -12388,6 +12406,9 @@ MonoBehaviour:
     stale: 
     addition: 
     condition: 'if i==3 or i==4:'
+    onSuccesful:
+      m_PersistentCalls:
+        m_Calls: []
   - Polecenie: Write if operation that in case variable 'i' is even number will print
       "Horse" and in case of it being an odd number will print "Sheep"
     output: Horse
@@ -12395,6 +12416,9 @@ MonoBehaviour:
     stale: 
     addition: 
     condition: 'if i%2==0:'
+    onSuccesful:
+      m_PersistentCalls:
+        m_Calls: []
   canvas: {fileID: 2017472308}
   hpCanvas: {fileID: 1550929144}
   result: 0
@@ -19389,17 +19413,15 @@ MonoBehaviour:
       sentence: What do you need?
     - avatar: {fileID: 21300000, guid: b19b85a032f1d5f48963621392681696, type: 3}
       sentence: Extra minerals are always useful...
-    aftermath: 
+    aftermath: Python
   - npcName: Villager
     speech:
-    - avatar: {fileID: 21300000, guid: b19b85a032f1d5f48963621392681696, type: 3}
-      sentence: How is renovation going?
     - avatar: {fileID: 21300000, guid: f9f269a86a6508d408cebf6bdfea75c8, type: 3}
       sentence: I'm gonna need more time
     - avatar: {fileID: 21300000, guid: b19b85a032f1d5f48963621392681696, type: 3}
       sentence: No problem. I'll be back in some time
     aftermath: 
-  index: 0
+  index: 2
   dialogueCanvas: {fileID: 1797485694}
   dialmanager: {fileID: 1584948959}
 --- !u!114 &1346207674
@@ -19425,6 +19447,9 @@ MonoBehaviour:
       all(value in list for value in correct):\r\n\tprint(\"List contains all needed
       materials\")\r\nelse:\r\n\tprint(\"List does not contains all needed materials\")"
     condition: 
+    onSuccesful:
+      m_PersistentCalls:
+        m_Calls: []
   - Polecenie: From a list containing all things needed for bulding a mine delete
       'apple' and sort it alphabetically
     output: List is organized
@@ -19433,6 +19458,33 @@ MonoBehaviour:
     addition: "\nif list == ['minecart', 'pickaxe', 'shovel', 'supports', 'tracks']:\r\n\tprint(\"List
       is organized\")\r\nelse:\r\n\tprint(\"List is not organized\")"
     condition: 
+    onSuccesful:
+      m_PersistentCalls:
+        m_Calls: []
+  - Polecenie: Count all gold that is contained in an array using for loop
+    output: 2
+    secondaryoutput: 
+    stale: 'mining = ["stone", "copper", "gold", "stone", "stone", "gold", "silver",
+      "stone", "copper", "copper" ]
+
+'
+    addition: 
+    condition: for
+    onSuccesful:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1398872397}
+          m_TargetAssemblyTypeName: Eq, Assembly-CSharp
+          m_MethodName: giveGold
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
   canvas: {fileID: 2017472308}
   hpCanvas: {fileID: 1550929144}
   result: 0

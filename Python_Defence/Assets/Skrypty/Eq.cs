@@ -28,4 +28,9 @@ public class Eq : MonoBehaviour
     {
         
     }
+    public void giveGold()
+    {
+        GoldCount += 2;
+        goldText.text = GoldCount.ToString();
+    }
 }

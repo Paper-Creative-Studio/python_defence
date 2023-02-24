@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.Events;
 [System.Serializable]
 public class Task
 {
@@ -12,4 +12,5 @@ public class Task
     [TextArea]public string stale;
     [TextArea]public string addition;
     [TextArea]public string condition;
+    public UnityEvent onSuccesful;
 }

@@ -57,6 +57,7 @@ public class PythonGame : MonoBehaviour
                 
                 if(doonce)
                 {
+                    tasks[dialTrigger.index].onSuccesful.Invoke();
                     previousindex = dialTrigger.index;
                     dialTrigger.index = 3;
                     hpCanvas.SetActive(true);
@@ -67,8 +68,18 @@ public class PythonGame : MonoBehaviour
                 
                 if(wavescript.doneWaves == neededwaves)
                 {
-                    previousindex++;
-                    dialTrigger.index = previousindex;
+                    Debug.Log("cos sie stalo");
+                    if(previousindex != 2)
+                    {
+                        previousindex++;
+                    }
+                    if(dialTrigger.index != 2)
+                    {
+
+                        Debug.Log("siabadama");
+                        dialTrigger.index = previousindex;
+                    }
+                    
                     building.sprite = stages[0];
                     stages.RemoveAt(0);
                     if (stages.Count == 0)

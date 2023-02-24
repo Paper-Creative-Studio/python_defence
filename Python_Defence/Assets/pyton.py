@@ -1,5 +1,6 @@
-list=[]
-for z in range(0+1,31):
-	if z%3 == 0:
-		list.append(z)
-print(list)
+mining = ["stone", "copper", "gold", "stone", "stone", "gold", "silver", "stone", "copper", "copper" ]
+i=0
+for x in mining:
+	if x=="gold":
+		i+=1
+print(i);
