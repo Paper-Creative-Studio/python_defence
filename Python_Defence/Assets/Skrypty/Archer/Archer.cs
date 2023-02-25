@@ -95,7 +95,7 @@ public class Archer : MonoBehaviour
                         Vector3 dir = enemy - createdArrow.transform.position;
                         var angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
                         createdArrow.transform.rotation = Quaternion.AngleAxis(angle - 45f, Vector3.forward);
-                        Debug.Log("elo");
+                        
                     }
                     else
                     {

@@ -66,7 +66,7 @@ GameObject:
   - component: {fileID: 5832367070666367475}
   m_Layer: 0
   m_Name: Ogre
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -524,7 +524,7 @@ GameObject:
   - component: {fileID: 5832367072225687541}
   m_Layer: 6
   m_Name: Ogre_Object
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
