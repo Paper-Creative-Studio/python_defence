@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEditor.U2D.Sprites;
 using UnityEngine;
 using UnityEngine.UI;
@@ -13,7 +14,8 @@ public class WaveSpawner : MonoBehaviour
     public GameObject[] enemyWave3;
     public GameObject[] enemyWave4;
     public Transform[] spawnPoints;
-    [SerializeField] private GameObject waveSeeker;
+    [SerializeField] private ObjectiveSetter objectivescript;
+    public waveSeeker waveseeker;
     public int doneWaves = 0;
     private int waveCount = 1;
     public bool lose = false;
@@ -49,9 +51,15 @@ public class WaveSpawner : MonoBehaviour
                 Debug.Log(lose);
                 if (!lose)
                 {
+                    
                     doneWaves++;
-                    waveCount++;
+                        waveCount++;
+                    
+                    
                 }
+                objectivescript.description.text = objectivescript.objectives[0].CoZrobic;
+                objectivescript.title.text = objectivescript.objectives[0].Title;
+                waveseeker.enemy = false;
                 lose = false;
                 wave = false;
                 
@@ -72,7 +80,14 @@ public class WaveSpawner : MonoBehaviour
     {
         SpawnWave(waveCount);
         transform.position = new Vector3 (transform.position.x, transform.position.y, -1);
-        waveSeeker.SetActive(true);
+        waveseeker.enemy = true;
+        Debug.Log("gasdowno");
+        if (objectivescript.objectives[0].internalTitle != "Wave")
+        {
+            Debug.Log("gowno");
+            objectivescript.title.text = "Monsters invasion";
+            objectivescript.description.text = "Take out the monsters or they destroy our town";
+        }
         
     }
     void SpawnWave(int waveNumber)

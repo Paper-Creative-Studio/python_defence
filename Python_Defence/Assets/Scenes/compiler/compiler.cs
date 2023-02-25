@@ -77,13 +77,13 @@ public class compiler : MonoBehaviour
         }
         if(condition!= string.Empty)
         {
-            Debug.Log("condition exists");
+            
             if (!tmpro.text.Contains(condition))
             {
 
                 scriptwyw.result = false;
                 output.color = Color.red;
-                output.text = "Your code doesn't meet conditions";
+                
             }
             else
             {
@@ -91,14 +91,14 @@ public class compiler : MonoBehaviour
                 {
                     if (replacement == desiredOutput)
                     {
-                        Debug.Log("good output");
+                        
                         scriptwyw.result = true;
                         output.color = Color.green;
                         StartCoroutine(WaitSeconds());
                     }
                     else if (replacement == secOutput)
                     {
-                        Debug.Log("good output");
+                       
                         scriptwyw.result = true;
                         output.color = Color.green;
                         StartCoroutine(WaitSeconds());
@@ -106,7 +106,7 @@ public class compiler : MonoBehaviour
                     }
                     else
                     {
-                        Debug.Log("Bad output");
+                        
                         scriptwyw.result = false;
                         output.color = Color.red;
                     }
@@ -115,14 +115,14 @@ public class compiler : MonoBehaviour
                 {
                     if (replacement == desiredOutput)
                     {
-                        Debug.Log("good output");
+                        
                         scriptwyw.result = true;
                         output.color = Color.green;
                         StartCoroutine(WaitSeconds());
                     }
                     else
                     {
-                        Debug.Log("Bad output");
+                        
                         scriptwyw.result = false;
                         output.color = Color.red;
                     }
@@ -132,19 +132,19 @@ public class compiler : MonoBehaviour
         }
         else
         {
-            Debug.Log("condition does not exists");
+            
             if (secOutput != string.Empty)
             {
                 if (replacement == desiredOutput)
                 {
-                    Debug.Log("good output");
+                   
                     scriptwyw.result = true;
                     output.color = Color.green;
                     StartCoroutine(WaitSeconds());
                 }
                 else if (replacement == secOutput)
                 {
-                    Debug.Log("good output");
+                    
                     scriptwyw.result = true;
                     output.color = Color.green;
                     StartCoroutine(WaitSeconds());
@@ -152,7 +152,7 @@ public class compiler : MonoBehaviour
                 }
                 else
                 {
-                    Debug.Log("Bad output");
+                    
                     scriptwyw.result = false;
                     output.color = Color.red;
                 }
@@ -161,14 +161,14 @@ public class compiler : MonoBehaviour
             {
                 if (replacement == desiredOutput)
                 {
-                    Debug.Log("good output");
+                    
                     scriptwyw.result = true;
                     output.color = Color.green;
                     StartCoroutine(WaitSeconds());
                 }
                 else
                 {
-                    Debug.Log("Bad output");
+                    
                     scriptwyw.result = false;
                     output.color = Color.red;
                 }

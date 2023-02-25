@@ -23,10 +23,11 @@ public class PythonGame : MonoBehaviour
     private WaveSpawner wavescript;
     private int neededwaves;
     private bool coding = false;
-    
+    [SerializeField] private ObjectiveSetter objectiveScript;
     bool doonce = true;
     [SerializeField] private DialogueTrigger dialTrigger;
     private int previousindex;
+    [SerializeField] private string ownTask;
     // Start is called before the first frame update
     void Start()
     {
@@ -54,9 +55,13 @@ public class PythonGame : MonoBehaviour
             if (result && Time.timeScale == 1)
             {
                 
-                
-                if(doonce)
+
+                if (doonce)
                 {
+                    if (objectiveScript.objectives[0].internalTitle == ownTask)
+                    {
+                        objectiveScript.NextObjective();
+                    }
                     tasks[dialTrigger.index].onSuccesful.Invoke();
                     previousindex = dialTrigger.index;
                     dialTrigger.index = 3;
@@ -68,15 +73,18 @@ public class PythonGame : MonoBehaviour
                 
                 if(wavescript.doneWaves == neededwaves)
                 {
-                    Debug.Log("cos sie stalo");
-                    if(previousindex != 2)
+                    if (objectiveScript.objectives[0].internalTitle == "Wave")
+                    {
+                        objectiveScript.NextObjective();
+                    }
+                    if (previousindex != 2)
                     {
                         previousindex++;
                     }
                     if(dialTrigger.index != 2)
                     {
 
-                        Debug.Log("siabadama");
+                        
                         dialTrigger.index = previousindex;
                     }
                     
@@ -104,6 +112,7 @@ public class PythonGame : MonoBehaviour
                 {
                     if (!coding)
                     {
+                        
                         onInteract.Invoke();
                         
                     }
