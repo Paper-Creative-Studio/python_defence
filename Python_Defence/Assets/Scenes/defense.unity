@@ -12380,6 +12380,7 @@ MonoBehaviour:
   - {fileID: 276068446}
   waveSeeker: {fileID: 1473518006}
   doneWaves: 0
+  lose: 0
   aliveEnemies: []
 --- !u!114 &1028385551
 MonoBehaviour:
@@ -13934,6 +13935,7 @@ MonoBehaviour:
   iconSprite: {fileID: 0}
   texttext: 
   tiptext: 
+  spawner: {fileID: 1028385550}
 --- !u!1 &1144666393
 GameObject:
   m_ObjectHideFlags: 0
@@ -23070,7 +23072,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1139575605}
         m_TargetAssemblyTypeName: DeathTrigger, Assembly-CSharp
-        m_MethodName: RollIn
+        m_MethodName: CastleRollIn
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

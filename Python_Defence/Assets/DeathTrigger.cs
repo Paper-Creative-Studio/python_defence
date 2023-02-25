@@ -21,6 +21,7 @@ public class DeathTrigger : MonoBehaviour
     public string texttext;
     [TextArea]
     public string tiptext;
+    public WaveSpawner spawner;
     
     // Start is called before the first frame update
     void Start()
@@ -35,6 +36,7 @@ public class DeathTrigger : MonoBehaviour
     }
     public void RollIn()
     {
+
         icon.sprite = iconSprite;
         
         text.text = texttext;
@@ -43,6 +45,23 @@ public class DeathTrigger : MonoBehaviour
         player.GetComponent<Health>().alive = false;
         StartCoroutine(WaitforOut());
         
+    }
+    public void CastleRollIn()
+    {
+        for(int i =0; i< spawner.aliveEnemies.Count; i++)
+        {
+            
+            Destroy(spawner.aliveEnemies[i].gameObject);
+        }
+        spawner.lose = true;
+        icon.sprite = iconSprite;
+
+        text.text = texttext;
+        tip.text = tiptext;
+        gameObject.SetActive(true);
+        player.GetComponent<Health>().alive = false;
+        StartCoroutine(WaitforOut());
+
     }
     IEnumerator WaitforOut()
     {

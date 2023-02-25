@@ -17,9 +17,14 @@ public class waveSeeker : MonoBehaviour
     {
         if(wavespawner.aliveEnemies.Count != 0)
         {
-            Vector3 dir = wavespawner.aliveEnemies[0].transform.position - transform.position;
-            var angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-            transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+            if (wavespawner.aliveEnemies[0] != null)
+            {
+                Vector3 dir = wavespawner.aliveEnemies[0].transform.position - transform.position;
+                var angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+                transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+            }
+
+           
         }
         
     }

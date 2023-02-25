@@ -33,6 +33,9 @@ public class CastleHealth : MonoBehaviour
                 deathtrigger.tiptext = tiptext;
                 onDestruction.Invoke();
                 doonce = false;
+                currentHealth = maxHealth;
+                hpbar.SetHealth(currentHealth);
+
             }
         }
        

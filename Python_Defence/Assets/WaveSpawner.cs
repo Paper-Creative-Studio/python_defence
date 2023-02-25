@@ -16,6 +16,7 @@ public class WaveSpawner : MonoBehaviour
     [SerializeField] private GameObject waveSeeker;
     public int doneWaves = 0;
     private int waveCount = 1;
+    public bool lose = false;
     public List<GameObject> aliveEnemies = new List<GameObject>();
     
     private bool wave;
@@ -29,8 +30,8 @@ public class WaveSpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         
-       
 
         if(wave)
         {
@@ -45,9 +46,15 @@ public class WaveSpawner : MonoBehaviour
             }
             if (aliveEnemies.Count == 0)
             {
-                doneWaves++;
+                Debug.Log(lose);
+                if (!lose)
+                {
+                    doneWaves++;
+                    waveCount++;
+                }
+                lose = false;
                 wave = false;
-                waveCount++;
+                
                 if (waveCount > 4)
                 {
                     waveCount = 1;
@@ -66,7 +73,7 @@ public class WaveSpawner : MonoBehaviour
         SpawnWave(waveCount);
         transform.position = new Vector3 (transform.position.x, transform.position.y, -1);
         waveSeeker.SetActive(true);
-        waveCount++;
+        
     }
     void SpawnWave(int waveNumber)
     {
