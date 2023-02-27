@@ -298,7 +298,7 @@ MonoBehaviour:
   isattacking: 0
   minAS: 2
   maxAS: 3
-  attackRange: 7
+  attackRange: 8
   attackPoint: {fileID: 1361046920271281186}
   playerLayer:
     serializedVersion: 2
@@ -862,7 +862,7 @@ MonoBehaviour:
   PlayerSpeed: 0.9
   stopRange: 8
   move: 0
-  aipath: {fileID: 0}
+  aipath: {fileID: 7175899123042887932}
 --- !u!114 &2818696240622120227
 MonoBehaviour:
   m_ObjectHideFlags: 0
