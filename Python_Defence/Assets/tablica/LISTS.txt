@@ -1,0 +1,28 @@
+Lists - are used to store many elements in one place, list elements are ordered but can be edited and their values may appear more than one time (there can be two elements "heart"). List elements are indexed starting from zero [0] and can have any data type (integer, string, boolean).
+
+Example:
+list = ["house", "grass", "tree", "leaf"]
+print(list)
+Result: ['house', 'grass', 'tree', 'leaf']
+
+Print elements from 2 to 4:
+list = ["house", "grass", "tree", "leaf"]
+print(list[2:4])
+Result: ['tree', 'leaf']
+
+Change the value of the 1st element:
+list = ["house", "grass", "tree", "leaf"]
+list[1] = "banana"
+print(list)
+Result: ['house', 'banana', 'tree', 'leaf']
+
+Functions with lists:
+
+len() - number of elements len(list)
+append() - adds a given element to the end of the list
+insert(index, "element") - adds an element at the specified index
+remove("element") - removes a given element
+pop(index) - removes the element at the given index
+clear() - clears the entire list, but the list itself remains empty
+
+
