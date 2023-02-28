@@ -1,0 +1,146 @@
+In programming, loops are used to execute a block of code repeatedly until a certain condition is met. In Python, there are several types of loops that you can use to achieve this.
+
+For Loop:
+The for loop in Python is used to iterate over a sequence of elements. It takes an iterable object (such as a list or a string) and executes a block of code for each element in the sequence.
+Syntax:
+for variable in sequence:
+	code block
+
+Example:
+fruits = ["apple", "banana", "cherry"]
+for x in fruits:
+	print(x)
+
+Output:
+apple
+banana
+cherry
+
+While Loop:
+The while loop in Python is used to execute a block of code repeatedly as long as a certain condition is true. It keeps looping until the condition becomes false.
+Syntax:
+while condition:
+code block
+
+Example:
+i = 0
+while i < 5:
+	print(i)
+	i += 1
+
+Output:
+0
+1
+2
+3
+4
+
+Nested Loops:
+A nested loop in Python is a loop inside another loop. It is used to iterate over a sequence of elements that are themselves sequences.
+Syntax:
+for variable1 in sequence1:
+for variable2 in sequence2:
+code block
+
+Example:
+adj = ["red", "big", "tasty"]
+fruits = ["apple", "banana", "cherry"]
+for x in adj:
+	for y in fruits:
+		print(x, y)
+
+Output:
+red apple
+red banana
+red cherry
+big apple
+big banana
+big cherry
+tasty apple
+tasty banana
+tasty cherry
+
+Range() Function:
+The range() function in Python is used to generate a sequence of numbers. It can be used in combination with loops to execute a block of code a specific number of times.
+Syntax:
+for variable in range(start, stop, step):
+code block
+
+Example:
+for x in range(2, 10, 2):
+	print(x)
+
+Output:
+2
+4
+6
+8
+
+Break Statement:
+The break statement in Python is used to exit a loop prematurely. It is used to stop the loop from executing further once a certain condition is met.
+Syntax:
+while condition:
+	if expression:
+		break
+
+Example:
+i = 0
+while i < 10:
+	print(i)
+	if i == 5:
+		break
+		i += 1
+
+Output:
+0
+1
+2
+3
+4
+5
+
+Continue Statement:
+The continue statement in Python is used to skip the current iteration of a loop and move on to the next one. It is used to continue the loop execution without executing the rest of the code block for the current iteration.
+Syntax:
+while condition:
+if expression:
+continue
+
+Example:
+i = 0
+while i < 10:
+	i += 1
+	if i == 5:
+		continue
+		print(i)
+
+Output:
+1
+2
+3
+4
+6
+7
+8
+9
+10
+
+Else Statement:
+The else statement in Python is used in conjunction with loops to execute a block of code once the loop has completed its iterations. It is executed only if the loop has not been terminated prematurely using the break statement.
+Syntax:
+for variable in sequence:
+	code block
+else:
+	code block
+
+Example:
+fruits = ["apple", "banana", "cherry"]
+for x in fruits:
+	print(x)
+else:
+	print("Finished!")
+
+Output:
+apple
+banana
+cherry
