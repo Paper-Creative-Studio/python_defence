@@ -95,7 +95,8 @@ public class PythonGame : MonoBehaviour
                     {
                         previousindex = 2;
                     }
-                    if(dialTrigger.index != 2)
+                    
+                    if (dialTrigger.index != 2)
                     {
 
                         

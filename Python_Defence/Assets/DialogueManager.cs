@@ -78,6 +78,7 @@ public class DialogueManager : MonoBehaviour
             else if (aftermath == "Harvest")
             {
                 eqscript.giveHajs(10);
+                eqscript.zaznaczHajs();
                 main_Canvas.SetActive(true);
                 farmerdialtrig.index = 1;
                 farma.Zbierz();

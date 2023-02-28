@@ -39,16 +39,38 @@ public class Eq : MonoBehaviour
     {
         GoldCount += count;
         goldText.text = GoldCount.ToString();
+        zaznaczGold();
     }
     public void giveHajs(int count = 2)
     {
         HajsCount += count;
         Hajstext.text = HajsCount.ToString();
+        zaznaczHajs();
     }
     public void ChangeStrength()
     {
         attackScript.damage += 20;
         silaCount = attackScript.damage * 3;
         Silatext.text = silaCount.ToString();
+    }
+    public void zaznaczGold()
+    {
+        goldText.color = Color.green;
+        StartCoroutine(TurnBackToWhiteGold());
+    }
+    public void zaznaczHajs()
+    {
+        Hajstext.color = Color.green;
+        StartCoroutine(TurnBackToWhiteHajs());
+    }
+    IEnumerator TurnBackToWhiteGold()
+    {
+        yield return new WaitForSecondsRealtime(2);
+        goldText.color = Color.white;
+    }
+    IEnumerator TurnBackToWhiteHajs()
+    {
+        yield return new WaitForSecondsRealtime(2);
+        Hajstext.color = Color.white;
     }
 }
