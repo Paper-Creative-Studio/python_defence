@@ -35,10 +35,15 @@ public class Eq : MonoBehaviour
     {
         
     }
-    public void giveGold()
+    public void giveGold(int count = 2)
     {
-        GoldCount += 2;
+        GoldCount += count;
         goldText.text = GoldCount.ToString();
+    }
+    public void giveHajs(int count = 2)
+    {
+        HajsCount += count;
+        Hajstext.text = HajsCount.ToString();
     }
     public void ChangeStrength()
     {

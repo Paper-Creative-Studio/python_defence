@@ -20,6 +20,7 @@ public class WaveSpawner : MonoBehaviour
     private int waveCount = 1;
     public bool lose = false;
     public List<GameObject> aliveEnemies = new List<GameObject>();
+    [SerializeField] private Eq eqscript;
     
     private bool wave;
    
@@ -51,9 +52,9 @@ public class WaveSpawner : MonoBehaviour
                 Debug.Log(lose);
                 if (!lose)
                 {
-                    
+                    eqscript.giveHajs((doneWaves +1) * 2);
                     doneWaves++;
-                        waveCount++;
+                    waveCount++;
                     
                     
                 }

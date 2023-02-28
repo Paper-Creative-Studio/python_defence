@@ -303,7 +303,7 @@ MonoBehaviour:
   playerLayer:
     serializedVersion: 2
     m_Bits: 256
-  damage: 5
+  damage: 10
   anim: {fileID: 1361046918946888068}
   hitPlayer: []
   arrow: {fileID: 312024135112198859, guid: ea438340c7512a740a5200e9c2969497, type: 3}
@@ -324,8 +324,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eee44a18ace519c4894070bcb01247ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 20
-  currentHealth: 20
+  maxHealth: 30
+  currentHealth: 30
   healthbar: {fileID: 1361046920010706423}
 --- !u!95 &1361046918946888068
 Animator:

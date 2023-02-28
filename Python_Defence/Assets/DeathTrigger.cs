@@ -36,7 +36,12 @@ public class DeathTrigger : MonoBehaviour
     }
     public void RollIn()
     {
+        for (int i = 0; i < spawner.aliveEnemies.Count; i++)
+        {
 
+            Destroy(spawner.aliveEnemies[i].gameObject);
+        }
+        spawner.lose = true;
         icon.sprite = iconSprite;
         
         text.text = texttext;
@@ -71,6 +76,7 @@ public class DeathTrigger : MonoBehaviour
         anim.SetTrigger("Fadeout");
         script.alive = true;
         script.currentHealth = script.maxHealth;
+        script.healthbar.SetHealth(script.maxHealth);
         StartCoroutine(Disable());
     }
     IEnumerator Disable()

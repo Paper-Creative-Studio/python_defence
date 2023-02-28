@@ -480,7 +480,7 @@ MonoBehaviour:
   anim: {fileID: 1919005006836502596}
   CastleSpeed: 1.1
   PlayerSpeed: 1.5
-  stopRange: 2
+  stopRange: 1
   move: 0
   aipath: {fileID: 2109037872039410802}
 --- !u!114 &9222157937437638572
@@ -795,7 +795,7 @@ MonoBehaviour:
   playerLayer:
     serializedVersion: 2
     m_Bits: 256
-  damage: 5
+  damage: 10
   anim: {fileID: 1919005006836502596}
   hitPlayer: []
   arrow: {fileID: 0}
@@ -816,8 +816,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eee44a18ace519c4894070bcb01247ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 20
-  currentHealth: 20
+  maxHealth: 50
+  currentHealth: 50
   healthbar: {fileID: 1919005006452398040}
 --- !u!95 &1919005006836502596
 Animator:
