@@ -28,6 +28,7 @@ public class PythonGame : MonoBehaviour
     [SerializeField] private DialogueTrigger dialTrigger;
     private int previousindex;
     [SerializeField] private string ownTask;
+    public bool loop = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -77,9 +78,14 @@ public class PythonGame : MonoBehaviour
                     {
                         objectiveScript.NextObjective();
                     }
+                    
                     if (previousindex != 2)
                     {
                         previousindex++;
+                    }
+                    if(loop && previousindex ==1)
+                    {
+                        previousindex = 2;
                     }
                     if(dialTrigger.index != 2)
                     {
@@ -88,15 +94,21 @@ public class PythonGame : MonoBehaviour
                         dialTrigger.index = previousindex;
                     }
                     
-                    building.sprite = stages[0];
-                    stages.RemoveAt(0);
-                    if (stages.Count == 0)
+                    
+                    if (!loop)
                     {
-                        building.gameObject.GetComponent<Collider2D>().enabled = true;
-                        building.gameObject.GetComponent<BoxCollider2D>().enabled = true;
-                        
-                        
+                        building.sprite = stages[0];
+                        stages.RemoveAt(0);
+                        if (stages.Count == 0)
+                        {
+                            building.gameObject.GetComponent<Collider2D>().enabled = true;
+                            building.gameObject.GetComponent<BoxCollider2D>().enabled = true;
+
+
+                        }
                     }
+                    
+                    
                     doonce = true;
                     result = false;
                 }

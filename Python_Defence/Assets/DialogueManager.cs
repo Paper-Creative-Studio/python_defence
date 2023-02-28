@@ -16,11 +16,13 @@ public class DialogueManager : MonoBehaviour
     public GameObject player;
     private Queue<string> sentences= new Queue<string>();
     private Queue<Sprite> avatars= new Queue<Sprite>();
+    [SerializeField] private DialogueTrigger farmerdialtrig;
     public PythonGame npcscript;
     public TradeNPC tradescript;
     private movement playermove;
     private Attacking playerattack;
     private string aftermath;
+    [SerializeField] private Eq eqscript;
     private void Start()
     {
         //npcscript = npc.GetComponent<PythonGame>();
@@ -68,6 +70,12 @@ public class DialogueManager : MonoBehaviour
             {
                 tradescript.StartShop();
             }
+            else if (aftermath == "Harvest")
+            {
+                eqscript.giveHajs(10);
+                main_Canvas.SetActive(true);
+                farmerdialtrig.index = 1;
+            }
             else
             {
                 main_Canvas.SetActive(true);
@@ -77,6 +85,7 @@ public class DialogueManager : MonoBehaviour
         }
         string sentence = sentences.Dequeue();
         Sprite avatar = avatars.Dequeue();
+        
         if(avatar.name == "mark_avatar")
         {
             markAvatar.enabled = true;
@@ -90,6 +99,7 @@ public class DialogueManager : MonoBehaviour
             markAvatar.enabled = false;
             npcAvatar.enabled = true;
             npcAvatar.sprite= avatar;
+            npcAvatar.SetNativeSize();
             convotext.alignment = TextAlignmentOptions.MidlineRight;
         }
         convotext.text = sentence;

@@ -35,6 +35,7 @@ public class Health : MonoBehaviour
                 deathtrigger.tiptext= tiptext;
                 onDeath.Invoke();
                 doonce = false;
+                
             }
 
 

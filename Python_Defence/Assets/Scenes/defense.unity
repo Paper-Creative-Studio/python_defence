@@ -1121,7 +1121,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_ConstrainProportionsScale: 1
-  m_Children: []
+  m_Children:
+  - {fileID: 1289740716}
   m_Father: {fileID: 1550929145}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1150,7 +1151,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: dffce9cdddf595a4dbf2ba951ec259d9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 4c2eb33c258ede345865cb5ac1e5a77d, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -4376,6 +4377,7 @@ MonoBehaviour:
   objectiveScript: {fileID: 1790772530}
   dialTrigger: {fileID: 433536006}
   ownTask: Archer
+  loop: 0
 --- !u!58 &433536008
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -9764,6 +9766,307 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 673175194}
   m_CullTransparentMesh: 1
+--- !u!1 &677196819
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 677196820}
+  - component: {fileID: 677196827}
+  - component: {fileID: 677196826}
+  - component: {fileID: 677196825}
+  - component: {fileID: 677196824}
+  - component: {fileID: 677196823}
+  - component: {fileID: 677196822}
+  - component: {fileID: 677196821}
+  m_Layer: 0
+  m_Name: Farmer
+  m_TagString: npc
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &677196820
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 677196819}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 10.43, y: 2.45, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1391568766}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &677196821
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 677196819}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a1219fed81f90442a5079b6f946312f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogues:
+  - npcName: Villager
+    speech:
+    - avatar: {fileID: 21300000, guid: b19b85a032f1d5f48963621392681696, type: 3}
+      sentence: That's a big field...
+    - avatar: {fileID: 21300000, guid: f9f269a86a6508d408cebf6bdfea75c8, type: 3}
+      sentence: 15 ares. I thought of selling it becouse I'm getting old. Maybe you
+        could help me with work on it?
+    - avatar: {fileID: 21300000, guid: b19b85a032f1d5f48963621392681696, type: 3}
+      sentence: What do you need?
+    - avatar: {fileID: 21300000, guid: f9f269a86a6508d408cebf6bdfea75c8, type: 3}
+      sentence: Sow the plants
+    aftermath: Python
+  - npcName: Villager
+    speech:
+    - avatar: {fileID: 21300000, guid: f9f269a86a6508d408cebf6bdfea75c8, type: 3}
+      sentence: Have you come to sow a field?
+    - avatar: {fileID: 21300000, guid: b19b85a032f1d5f48963621392681696, type: 3}
+      sentence: Yes, I do
+    aftermath: Python
+  - npcName: Villager
+    speech:
+    - avatar: {fileID: 21300000, guid: f9f269a86a6508d408cebf6bdfea75c8, type: 3}
+      sentence: Have you come to harvest?
+    - avatar: {fileID: 21300000, guid: b19b85a032f1d5f48963621392681696, type: 3}
+      sentence: Yes, I do
+    aftermath: Harvest
+  - npcName: Villager
+    speech:
+    - avatar: {fileID: 21300000, guid: f9f269a86a6508d408cebf6bdfea75c8, type: 3}
+      sentence: You can harvest plants after some waves
+    aftermath: 
+  index: 0
+  dialogueCanvas: {fileID: 1797485694}
+  dialmanager: {fileID: 1584948959}
+--- !u!114 &677196822
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 677196819}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92fb23e443f56ae4aab0970205e4ca5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tasks:
+  - Polecenie: To variable named 'i' add 5
+    output: Good job!
+    secondaryoutput: 
+    stale: 'i = int(3)
+
+'
+    addition: "\nif i == 8:\r\n\tprint(\"Good job!\")\r\nelse:\r\n\tprint(\"Something
+      is not right\")"
+    condition: +
+    onSuccesful:
+      m_PersistentCalls:
+        m_Calls: []
+  - Polecenie: Multiply variable 'i' by 7 and substract 3
+    output: Good job!
+    secondaryoutput: 
+    stale: 'i = int(15)
+
+'
+    addition: "\nif i == 102:\r\n\tprint(\"Good job!\")\r\nelse:\r\n\tprint(\"Something
+      is not right\")"
+    condition: '*'
+    onSuccesful:
+      m_PersistentCalls:
+        m_Calls: []
+  canvas: {fileID: 2017472308}
+  hpCanvas: {fileID: 1550929144}
+  result: 0
+  building: {fileID: 1776843681}
+  stages:
+  - {fileID: 21300000, guid: 03c79320114970846b93993aa7d304c3, type: 3}
+  - {fileID: 21300000, guid: 6970e3350a1167443ab19b9defc6ea51, type: 3}
+  talking: 0
+  onInteract:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 677196821}
+        m_TargetAssemblyTypeName: DialogueTrigger, Assembly-CSharp
+        m_MethodName: TriggerDialogue
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onNewTask:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1825767132}
+        m_TargetAssemblyTypeName: compiler, Assembly-CSharp
+        m_MethodName: LoadNewTask
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  aftermath: Python
+  waveSpawner: {fileID: 1028385548}
+  objectiveScript: {fileID: 1790772530}
+  dialTrigger: {fileID: 677196821}
+  ownTask: Farmer
+  loop: 1
+--- !u!58 &677196823
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 677196819}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.028676987, y: -0.096576214}
+  serializedVersion: 2
+  m_Radius: 1.3476129
+--- !u!95 &677196824
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 677196819}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f589d61c783c5ca45bd3beb173348c92, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+--- !u!61 &677196825
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 677196819}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.0020385385, y: -0.049668074}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.44, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.76407707, y: 0.90066385}
+  m_EdgeRadius: 0
+--- !u!50 &677196826
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 677196819}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 1
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 1
+  m_Constraints: 4
+--- !u!212 &677196827
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 677196819}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 1
+  m_Sprite: {fileID: 1825935660, guid: cad83bf1e1946d54e98560c1412c661b, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 1, y: 1}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
 --- !u!1 &684148386
 GameObject:
   m_ObjectHideFlags: 0
@@ -11820,6 +12123,7 @@ MonoBehaviour:
   objectiveScript: {fileID: 1790772530}
   dialTrigger: {fileID: 937017158}
   ownTask: Priest
+  loop: 0
 --- !u!58 &937017157
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -12531,7 +12835,7 @@ MonoBehaviour:
   dialogues:
   - npcName: Villager
     speech:
-    - avatar: {fileID: 21300000, guid: c9610bc3403446c49a2f6c88c76cbcf5, type: 3}
+    - avatar: {fileID: 21300000, guid: aadf88884f4eb9d428bc1b5753f6843e, type: 3}
       sentence: Since the monsters attacked us and destroyed the previous forge,
         I have no place to work
     - avatar: {fileID: 21300000, guid: b19b85a032f1d5f48963621392681696, type: 3}
@@ -12539,7 +12843,7 @@ MonoBehaviour:
     aftermath: Python
   - npcName: Villager
     speech:
-    - avatar: {fileID: 21300000, guid: c9610bc3403446c49a2f6c88c76cbcf5, type: 3}
+    - avatar: {fileID: 21300000, guid: aadf88884f4eb9d428bc1b5753f6843e, type: 3}
       sentence: it's starting to look like my old forge. Do you have a moment to
         help me?
     - avatar: {fileID: 21300000, guid: b19b85a032f1d5f48963621392681696, type: 3}
@@ -12547,7 +12851,7 @@ MonoBehaviour:
     aftermath: Python
   - npcName: Villager
     speech:
-    - avatar: {fileID: 21300000, guid: c9610bc3403446c49a2f6c88c76cbcf5, type: 3}
+    - avatar: {fileID: 21300000, guid: aadf88884f4eb9d428bc1b5753f6843e, type: 3}
       sentence: Hi, Mark. Do you need help with something?
     - avatar: {fileID: 21300000, guid: b19b85a032f1d5f48963621392681696, type: 3}
       sentence: I'd like to forge my weapon. Do you have a moment?
@@ -12556,7 +12860,7 @@ MonoBehaviour:
     speech:
     - avatar: {fileID: 21300000, guid: b19b85a032f1d5f48963621392681696, type: 3}
       sentence: How is renovation going?
-    - avatar: {fileID: 21300000, guid: c9610bc3403446c49a2f6c88c76cbcf5, type: 3}
+    - avatar: {fileID: 21300000, guid: aadf88884f4eb9d428bc1b5753f6843e, type: 3}
       sentence: I'm gonna need more time
     - avatar: {fileID: 21300000, guid: b19b85a032f1d5f48963621392681696, type: 3}
       sentence: No problem. I'll be back in some time
@@ -12667,6 +12971,7 @@ MonoBehaviour:
   objectiveScript: {fileID: 1790772530}
   dialTrigger: {fileID: 997326384}
   ownTask: Kowal
+  loop: 0
 --- !u!58 &997326386
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -12693,7 +12998,7 @@ Animator:
   m_GameObject: {fileID: 997326382}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 9b3aaeef3a2e4f64c9dd5fedcc3c415f, type: 2}
+  m_Controller: {fileID: 9100000, guid: b66d86c7ace74ab43949291c386d6a78, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -12719,8 +13024,8 @@ BoxCollider2D:
   m_Offset: {x: 0.0020385385, y: -0.049668074}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.41, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    pivot: {x: 0.35, y: 0.5}
+    oldSize: {x: 1.125, y: 0.796875}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -12791,7 +13096,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: -1429560964, guid: 0e082c6c68bd6524d927989b10d457f0, type: 3}
+  m_Sprite: {fileID: 920248063, guid: 4cd10570cf9477e4884eab7194e4c195, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -12862,7 +13167,9 @@ MonoBehaviour:
   - {fileID: 1259090576415437038, guid: db380232e76ae274bb4e3d53931beb59, type: 3}
   - {fileID: 5832367070666367485, guid: c6124318301460b4cac04405949e76a6, type: 3}
   enemyWave1:
-  - {fileID: 5832367070666367485, guid: c6124318301460b4cac04405949e76a6, type: 3}
+  - {fileID: 1919005006421789567, guid: c7e2ab5a6a5551a48ab46881e6caf856, type: 3}
+  - {fileID: 1919005006421789567, guid: c7e2ab5a6a5551a48ab46881e6caf856, type: 3}
+  - {fileID: 1361046920000320755, guid: a4e37fdf8e2fc754a9b2a339ed2eaa29, type: 3}
   enemyWave2:
   - {fileID: 1919005006421789567, guid: c7e2ab5a6a5551a48ab46881e6caf856, type: 3}
   - {fileID: 1259090576415437038, guid: db380232e76ae274bb4e3d53931beb59, type: 3}
@@ -12889,6 +13196,7 @@ MonoBehaviour:
   doneWaves: 0
   lose: 0
   aliveEnemies: []
+  eqscript: {fileID: 1398872397}
 --- !u!114 &1028385551
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13607,6 +13915,7 @@ MonoBehaviour:
   objectiveScript: {fileID: 1790772530}
   dialTrigger: {fileID: 1094362092}
   ownTask: Stajnia
+  loop: 0
 --- !u!58 &1094362094
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -15902,6 +16211,82 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1275971299}
   m_CullTransparentMesh: 1
+--- !u!1 &1289740715
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1289740716}
+  - component: {fileID: 1289740718}
+  - component: {fileID: 1289740717}
+  m_Layer: 5
+  m_Name: Image
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1289740716
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1289740715}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 187051335}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1289740717
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1289740715}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: b1fe04d310d8a0e409df422ff08fcae4, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1289740718
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1289740715}
+  m_CullTransparentMesh: 1
 --- !u!1 &1299488593
 GameObject:
   m_ObjectHideFlags: 0
@@ -16219,6 +16604,7 @@ MonoBehaviour:
   objectiveScript: {fileID: 1790772530}
   dialTrigger: {fileID: 1346207673}
   ownTask: Miner
+  loop: 0
 --- !u!58 &1346207675
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -16440,6 +16826,7 @@ Transform:
   - {fileID: 997326383}
   - {fileID: 1094362090}
   - {fileID: 433536005}
+  - {fileID: 677196820}
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -16728,7 +17115,7 @@ MonoBehaviour:
     m_Bits: 64
   attackCooldown: 0.5
   anim_controller: {fileID: 1398872389}
-  damage: 20
+  damage: 999
   canAttack: 1
 --- !u!114 &1398872396
 MonoBehaviour:
@@ -18200,8 +18587,10 @@ MonoBehaviour:
   dialogueCanvas: {fileID: 1797485694}
   npc: {fileID: 937017150}
   player: {fileID: 1398872383}
+  farmerdialtrig: {fileID: 677196821}
   npcscript: {fileID: 0}
   tradescript: {fileID: 0}
+  eqscript: {fileID: 1398872397}
 --- !u!4 &1584948960
 Transform:
   m_ObjectHideFlags: 0
@@ -19415,11 +19804,11 @@ MonoBehaviour:
   hpbar: {fileID: 1370254340}
   maxHealth: 100
   currentHealth: 100
-  damage: 100
+  damage: 20
   deathtrigger: {fileID: 1139575605}
   iconSprite: {fileID: 21300000, guid: 425357f98248e394f89a789395fe4a3f, type: 3}
-  texttext: Miasto sie poli
-  tiptext: L bozo RIP
+  texttext: Village destroyed
+  tiptext: Try leveling up your archers
   onDestruction:
     m_PersistentCalls:
       m_Calls:

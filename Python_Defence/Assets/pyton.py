@@ -1,7 +1,6 @@
-list = ['supports', 'minecart', 'pickaxe', 'shovel']
-list.append("tracks")
-correct = ['supports', 'minecart', 'pickaxe', 'shovel', 'tracks']
-if all(value in list for value in correct):
-	print("List contains all needed materials")
+i = int(15)
+i = i * 7 -3
+if i == 102:
+	print("Good job!")
 else:
-	print("List does not contains all needed materials")
+	print("Something is not right")
