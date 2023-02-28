@@ -29,6 +29,7 @@ public class PythonGame : MonoBehaviour
     private int previousindex;
     [SerializeField] private string ownTask;
     public bool loop = false;
+    [SerializeField] private farmamanagement farma;
     // Start is called before the first frame update
     void Start()
     {
@@ -77,6 +78,13 @@ public class PythonGame : MonoBehaviour
                     if (objectiveScript.objectives[0].internalTitle == "Wave")
                     {
                         objectiveScript.NextObjective();
+                    }
+                    if(farma != null)
+                    {
+                        if (previousindex == 0 || previousindex == 1)
+                        {
+                            farma.Wyrosnij();
+                        }
                     }
                     
                     if (previousindex != 2)

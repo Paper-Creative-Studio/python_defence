@@ -23,6 +23,7 @@ public class DialogueManager : MonoBehaviour
     private Attacking playerattack;
     private string aftermath;
     [SerializeField] private Eq eqscript;
+    [SerializeField] private farmamanagement farma;
     private void Start()
     {
         //npcscript = npc.GetComponent<PythonGame>();
@@ -66,6 +67,10 @@ public class DialogueManager : MonoBehaviour
             {
                 npcscript.LaunchPython();
             }
+            else if (aftermath == "Python")
+            {
+                tradescript.StartShop();
+            }
             else if(aftermath == "Shop")
             {
                 tradescript.StartShop();
@@ -75,6 +80,7 @@ public class DialogueManager : MonoBehaviour
                 eqscript.giveHajs(10);
                 main_Canvas.SetActive(true);
                 farmerdialtrig.index = 1;
+                farma.Zbierz();
             }
             else
             {

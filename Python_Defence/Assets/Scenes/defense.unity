@@ -158,7 +158,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 35.03, y: -164.39}
+  m_AnchoredPosition: {x: 35.03, y: -164.39001}
   m_SizeDelta: {x: -90.07, y: -311.19}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &6593670
@@ -876,7 +876,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 129326424}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.085273, y: -1.8300009, z: 0.7418769}
+  m_LocalPosition: {x: 3.45, y: -1.8300009, z: 0.7418769}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -924,7 +924,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: fe63933d9c4d1974da202d6984fb14e1, type: 3}
+  m_Sprite: {fileID: 21300000, guid: dc11781eae621084eb0889e2704330ea, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -4313,11 +4313,21 @@ MonoBehaviour:
     onSuccesful:
       m_PersistentCalls:
         m_Calls: []
-  - Polecenie: dupa
-    output: 3
+  - Polecenie: 'Using for loop append to list named "list" word "archer" for variable
+      "i" being higher than x and lower than z
+
+'
+    output: That's good amount of archers
     secondaryoutput: 
-    stale: 
-    addition: 
+    stale: 'x = 4
+
+      z = 8
+
+      list = []
+
+'
+    addition: "\nif list == ['archer', 'archer', 'archer', 'archer']:\n\tprint(\"That's
+      good amount of archers\")\nelse:\n\tprint(\"Something is not right\")\n\n"
     condition: 
     onSuccesful:
       m_PersistentCalls:
@@ -4378,6 +4388,7 @@ MonoBehaviour:
   dialTrigger: {fileID: 433536006}
   ownTask: Archer
   loop: 0
+  farma: {fileID: 0}
 --- !u!58 &433536008
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -9875,7 +9886,19 @@ MonoBehaviour:
     condition: +
     onSuccesful:
       m_PersistentCalls:
-        m_Calls: []
+        m_Calls:
+        - m_Target: {fileID: 837157222}
+          m_TargetAssemblyTypeName: farmamanagement, Assembly-CSharp
+          m_MethodName: zasiej
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
   - Polecenie: Multiply variable 'i' by 7 and substract 3
     output: Good job!
     secondaryoutput: 
@@ -9887,7 +9910,19 @@ MonoBehaviour:
     condition: '*'
     onSuccesful:
       m_PersistentCalls:
-        m_Calls: []
+        m_Calls:
+        - m_Target: {fileID: 837157222}
+          m_TargetAssemblyTypeName: farmamanagement, Assembly-CSharp
+          m_MethodName: zasiej
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
   canvas: {fileID: 2017472308}
   hpCanvas: {fileID: 1550929144}
   result: 0
@@ -9932,6 +9967,7 @@ MonoBehaviour:
   dialTrigger: {fileID: 677196821}
   ownTask: Farmer
   loop: 1
+  farma: {fileID: 837157222}
 --- !u!58 &677196823
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -11175,6 +11211,37 @@ PrefabInstance:
       objectReference: {fileID: 550732880}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1ab49d7945fc9b341b68d42668426a59, type: 3}
+--- !u!1 &827498986
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 827498987}
+  m_Layer: 0
+  m_Name: wyjscie
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &827498987
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 827498986}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -19.05, y: -1.33, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1761619387}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &837157220
 GameObject:
   m_ObjectHideFlags: 0
@@ -11184,6 +11251,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 837157221}
+  - component: {fileID: 837157222}
   m_Layer: 0
   m_Name: Farma
   m_TagString: Untagged
@@ -11199,7 +11267,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 837157220}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -10.33, y: -12.54, z: 0}
+  m_LocalPosition: {x: -10.33, y: -13.48, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -11210,6 +11278,21 @@ Transform:
   m_Father: {fileID: 1761619387}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &837157222
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 837157220}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 142b0d9c6b51aa54794e2a43a8412e84, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  zasiane: {fileID: 21300000, guid: 23a6b23aabea1784aaa8d77ddddc3001, type: 3}
+  wyrosniete: {fileID: 21300000, guid: ab33895b894519044bccda9a3ca657bc, type: 3}
+  puste: {fileID: 21300000, guid: dc11781eae621084eb0889e2704330ea, type: 3}
 --- !u!1 &858610071
 GameObject:
   m_ObjectHideFlags: 0
@@ -12124,6 +12207,7 @@ MonoBehaviour:
   dialTrigger: {fileID: 937017158}
   ownTask: Priest
   loop: 0
+  farma: {fileID: 0}
 --- !u!58 &937017157
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -12972,6 +13056,7 @@ MonoBehaviour:
   dialTrigger: {fileID: 997326384}
   ownTask: Kowal
   loop: 0
+  farma: {fileID: 0}
 --- !u!58 &997326386
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -13916,6 +14001,7 @@ MonoBehaviour:
   dialTrigger: {fileID: 1094362092}
   ownTask: Stajnia
   loop: 0
+  farma: {fileID: 0}
 --- !u!58 &1094362094
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -14286,7 +14372,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1120368049
 Transform:
   m_ObjectHideFlags: 0
@@ -16492,7 +16578,7 @@ MonoBehaviour:
     aftermath: Python
   - npcName: Villager
     speech:
-    - avatar: {fileID: 21300000, guid: f9f269a86a6508d408cebf6bdfea75c8, type: 3}
+    - avatar: {fileID: 21300000, guid: aadf88884f4eb9d428bc1b5753f6843e, type: 3}
       sentence: I'm gonna need more time
     - avatar: {fileID: 21300000, guid: b19b85a032f1d5f48963621392681696, type: 3}
       sentence: No problem. I'll be back in some time
@@ -16605,6 +16691,7 @@ MonoBehaviour:
   dialTrigger: {fileID: 1346207673}
   ownTask: Miner
   loop: 0
+  farma: {fileID: 0}
 --- !u!58 &1346207675
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -18591,6 +18678,7 @@ MonoBehaviour:
   npcscript: {fileID: 0}
   tradescript: {fileID: 0}
   eqscript: {fileID: 1398872397}
+  farma: {fileID: 837157222}
 --- !u!4 &1584948960
 Transform:
   m_ObjectHideFlags: 0
@@ -19370,7 +19458,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1743401443}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.111273, y: 1.9465799, z: 0.7418769}
+  m_LocalPosition: {x: 3.46, y: 2.0840006, z: 0.7418769}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -19418,7 +19506,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: fe63933d9c4d1974da202d6984fb14e1, type: 3}
+  m_Sprite: {fileID: 21300000, guid: dc11781eae621084eb0889e2704330ea, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -19734,6 +19822,7 @@ Transform:
   - {fileID: 1299488594}
   - {fileID: 2049117789}
   - {fileID: 1110461278}
+  - {fileID: 827498987}
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -20257,14 +20346,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectives:
+  - internalTitle: Farmer
+    Title: Learn basics
+    CoZrobic: Talk to Farmer and do his first task to learn basic operations
+    placeToDo: {fileID: 677196820}
+  - internalTitle: Wave
+    Title: Take care of monsters
+    CoZrobic: Take out waves of monsters in meantime when farm is growing
+    placeToDo: {fileID: 827498987}
   - internalTitle: Miner
     Title: Learn basics
-    CoZrobic: Talk to miner and do his first task to learn about array
+    CoZrobic: Talk to miner and do his first task to learn about lists
     placeToDo: {fileID: 1346207672}
   - internalTitle: Wave
     Title: Take care of monsters
     CoZrobic: Take out waves of monsters in meantime when miner takes care of mine
-    placeToDo: {fileID: 0}
+    placeToDo: {fileID: 827498987}
   - internalTitle: Kowal
     Title: Learn basics
     CoZrobic: Talk to blacksmith and do his first task to learn about integers and
@@ -20278,7 +20375,7 @@ MonoBehaviour:
     Title: Take care of monsters
     CoZrobic: Take out waves of monsters in meantime when people take care of their
       buildings
-    placeToDo: {fileID: 0}
+    placeToDo: {fileID: 827498987}
   - internalTitle: Archer
     Title: Learn about for loops
     CoZrobic: Talk to archer in front of armory and do his first task to learn for
@@ -20288,7 +20385,7 @@ MonoBehaviour:
     Title: Take care of monsters
     CoZrobic: Take out waves of monsters in meantime when people take care of their
       buildings
-    placeToDo: {fileID: 0}
+    placeToDo: {fileID: 827498987}
   - internalTitle: Priest
     Title: Learn about functions
     CoZrobic: Talk to priest and do his first task to learn functions
@@ -20297,7 +20394,7 @@ MonoBehaviour:
     Title: Take care of monsters
     CoZrobic: Take out waves of monsters in meantime when people take care of their
       buildings
-    placeToDo: {fileID: 0}
+    placeToDo: {fileID: 827498987}
   title: {fileID: 903744652}
   description: {fileID: 2139263492}
 --- !u!114 &1790772531
@@ -21771,7 +21868,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1850923476}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.84000015, y: 1.9525795, z: 0.7418769}
+  m_LocalPosition: {x: -0.84000015, y: 2.09, z: 0.7418769}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -21819,7 +21916,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: fe63933d9c4d1974da202d6984fb14e1, type: 3}
+  m_Sprite: {fileID: 21300000, guid: dc11781eae621084eb0889e2704330ea, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -22740,7 +22837,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: fe63933d9c4d1974da202d6984fb14e1, type: 3}
+  m_Sprite: {fileID: 21300000, guid: dc11781eae621084eb0889e2704330ea, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
