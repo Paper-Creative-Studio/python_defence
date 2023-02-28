@@ -1,0 +1,58 @@
+The "if" statement is based on boolean - it returns True or False. It executs a given code if something is true.
+
+Syntax:
+If condition:
+	Statement
+
+For example:
+Points = 60
+If points>=60:
+Print("You passed the exam!")
+
+Thanks to conditional statements, you can check if a given condition is true. If the condition has a value of False, the statement will not be executed.
+
+Important note:
+In Python, the space before the statement is essential. If there is no space before the statement, the code will not be executed.
+
+For example:
+Points = 60
+If points == 60:
+	Print("Success!")
+~ this code will not be executed because there is no space before the statement. The correct code is:
+
+Points = 60
+If points == 60:
+	Print("Success!")
+
+We need to add a little more information to our conditional statements. What if we want to do something if none of the conditional statements work? That's where "else" comes in, which works in that way.
+
+Syntax:
+if condition:
+	statement
+else:
+	statement
+
+Each "if" statement can only contain one "else." What if we want to add another condition if the first one does not work? We can use "elif," which is a combination of "else" and "if." It makes the code more clear and understandable.
+
+For example:
+Number= 5
+If number==1:
+	Print("1")
+Elif number==2:
+	Print("2")
+Elif number==3:
+	Print("3")
+Else:
+	Print("It's a different number")
+
+Sometimes we want to perform more interesting operations, for which we can use logical operators:
+
+And - an operator that allows us to combine conditions; both conditions must be true for the condition to be true
+Or - an operator in which only one condition needs to be true
+Not - changes the result of the condition to the opposite, True to False and False to True
+
+For example:
+Print(1==1 and 2==2)
+Print(1!=1 or 2==2)
+
+Print(not 1==1)
