@@ -21,7 +21,10 @@ public class WaveSpawner : MonoBehaviour
     public bool lose = false;
     public List<GameObject> aliveEnemies = new List<GameObject>();
     [SerializeField] private Eq eqscript;
-    
+    [SerializeField] private playmusic musicPlayer;
+    [SerializeField] private AudioClip villageMusic;
+    [SerializeField] private AudioClip BattleMusic;
+    bool donce = true;
     private bool wave;
    
     // Start is called before the first frame update
@@ -33,10 +36,30 @@ public class WaveSpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(aliveEnemies.Count == 0)
+        {
+            if (donce)
+            {
+                musicPlayer.source.Stop();
+                musicPlayer.source.clip = villageMusic;
+                musicPlayer.source.Play();
+                donce = false;
+            }
+        }
+        else
+        {
+            if (!donce)
+            {
+                musicPlayer.source.Stop();
+                musicPlayer.source.clip = BattleMusic;
+                musicPlayer.source.Play();
+                donce = true;
+            }
 
-        
+        }
 
-        if(wave)
+
+        if (wave)
         {
             for (int i = 0; i <= aliveEnemies.Count - 1; i++)
             {
@@ -49,7 +72,8 @@ public class WaveSpawner : MonoBehaviour
             }
             if (aliveEnemies.Count == 0)
             {
-                Debug.Log(lose);
+                
+                
                 if (!lose)
                 {
                     eqscript.giveHajs((doneWaves +1) * 2);
@@ -71,6 +95,7 @@ public class WaveSpawner : MonoBehaviour
                 transform.position = new Vector3(transform.position.x, transform.position.y, 1);
 
             }
+            
         }
         
 

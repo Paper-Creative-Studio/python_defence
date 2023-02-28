@@ -6146,10 +6146,10 @@ MonoBehaviour:
     or other display device. You can display numbers, text, or the results of various
     operations there.
 
-    
 
-    It consists of two parentheses, in which we put
-    what we want to display.
+
+    It consists of two parentheses, in which we put what
+    we want to display.
 
     To display numbers, quotation marks are not needed.
 
@@ -6161,9 +6161,9 @@ MonoBehaviour:
 
     E.g.: Print("Hello World")
 
-    If
-    you want to print several strings under each other in a new line, each result
-    should be written separately.
+    If you
+    want to print several strings under each other in a new line, each result should
+    be written separately.
 
     E.g.:
 
@@ -6175,7 +6175,7 @@ MonoBehaviour:
     you learned earlier, text written in quotes is a string. It is also worth knowing
     other types of variables, on which the operations performed on them depend.
 
-    
+
 
     String
     - text in quotes, e.g.: "fruits"
@@ -6191,7 +6191,7 @@ MonoBehaviour:
     The result of operations performed on a float
     is a float.
 
-    
+
 
     In Print, we can display the results of various operations.
 
@@ -6211,54 +6211,53 @@ MonoBehaviour:
 
     Exponentiation **
 
-    Floor
-    division // (we determine how many times a given number fits during the operation,
-    and the result is a whole number)
+    Floor division
+    // (we determine how many times a given number fits during the operation, and
+    the result is a whole number)
 
     Modulo % (division that returns the remainder
     of the division)
 
-    
 
-    ! Important information: when dividing integers,
-    we recieve a float type variable !
 
-    
+    ! Important information: when dividing integers, we recieve
+    a float type variable !
 
-    
 
-    If you want to perform
-    more than one operation, we use parentheses.
 
-    A minus sign before a number
-    makes it negative.
 
-    E.g.: print(-4 * (20 / 5))
 
-    A variable is assigning
-    a value to a name.
+    If you want to perform more than one operation,
+    we use parentheses.
+
+    A minus sign before a number makes it negative.
+
+    E.g.:
+    print(-4 * (20 / 5))
+
+    A variable is assigning a value to a name.
 
     E.g.:
 
-    fruit = "Apple"
+    fruit
+    = "Apple"
 
     number = 3
 
-    
 
-    A
-    correct variable name may contain letters, numbers, and underscores (_). However,
-    it cannot contain special characters or start the name with a number.
 
-    After
-    adding a variable, you can use it to perform operations on them.
+    A correct variable name may contain letters,
+    numbers, and underscores (_). However, it cannot contain special characters or
+    start the name with a number.
 
-    
+    After adding a variable, you can use it to
+    perform operations on them.
+
+
 
     E.g.:
 
-    X
-    = 1
+    X = 1
 
     Y = 2
 
@@ -6272,7 +6271,7 @@ MonoBehaviour:
 
     Print(y)
 
-    
+
 
     To
     use some variables entered by the user use the input function.
@@ -6284,17 +6283,17 @@ MonoBehaviour:
 
     Print("Your name is: " + name)
 
-    What you want to display
-    as constant text should be written in quotes. Similarly, you can add text that
-    will be displayed before entering a value (for example, what should be entered).
+    What you want to display as
+    constant text should be written in quotes. Similarly, you can add text that will
+    be displayed before entering a value (for example, what should be entered).
 
     E.g.:
     name = input("Enter your name: ")
 
-    
 
-    The input function always returns
-    a string. If you want it to be an integer, use the conversion function int().
+
+    The input function always returns a
+    string. If you want it to be an integer, use the conversion function int().
 
     E.g.:
     number = int(input())
@@ -6304,15 +6303,14 @@ MonoBehaviour:
     E.g.:
     height = float(input())
 
-    
 
-    Sometimes you also need to convert a number
-    to text, you can use str().
+
+    Sometimes you also need to convert a number to
+    text, you can use str().
 
     E.g.: x = 4
 
-    Print("The number is " +
-    str(x))'
+    Print("The number is " + str(x))'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e2bad932f611eea4d96ac8c3a4bb1a59, type: 2}
   m_sharedMaterial: {fileID: 3001484368875710193, guid: e2bad932f611eea4d96ac8c3a4bb1a59, type: 2}
@@ -14765,6 +14763,9 @@ MonoBehaviour:
   lose: 0
   aliveEnemies: []
   eqscript: {fileID: 1398872397}
+  musicPlayer: {fileID: 1550929151}
+  villageMusic: {fileID: 8300000, guid: 6db8c93d664c1ee4db85453dc46448f3, type: 3}
+  BattleMusic: {fileID: 8300000, guid: d58afa0d86d180a49bda181601ef5f3c, type: 3}
 --- !u!114 &1028385551
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23348,6 +23349,7 @@ GameObject:
   - component: {fileID: 1398872393}
   - component: {fileID: 1398872396}
   - component: {fileID: 1398872397}
+  - component: {fileID: 1398872398}
   m_Layer: 8
   m_Name: Mark
   m_TagString: Player
@@ -23539,6 +23541,8 @@ MonoBehaviour:
     m_Bits: 64
   attackCooldown: 0.5
   anim_controller: {fileID: 1398872389}
+  woosh_sound: {fileID: 8300000, guid: 4f6f30ede8a311949a48869a4d99c9d4, type: 3}
+  source: {fileID: 0}
   damage: 20
   canAttack: 1
 --- !u!114 &1398872396
@@ -23598,6 +23602,102 @@ MonoBehaviour:
   GoldCount: 10
   HajsCount: 10
   silaCount: 0
+--- !u!82 &1398872398
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1398872383}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 0.1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1436412363
 GameObject:
   m_ObjectHideFlags: 0
@@ -24309,6 +24409,8 @@ GameObject:
   - component: {fileID: 1550929146}
   - component: {fileID: 1550929149}
   - component: {fileID: 1550929150}
+  - component: {fileID: 1550929152}
+  - component: {fileID: 1550929151}
   m_Layer: 5
   m_Name: Main_Canvas
   m_TagString: Untagged
@@ -24437,6 +24539,115 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectiveCanvas: {fileID: 1790772528}
+--- !u!114 &1550929151
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1550929144}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0ef7ba5f28289149bb09bb88241dc7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  source: {fileID: 1550929152}
+--- !u!82 &1550929152
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1550929144}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 0.1
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1568439997
 GameObject:
   m_ObjectHideFlags: 0
