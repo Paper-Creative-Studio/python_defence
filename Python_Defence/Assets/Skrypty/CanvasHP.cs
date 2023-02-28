@@ -5,6 +5,7 @@ using UnityEngine;
 public class CanvasHP : MonoBehaviour
 {
     [SerializeField] private GameObject pauseCanvas;
+    [SerializeField] private GameObject TablicaCanvas;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,7 +15,7 @@ public class CanvasHP : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Escape))
+        if(Input.GetKeyDown(KeyCode.Escape) && !TablicaCanvas.activeSelf)
         {
             gameObject.SetActive(false);
             Time.timeScale = 0;
