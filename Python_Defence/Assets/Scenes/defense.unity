@@ -2736,6 +2736,10 @@ GameObject:
   m_Component:
   - component: {fileID: 292921123}
   - component: {fileID: 292921122}
+  - component: {fileID: 292921127}
+  - component: {fileID: 292921126}
+  - component: {fileID: 292921125}
+  - component: {fileID: 292921124}
   m_Layer: 0
   m_Name: Map
   m_TagString: Untagged
@@ -2775,6 +2779,110 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &292921124
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 292921121}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 45.04}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 151.0714, y: 1.660706}
+  m_EdgeRadius: 0
+--- !u!61 &292921125
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 292921121}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -74.84, y: 16.50024}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 118.2633}
+  m_EdgeRadius: 0
+--- !u!61 &292921126
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 292921121}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 74.3, y: 16.500244}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 118.263336}
+  m_EdgeRadius: 0
+--- !u!61 &292921127
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 292921121}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.4478836, y: -43.443214}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 151.07143, y: 1.6607056}
+  m_EdgeRadius: 0
 --- !u!1 &305875821
 GameObject:
   m_ObjectHideFlags: 0
@@ -3667,7 +3775,7 @@ GameObject:
   - component: {fileID: 350650185}
   - component: {fileID: 350650184}
   m_Layer: 0
-  m_Name: Gornik (1)
+  m_Name: Soltys
   m_TagString: npc
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5281,7 +5389,7 @@ MonoBehaviour:
     - avatar: {fileID: 21300000, guid: b19b85a032f1d5f48963621392681696, type: 3}
       sentence: No problem. I'll be back in some time
     aftermath: 
-  index: 2
+  index: 0
   dialogueCanvas: {fileID: 1797485694}
   dialmanager: {fileID: 1584948959}
 --- !u!114 &433536007
@@ -10267,8 +10375,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 3.52, y: -14.06}
-  m_SizeDelta: {x: 746.12, y: 394.72}
+  m_AnchoredPosition: {x: -2.47, y: -14.06}
+  m_SizeDelta: {x: 726.81, y: 394.72}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &575274956
 MonoBehaviour:
@@ -10320,7 +10428,7 @@ MonoBehaviour:
   m_fontSize: 64
   m_fontSizeBase: 64
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
@@ -10452,10 +10560,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 72
-  m_fontSizeBase: 72
+  m_fontSize: 48
+  m_fontSizeBase: 48
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
@@ -11467,7 +11575,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 41c1d91a8ff348a4085e79f8fd576651, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 6eab41a10bec4b444a3286ecdc21eaf8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -11506,7 +11614,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 684148386}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -11532,7 +11640,7 @@ EdgeCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 684148386}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -11917,7 +12025,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: e0e4aab4ee580ad469943bd5feaf8873, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 17ac251d042d96249a699d130aaf672e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -11935,7 +12043,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 763941361}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -13751,7 +13859,7 @@ MonoBehaviour:
     - avatar: {fileID: 21300000, guid: b19b85a032f1d5f48963621392681696, type: 3}
       sentence: No problem. I'll be back in some time
     aftermath: 
-  index: 2
+  index: 0
   dialogueCanvas: {fileID: 1797485694}
   dialmanager: {fileID: 1584948959}
 --- !u!1 &938016281
@@ -14430,7 +14538,7 @@ MonoBehaviour:
     - avatar: {fileID: 21300000, guid: b19b85a032f1d5f48963621392681696, type: 3}
       sentence: No problem. I'll be back in some time
     aftermath: 
-  index: 2
+  index: 0
   dialogueCanvas: {fileID: 1797485694}
   dialmanager: {fileID: 1584948959}
 --- !u!114 &997326385
@@ -22883,41 +22991,41 @@ MonoBehaviour:
     speech:
     - avatar: {fileID: 21300000, guid: b19b85a032f1d5f48963621392681696, type: 3}
       sentence: What is this cave?
-    - avatar: {fileID: 21300000, guid: aadf88884f4eb9d428bc1b5753f6843e, type: 3}
+    - avatar: {fileID: 21300000, guid: e99905463716e8e4596a6d80e3721f0b, type: 3}
       sentence: Old mine... not used for 30 years.
     - avatar: {fileID: 21300000, guid: b19b85a032f1d5f48963621392681696, type: 3}
       sentence: Why isn't it used?
-    - avatar: {fileID: 21300000, guid: aadf88884f4eb9d428bc1b5753f6843e, type: 3}
+    - avatar: {fileID: 21300000, guid: e99905463716e8e4596a6d80e3721f0b, type: 3}
       sentence: Monsters have infested there and there are no mine supports, from
         my father's stories I heard that it is quite rich in minerals
     - avatar: {fileID: 21300000, guid: b19b85a032f1d5f48963621392681696, type: 3}
       sentence: Maybe we could adapt it?
-    - avatar: {fileID: 21300000, guid: aadf88884f4eb9d428bc1b5753f6843e, type: 3}
+    - avatar: {fileID: 21300000, guid: e99905463716e8e4596a6d80e3721f0b, type: 3}
       sentence: We can try. Help me rebuild the mine, and I'll repay you in minerals
     aftermath: Python
   - npcName: Villager
     speech:
     - avatar: {fileID: 21300000, guid: b19b85a032f1d5f48963621392681696, type: 3}
       sentence: How is the rebuilding of the mine going?
-    - avatar: {fileID: 21300000, guid: aadf88884f4eb9d428bc1b5753f6843e, type: 3}
+    - avatar: {fileID: 21300000, guid: e99905463716e8e4596a6d80e3721f0b, type: 3}
       sentence: We're on the right track, but an extra pair of hands would be useful.
         Got a moment off?
     aftermath: Python
   - npcName: Villager
     speech:
-    - avatar: {fileID: 21300000, guid: aadf88884f4eb9d428bc1b5753f6843e, type: 3}
+    - avatar: {fileID: 21300000, guid: e99905463716e8e4596a6d80e3721f0b, type: 3}
       sentence: What do you need?
     - avatar: {fileID: 21300000, guid: b19b85a032f1d5f48963621392681696, type: 3}
       sentence: Extra minerals are always useful...
     aftermath: Python
   - npcName: Villager
     speech:
-    - avatar: {fileID: 21300000, guid: aadf88884f4eb9d428bc1b5753f6843e, type: 3}
+    - avatar: {fileID: 21300000, guid: e99905463716e8e4596a6d80e3721f0b, type: 3}
       sentence: I'm gonna need more time
     - avatar: {fileID: 21300000, guid: b19b85a032f1d5f48963621392681696, type: 3}
       sentence: No problem. I'll be back in some time
     aftermath: 
-  index: 2
+  index: 0
   dialogueCanvas: {fileID: 1797485694}
   dialmanager: {fileID: 1584948959}
 --- !u!114 &1346207674
@@ -25009,8 +25117,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 786.33, y: 0}
-  m_SizeDelta: {x: 570, y: 503}
+  m_AnchoredPosition: {x: 740.99, y: 0}
+  m_SizeDelta: {x: 802, y: 457}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1593581459
 MonoBehaviour:
@@ -26925,7 +27033,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 1a7bae4917b69a1429287bba2ab30165, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 6ec7008eb36d135488f3abfb8f9ab6f1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -26943,7 +27051,7 @@ PolygonCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1776843679}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -27000,7 +27108,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1776843679}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -27211,7 +27319,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -49.389923, y: 0}
+  m_AnchoredPosition: {x: -49.389893, y: 0}
   m_SizeDelta: {x: 98.780106, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1790772530
@@ -29256,7 +29364,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: ee39c5bde11fbf74abcf4f86d8dc9e79, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a9ad1cf8704a3c141a4ab18df0464e5a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -30550,7 +30658,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: d9e38e96c2cad25418f1aa6b86555d36, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 581a50d414813d845b7d688403adeda5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -30589,7 +30697,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2068751341}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -30615,7 +30723,7 @@ PolygonCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2068751341}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0

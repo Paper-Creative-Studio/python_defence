@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
-using UnityEditor.U2D.Path;
+
 using UnityEngine;
 using static UnityEngine.GraphicsBuffer;
 

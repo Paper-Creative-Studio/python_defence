@@ -3,7 +3,7 @@ using Pathfinding;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
-using UnityEditor.U2D.Path;
+
 using UnityEngine;
 using static UnityEngine.GraphicsBuffer;
 

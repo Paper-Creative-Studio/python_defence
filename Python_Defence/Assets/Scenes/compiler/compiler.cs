@@ -1,17 +1,12 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using System;
 using TMPro;
 using System.IO;
 using IronPython.Hosting;
 using System.Text;
-using UnityEngine.Rendering;
-using Microsoft.Unity.VisualStudio.Editor;
-using UnityEditor.UI;
-using System.Linq;
 using System.Text.RegularExpressions;
-using static IronPython.Modules.PythonDateTime;
+
 
 
 public class compiler : MonoBehaviour

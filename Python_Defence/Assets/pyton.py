@@ -1,4 +1,7 @@
-mining = ["stone", "copper", "gold", "stone", "stone", "gold", "silver", "stone", "copper", "copper" ]
-for x in range(2,4):
-	pass
-print(2)
+list = ['supports', 'minecart', 'pickaxe', 'shovel']
+print("cos bardzo dlugiegasdfhjkgashdgashjkdgashjkdgsa")
+correct = ['supports', 'minecart', 'pickaxe', 'shovel', 'tracks']
+if all(value in list for value in correct):
+	print("List contains all needed materials")
+else:
+	print("List does not contains all needed materials")
