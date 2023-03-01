@@ -12,6 +12,12 @@ public class WaveSpawner : MonoBehaviour
     public GameObject[] enemyWave2;
     public GameObject[] enemyWave3;
     public GameObject[] enemyWave4;
+    public GameObject[] enemyWave5;
+    public GameObject[] enemyWave6;
+    public GameObject[] enemyWave7;
+    public GameObject[] enemyWave8;
+    public GameObject[] enemyWave9;
+    public GameObject[] enemyWave10;
     public Transform[] spawnPoints;
     [SerializeField] private ObjectiveSetter objectivescript;
     public waveSeeker waveseeker;
@@ -23,6 +29,9 @@ public class WaveSpawner : MonoBehaviour
     [SerializeField] private playmusic musicPlayer;
     [SerializeField] private AudioClip villageMusic;
     [SerializeField] private AudioClip BattleMusic;
+    [SerializeField] private Health playerHP;
+    [SerializeField] private CastleHealth castleHP;
+    int wavesToHeal = 5;
     bool donce = true;
     private bool wave;
    
@@ -35,6 +44,14 @@ public class WaveSpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(wavesToHeal == doneWaves)
+        {
+            playerHP.currentHealth = playerHP.maxHealth;
+            castleHP.currentHealth = castleHP.maxHealth;
+            playerHP.healthbar.SetHealth(playerHP.currentHealth);
+            castleHP.hpbar.SetHealth(castleHP.currentHealth);
+            wavesToHeal = doneWaves + 5;
+        }
         if(aliveEnemies.Count == 0)
         {
             if (donce)
@@ -87,7 +104,7 @@ public class WaveSpawner : MonoBehaviour
                 lose = false;
                 wave = false;
                 
-                if (waveCount > 4)
+                if (waveCount > 10)
                 {
                     waveCount = 1;
                 }
@@ -99,6 +116,7 @@ public class WaveSpawner : MonoBehaviour
         
 
         
+
 
     }
     public void Activate()
@@ -191,9 +209,123 @@ public class WaveSpawner : MonoBehaviour
             }
 
         }
-        
-       
-        
+        else if (waveNumber == 5)
+        {
+            wave = true;
+
+
+
+            for (int i = 0; i <= enemyWave5.Length - 1; i++)
+            {
+
+
+                aliveEnemies.Add((GameObject)Instantiate(enemyWave5[i], spawnPoints[i].position, Quaternion.identity));
+
+
+
+
+
+            }
+
+        }
+        else if (waveNumber == 6)
+        {
+            wave = true;
+
+
+
+            for (int i = 0; i <= enemyWave6.Length - 1; i++)
+            {
+
+
+                aliveEnemies.Add((GameObject)Instantiate(enemyWave6[i], spawnPoints[i].position, Quaternion.identity));
+
+
+
+
+
+            }
+
+        }
+        else if (waveNumber == 7)
+        {
+            wave = true;
+
+
+
+            for (int i = 0; i <= enemyWave7.Length - 1; i++)
+            {
+
+
+                aliveEnemies.Add((GameObject)Instantiate(enemyWave7[i], spawnPoints[i].position, Quaternion.identity));
+
+
+
+
+
+            }
+
+        }
+        else if (waveNumber == 8)
+        {
+            wave = true;
+
+
+
+            for (int i = 0; i <= enemyWave8.Length - 1; i++)
+            {
+
+
+                aliveEnemies.Add((GameObject)Instantiate(enemyWave8[i], spawnPoints[i].position, Quaternion.identity));
+
+
+
+
+
+            }
+
+        }
+        else if (waveNumber == 9)
+        {
+            wave = true;
+
+
+
+            for (int i = 0; i <= enemyWave9.Length - 1; i++)
+            {
+
+
+                aliveEnemies.Add((GameObject)Instantiate(enemyWave9[i], spawnPoints[i].position, Quaternion.identity));
+
+
+
+
+
+            }
+
+        }
+        else if (waveNumber == 10)
+        {
+            wave = true;
+
+
+
+            for (int i = 0; i <= enemyWave10.Length - 1; i++)
+            {
+
+
+                aliveEnemies.Add((GameObject)Instantiate(enemyWave10[i], spawnPoints[i].position, Quaternion.identity));
+
+
+
+
+
+            }
+
+        }
+
+
+
 
     }
     

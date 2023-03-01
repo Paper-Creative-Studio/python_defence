@@ -112,12 +112,13 @@ public class Attack_Enemy : MonoBehaviour
             if (createdArrow != null)
             {
 
-                Debug.Log(target.x - transform.position.x);
+                
                 if ( target.x - transform.position.x <= 4.5f && target.x - transform.position.x >= -4.5f)
                 {
-                    arrowspeed = 0.85f;
+                    arrowspeed = 1.5f;
+                    float speedOfArrow = 5f;
                     CurveTime += Time.deltaTime * arrowspeed;
-                    createdArrow.transform.position = Vector3.MoveTowards(createdArrow.transform.position, target, arrowspeed * Time.fixedDeltaTime);
+                    createdArrow.transform.position = Vector3.MoveTowards(createdArrow.transform.position, target, speedOfArrow * Time.fixedDeltaTime);
                     Vector3 dir = target - createdArrow.transform.position;
                     var angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
                     createdArrow.transform.rotation = Quaternion.AngleAxis(angle - 45f, Vector3.forward);

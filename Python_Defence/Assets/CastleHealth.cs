@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.Events;
 public class CastleHealth : MonoBehaviour
 {
-    [SerializeField] private CastleHealthbar hpbar;
+    public CastleHealthbar hpbar;
     public int maxHealth = 100;
     public int currentHealth;
     public int damage;
