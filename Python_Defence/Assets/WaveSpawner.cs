@@ -46,9 +46,9 @@ public class WaveSpawner : MonoBehaviour
     {
         if(wavesToHeal == doneWaves)
         {
-            playerHP.currentHealth = playerHP.maxHealth;
+           
             castleHP.currentHealth = castleHP.maxHealth;
-            playerHP.healthbar.SetHealth(playerHP.currentHealth);
+            
             castleHP.hpbar.SetHealth(castleHP.currentHealth);
             wavesToHeal = doneWaves + 5;
         }
@@ -93,6 +93,8 @@ public class WaveSpawner : MonoBehaviour
                 if (!lose)
                 {
                     eqscript.giveHajs((doneWaves +1) * 2);
+                    playerHP.currentHealth = playerHP.maxHealth;
+                    playerHP.healthbar.SetHealth(playerHP.currentHealth);
                     doneWaves++;
                     waveCount++;
                     

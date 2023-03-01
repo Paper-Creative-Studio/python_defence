@@ -116,7 +116,7 @@ public class Attack_Enemy : MonoBehaviour
                 if ( target.x - transform.position.x <= 4.5f && target.x - transform.position.x >= -4.5f)
                 {
                     arrowspeed = 1.5f;
-                    float speedOfArrow = 5f;
+                    float speedOfArrow = 3f;
                     CurveTime += Time.deltaTime * arrowspeed;
                     createdArrow.transform.position = Vector3.MoveTowards(createdArrow.transform.position, target, speedOfArrow * Time.fixedDeltaTime);
                     Vector3 dir = target - createdArrow.transform.position;

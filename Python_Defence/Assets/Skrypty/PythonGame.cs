@@ -30,6 +30,7 @@ public class PythonGame : MonoBehaviour
     [SerializeField] private string ownTask;
     public bool loop = false;
     [SerializeField] private farmamanagement farma;
+    public Collider2D FirstCollider;
     // Start is called before the first frame update
     void Start()
     {
@@ -68,6 +69,7 @@ public class PythonGame : MonoBehaviour
                     previousindex = dialTrigger.index;
                     dialTrigger.index = 3;
                     hpCanvas.SetActive(true);
+                    Debug.Log("hp canvas jest true");
                     neededwaves = wavescript.doneWaves + 3;
                     doonce= false;
                 }
@@ -106,13 +108,16 @@ public class PythonGame : MonoBehaviour
                     
                     if (!loop)
                     {
+                        Debug.Log(building.sprite);
+                        
                         building.sprite = stages[0];
+                        Debug.Log(building.sprite);
                         stages.RemoveAt(0);
-                        if (stages.Count == 0)
+                        if (stages.Count <=1)
                         {
                             building.gameObject.GetComponent<Collider2D>().enabled = true;
                             building.gameObject.GetComponent<BoxCollider2D>().enabled = true;
-
+                            
 
                         }
                     }
