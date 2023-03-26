@@ -233,7 +233,7 @@ MonoBehaviour:
   anim: {fileID: 5832367072225687541}
   CastleSpeed: 0.5
   PlayerSpeed: 1
-  stopRange: 2
+  stopRange: 1.5
   move: 0
   aipath: {fileID: 1341868708337899622}
 --- !u!1 &5832367070852203753

@@ -1,9 +1,9 @@
-x = 4
-z = 8
-list = []
-list = ["archer", "archer", "archer", "archer"]
-if list == ['archer', 'archer', 'archer', 'archer']:
-	print("That's good amount of archers")
+i = 3
+if i ==3:
+	animal="Horse"
+elif i ==4:
+	animal="Sheep"
 else:
-	print("Something is not right")
-
+	animal="Dunkey"
+if animal == "Horse" or "Sheep" or "Donkey":
+	print("It's correct")

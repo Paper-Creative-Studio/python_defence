@@ -5,22 +5,36 @@ using UnityEngine;
 public class movement : MonoBehaviour
 {
     [SerializeField] private float speed;
-    private Rigidbody2D rb;
-    private Vector2 input;
+    [SerializeField] private float smoothing_speed;
+    [SerializeField] private float dashCooldown;
+    [SerializeField] private float dashPower;
+    [SerializeField] private float dashDuration;
+
+    private Vector3 input;
     private Vector3 smoothmove;
     private Vector3 smoothInputVelocity;
-    [SerializeField] private float smoothing_speed;
+
+    private Rigidbody2D rb;
     [SerializeField] private Animator anim_controller;
-    public ContactFilter2D movementFilter;
-    public bool moving = true;
     private List<RaycastHit2D> hits = new List<RaycastHit2D>();
+    private BoxCollider2D playerCollider;
+    private TrailRenderer tr;
+
     private Health health;
+
     private bool facingLeft = true;
-    // Start is called before the first frame update
+    public bool moving = true;
+    private bool dodging = false;
+    private bool canDash = true;
+    private bool dashing = false;
+
+    
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         health= GetComponent<Health>();
+        playerCollider= GetComponent<BoxCollider2D>();
+        tr = GetComponent<TrailRenderer>();
     }
 
     // Update is called once per frame
@@ -30,7 +44,7 @@ public class movement : MonoBehaviour
         {
             if (moving)
             {
-                input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")).normalized;
+                input = new Vector3(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical") ,0).normalized;
                 smoothmove = Vector3.SmoothDamp(smoothmove, input, ref smoothInputVelocity, smoothing_speed);
 
                 if (Input.GetAxisRaw("Horizontal") > 0 && facingLeft)
@@ -45,56 +59,68 @@ public class movement : MonoBehaviour
                 {
                     Flip();
                 }
-
+                
                 if (Time.timeScale == 1)
                 {
-                    // triggery animacji
-                    if (Input.GetAxisRaw("Horizontal") != 0)
-                    {
-                        anim_controller.SetBool("MovingLeftRight", true);
-                        anim_controller.SetBool("MovingUp", false);
-                    }
-                    else if (Input.GetAxisRaw("Horizontal") == 0 && Input.GetAxisRaw("Vertical") > 0)
-                    {
-                        anim_controller.SetBool("MovingLeftRight", false);
-                        anim_controller.SetBool("MovingUp", true);
-                    }
-
-                    else if (Input.GetAxisRaw("Horizontal") == 0 && Input.GetAxisRaw("Vertical") == 0)
-                    {
-                        anim_controller.SetBool("MovingLeftRight", false);
-                        anim_controller.SetBool("MovingUp", false);
-                    }
+                    HandleAnimations();
                 }
 
             }
         }
-        
-        
-
     }
+
     private void FixedUpdate()
     {
-        if(health.alive)
+        if (dashing)
         {
-            if (moving)
+            return;
+        }
+        if (health.alive)
+        {
+            Move();
+            if(Input.GetKeyDown(KeyCode.LeftShift) && !dodging && canDash)
             {
-                //rb.MovePosition(transform.position + (smoothmove * speed * Time.fixedDeltaTime));
-                bool success = MovePlayer(smoothmove);
-                if (!success)
-                {
-                    success = MovePlayer(new Vector2(smoothmove.x, 0));
-                    if (!success)
-                    {
-                        success = MovePlayer(new Vector2(0, smoothmove.y));
-                    }
-                }
+                StartCoroutine(Dash());
+            }
+            if(!dodging && canDash)
+            {
+                Debug.Log("can dash");
+            }
+            else
+            {
+                Debug.Log("cant");
             }
         }
-        
-        
     }
 
+    private void Move()
+    {
+        
+        if (moving)
+        {
+            rb.velocity = smoothmove * speed;
+        }
+    }
+
+    private void HandleAnimations()
+    {
+        if (Input.GetAxisRaw("Horizontal") != 0)
+        {
+            anim_controller.SetBool("MovingLeftRight", true);
+            anim_controller.SetBool("MovingUp", false);
+        }
+        else if (Input.GetAxisRaw("Horizontal") == 0 && Input.GetAxisRaw("Vertical") > 0)
+        {
+            anim_controller.SetBool("MovingLeftRight", false);
+            anim_controller.SetBool("MovingUp", true);
+        }
+
+        else if (Input.GetAxisRaw("Horizontal") == 0 && Input.GetAxisRaw("Vertical") == 0)
+        {
+            anim_controller.SetBool("MovingLeftRight", false);
+            anim_controller.SetBool("MovingUp", false);
+        }
+    }
     void Flip()
     {
         if(Time.timeScale == 1)
@@ -104,21 +130,36 @@ public class movement : MonoBehaviour
             gameObject.transform.localScale = currentscale;
             facingLeft = !facingLeft;
         }
-        
     }
-    bool MovePlayer(Vector3 direction)
+    
+    void StartDodge()
     {
-        int collisionCount = rb.Cast(direction, movementFilter, hits, speed * Time.fixedDeltaTime + 0.25f);
-        if(collisionCount ==0)
+        dodging = true;
+    }
+
+    void StopDodge()
+    {
+        dodging = false;
+    }
+
+    private IEnumerator Dash()
+    {
+        Debug.Log("dzieje");
+        canDash = false;
+        dashing = true;
+        tr.emitting = true;
+        if(input != new Vector3(0,0,0))
         {
-            rb.MovePosition(transform.position + (direction * speed * Time.fixedDeltaTime));
-            return true;
+            rb.AddForce(input * dashPower);
         }
         else
         {
-            
-            return false;
+            rb.AddForce(new Vector2(transform.localScale.x * -1, 0) * dashPower);
         }
+        yield return new WaitForSeconds(dashDuration);
+        tr.emitting = false;
+        dashing = false;
+        yield return new WaitForSeconds(dashCooldown);
+        canDash = true;
     }
-
 }
