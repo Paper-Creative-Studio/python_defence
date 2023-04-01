@@ -17,6 +17,7 @@ public class Health : MonoBehaviour
     public string texttext;
     [TextArea]
     public string tiptext;
+    public bool hitable = true;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,7 +26,7 @@ public class Health : MonoBehaviour
     }
     private void Update()
     {
-        
+        Debug.Log(hitable);
         if(currentHealth <= 0)
         {
             if(doonce)
@@ -48,7 +49,21 @@ public class Health : MonoBehaviour
     }
     public void TakeDamage(int damage)
     {
-        currentHealth -= damage;
-        healthbar.SetHealth(currentHealth);
+        if(hitable)
+        {
+            currentHealth -= damage;
+            healthbar.SetHealth(currentHealth);
+        }
+        
+    }
+    private void Roll()
+    {
+        hitable = false;
+
+    }
+    private void StopRoll()
+    {
+        hitable = true;
+
     }
 }

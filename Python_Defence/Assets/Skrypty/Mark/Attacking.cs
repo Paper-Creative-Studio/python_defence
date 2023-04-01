@@ -29,10 +29,11 @@ public class Attacking : MonoBehaviour
     {
        if(health.alive)
         {
-            if (Input.GetButtonDown("Fire1") && canAttack)
+            if (Input.GetButtonDown("Fire1") && canAttack && health.hitable)
             {
 
                 canAttack = false;
+                
                 anim_controller.SetTrigger("Attacking");
 
                 StartCoroutine(Cooldown());
