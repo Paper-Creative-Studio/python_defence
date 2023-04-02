@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class movement : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class movement : MonoBehaviour
     [SerializeField] private float dashCooldown;
     [SerializeField] private float dashPower;
     [SerializeField] private float dashDuration;
+    
 
     private Vector3 input;
     private Vector3 smoothmove;
@@ -21,6 +23,7 @@ public class movement : MonoBehaviour
     private TrailRenderer tr;
 
     private Health health;
+    [SerializeField] private Slider dashSlider;
 
     private bool facingLeft = true;
     public bool moving = true;
@@ -41,7 +44,11 @@ public class movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(health.alive)
+        if (dashing)
+        {
+            return;
+        }
+        if (health.alive)
         {
             if (moving)
             {
@@ -71,30 +78,24 @@ public class movement : MonoBehaviour
                     
                 }
             }
+            if (Input.GetKeyDown(KeyCode.LeftShift) && !dodging && canDash && dashSlider.value == 0)
+            {
+                StartCoroutine(Dash());
+                dashSlider.value = dashSlider.maxValue;
+                StartCoroutine(SliderCooldown());
+            }
         }
     }
 
     private void FixedUpdate()
     {
-        if (dashing)
+        if(dashing)
         {
             return;
         }
         if (health.alive)
         {
             Move();
-            if(Input.GetKeyDown(KeyCode.LeftShift) && !dodging && canDash)
-            {
-                StartCoroutine(Dash());
-            }
-            if(!dodging && canDash)
-            {
-               
-            }
-            else
-            {
-                
-            }
         }
     }
 
@@ -133,10 +134,6 @@ public class movement : MonoBehaviour
                     anim_controller.SetBool("MovingUp", false);
                 }
             }
-            
-        
-        
-
     }
     
     void Flip()
@@ -164,12 +161,28 @@ public class movement : MonoBehaviour
         }
         else
         {
-            rb.AddForce(new Vector2(transform.localScale.x * -1, 0) * dashPower);
+            rb.AddForce(new Vector2(transform.localScale.x * -1, 0) * dashPower );
         }
         yield return new WaitForSeconds(dashDuration);
         tr.emitting = false;
         dashing = false;
         yield return new WaitForSeconds(dashCooldown);
         canDash = true;
+    }
+
+    IEnumerator SliderCooldown()
+    {
+        float counter = 0;
+
+        while (counter < dashCooldown)
+        {
+            counter += Time.deltaTime;
+
+
+            float time = dashSlider.value / (dashCooldown - counter) * Time.deltaTime;
+            dashSlider.value = Mathf.MoveTowards(dashSlider.value, dashSlider.minValue, time);
+
+            yield return null;
+        }
     }
 }

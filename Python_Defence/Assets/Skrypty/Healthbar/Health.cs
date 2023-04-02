@@ -26,7 +26,7 @@ public class Health : MonoBehaviour
     }
     private void Update()
     {
-        Debug.Log(hitable);
+        
         if(currentHealth <= 0)
         {
             if(doonce)
