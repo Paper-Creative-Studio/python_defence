@@ -186,4 +186,8 @@ public class PythonGame : MonoBehaviour
         hpCanvas.SetActive(false);
         Time.timeScale = 0;
     }
+    public void LaunchReq()
+    {
+      
+    }
 }

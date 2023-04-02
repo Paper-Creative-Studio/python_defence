@@ -5,10 +5,10 @@ using UnityEngine;
 
 public class ItemUIHandler : MonoBehaviour
 {
-    [SerializeField]private TMP_Text mainKamien;
-    [SerializeField] private TMP_Text mainSrebro;
-    [SerializeField] private TMP_Text mainGold;
-    [SerializeField] private TMP_Text mainHajs;
+    [SerializeField]public  TMP_Text mainKamien;
+    [SerializeField] public  TMP_Text mainSrebro;
+    [SerializeField] public  TMP_Text mainGold;
+    [SerializeField] public  TMP_Text mainHajs;
     [SerializeField] private TMP_Text tradeKamien;
     [SerializeField] private TMP_Text tradeSrebro;
     [SerializeField] private TMP_Text tradeGold;
