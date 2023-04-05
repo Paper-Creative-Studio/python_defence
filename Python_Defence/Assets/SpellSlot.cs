@@ -10,7 +10,6 @@ public class SpellSlot : MonoBehaviour
 {
     [SerializeField] private KeyCode key;
     [SerializeField] private Slider slider;
-    private bool onCooldown = false;
     [SerializeField] private float duration;
     // Start is called before the first frame update
     void Start()

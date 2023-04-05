@@ -14,15 +14,12 @@ public class buildREQ : MonoBehaviour
     private List<int> parsedInfo;
     private List<int> parsedNeed;
     private bool bought = false;
-    List<string> mainList;
+    List<string> mainList = new List<string>();
     private void OnEnable()
     {
-        mainList = new List<string>()
-        {
-            resources.mainSrebro.text,
-            resources.mainKamien.text,
-            resources.mainHajs.text
-        };
+        mainList.Add(resources.mainSrebro.text);
+        mainList.Add(resources.mainKamien.text);
+        mainList.Add(resources.mainHajs.text);
         infoResources[0].text = resources.mainSrebro.text;
         infoResources[1].text = resources.mainKamien.text;
         infoResources[2].text = resources.mainHajs.text;
@@ -41,7 +38,7 @@ public class buildREQ : MonoBehaviour
             gameObject.SetActive(false);
         }
     }
-    void CheckCondition()
+    public void CheckCondition()
     {
         for (int i = 0; i < parsedInfo.Count; i++)
         {
