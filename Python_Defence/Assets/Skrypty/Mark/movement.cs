@@ -78,6 +78,10 @@ public class movement : MonoBehaviour
                     
                 }
             }
+            else
+            {
+                rb.velocity = Vector2.zero;
+            }
             if (Input.GetKeyDown(KeyCode.LeftShift) && !dodging && canDash && dashSlider.value == 0)
             {
                 StartCoroutine(Dash());

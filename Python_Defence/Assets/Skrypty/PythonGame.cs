@@ -88,6 +88,8 @@ public class PythonGame : MonoBehaviour
             if(Input.GetKeyDown(KeyCode.Escape))
             {
                 reqCanvas.SetActive(false);
+                hpCanvas.SetActive(true);
+                Time.timeScale = 1;
             }
         }
         if (canvas.activeSelf == true)
