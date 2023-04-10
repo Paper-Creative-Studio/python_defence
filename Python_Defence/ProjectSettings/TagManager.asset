@@ -10,6 +10,7 @@ TagManager:
   - Merchant
   - npc
   - Enemy
+  - explosion
   layers:
   - Default
   - TransparentFX

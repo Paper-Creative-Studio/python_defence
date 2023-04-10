@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -25,7 +26,9 @@ public class Casting : MonoBehaviour
     private GameObject fb_object;
     float fb_cooldown = 5f;
     [SerializeField] private Slider fb_slider;
-    
+    [SerializeField] private GameObject explosion_VFX;
+
+
 
     [Header("Lightning")]
     public bool lt_unlocked = false;
@@ -38,6 +41,7 @@ public class Casting : MonoBehaviour
     void Start()
     {
         health= GetComponent<Health>();
+        
     }
 
     // Update is called once per frame
@@ -64,6 +68,7 @@ public class Casting : MonoBehaviour
                
                 if (fb_object.transform.position == mousepos)
                 {
+                    GameObject explosion_obj = Instantiate(explosion_VFX, fb_object.transform.position,Quaternion.identity);
                     Collider2D[] explosion = Physics2D.OverlapCircleAll(fb_object.transform.position, fb_aoeRange, enemyLayers);
 
                     foreach (Collider2D enemy in explosion)
@@ -72,7 +77,7 @@ public class Casting : MonoBehaviour
                     }
                     
                     Destroy(fb_object);
-                    
+                    Destroy(explosion_obj, 2f);
                     
                 }
                
