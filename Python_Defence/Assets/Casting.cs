@@ -1,5 +1,7 @@
+using Pathfinding.Util;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics.Tracing;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
@@ -11,14 +13,15 @@ public class Casting : MonoBehaviour
     [SerializeField] private Transform castPoint;
     [SerializeField] private LayerMask enemyLayers;
     private Health health;
-    
+     
     private bool startMovement = false;
     Vector3 mousepos;
 
 
     [Header("Fireball")]
     public bool fb_unlocked = false;
-    [SerializeField] private int fb_damage = 50;
+    [SerializeField] private int fb_damage = 10;
+    [SerializeField] private int fb_burnDamage = 3;
     [SerializeField] private GameObject fireball;
     [SerializeField] private float fb_speed;
     [SerializeField] private float fb_aoeRange;
@@ -27,7 +30,9 @@ public class Casting : MonoBehaviour
     float fb_cooldown = 5f;
     [SerializeField] private Slider fb_slider;
     [SerializeField] private GameObject explosion_VFX;
-
+    [SerializeField] private GameObject enemy_burn_vfx;
+    private int burnTicks = 5;
+    private List<GameObject> fb_hitEnemies = new List<GameObject>();
 
 
     [Header("Lightning")]
@@ -70,10 +75,17 @@ public class Casting : MonoBehaviour
                 {
                     GameObject explosion_obj = Instantiate(explosion_VFX, fb_object.transform.position,Quaternion.identity);
                     Collider2D[] explosion = Physics2D.OverlapCircleAll(fb_object.transform.position, fb_aoeRange, enemyLayers);
-
+                   
+                   
                     foreach (Collider2D enemy in explosion)
                     {
+                        fb_hitEnemies.Add(enemy.gameObject);
                         enemy.GetComponent<Enemy_Health>().TakeDamage(fb_damage);
+                        GameObject enemyBurn = Instantiate(enemy_burn_vfx, enemy.transform.position, Quaternion.identity);
+                        enemyBurn.transform.SetParent(enemy.transform);
+                        StartCoroutine(Burning());
+                        Destroy(enemyBurn, 5f);
+                        
                     }
                     
                     Destroy(fb_object);
@@ -126,7 +138,24 @@ public class Casting : MonoBehaviour
             yield return null;
         }
     }
+    IEnumerator Burning()
+    {
+        float counter = 0;
+        while(counter < burnTicks)
+        {
+            foreach (var enemy in fb_hitEnemies)
+            {
+                if(enemy != null)
+                {
+                    enemy.GetComponent<Enemy_Health>().TakeDamage(fb_burnDamage);
+                }
+                
+            }
+            yield return new WaitForSeconds(1f);
+        }
+        
 
+    }
     //IEnumerator lt_SliderCooldown()
     //{
     //    float counter = 0;
@@ -142,4 +171,17 @@ public class Casting : MonoBehaviour
     //        yield return null;
     //    }
     //}
+    //void OnDrawGizmosSelected()
+    //{
+        
+    //}
+    private void OnDrawGizmos()
+    {
+        if(fb_object != null)
+        {
+            Gizmos.DrawSphere(fb_object.transform.position, fb_aoeRange);
+        }
+        
+    }
+
 }

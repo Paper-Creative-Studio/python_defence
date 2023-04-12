@@ -33022,11 +33022,13 @@ MonoBehaviour:
     m_Bits: 64
   fb_unlocked: 1
   fb_damage: 20
+  fb_burnDamage: 3
   fireball: {fileID: 362652868373742074, guid: 09cdd0b764f9c3943a7ea91794c3cebf, type: 3}
   fb_speed: 2
   fb_aoeRange: 5
   fb_slider: {fileID: 232227149}
   explosion_VFX: {fileID: 5503619434207106812, guid: b755c78e25b807247a9c32995f77a5c2, type: 3}
+  enemy_burn_vfx: {fileID: 5503619434207106812, guid: a2f8875466971064dafa987cdc0e76bb, type: 3}
   lt_unlocked: 0
   lt_damage: 35
   lightning: {fileID: 0}

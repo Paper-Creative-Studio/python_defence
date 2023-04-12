@@ -55,7 +55,7 @@ namespace Pathfinding
 		/// <summary>Updates the AI's destination every frame</summary>
 		void Update () 
 		{
-			Debug.Log(dist);
+			
             dist = Vector3.Distance(SecondaryTarget.position, enemyObject.position);
 			
 			if (dist <= viewRange)

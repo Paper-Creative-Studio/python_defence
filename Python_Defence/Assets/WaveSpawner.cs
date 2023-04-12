@@ -126,10 +126,10 @@ public class WaveSpawner : MonoBehaviour
         SpawnWave(waveCount);
         transform.position = new Vector3 (transform.position.x, transform.position.y, -1);
         waveseeker.enemy = true;
-        Debug.Log("gasdowno");
+       
         if (objectivescript.objectives[0].internalTitle != "Wave")
         {
-            Debug.Log("gowno");
+            
             objectivescript.title.text = "Monsters invasion";
             objectivescript.description.text = "Take out the monsters or they destroy our town";
         }
