@@ -118,6 +118,7 @@ public class movement : MonoBehaviour
             {
                 anim_controller.SetBool("MovingLeftRight", false);
                 anim_controller.SetBool("MovingUp", false);
+                anim_controller.SetBool("MovingDown", false);
             }
             else
             {
@@ -125,18 +126,28 @@ public class movement : MonoBehaviour
                 {
                     anim_controller.SetBool("MovingLeftRight", true);
                     anim_controller.SetBool("MovingUp", false);
+                    anim_controller.SetBool("MovingDown", false);
+
                 }
                 else if (Input.GetAxisRaw("Horizontal") == 0 && Input.GetAxisRaw("Vertical") > 0)
                 {
                     anim_controller.SetBool("MovingLeftRight", false);
                     anim_controller.SetBool("MovingUp", true);
+                    anim_controller.SetBool("MovingDown", false);
                 }
 
                 else if (Input.GetAxisRaw("Horizontal") == 0 && Input.GetAxisRaw("Vertical") == 0)
                 {
                     anim_controller.SetBool("MovingLeftRight", false);
                     anim_controller.SetBool("MovingUp", false);
-                }
+                    anim_controller.SetBool("MovingDown", false);
+            }
+                else if(Input.GetAxisRaw("Horizontal") == 0 && Input.GetAxisRaw("Vertical") <0)
+                {
+                    anim_controller.SetBool("MovingDown", true);
+                    anim_controller.SetBool("MovingUp", false);
+                    anim_controller.SetBool("MovingLeftRight", false);
+            }
             }
     }
     
