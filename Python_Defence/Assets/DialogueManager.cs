@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-
+using System.Diagnostics;
 public class DialogueManager : MonoBehaviour
 {
     [SerializeField] GameObject main_Canvas;
@@ -12,26 +12,36 @@ public class DialogueManager : MonoBehaviour
     public Image npcAvatar;
     public GameObject dialogueCanvas;
     public GameObject npc;
+    
     public GameObject player;
     private Queue<string> sentences= new Queue<string>();
     private Queue<Sprite> avatars= new Queue<Sprite>();
-    private PythonGame npcscript;
+    [SerializeField] private DialogueTrigger farmerdialtrig;
+    public PythonGame npcscript;
+    public TradeNPC tradescript;
     private movement playermove;
     private Attacking playerattack;
-    
+    private string aftermath;
+    [SerializeField] private Eq eqscript;
+    [SerializeField] private farmamanagement farma;
     private void Start()
     {
-        npcscript = npc.GetComponent<PythonGame>();
+        //npcscript = npc.GetComponent<PythonGame>();
         playermove = player.GetComponent<movement>();
         playerattack = player.GetComponent<Attacking>();
     }
     public void StartDialogue(Dialogue dialogue)
     {
+        
         main_Canvas.SetActive(false);
-        npcscript.talking = true;
+        if (npcscript != null) 
+        {
+            npcscript.talking = true;
+        }
+        
         playermove.moving = false;
         playerattack.canAttack = false;
-        Debug.Log(dialogue.npcName);
+        
         sentences.Clear();
         avatars.Clear();
         foreach(Array2DForDialogue dialarray in dialogue.speech)
@@ -39,6 +49,7 @@ public class DialogueManager : MonoBehaviour
             avatars.Enqueue(dialarray.avatar);
             sentences.Enqueue(dialarray.sentence);
         }
+        aftermath = dialogue.aftermath;
         DisplayNextSentence();
     }
     public void DisplayNextSentence()
@@ -48,12 +59,29 @@ public class DialogueManager : MonoBehaviour
             dialogueCanvas.SetActive(false);
             avatars.Clear();
             sentences.Clear();
-            npcscript.talking = false;
+            if (npcscript != null)
+                npcscript.talking = false;
             playermove.moving = true;
             playerattack.canAttack = true;
-            if (npcscript.aftermath == "Python")
+            if (aftermath== "Python")
             {
                 npcscript.LaunchPython();
+            }
+            else if (aftermath == "Python")
+            {
+                tradescript.StartShop();
+            }
+            else if(aftermath == "Shop")
+            {
+                tradescript.StartShop();
+            }
+            else if (aftermath == "Harvest")
+            {
+                eqscript.giveHajs(10);
+                eqscript.zaznaczHajs();
+                main_Canvas.SetActive(true);
+                farmerdialtrig.index = 1;
+                farma.Zbierz();
             }
             else
             {
@@ -64,6 +92,7 @@ public class DialogueManager : MonoBehaviour
         }
         string sentence = sentences.Dequeue();
         Sprite avatar = avatars.Dequeue();
+        
         if(avatar.name == "mark_avatar")
         {
             markAvatar.enabled = true;
@@ -77,6 +106,7 @@ public class DialogueManager : MonoBehaviour
             markAvatar.enabled = false;
             npcAvatar.enabled = true;
             npcAvatar.sprite= avatar;
+            npcAvatar.SetNativeSize();
             convotext.alignment = TextAlignmentOptions.MidlineRight;
         }
         convotext.text = sentence;

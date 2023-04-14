@@ -1,13 +1,13 @@
-M: Duże to pole...
-R: 15 arów, a ja jestem stary. Masz może czas mi pomóc?
-M: Co potrzeba?
-R: Zasiać rośliny
+M: Big field...
+R: 15 ares. I thought of selling it becouse I'm getting old. Maybe you could help me with work on it?
+M: What do you need>
+R: Sow the plants
 
-R: Plony będą za x fal
+R: You can harvest plants in x waves
 
 
-R: Przyszedłeś zebrać plony?
-M: Tak
+R: Have you come to harvest?
+M: Yes
 
-R: Przyszedłeś zasiać pole?
-M: Tak
+R: Have you come to sow a field?
+M: Yes

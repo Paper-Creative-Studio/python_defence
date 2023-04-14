@@ -1,0 +1,7 @@
+Kopalnia: array
+Kowal: petle/liczby
+Stajnia: if
+Zbrojownia: for
+Kosciol: funkcje
+
+

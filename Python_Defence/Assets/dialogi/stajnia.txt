@@ -1,0 +1,11 @@
+S: Do you want to help me rebuilding the stable?
+M: Sure, how can i help you?
+
+
+S: The foundations for the building are ready. Can you help me finish the build?
+M: What do you need?
+
+
+
+S: How can I help you?
+M: I need to train a bit, can i use this place?

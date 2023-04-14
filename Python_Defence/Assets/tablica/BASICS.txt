@@ -1,0 +1,68 @@
+The Print command is the simplest way to display a message on the screen or other display device. You can display numbers, text, or the results of various operations there.
+
+It consists of two parentheses, in which we put what we want to display.
+To display numbers, quotation marks are not needed.
+E.g.: Print(60)
+To print text, we should use single or double quotation marks. Text in quotes is called a string.
+E.g.: Print("Hello World")
+If you want to print several strings under each other in a new line, each result should be written separately.
+E.g.:
+Print("Carrots")
+Print("Potatoes")
+As you learned earlier, text written in quotes is a string. It is also worth knowing other types of variables, on which the operations performed on them depend.
+
+String - text in quotes, e.g.: "fruits"
+Integers - whole numbers, e.g.: 7
+The result of operations on integers is integers (the only exception is division).
+Float - decimal number, e.g.: 3.0
+The result of operations performed on a float is a float.
+
+In Print, we can display the results of various operations.
+E.g.: print(2+1)
+The basic operations in Python are:
+Addition +
+Subtraction -
+Multiplication *
+Division /
+Exponentiation **
+Floor division // (we determine how many times a given number fits during the operation, and the result is a whole number)
+Modulo % (division that returns the remainder of the division)
+
+! Important information: when dividing integers, we recieve a float type variable !
+
+
+If you want to perform more than one operation, we use parentheses.
+A minus sign before a number makes it negative.
+E.g.: print(-4 * (20 / 5))
+A variable is assigning a value to a name.
+E.g.:
+fruit = "Apple"
+number = 3
+
+A correct variable name may contain letters, numbers, and underscores (_). However, it cannot contain special characters or start the name with a number.
+After adding a variable, you can use it to perform operations on them.
+
+E.g.:
+X = 1
+Y = 2
+Print(x)
+Print(y)
+Print(x+y)
+Print(x)
+Print(y)
+
+To use some variables entered by the user use the input function.
+E.g.:
+name = input()
+Print("Your name is: " + name)
+What you want to display as constant text should be written in quotes. Similarly, you can add text that will be displayed before entering a value (for example, what should be entered).
+E.g.: name = input("Enter your name: ")
+
+The input function always returns a string. If you want it to be an integer, use the conversion function int().
+E.g.: number = int(input())
+To convert to a float, we can use the float() function.
+E.g.: height = float(input())
+
+Sometimes you also need to convert a number to text, you can use str().
+E.g.: x = 4
+Print("The number is " + str(x))

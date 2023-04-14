@@ -89,13 +89,14 @@ public class Archer : MonoBehaviour
                 {
                     if (transform.position.x - enemy.x <= 4.5f)
                     {
+                    float speedOfArrow = 1.5f;
                         arrowSpeed = 0.85f;
                         CurveTime += Time.deltaTime * arrowSpeed;
-                        createdArrow.transform.position = Vector3.MoveTowards(createdArrow.transform.position, enemy, arrowSpeed * Time.fixedDeltaTime);
+                        createdArrow.transform.position = Vector3.MoveTowards(createdArrow.transform.position, enemy, speedOfArrow * Time.fixedDeltaTime);
                         Vector3 dir = enemy - createdArrow.transform.position;
                         var angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
                         createdArrow.transform.rotation = Quaternion.AngleAxis(angle - 45f, Vector3.forward);
-                        Debug.Log("elo");
+                        
                     }
                     else
                     {

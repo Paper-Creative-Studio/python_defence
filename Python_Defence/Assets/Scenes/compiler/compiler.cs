@@ -1,31 +1,36 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using System;
 using TMPro;
 using System.IO;
 using IronPython.Hosting;
 using System.Text;
-using UnityEngine.Rendering;
-using Microsoft.Unity.VisualStudio.Editor;
-using UnityEditor.UI;
-using System.Linq;
 using System.Text.RegularExpressions;
-using static IronPython.Modules.PythonDateTime;
+
+
 
 public class compiler : MonoBehaviour
 {
     public TMP_InputField tmpro;
     private string kod;
     public TMP_Text output;
+    public TMP_Text prereq;
     public string desiredOutput;
+    public string secOutput;
+   
     public TMP_Text desOut;
     public bool result;
     string replacement;
+    public string addition;
+    public string polecenie;
+    public string condition;
+    public string stale;
+    public TMP_Text textplace;
+    public PythonGame scriptwyw;
     // Start is called before the first frame update
     void Start()
     {
-        desOut.text= desiredOutput;
+        
     }
 
     // Update is called once per frame
@@ -41,9 +46,11 @@ public class compiler : MonoBehaviour
             var engine = Python.CreateEngine();
 
             string plik = Application.dataPath + "/pyton.py";
-            string testplik = Application.dataPath + "/pyton2.py";
+            
             kod = tmpro.text;
-            File.WriteAllText(plik, kod);
+            File.WriteAllText(plik, stale);
+            File.AppendAllText(plik, kod);
+            File.AppendAllText(plik, addition);
             var source = engine.CreateScriptSourceFromFile(plik);
             var eIO = engine.Runtime.IO;
             var errors = new MemoryStream();
@@ -54,7 +61,7 @@ public class compiler : MonoBehaviour
             source.Execute(scope);
             string str(byte[] x) => Encoding.UTF8.GetString(x);
             output.text = str(results.ToArray());
-            
+           
             replacement = Regex.Replace(output.text, @"\t|\n|\r", "");
 
         }
@@ -63,29 +70,129 @@ public class compiler : MonoBehaviour
             output.text = ex.Message;
             
         }
-        if(replacement == desiredOutput)  
+        if(condition!= string.Empty)
         {
-            result = true;
-            output.color = Color.green;
-            StartCoroutine(WaitSeconds());
+            
+            if (!tmpro.text.Contains(condition))
+            {
+
+                scriptwyw.result = false;
+                output.color = Color.red;
+                
+            }
+            else
+            {
+                if(secOutput != string.Empty)
+                {
+                    if (replacement == desiredOutput)
+                    {
+                        
+                        scriptwyw.result = true;
+                        output.color = Color.green;
+                        StartCoroutine(WaitSeconds());
+                    }
+                    else if (replacement == secOutput)
+                    {
+                       
+                        scriptwyw.result = true;
+                        output.color = Color.green;
+                        StartCoroutine(WaitSeconds());
+
+                    }
+                    else
+                    {
+                        
+                        scriptwyw.result = false;
+                        output.color = Color.red;
+                    }
+                }
+                else
+                {
+                    if (replacement == desiredOutput)
+                    {
+                        
+                        scriptwyw.result = true;
+                        output.color = Color.green;
+                        StartCoroutine(WaitSeconds());
+                    }
+                    else
+                    {
+                        
+                        scriptwyw.result = false;
+                        output.color = Color.red;
+                    }
+                }
+
+            }
         }
         else
         {
-            result = false;
-            output.color = Color.red;
+            
+            if (secOutput != string.Empty)
+            {
+                if (replacement == desiredOutput)
+                {
+                   
+                    scriptwyw.result = true;
+                    output.color = Color.green;
+                    StartCoroutine(WaitSeconds());
+                }
+                else if (replacement == secOutput)
+                {
+                    
+                    scriptwyw.result = true;
+                    output.color = Color.green;
+                    StartCoroutine(WaitSeconds());
+
+                }
+                else
+                {
+                    
+                    scriptwyw.result = false;
+                    output.color = Color.red;
+                }
+            }
+            else
+            {
+                if (replacement == desiredOutput)
+                {
+                    
+                    scriptwyw.result = true;
+                    output.color = Color.green;
+                    StartCoroutine(WaitSeconds());
+                }
+                else
+                {
+                    
+                    scriptwyw.result = false;
+                    output.color = Color.red;
+                }
+            }
         }
+        
+        
        
     }
-
+    public void LoadNewTask()
+    {
+        output.text = string.Empty;
+        desOut.text = string.Empty;
+        tmpro.text = string.Empty;
+        desOut.text = polecenie;
+        prereq.text = stale;
+        
+    }
     IEnumerator WaitSeconds()
     {
         yield return new WaitForSecondsRealtime(3);
         output.text = "";
         kod = "";
+        
         tmpro.text = kod;
         Time.timeScale = 1; 
         transform.parent.parent.gameObject.SetActive(false);
         
     }
+   
 
 }

@@ -1,8 +1,8 @@
-using System.Collections;
+
 using System.Collections.Generic;
-using UnityEditor.U2D.Sprites;
+
 using UnityEngine;
-using UnityEngine.UI;
+
 
 public class WaveSpawner : MonoBehaviour
 {
@@ -12,12 +12,27 @@ public class WaveSpawner : MonoBehaviour
     public GameObject[] enemyWave2;
     public GameObject[] enemyWave3;
     public GameObject[] enemyWave4;
+    public GameObject[] enemyWave5;
+    public GameObject[] enemyWave6;
+    public GameObject[] enemyWave7;
+    public GameObject[] enemyWave8;
+    public GameObject[] enemyWave9;
+    public GameObject[] enemyWave10;
     public Transform[] spawnPoints;
-    [SerializeField] private GameObject waveSeeker;
+    [SerializeField] private ObjectiveSetter objectivescript;
+    public waveSeeker waveseeker;
     public int doneWaves = 0;
     private int waveCount = 1;
+    public bool lose = false;
     public List<GameObject> aliveEnemies = new List<GameObject>();
-    
+    [SerializeField] private Eq eqscript;
+    [SerializeField] private playmusic musicPlayer;
+    [SerializeField] private AudioClip villageMusic;
+    [SerializeField] private AudioClip BattleMusic;
+    [SerializeField] private Health playerHP;
+    [SerializeField] private CastleHealth castleHP;
+    int wavesToHeal = 5;
+    bool donce = true;
     private bool wave;
    
     // Start is called before the first frame update
@@ -29,10 +44,38 @@ public class WaveSpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-       
+        if(wavesToHeal == doneWaves)
+        {
+           
+            castleHP.currentHealth = castleHP.maxHealth;
+            
+            castleHP.hpbar.SetHealth(castleHP.currentHealth);
+            wavesToHeal = doneWaves + 5;
+        }
+        if(aliveEnemies.Count == 0)
+        {
+            if (donce)
+            {
+                musicPlayer.source.Stop();
+                musicPlayer.source.clip = villageMusic;
+                musicPlayer.source.Play();
+                donce = false;
+            }
+        }
+        else
+        {
+            if (!donce)
+            {
+                musicPlayer.source.Stop();
+                musicPlayer.source.clip = BattleMusic;
+                musicPlayer.source.Play();
+                donce = true;
+            }
 
-        if(wave)
+        }
+
+
+        if (wave)
         {
             for (int i = 0; i <= aliveEnemies.Count - 1; i++)
             {
@@ -45,28 +88,52 @@ public class WaveSpawner : MonoBehaviour
             }
             if (aliveEnemies.Count == 0)
             {
-                doneWaves++;
+                
+                
+                if (!lose)
+                {
+                    eqscript.giveHajs((doneWaves +1) * 2);
+                    playerHP.currentHealth = playerHP.maxHealth;
+                    playerHP.healthbar.SetHealth(playerHP.currentHealth);
+                    doneWaves++;
+                    waveCount++;
+                    
+                    
+                }
+                objectivescript.description.text = objectivescript.objectives[0].CoZrobic;
+                objectivescript.title.text = objectivescript.objectives[0].Title;
+                waveseeker.enemy = false;
+                lose = false;
                 wave = false;
                 
-                if(waveCount < 4)
+                if (waveCount > 10)
                 {
-                    waveCount++;
+                    waveCount = 1;
                 }
                 transform.position = new Vector3(transform.position.x, transform.position.y, 1);
 
             }
+            
         }
         
 
         
+
 
     }
     public void Activate()
     {
         SpawnWave(waveCount);
         transform.position = new Vector3 (transform.position.x, transform.position.y, -1);
-        waveSeeker.SetActive(true);
-        waveCount++;
+        waveseeker.enemy = true;
+       
+        if (objectivescript.objectives[0].internalTitle != "Wave")
+        {
+            
+            objectivescript.title.text = "Monsters invasion";
+            objectivescript.description.text = "Take out the monsters or they destroy our town";
+        }
+        
     }
     void SpawnWave(int waveNumber)
     {
@@ -144,9 +211,123 @@ public class WaveSpawner : MonoBehaviour
             }
 
         }
-        
-       
-        
+        else if (waveNumber == 5)
+        {
+            wave = true;
+
+
+
+            for (int i = 0; i <= enemyWave5.Length - 1; i++)
+            {
+
+
+                aliveEnemies.Add((GameObject)Instantiate(enemyWave5[i], spawnPoints[i].position, Quaternion.identity));
+
+
+
+
+
+            }
+
+        }
+        else if (waveNumber == 6)
+        {
+            wave = true;
+
+
+
+            for (int i = 0; i <= enemyWave6.Length - 1; i++)
+            {
+
+
+                aliveEnemies.Add((GameObject)Instantiate(enemyWave6[i], spawnPoints[i].position, Quaternion.identity));
+
+
+
+
+
+            }
+
+        }
+        else if (waveNumber == 7)
+        {
+            wave = true;
+
+
+
+            for (int i = 0; i <= enemyWave7.Length - 1; i++)
+            {
+
+
+                aliveEnemies.Add((GameObject)Instantiate(enemyWave7[i], spawnPoints[i].position, Quaternion.identity));
+
+
+
+
+
+            }
+
+        }
+        else if (waveNumber == 8)
+        {
+            wave = true;
+
+
+
+            for (int i = 0; i <= enemyWave8.Length - 1; i++)
+            {
+
+
+                aliveEnemies.Add((GameObject)Instantiate(enemyWave8[i], spawnPoints[i].position, Quaternion.identity));
+
+
+
+
+
+            }
+
+        }
+        else if (waveNumber == 9)
+        {
+            wave = true;
+
+
+
+            for (int i = 0; i <= enemyWave9.Length - 1; i++)
+            {
+
+
+                aliveEnemies.Add((GameObject)Instantiate(enemyWave9[i], spawnPoints[i].position, Quaternion.identity));
+
+
+
+
+
+            }
+
+        }
+        else if (waveNumber == 10)
+        {
+            wave = true;
+
+
+
+            for (int i = 0; i <= enemyWave10.Length - 1; i++)
+            {
+
+
+                aliveEnemies.Add((GameObject)Instantiate(enemyWave10[i], spawnPoints[i].position, Quaternion.identity));
+
+
+
+
+
+            }
+
+        }
+
+
+
 
     }
     

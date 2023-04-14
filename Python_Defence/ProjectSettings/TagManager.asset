@@ -5,6 +5,12 @@ TagManager:
   serializedVersion: 2
   tags:
   - EndGoal
+  - Deathscreen
+  - Tilemap
+  - Merchant
+  - npc
+  - Enemy
+  - explosion
   layers:
   - Default
   - TransparentFX
@@ -18,7 +24,7 @@ TagManager:
   - Archer
   - Arrow
   - EnemyArrow
-  - 
+  - Drzewka
   - 
   - 
   - 

@@ -3,7 +3,7 @@ using Pathfinding;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
-using UnityEditor.U2D.Path;
+
 using UnityEngine;
 using static UnityEngine.GraphicsBuffer;
 
@@ -107,14 +107,18 @@ public class Attack_Enemy : MonoBehaviour
 
         while (CurveTime < 1)
         {
+            
             //Movement strzaly
             if (createdArrow != null)
             {
-                if ( target.x - transform.position.x <= 4.5f)
+
+                
+                if ( target.x - transform.position.x <= 4.5f && target.x - transform.position.x >= -4.5f)
                 {
-                    arrowspeed = 0.85f;
+                    arrowspeed = 1.5f;
+                    float speedOfArrow = 3f;
                     CurveTime += Time.deltaTime * arrowspeed;
-                    createdArrow.transform.position = Vector3.MoveTowards(createdArrow.transform.position, target, arrowspeed * Time.fixedDeltaTime);
+                    createdArrow.transform.position = Vector3.MoveTowards(createdArrow.transform.position, target, speedOfArrow * Time.fixedDeltaTime);
                     Vector3 dir = target - createdArrow.transform.position;
                     var angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
                     createdArrow.transform.rotation = Quaternion.AngleAxis(angle - 45f, Vector3.forward);
@@ -132,15 +136,9 @@ public class Attack_Enemy : MonoBehaviour
                     Vector3 dir = arrowNextPos - createdArrow.transform.position;
                     var angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
                     createdArrow.transform.rotation = Quaternion.AngleAxis(angle - 45f, Vector3.forward);
-                    if (createdArrow.transform.position.y - arrowNextPos.y <= 0)
-                    {
-                        arrowspeed = 0.7f;
-                    }
-                    else
-                    {
-
-                        arrowspeed -= -0.87f * Time.deltaTime; //default gravity to -9.14
-                    }
+                   
+                    arrowspeed = 1.25f; //default gravity to -9.14
+                    
                 }
                 
             }
@@ -148,7 +146,7 @@ public class Attack_Enemy : MonoBehaviour
             yield return new WaitForEndOfFrame();
         }
 
-
+        
         CurveTime = 0f;
         coroutineAllowed = true;
     }

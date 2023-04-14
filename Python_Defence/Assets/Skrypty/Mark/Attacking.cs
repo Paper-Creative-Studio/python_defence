@@ -1,3 +1,4 @@
+using Microsoft.Scripting;
 using Pathfinding;
 using System.Collections;
 using System.Collections.Generic;
@@ -11,38 +12,50 @@ public class Attacking : MonoBehaviour
     [SerializeField] private LayerMask enemyLayers;
     [SerializeField] private float attackCooldown = 0.5f;
     [SerializeField] private Animator anim_controller;
-    [SerializeField] private int damage;
+    [SerializeField] private AudioClip woosh_sound;
+    [SerializeField] private AudioSource source;
+    public int damage;
     public bool canAttack = true;
+    private Health health;
     // Start is called before the first frame update
     void Start()
     {
-        
+        source = GetComponent<AudioSource>();  
+        health = GetComponent<Health>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        //Debug.Log(canAttack);   
-        //atak
-        if(Input.GetButtonDown("Fire1") && canAttack)
+       if(health.alive)
         {
-            
-            canAttack= false;
-            anim_controller.SetTrigger("Attacking");
-            
-            StartCoroutine(Cooldown());
-            
+            if (Input.GetButtonDown("Fire1") && canAttack && health.hitable)
+            {
+
+                canAttack = false;
+                
+                anim_controller.SetTrigger("Attacking");
+
+                StartCoroutine(Cooldown());
+
+            }
         }
+        
     }
     public void Attack()
     {
+        
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
-
+        
         foreach (Collider2D enemy in hitEnemies)
         {
             enemy.GetComponent<Enemy_Health>().TakeDamage(damage);
         }
         
+    }
+    public void PlaySound()
+    {
+        source.PlayOneShot(woosh_sound);
     }
     IEnumerator Cooldown()
     {
