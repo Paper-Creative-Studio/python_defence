@@ -10,7 +10,7 @@ using static UnityEngine.GraphicsBuffer;
 public class Attack_Enemy : MonoBehaviour
 {
     public bool isattacking = false;
-    private bool canAttack = true;
+    public bool canAttack = true;
     [SerializeField] private float minAS;
     [SerializeField] private float maxAS;
     [SerializeField] private float attackRange;

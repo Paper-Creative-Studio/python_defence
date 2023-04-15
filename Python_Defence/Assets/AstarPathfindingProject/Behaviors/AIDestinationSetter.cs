@@ -22,7 +22,7 @@ namespace Pathfinding
 		public Transform target;
 		public Transform SecondaryTarget;
 		public float viewRange;
-		IAstarAI ai;
+		public IAstarAI ai;
 		private float dist;
 		public float lostRange;
 		public Animator anim;

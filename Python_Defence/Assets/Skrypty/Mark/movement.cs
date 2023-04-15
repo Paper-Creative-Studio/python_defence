@@ -46,12 +46,12 @@ public class movement : MonoBehaviour
     {
         if (!health.hitable)
         {
-            Debug.Log("asdasdasdasd");
+            
             anim_controller.SetBool("MovingLeftRight", false);
             anim_controller.SetBool("MovingUp", false);
             anim_controller.SetBool("MovingDown", false);
         }
-        Debug.Log(health.hitable);
+        
         if (dashing)
         {
             return;
@@ -120,14 +120,14 @@ public class movement : MonoBehaviour
     {
         if (!health.hitable)
         {
-            Debug.Log("asdasdasdasd");
+            
             anim_controller.SetBool("MovingLeftRight", false);
             anim_controller.SetBool("MovingUp", false);
             anim_controller.SetBool("MovingDown", false);
         }
         else
         {
-            Debug.Log("gowno");
+           
             if (Input.GetAxisRaw("Horizontal") != 0)
             {
                 anim_controller.SetBool("MovingLeftRight", true);
