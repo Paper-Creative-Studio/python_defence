@@ -33328,7 +33328,6 @@ MonoBehaviour:
   explosion_VFX: {fileID: 5503619434207106812, guid: b755c78e25b807247a9c32995f77a5c2, type: 3}
   enemy_burn_vfx: {fileID: 5503619434207106812, guid: a2f8875466971064dafa987cdc0e76bb, type: 3}
   lt_unlocked: 1
-  lt_damage: 20
   lightning: {fileID: 362652868373742074, guid: b588da1c3682f3c4aaf26547fb5500aa, type: 3}
   lt_cooldown: 5
   lt_slider: {fileID: 590673492}

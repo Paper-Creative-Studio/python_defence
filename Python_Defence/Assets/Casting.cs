@@ -37,7 +37,6 @@ public class Casting : MonoBehaviour
 
     [Header("Lightning")]
     public bool lt_unlocked = false;
-    [SerializeField] private float lt_damage = 35f;
     [SerializeField] private GameObject lightning;
     private bool lt_canCast = true;
     public float lt_cooldown = 5f;

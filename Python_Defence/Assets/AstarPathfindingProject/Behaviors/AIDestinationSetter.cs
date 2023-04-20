@@ -32,6 +32,8 @@ namespace Pathfinding
 		public bool move;
         public AIPath aipath;
 		private Transform enemyObject;
+        public bool canChange = true;
+        public bool stunned = false;
         void OnEnable () {
 			ai = GetComponent<IAstarAI>();
 			// Update the destination right before searching for a path as well.
@@ -55,77 +57,80 @@ namespace Pathfinding
 		/// <summary>Updates the AI's destination every frame</summary>
 		void Update () 
 		{
-			
-            dist = Vector3.Distance(SecondaryTarget.position, enemyObject.position);
-			
-			if (dist <= viewRange)
+			if(target != null)
 			{
-				if (target != null && ai != null)
-				{
-					ai.destination = SecondaryTarget.position;
-					ai.maxSpeed = PlayerSpeed;
-					if(dist <= stopRange)
-					{
-						ai.canMove = false;
-						
-					}
-					else
-					{
-						ai.canMove = true;
-						
-					}
-				}
+                dist = Vector3.Distance(SecondaryTarget.position, enemyObject.position);
 
-			}
-			else if (dist > lostRange)
-			{
-
-				if (target != null && ai != null)
-				{
-					ai.destination = target.position;
-					ai.maxSpeed = CastleSpeed;
-
-				}
-
-
-			}
-			if (ai.canMove)
-			{
-                anim.SetBool("WalkingHor", true);
-            }	
-			else
-			{
-                anim.SetBool("WalkingHor", false);
-			}
-            if (target != null && ai != null)
-			{
-				if(ai.destination == target.position)
-				{
-                    if (aipath.desiredVelocity.x >= 0.01f)
+                if (dist <= viewRange)
+                {
+                    if (target != null && ai != null && canChange)
                     {
-                        enemyObject.localScale = new Vector3(1f, 1f, 1f);
+                        ai.destination = SecondaryTarget.position;
+                        ai.maxSpeed = PlayerSpeed;
+                        if (dist <= stopRange)
+                        {
+                            ai.canMove = false;
+
+                        }
+                        else
+                        {
+                            ai.canMove = true;
+
+                        }
                     }
-                    else
-                    {
-                        enemyObject.localScale = new Vector3(-1f, 1f, 1f);
-                    }
+
                 }
-				else if (ai.destination == SecondaryTarget.position)
-				{
-					float distance = SecondaryTarget.position.x - enemyObject.position.x;
-					if (distance >= 0.01f)
-					{
-                        enemyObject.localScale = new Vector3(1f, 1f, 1f);
+                else if (dist > lostRange)
+                {
+
+                    if (target != null && ai != null)
+                    {
+                        ai.destination = target.position;
+                        ai.maxSpeed = CastleSpeed;
+
                     }
-					else
-					{
-                        enemyObject.localScale = new Vector3(-1f, 1f, 1f);
+
+
+                }
+                if (ai.canMove)
+                {
+                    anim.SetBool("WalkingHor", true);
+                }
+                else
+                {
+                    anim.SetBool("WalkingHor", false);
+                }
+                if (target != null && ai != null)
+                {
+                    if (ai.destination == target.position)
+                    {
+                        if (aipath.desiredVelocity.x >= 0.01f)
+                        {
+                            enemyObject.localScale = new Vector3(1f, 1f, 1f);
+                        }
+                        else
+                        {
+                            enemyObject.localScale = new Vector3(-1f, 1f, 1f);
+                        }
                     }
-				}
-                
+                    else if (ai.destination == SecondaryTarget.position)
+                    {
+                        float distance = SecondaryTarget.position.x - enemyObject.position.x;
+                        if (distance >= 0.01f)
+                        {
+                            enemyObject.localScale = new Vector3(1f, 1f, 1f);
+                        }
+                        else
+                        {
+                            enemyObject.localScale = new Vector3(-1f, 1f, 1f);
+                        }
+                    }
+
+                }
             }
             
+            
+            
         }
-        
     }
 }

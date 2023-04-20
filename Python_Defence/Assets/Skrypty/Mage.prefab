@@ -331,6 +331,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isattacking: 0
+  canAttack: 1
   minAS: 2
   maxAS: 3
   attackRange: 5
@@ -347,6 +348,7 @@ MonoBehaviour:
   target: {x: 0, y: 0, z: 0}
   controlPoint: {fileID: 0}
   printuj: 0
+  stunned: 0
 --- !u!114 &1259090575754961539
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -472,6 +474,7 @@ GameObject:
   - component: {fileID: 316163368653388498}
   - component: {fileID: 8287833650316378462}
   - component: {fileID: 4634619776540159548}
+  - component: {fileID: -1483845198521560710}
   m_Layer: 0
   m_Name: Mage
   m_TagString: Enemy
@@ -669,6 +672,20 @@ MonoBehaviour:
   stopRange: 6
   move: 0
   aipath: {fileID: 316163368653388498}
+  canChange: 1
+  stunned: 0
+--- !u!114 &-1483845198521560710
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1259090576415437038}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd0f05af66e8f0449942d761477eac54, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1259090576455835968
 GameObject:
   m_ObjectHideFlags: 0

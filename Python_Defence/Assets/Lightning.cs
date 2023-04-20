@@ -1,6 +1,8 @@
 using Pathfinding;
 using System.Collections;
 using System.Collections.Generic;
+using System.Data;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Lightning : MonoBehaviour
@@ -10,21 +12,9 @@ public class Lightning : MonoBehaviour
     [SerializeField] private LayerMask enemyLayers;
     private List<GameObject> hitEnemies= new List<GameObject>();
     public Sprite stunSprite;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        foreach (var enemy in hitEnemies)
-        {
-            Debug.Log(enemy.transform.parent.gameObject.GetComponent<AIDestinationSetter>().ai.canMove);
-            Debug.Log(enemy.GetComponent<Attack_Enemy>().canAttack);
-        }
-    }
+    private Transform lastTarget;
+    private Transform lastSecondaryTarget;
+   
     void DoDamage()
     {
         Collider2D[] explosion = Physics2D.OverlapCircleAll(transform.position, aoeRange, enemyLayers);
@@ -32,17 +22,20 @@ public class Lightning : MonoBehaviour
 
         foreach (Collider2D enemy in explosion)
         {
+             
             hitEnemies.Add(enemy.gameObject);
             enemy.GetComponent<Enemy_Health>().TakeDamage(damage);
-
-            enemy.transform.parent.gameObject.GetComponent<AIDestinationSetter>().ai.canMove = false;
-            enemy.GetComponent<Attack_Enemy>().canAttack = false;
-            enemy.gameObject.GetComponent<SpriteRenderer>().sprite = stunSprite;
-            StartCoroutine(StopStun());
-            
-           
-
+            AIDestinationSetter enemyAI = enemy.transform.parent.gameObject.GetComponent<AIDestinationSetter>();
+            enemyAI.ai.canMove = false;
+            //lastTarget = enemyAI.target;
+            //lastSecondaryTarget = enemyAI.SecondaryTarget;
+            //enemyAI.target = null;
+            //enemyAI.SecondaryTarget = null;
+            enemy.GetComponent<Attack_Enemy>().stunned = true;
+            enemyAI.canChange = false;
+            enemy.transform.parent.gameObject.GetComponent<stun>().stunned= true;
         }
+        
     }
     void Disappear()
     {
@@ -54,16 +47,5 @@ public class Lightning : MonoBehaviour
             Gizmos.DrawSphere(transform.position, aoeRange);
         
 
-    }
-    IEnumerator StopStun()
-    {
-        yield return new WaitForSeconds(3);
-        foreach (var enemy in hitEnemies)
-        {
-            enemy.GetComponent<AIDestinationSetter>().ai.canMove = true;
-            enemy.transform.GetChild(0).GetComponent<Attack_Enemy>().canAttack = true;
-        }
-        
-        
     }
 }

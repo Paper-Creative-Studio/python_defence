@@ -34,6 +34,7 @@ public class Attack_Enemy : MonoBehaviour
     private Vector3 gizmosPosition;
     public bool printuj = false;
     private float arrowspeed;
+    public bool stunned = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -44,7 +45,7 @@ public class Attack_Enemy : MonoBehaviour
     void Update()
     {
         
-        if (canAttack)
+        if (canAttack && !stunned)
         {
             isattacking= true;
             canAttack = false;

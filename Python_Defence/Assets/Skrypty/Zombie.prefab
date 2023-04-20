@@ -384,6 +384,7 @@ GameObject:
   - component: {fileID: 6455483814603456735}
   - component: {fileID: 9222157937437638572}
   - component: {fileID: 2109037872039410802}
+  - component: {fileID: -627796343611284016}
   m_Layer: 0
   m_Name: Zombie
   m_TagString: Enemy
@@ -483,6 +484,8 @@ MonoBehaviour:
   stopRange: 1
   move: 0
   aipath: {fileID: 2109037872039410802}
+  canChange: 1
+  stunned: 0
 --- !u!114 &9222157937437638572
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -553,6 +556,18 @@ MonoBehaviour:
   slowWhenNotFacingTarget: 1
   whenCloseToDestination: 0
   constrainInsideGraph: 0
+--- !u!114 &-627796343611284016
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1919005006421789567}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd0f05af66e8f0449942d761477eac54, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1919005006452398046
 GameObject:
   m_ObjectHideFlags: 0
@@ -788,6 +803,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isattacking: 0
+  canAttack: 1
   minAS: 0.3
   maxAS: 1
   attackRange: 1
@@ -804,6 +820,7 @@ MonoBehaviour:
   target: {x: 0, y: 0, z: 0}
   controlPoint: {fileID: 0}
   printuj: 0
+  stunned: 0
 --- !u!114 &1919005006836502603
 MonoBehaviour:
   m_ObjectHideFlags: 0
