@@ -12,6 +12,8 @@ public class Casting : MonoBehaviour
     [SerializeField] private Camera cam;
     [SerializeField] private Transform castPoint;
     [SerializeField] private LayerMask enemyLayers;
+    private movement moveScript;
+    private Animator anim;
     private Health health;
      
     private bool startMovement = false;
@@ -33,7 +35,7 @@ public class Casting : MonoBehaviour
     [SerializeField] private GameObject enemy_burn_vfx;
     private int burnTicks = 5;
     private List<GameObject> fb_hitEnemies = new List<GameObject>();
-
+    
 
     [Header("Lightning")]
     public bool lt_unlocked = false;
@@ -47,26 +49,28 @@ public class Casting : MonoBehaviour
     void Start()
     {
         health= GetComponent<Health>();
-        
+        anim = GetComponent<Animator>();
+        moveScript = GetComponent<movement>();
     }
 
     // Update is called once per frame
     void Update()
     {
         
-        if (fb_unlocked && Input.GetKeyDown(KeyCode.Z) && fb_canCast && fb_slider.value == 0)
+        if (fb_unlocked && Input.GetKeyDown(KeyCode.Z) && fb_canCast && fb_slider.value < 0.1f)
         {
-            CastFireball();
-            fb_slider.value = fb_slider.maxValue;
-            StartCoroutine(fb_StartCooldown());
-            StartCoroutine(fb_SliderCooldown());
+            moveScript.moving = false;
+            moveScript.DisableAnimations();
+            anim.SetTrigger("CastFireball");
+            
+            
         }
-        if (lt_unlocked && Input.GetKeyDown(KeyCode.X) && lt_canCast && lt_slider.value == 0)
+        if (lt_unlocked && Input.GetKeyDown(KeyCode.X) && lt_canCast && lt_slider.value < 0.1f)
         {
-            CastLightning();
-            lt_slider.value = lt_slider.maxValue;
-            StartCoroutine(lt_StartCooldown());
-            StartCoroutine(lt_SliderCooldown());
+            moveScript.moving = false;
+            moveScript.DisableAnimations();
+            anim.SetTrigger("CastLightning");
+            
         }
         if(fb_object != null)
         {
@@ -103,9 +107,19 @@ public class Casting : MonoBehaviour
         
         
     }
+    void DisableAnimations()
+    {
+
+    }
+    void letMove()
+    {
+        moveScript.moving = true;
+    }
     void CastFireball()
     {
-        
+        fb_slider.value = fb_slider.maxValue;
+        StartCoroutine(fb_StartCooldown());
+        StartCoroutine(fb_SliderCooldown());
         mousepos = new Vector3(cam.ScreenToWorldPoint(Input.mousePosition).x, cam.ScreenToWorldPoint(Input.mousePosition).y, 0);
         fb_object = Instantiate(fireball, castPoint.position, Quaternion.identity);
         startMovement = true;
@@ -155,9 +169,13 @@ public class Casting : MonoBehaviour
 
     void CastLightning()
     {
+        lt_slider.value = lt_slider.maxValue;
+        StartCoroutine(lt_StartCooldown());
+        StartCoroutine(lt_SliderCooldown());
         mousepos = new Vector3(cam.ScreenToWorldPoint(Input.mousePosition).x, cam.ScreenToWorldPoint(Input.mousePosition).y, 0);
         lt_object = Instantiate(lightning, mousepos, Quaternion.identity);
         
+
     }
     IEnumerator lt_StartCooldown()
     {

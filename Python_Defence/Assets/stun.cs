@@ -24,7 +24,6 @@ public class stun : MonoBehaviour
     }
     IEnumerator StopStun()
     {
-        Debug.Log("gowno");
         yield return new WaitForSeconds(3f);
         AI.ai.canMove = true;
         AI.canChange = true;

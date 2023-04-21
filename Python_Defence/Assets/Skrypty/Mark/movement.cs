@@ -86,7 +86,7 @@ public class movement : MonoBehaviour
             {
                 rb.velocity = Vector2.zero;
             }
-            if (Input.GetKeyDown(KeyCode.LeftShift) && !dodging && canDash && dashSlider.value == 0)
+            if (Input.GetKeyDown(KeyCode.LeftShift) && !dodging && canDash && dashSlider.value < 0.1f)
             {
                 StartCoroutine(Dash());
                 dashSlider.value = dashSlider.maxValue;
@@ -120,10 +120,7 @@ public class movement : MonoBehaviour
     {
         if (!health.hitable)
         {
-            
-            anim_controller.SetBool("MovingLeftRight", false);
-            anim_controller.SetBool("MovingUp", false);
-            anim_controller.SetBool("MovingDown", false);
+            DisableAnimations();
         }
         else
         {
@@ -143,9 +140,7 @@ public class movement : MonoBehaviour
             }
             else if (Input.GetAxisRaw("Horizontal") == 0 && Input.GetAxisRaw("Vertical") == 0)
             {
-                anim_controller.SetBool("MovingLeftRight", false);
-                anim_controller.SetBool("MovingUp", false);
-                anim_controller.SetBool("MovingDown", false);
+                DisableAnimations();
             }
             else if(Input.GetAxisRaw("Horizontal") == 0 && Input.GetAxisRaw("Vertical") <0)
             {
@@ -159,7 +154,12 @@ public class movement : MonoBehaviour
             }
         }
     }
-    
+    public void DisableAnimations()
+    {
+        anim_controller.SetBool("MovingLeftRight", false);
+        anim_controller.SetBool("MovingUp", false);
+        anim_controller.SetBool("MovingDown", false);
+    }
     void Flip()
     {
         if(Time.timeScale == 1)
