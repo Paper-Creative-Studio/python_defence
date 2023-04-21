@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting.Dependencies.NCalc;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -30,7 +31,6 @@ public class movement : MonoBehaviour
     private bool dodging = false;
     private bool canDash = true;
     private bool dashing = false;
-    
 
     
     void Start()
@@ -44,6 +44,14 @@ public class movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!health.hitable)
+        {
+            
+            anim_controller.SetBool("MovingLeftRight", false);
+            anim_controller.SetBool("MovingUp", false);
+            anim_controller.SetBool("MovingDown", false);
+        }
+        
         if (dashing)
         {
             return;
@@ -72,11 +80,7 @@ public class movement : MonoBehaviour
                 {
                     HandleAnimations();
                 }
-                if(Input.GetKeyDown(KeyCode.Space))
-                {
-                    anim_controller.SetTrigger("Roll");
-                    
-                }
+                
             }
             else
             {
@@ -114,41 +118,46 @@ public class movement : MonoBehaviour
 
     private void HandleAnimations()
     {
-            if (!health.hitable)
+        if (!health.hitable)
+        {
+            
+            anim_controller.SetBool("MovingLeftRight", false);
+            anim_controller.SetBool("MovingUp", false);
+            anim_controller.SetBool("MovingDown", false);
+        }
+        else
+        {
+           
+            if (Input.GetAxisRaw("Horizontal") != 0)
+            {
+                anim_controller.SetBool("MovingLeftRight", true);
+                anim_controller.SetBool("MovingUp", false);
+                anim_controller.SetBool("MovingDown", false);
+
+            }
+            else if (Input.GetAxisRaw("Horizontal") == 0 && Input.GetAxisRaw("Vertical") > 0)
+            {
+                anim_controller.SetBool("MovingLeftRight", false);
+                anim_controller.SetBool("MovingUp", true);
+                anim_controller.SetBool("MovingDown", false);
+            }
+            else if (Input.GetAxisRaw("Horizontal") == 0 && Input.GetAxisRaw("Vertical") == 0)
             {
                 anim_controller.SetBool("MovingLeftRight", false);
                 anim_controller.SetBool("MovingUp", false);
                 anim_controller.SetBool("MovingDown", false);
             }
-            else
+            else if(Input.GetAxisRaw("Horizontal") == 0 && Input.GetAxisRaw("Vertical") <0)
             {
-                if (Input.GetAxisRaw("Horizontal") != 0)
-                {
-                    anim_controller.SetBool("MovingLeftRight", true);
-                    anim_controller.SetBool("MovingUp", false);
-                    anim_controller.SetBool("MovingDown", false);
-
-                }
-                else if (Input.GetAxisRaw("Horizontal") == 0 && Input.GetAxisRaw("Vertical") > 0)
-                {
-                    anim_controller.SetBool("MovingLeftRight", false);
-                    anim_controller.SetBool("MovingUp", true);
-                    anim_controller.SetBool("MovingDown", false);
-                }
-
-                else if (Input.GetAxisRaw("Horizontal") == 0 && Input.GetAxisRaw("Vertical") == 0)
-                {
-                    anim_controller.SetBool("MovingLeftRight", false);
-                    anim_controller.SetBool("MovingUp", false);
-                    anim_controller.SetBool("MovingDown", false);
+                anim_controller.SetBool("MovingDown", true);
+                anim_controller.SetBool("MovingUp", false);
+                anim_controller.SetBool("MovingLeftRight", false);
             }
-                else if(Input.GetAxisRaw("Horizontal") == 0 && Input.GetAxisRaw("Vertical") <0)
-                {
-                    anim_controller.SetBool("MovingDown", true);
-                    anim_controller.SetBool("MovingUp", false);
-                    anim_controller.SetBool("MovingLeftRight", false);
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                anim_controller.SetTrigger("Roll");
             }
-            }
+        }
     }
     
     void Flip()
@@ -167,6 +176,8 @@ public class movement : MonoBehaviour
     private IEnumerator Dash()
     {
         
+        anim_controller.SetTrigger("StartDash");
+        
         canDash = false;
         dashing = true;
         tr.emitting = true;
@@ -180,7 +191,10 @@ public class movement : MonoBehaviour
         }
         yield return new WaitForSeconds(dashDuration);
         tr.emitting = false;
+        
+        anim_controller.SetTrigger("EndDash");
         dashing = false;
+        
         yield return new WaitForSeconds(dashCooldown);
         canDash = true;
     }
@@ -200,4 +214,5 @@ public class movement : MonoBehaviour
             yield return null;
         }
     }
+    
 }

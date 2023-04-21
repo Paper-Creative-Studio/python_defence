@@ -67,6 +67,7 @@ GameObject:
   - component: {fileID: 3542445228404069651}
   - component: {fileID: 1341868708337899622}
   - component: {fileID: 1475927564559196429}
+  - component: {fileID: 7817660815753928858}
   m_Layer: 0
   m_Name: Ogre
   m_TagString: Enemy
@@ -236,6 +237,20 @@ MonoBehaviour:
   stopRange: 1.5
   move: 0
   aipath: {fileID: 1341868708337899622}
+  canChange: 1
+  stunned: 0
+--- !u!114 &7817660815753928858
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5832367070666367485}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd0f05af66e8f0449942d761477eac54, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5832367070852203753
 GameObject:
   m_ObjectHideFlags: 0
@@ -750,6 +765,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isattacking: 0
+  canAttack: 1
   minAS: 2.5
   maxAS: 4
   attackRange: 2.5
@@ -766,6 +782,7 @@ MonoBehaviour:
   target: {x: 0, y: 0, z: 0}
   controlPoint: {fileID: 0}
   printuj: 0
+  stunned: 0
 --- !u!114 &5832367072225687540
 MonoBehaviour:
   m_ObjectHideFlags: 0

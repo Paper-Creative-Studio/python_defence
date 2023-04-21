@@ -296,6 +296,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isattacking: 0
+  canAttack: 1
   minAS: 2
   maxAS: 3
   attackRange: 8
@@ -312,6 +313,7 @@ MonoBehaviour:
   target: {x: 0, y: 0, z: 0}
   controlPoint: {fileID: 1361046918435544424}
   printuj: 1
+  stunned: 0
 --- !u!114 &1361046918946888071
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -694,6 +696,7 @@ GameObject:
   - component: {fileID: 7175899123042887932}
   - component: {fileID: 3443954582959329592}
   - component: {fileID: 2818696240622120227}
+  - component: {fileID: 1385634213985570743}
   m_Layer: 0
   m_Name: Skeleton
   m_TagString: Enemy
@@ -863,6 +866,8 @@ MonoBehaviour:
   stopRange: 8
   move: 0
   aipath: {fileID: 7175899123042887932}
+  canChange: 1
+  stunned: 0
 --- !u!114 &2818696240622120227
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -891,6 +896,18 @@ MonoBehaviour:
   tagPenalties: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
   graphMask:
     value: -1
+--- !u!114 &1385634213985570743
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1361046920000320755}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd0f05af66e8f0449942d761477eac54, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1361046920010706421
 GameObject:
   m_ObjectHideFlags: 0

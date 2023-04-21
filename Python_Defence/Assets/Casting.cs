@@ -37,10 +37,11 @@ public class Casting : MonoBehaviour
 
     [Header("Lightning")]
     public bool lt_unlocked = false;
-    [SerializeField] private float lt_damage = 35f;
     [SerializeField] private GameObject lightning;
     private bool lt_canCast = true;
-    float lt_cooldown = 5f;
+    public float lt_cooldown = 5f;
+    private GameObject lt_object;
+    [SerializeField] private Slider lt_slider;
 
 
     void Start()
@@ -60,9 +61,12 @@ public class Casting : MonoBehaviour
             StartCoroutine(fb_StartCooldown());
             StartCoroutine(fb_SliderCooldown());
         }
-        if (Input.GetKeyDown(KeyCode.X))
+        if (lt_unlocked && Input.GetKeyDown(KeyCode.X) && lt_canCast && lt_slider.value == 0)
         {
-            
+            CastLightning();
+            lt_slider.value = lt_slider.maxValue;
+            StartCoroutine(lt_StartCooldown());
+            StartCoroutine(lt_SliderCooldown());
         }
         if(fb_object != null)
         {
@@ -115,14 +119,6 @@ public class Casting : MonoBehaviour
         fb_canCast = true;
     }
 
-    IEnumerator lt_StartCooldown()
-    {
-        lt_canCast = false;
-        yield return new WaitForSeconds(lt_cooldown);
-        lt_canCast = true;
-    }
-
-
     IEnumerator fb_SliderCooldown()
     {
         float counter = 0;
@@ -156,25 +152,35 @@ public class Casting : MonoBehaviour
         
 
     }
-    //IEnumerator lt_SliderCooldown()
-    //{
-    //    float counter = 0;
 
-    //    while (counter < lt_cooldown)
-    //    {
-    //        counter += Time.deltaTime;
-
-
-    //        float time = dashSlider.value / (lt_cooldown - counter) * Time.deltaTime;
-    //        dashSlider.value = Mathf.MoveTowards(dashSlider.value, dashSlider.minValue, time);
-
-    //        yield return null;
-    //    }
-    //}
-    //void OnDrawGizmosSelected()
-    //{
+    void CastLightning()
+    {
+        mousepos = new Vector3(cam.ScreenToWorldPoint(Input.mousePosition).x, cam.ScreenToWorldPoint(Input.mousePosition).y, 0);
+        lt_object = Instantiate(lightning, mousepos, Quaternion.identity);
         
-    //}
+    }
+    IEnumerator lt_StartCooldown()
+    {
+        lt_canCast = false;
+        yield return new WaitForSeconds(lt_cooldown);
+        lt_canCast = true;
+    }
+
+    IEnumerator lt_SliderCooldown()
+    {
+        float counter = 0;
+
+        while (counter < lt_cooldown)
+        {
+            counter += Time.deltaTime;
+
+
+            float time = lt_slider.value / (lt_cooldown - counter) * Time.deltaTime;
+            lt_slider.value = Mathf.MoveTowards(lt_slider.value, lt_slider.minValue, time);
+
+            yield return null;
+        }
+    }
     private void OnDrawGizmos()
     {
         if(fb_object != null)

@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class SpellBehaviour : MonoBehaviour
 {
-    [SerializeField] private float fb_damage = 50f;
     // Start is called before the first frame update
     void Start()
     {
