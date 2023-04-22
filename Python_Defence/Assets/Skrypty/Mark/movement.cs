@@ -10,7 +10,9 @@ public class movement : MonoBehaviour
     [SerializeField] private float smoothing_speed;
     [SerializeField] private float dashCooldown;
     [SerializeField] private float dashPower;
+    [SerializeField] private float rollPower;
     [SerializeField] private float dashDuration;
+    [SerializeField] private float rollDuration;
     
 
     private Vector3 input;
@@ -51,8 +53,8 @@ public class movement : MonoBehaviour
             anim_controller.SetBool("MovingUp", false);
             anim_controller.SetBool("MovingDown", false);
         }
-        
-        if (dashing)
+
+        if (dashing || dodging)
         {
             return;
         }
@@ -80,12 +82,19 @@ public class movement : MonoBehaviour
                 {
                     HandleAnimations();
                 }
+
                 
+
             }
             else
             {
                 rb.velocity = Vector2.zero;
             }
+            if (Input.GetKeyDown(KeyCode.Space) && !dodging)
+            {
+                StartCoroutine(Roll());
+            }
+
             if (Input.GetKeyDown(KeyCode.LeftShift) && !dodging && canDash && dashSlider.value < 0.1f)
             {
                 StartCoroutine(Dash());
@@ -148,10 +157,7 @@ public class movement : MonoBehaviour
                 anim_controller.SetBool("MovingUp", false);
                 anim_controller.SetBool("MovingLeftRight", false);
             }
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                anim_controller.SetTrigger("Roll");
-            }
+            
         }
     }
     public void DisableAnimations()
@@ -197,6 +203,21 @@ public class movement : MonoBehaviour
         
         yield return new WaitForSeconds(dashCooldown);
         canDash = true;
+    }
+    private IEnumerator Roll()
+    {
+        anim_controller.SetTrigger("Roll");
+        if (input != new Vector3(0, 0, 0))
+        {
+            rb.AddForce(input * rollPower);
+        }
+        else
+        {
+            rb.AddForce(new Vector2(transform.localScale.x * -1, 0) * rollPower);
+        }
+        
+        yield return new WaitForSeconds(rollDuration);
+        
     }
 
     IEnumerator SliderCooldown()

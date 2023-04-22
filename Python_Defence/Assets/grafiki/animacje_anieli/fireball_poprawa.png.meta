@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 21518678165089b4cb30d09556439c64
+guid: 420c655369413694684040a50272aa1e
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -47,7 +47,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 64
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -115,70 +115,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites:
-    - serializedVersion: 2
-      name: mark_dol_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 64
-        width: 78
-        height: 64
-      alignment: 9
-      pivot: {x: 0.52602154, y: 0.3776759}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 864ba76a865499a4c9dce3b5b92ba968
-      internalID: 1116871575
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: mark_dol_1
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 78
-        height: 64
-      alignment: 9
-      pivot: {x: 0.5278802, y: 0.37314525}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6a41cc1d3d0880a40b8eec234f52ac1e
-      internalID: 1719409121
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: mark_dol_2
-      rect:
-        serializedVersion: 2
-        x: 78
-        y: 0
-        width: 78
-        height: 64
-      alignment: 9
-      pivot: {x: 0.5297388, y: 0.37088}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 67888a09826be8c47bfb7eab1536d830
-      internalID: 1769274756
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
+    sprites: []
     outline: []
     physicsShape: []
     bones: []
@@ -189,10 +126,7 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      mark_dol_0: 1116871575
-      mark_dol_2: 1769274756
-      mark_dol_1: 1719409121
+    nameFileIdTable: {}
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
