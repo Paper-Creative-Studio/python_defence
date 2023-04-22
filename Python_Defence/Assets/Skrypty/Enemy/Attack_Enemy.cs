@@ -35,7 +35,6 @@ public class Attack_Enemy : MonoBehaviour
     public bool printuj = false;
     private float arrowspeed;
     public bool stunned = false;
-    private int attackCounter = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -52,21 +51,12 @@ public class Attack_Enemy : MonoBehaviour
             canAttack = false;
             attackcooldown = Random.Range(minAS, maxAS);
             hitPlayer = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, playerLayer);
-            
+
 
             if (hitPlayer.Length != 0)
             {
-                attackCounter++;
-                if (attackCounter > 2)
-                {
-                    anim.SetTrigger("DoubleAttack");
-                    attackCounter = 0;
-                }
-                else
-                {
-                    anim.SetTrigger("Attacking");
-                }
                 
+                anim.SetTrigger("Attacking");
                 
 
                 
