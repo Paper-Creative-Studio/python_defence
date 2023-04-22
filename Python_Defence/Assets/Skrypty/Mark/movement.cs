@@ -10,7 +10,9 @@ public class movement : MonoBehaviour
     [SerializeField] private float smoothing_speed;
     [SerializeField] private float dashCooldown;
     [SerializeField] private float dashPower;
+    [SerializeField] private float rollPower;
     [SerializeField] private float dashDuration;
+    [SerializeField] private float rollDuration;
     
 
     private Vector3 input;
@@ -79,6 +81,16 @@ public class movement : MonoBehaviour
                 if (Time.timeScale == 1)
                 {
                     HandleAnimations();
+                    if (Input.GetKeyDown(KeyCode.LeftShift) && !dodging && canDash && dashSlider.value < 0.1f)
+                    {
+                        StartCoroutine(Dash());
+                        dashSlider.value = dashSlider.maxValue;
+                        StartCoroutine(SliderCooldown());
+                    }
+                    if (Input.GetKeyDown(KeyCode.Space) && !dodging)
+                    {
+                        StartCoroutine(Rollin());
+                    }
                 }
                 
             }
@@ -86,18 +98,13 @@ public class movement : MonoBehaviour
             {
                 rb.velocity = Vector2.zero;
             }
-            if (Input.GetKeyDown(KeyCode.LeftShift) && !dodging && canDash && dashSlider.value < 0.1f)
-            {
-                StartCoroutine(Dash());
-                dashSlider.value = dashSlider.maxValue;
-                StartCoroutine(SliderCooldown());
-            }
+            
         }
     }
 
     private void FixedUpdate()
     {
-        if(dashing)
+        if(dashing || dodging)
         {
             return;
         }
@@ -148,10 +155,7 @@ public class movement : MonoBehaviour
                 anim_controller.SetBool("MovingUp", false);
                 anim_controller.SetBool("MovingLeftRight", false);
             }
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                anim_controller.SetTrigger("Roll");
-            }
+            
         }
     }
     public void DisableAnimations()
@@ -191,12 +195,30 @@ public class movement : MonoBehaviour
         }
         yield return new WaitForSeconds(dashDuration);
         tr.emitting = false;
-        
         anim_controller.SetTrigger("EndDash");
         dashing = false;
         
         yield return new WaitForSeconds(dashCooldown);
         canDash = true;
+    }
+    private IEnumerator Rollin()
+    {
+        anim_controller.SetTrigger("Roll");
+        dodging = true;
+        if (input != new Vector3(0, 0, 0))
+        {
+            rb.AddForce(input * rollPower);
+        }
+        else
+        {
+            rb.AddForce(new Vector2(transform.localScale.x * -1, 0) * rollPower);
+        }
+        yield return new WaitForSeconds(dashDuration);
+        
+
+        
+        dodging = false;
+        
     }
 
     IEnumerator SliderCooldown()

@@ -32945,7 +32945,9 @@ MonoBehaviour:
   smoothing_speed: 0.1
   dashCooldown: 2
   dashPower: 2000
+  rollPower: 500
   dashDuration: 0.1
+  rollDuration: 0.1
   anim_controller: {fileID: 1398872389}
   dashSlider: {fileID: 193851029}
   moving: 1
