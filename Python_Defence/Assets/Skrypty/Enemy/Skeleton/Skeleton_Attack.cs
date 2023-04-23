@@ -5,28 +5,28 @@ using static UnityEngine.GraphicsBuffer;
 
 public class Skeleton_Attack : Attack_Enemy
 {
-    bool boosted = false;
-    bool coroutineAllowed = true;
+    public bool boosted = false;
+    
 
     public int hitArrows = 0;
-
-    private float CurveTime = 0f;
-    private float arrowspeed;
+    
+    
+    
     [SerializeField] float boostDuration = 5f;
 
-    Vector3 target;
-    Vector3 arrowNextPos;
     
-    GameObject createdArrow;
+    
+    
     [SerializeField] GameObject arrow;
     private enemyarrow arrowScript;
-
+    GameObject CA;
     [SerializeField] Transform controlPoint;
 
     // Update is called once per frame
     
     protected override void Update()
     {
+        Debug.Log(hitArrows);
         if (canAttack && !stunned)
         {
             isattacking = true;
@@ -60,70 +60,14 @@ public class Skeleton_Attack : Attack_Enemy
     }
     public override void attack()
     {
-        createdArrow = (GameObject)Instantiate(arrow, attackPoint.position, Quaternion.identity);
-        arrowScript = createdArrow.GetComponent<enemyarrow>();
+        CA = Instantiate(arrow, attackPoint.position, Quaternion.identity);
+        arrowScript = CA.GetComponent<enemyarrow>();
         arrowScript.attack = this;
-        target = hitPlayer[0].transform.position;
-        if (coroutineAllowed)
-        {
-            StartCoroutine(ArrowMove());
-        }
-        
-        CurveTime = 0f;
+        arrowScript.attackPoint = attackPoint;
+        arrowScript.controlPoint = controlPoint;
     }
 
-    IEnumerator ArrowMove()
-    {
-        arrowNextPos = createdArrow.transform.position;
-
-        coroutineAllowed = false;
-
-
-        while (CurveTime < 1)
-        {
-
-            //Movement strzaly
-            if (createdArrow != null)
-            {
-
-
-                if (target.x - transform.position.x <= 4.5f && target.x - transform.position.x >= -4.5f)
-                {
-                    arrowspeed = 1.5f;
-                    float speedOfArrow = 3f;
-                    CurveTime += Time.deltaTime * arrowspeed;
-                    createdArrow.transform.position = Vector3.MoveTowards(createdArrow.transform.position, target, speedOfArrow * Time.fixedDeltaTime);
-                    Vector3 dir = target - createdArrow.transform.position;
-                    var angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-                    createdArrow.transform.rotation = Quaternion.AngleAxis(angle - 45f, Vector3.forward);
-
-                }
-                else
-                {
-                    CurveTime += Time.deltaTime * arrowspeed;
-
-                    createdArrow.transform.position = Vector3.MoveTowards(createdArrow.transform.position, arrowNextPos, arrowspeed);
-                    arrowNextPos = Mathf.Pow(1 - CurveTime, 2) * attackPoint.position + 2 * (1 - CurveTime) * CurveTime * controlPoint.position + Mathf.Pow(CurveTime, 2) * target;
-
-                    //Rotacja strzaly
-
-                    Vector3 dir = arrowNextPos - createdArrow.transform.position;
-                    var angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-                    createdArrow.transform.rotation = Quaternion.AngleAxis(angle - 45f, Vector3.forward);
-
-                    arrowspeed = 1.25f; //default gravity to -9.14
-
-                }
-
-            }
-
-            yield return new WaitForEndOfFrame();
-        }
-
-
-        CurveTime = 0f;
-        coroutineAllowed = true;
-    }
+    
     IEnumerator BoostDuration()
     {
         attackcooldown = 0;

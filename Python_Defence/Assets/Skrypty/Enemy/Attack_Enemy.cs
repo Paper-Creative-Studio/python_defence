@@ -24,7 +24,7 @@ public abstract class Attack_Enemy : MonoBehaviour
     [SerializeField] protected LayerMask playerLayer;
 
     protected Animator anim;
-    protected Collider2D[] hitPlayer;
+    public Collider2D[] hitPlayer;
 
 
     // Start is called before the first frame update
