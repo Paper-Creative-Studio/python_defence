@@ -157,7 +157,7 @@ GameObject:
   - component: {fileID: 1361046918946888076}
   - component: {fileID: 1361046918946888077}
   - component: {fileID: 1361046918946888066}
-  - component: {fileID: 1361046918946888067}
+  - component: {fileID: 1076007574857598409}
   - component: {fileID: 1361046918946888071}
   - component: {fileID: 1361046918946888068}
   m_Layer: 6
@@ -273,7 +273,7 @@ BoxCollider2D:
   m_Offset: {x: 0.07381916, y: -0.5784651}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.17, y: 0.5}
+    pivot: {x: 0.12922522, y: 0.2553516}
     oldSize: {x: 2, y: 2}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
@@ -283,7 +283,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.77386665, y: 0.8493731}
   m_EdgeRadius: 0
---- !u!114 &1361046918946888067
+--- !u!114 &1076007574857598409
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -292,28 +292,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 1361046918946888090}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 706dde9325dbec441b8177645e478503, type: 3}
+  m_Script: {fileID: 11500000, guid: c43eea8bca86c8944af879cc3a7189d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isattacking: 0
   canAttack: 1
+  stunned: 0
+  isattacking: 0
   minAS: 2
   maxAS: 3
   attackRange: 8
+  arrow: {fileID: 312024135112198859, guid: ea438340c7512a740a5200e9c2969497, type: 3}
   attackPoint: {fileID: 1361046920271281186}
+  controlPoint: {fileID: 1361046918435544424}
   playerLayer:
     serializedVersion: 2
     m_Bits: 256
-  damage: 10
-  anim: {fileID: 1361046918946888068}
-  hitPlayer: []
-  arrow: {fileID: 312024135112198859, guid: ea438340c7512a740a5200e9c2969497, type: 3}
-  bullet: {fileID: 8312402596195369198, guid: 13e552566735da8458e90bc016560467, type: 3}
-  speed: 5
-  target: {x: 0, y: 0, z: 0}
-  controlPoint: {fileID: 1361046918435544424}
-  printuj: 1
-  stunned: 0
 --- !u!114 &1361046918946888071
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -908,6 +901,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd0f05af66e8f0449942d761477eac54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stunned: 0
+  AI: {fileID: 0}
 --- !u!1 &1361046920010706421
 GameObject:
   m_ObjectHideFlags: 0

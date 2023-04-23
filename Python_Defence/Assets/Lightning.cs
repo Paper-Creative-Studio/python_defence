@@ -12,8 +12,6 @@ public class Lightning : MonoBehaviour
     [SerializeField] private LayerMask enemyLayers;
     private List<GameObject> hitEnemies= new List<GameObject>();
     public Sprite stunSprite;
-    private Transform lastTarget;
-    private Transform lastSecondaryTarget;
    
     void DoDamage()
     {
@@ -27,10 +25,6 @@ public class Lightning : MonoBehaviour
             enemy.GetComponent<Enemy_Health>().TakeDamage(damage);
             AIDestinationSetter enemyAI = enemy.transform.parent.gameObject.GetComponent<AIDestinationSetter>();
             enemyAI.ai.canMove = false;
-            //lastTarget = enemyAI.target;
-            //lastSecondaryTarget = enemyAI.SecondaryTarget;
-            //enemyAI.target = null;
-            //enemyAI.SecondaryTarget = null;
             enemy.GetComponent<Attack_Enemy>().stunned = true;
             enemyAI.canChange = false;
             enemy.transform.parent.gameObject.GetComponent<stun>().stunned= true;
@@ -43,9 +37,6 @@ public class Lightning : MonoBehaviour
     }
     private void OnDrawGizmos()
     {
-        
             Gizmos.DrawSphere(transform.position, aoeRange);
-        
-
     }
 }

@@ -1,49 +1,44 @@
-using Microsoft.Scripting.Utils;
-using Pathfinding;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
-
 using UnityEngine;
-using static UnityEngine.GraphicsBuffer;
 
-public abstract class Attack_Enemy : MonoBehaviour
+public class Ogre_Attack : MonoBehaviour
 {
+    
     [SerializeField] private int damage;
 
-    public bool isattacking = false;
     public bool canAttack = true;
     public bool stunned = false;
+    public bool isattacking = false;
 
+    private float attackcooldown;
     [SerializeField] private float minAS;
     [SerializeField] private float maxAS;
     [SerializeField] private float attackRange;
-    private float attackcooldown;
+
+
+    private Collider2D[] hitPlayer;
 
     [SerializeField] private Transform attackPoint;
+
     [SerializeField] private LayerMask playerLayer;
 
     private Animator anim;
-    private Collider2D[] hitPlayer;
-
-
     // Start is called before the first frame update
-    protected virtual void Start()
+    void Start()
     {
-        anim= GetComponent<Animator>();
+        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
-    protected virtual void Update()
+    void Update()
     {
-        
         if (canAttack && !stunned)
         {
-            isattacking= true;
+            isattacking = true;
             canAttack = false;
             attackcooldown = Random.Range(minAS, maxAS);
             hitPlayer = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, playerLayer);
-
 
             if (hitPlayer.Length != 0)
             {
@@ -52,8 +47,7 @@ public abstract class Attack_Enemy : MonoBehaviour
             StartCoroutine(Cooldown());
         }
     }
-    
-    protected void attack()
+    public void attack()
     {
         foreach (Collider2D player in hitPlayer)
         {
@@ -61,11 +55,9 @@ public abstract class Attack_Enemy : MonoBehaviour
         }
     }
 
-    protected IEnumerator Cooldown()
+    IEnumerator Cooldown()
     {
         yield return new WaitForSeconds(attackcooldown);
         canAttack = true;
     }
-        
-
 }

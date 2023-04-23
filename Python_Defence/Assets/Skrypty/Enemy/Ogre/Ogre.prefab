@@ -251,6 +251,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd0f05af66e8f0449942d761477eac54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stunned: 0
+  AI: {fileID: 0}
 --- !u!1 &5832367070852203753
 GameObject:
   m_ObjectHideFlags: 0
@@ -627,7 +629,7 @@ GameObject:
   - component: {fileID: 5832367072225687501}
   - component: {fileID: 5832367072225687502}
   - component: {fileID: 5832367072225687542}
-  - component: {fileID: 5832367072225687503}
+  - component: {fileID: 4107626451650499775}
   - component: {fileID: 5832367072225687540}
   - component: {fileID: 5832367072225687541}
   m_Layer: 6
@@ -752,7 +754,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.7569847, y: 0.8071022}
   m_EdgeRadius: 0
---- !u!114 &5832367072225687503
+--- !u!114 &4107626451650499775
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -761,11 +763,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 5832367072225687536}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 706dde9325dbec441b8177645e478503, type: 3}
+  m_Script: {fileID: 11500000, guid: d6460a613c19cc04cb1bd42e486f25b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isattacking: 0
+  damage: 50
   canAttack: 1
+  stunned: 0
+  isattacking: 0
   minAS: 2.5
   maxAS: 4
   attackRange: 2.5
@@ -773,16 +777,6 @@ MonoBehaviour:
   playerLayer:
     serializedVersion: 2
     m_Bits: 256
-  damage: 50
-  anim: {fileID: 5832367072225687541}
-  hitPlayer: []
-  arrow: {fileID: 0}
-  bullet: {fileID: 0}
-  speed: 0
-  target: {x: 0, y: 0, z: 0}
-  controlPoint: {fileID: 0}
-  printuj: 0
-  stunned: 0
 --- !u!114 &5832367072225687540
 MonoBehaviour:
   m_ObjectHideFlags: 0

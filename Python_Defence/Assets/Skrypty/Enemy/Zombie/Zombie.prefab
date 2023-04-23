@@ -568,6 +568,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd0f05af66e8f0449942d761477eac54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stunned: 0
+  AI: {fileID: 0}
 --- !u!1 &1919005006452398046
 GameObject:
   m_ObjectHideFlags: 0
@@ -665,7 +667,7 @@ GameObject:
   - component: {fileID: 1919005006836502647}
   - component: {fileID: 1919005006836502641}
   - component: {fileID: 1919005006836502642}
-  - component: {fileID: 1919005006836502601}
+  - component: {fileID: 2251815144347843577}
   - component: {fileID: 1919005006836502603}
   - component: {fileID: 1919005006836502596}
   m_Layer: 6
@@ -780,7 +782,7 @@ BoxCollider2D:
   m_Offset: {x: -0.07210922, y: -0.0053587854}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.32, y: 0.5}
+    pivot: {x: 0.31838915, y: 0.5317136}
     oldSize: {x: 1.40625, y: 1}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
@@ -790,7 +792,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.85578156, y: 0.9892824}
   m_EdgeRadius: 0
---- !u!114 &1919005006836502601
+--- !u!114 &2251815144347843577
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -799,11 +801,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1919005006836502644}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 706dde9325dbec441b8177645e478503, type: 3}
+  m_Script: {fileID: 11500000, guid: 54bd9377eac51194d97573dd913f5c8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isattacking: 0
+  damage: 10
   canAttack: 1
+  stunned: 0
+  isattacking: 0
   minAS: 0.3
   maxAS: 1
   attackRange: 1
@@ -811,16 +815,6 @@ MonoBehaviour:
   playerLayer:
     serializedVersion: 2
     m_Bits: 256
-  damage: 10
-  anim: {fileID: 1919005006836502596}
-  hitPlayer: []
-  arrow: {fileID: 0}
-  bullet: {fileID: 0}
-  speed: 0
-  target: {x: 0, y: 0, z: 0}
-  controlPoint: {fileID: 0}
-  printuj: 0
-  stunned: 0
 --- !u!114 &1919005006836502603
 MonoBehaviour:
   m_ObjectHideFlags: 0

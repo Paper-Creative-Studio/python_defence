@@ -193,7 +193,7 @@ GameObject:
   - component: {fileID: 1259090575754961595}
   - component: {fileID: 1259090575754961592}
   - component: {fileID: 1259090575754961593}
-  - component: {fileID: 1259090575754961542}
+  - component: {fileID: 3743014441181225933}
   - component: {fileID: 1259090575754961539}
   - component: {fileID: 1259090575754961536}
   m_Layer: 6
@@ -318,7 +318,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.80999947, y: 0.94258535}
   m_EdgeRadius: 0
---- !u!114 &1259090575754961542
+--- !u!114 &3743014441181225933
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -327,11 +327,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1259090575754961550}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 706dde9325dbec441b8177645e478503, type: 3}
+  m_Script: {fileID: 11500000, guid: 9ad0133447958004a9062a75ba7c69a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isattacking: 0
+  damage: 15
   canAttack: 1
+  stunned: 0
+  isattacking: 0
   minAS: 2
   maxAS: 3
   attackRange: 5
@@ -339,16 +341,7 @@ MonoBehaviour:
   playerLayer:
     serializedVersion: 2
     m_Bits: 256
-  damage: 10
-  anim: {fileID: 1259090575754961536}
-  hitPlayer: []
-  arrow: {fileID: 0}
   bullet: {fileID: 8312402596195369198, guid: 13e552566735da8458e90bc016560467, type: 3}
-  speed: 9
-  target: {x: 0, y: 0, z: 0}
-  controlPoint: {fileID: 0}
-  printuj: 0
-  stunned: 0
 --- !u!114 &1259090575754961539
 MonoBehaviour:
   m_ObjectHideFlags: 0
