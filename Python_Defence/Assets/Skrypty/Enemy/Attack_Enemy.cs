@@ -19,7 +19,7 @@ public class Attack_Enemy : MonoBehaviour
     [SerializeField] private int damage;
     private float attackcooldown;
     public Animator anim;
-   
+    private int attackCounter = 0;
     public Collider2D[] hitPlayer;
     public GameObject arrow;
     public GameObject bullet;
@@ -32,10 +32,11 @@ public class Attack_Enemy : MonoBehaviour
     private Vector3 arrowNextPos;
     public Transform controlPoint;
     private Vector3 gizmosPosition;
-    public bool printuj = false;
+    
     private float arrowspeed;
     public bool stunned = false;
-    private int attackCounter = 0;
+    
+    private int hitArrows = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -58,15 +59,24 @@ public class Attack_Enemy : MonoBehaviour
             {
                 attackCounter++;
                 Debug.Log(attackCounter);
-                if(attackCounter > 2)
+                if(gameObject.name == "Zombie_Object")
                 {
-                    attackCounter = 0;
-                    anim.SetTrigger("DoubleSlash");
+                    if (attackCounter > 2)
+                    {
+                        attackCounter = 0;
+                        anim.SetTrigger("DoubleSlash");
+                    }
+                    else
+                    {
+                        anim.SetTrigger("Attacking");
+                    }
                 }
                 else
                 {
                     anim.SetTrigger("Attacking");
                 }
+
+                
                 
                 
 
@@ -167,26 +177,6 @@ public class Attack_Enemy : MonoBehaviour
     {
         yield return new WaitForSeconds(attackcooldown);
         canAttack = true;
-    }
-
-    //private void OnDrawGizmosSelected()
-    //{
-    //    Gizmos.DrawSphere(attackPoint.position, attackRange);
-    //}
-    private void OnDrawGizmos()
-    {
-        //if(printuj)
-        //{
-        //    for (float t = 0; t <= 1; t += 0.05f)
-        //    {
-        //        gizmosPosition = Mathf.Pow(1 - t, 2) * attackPoint.position + 2 * (1 - t) * t * controlPoint.position + Mathf.Pow(t, 2) * target;
-
-        //        Gizmos.DrawSphere(gizmosPosition, 0.25f);
-        //    }
-        //    Gizmos.DrawLine(new Vector3(attackPoint.position.x, attackPoint.position.y, attackPoint.position.z), new Vector3(controlPoint.position.x, controlPoint.position.y, controlPoint.position.z));
-
-        //    Gizmos.DrawLine(new Vector3(controlPoint.position.x, controlPoint.position.y, controlPoint.position.z), new Vector3(target.x, target.y, target.z));
-        //}
     }
         
 
