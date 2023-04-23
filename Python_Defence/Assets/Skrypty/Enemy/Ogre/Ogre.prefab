@@ -229,8 +229,8 @@ MonoBehaviour:
   version: 1
   target: {fileID: 0}
   SecondaryTarget: {fileID: 0}
-  viewRange: 5
-  lostRange: 5
+  viewRange: 7
+  lostRange: 12
   anim: {fileID: 5832367072225687541}
   CastleSpeed: 0.5
   PlayerSpeed: 1
@@ -744,7 +744,7 @@ BoxCollider2D:
   m_Offset: {x: 0.018612385, y: -0.0964489}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.355, y: 0.5}
+    pivot: {x: 0.35500002, y: 0.77183145}
     oldSize: {x: 1, y: 1}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
@@ -767,9 +767,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 50
+  isattacking: 0
   canAttack: 1
   stunned: 0
-  isattacking: 0
   minAS: 2.5
   maxAS: 4
   attackRange: 2.5
@@ -777,6 +777,8 @@ MonoBehaviour:
   playerLayer:
     serializedVersion: 2
     m_Bits: 256
+  hitPlayer: []
+  spike: {fileID: 7391929594306092731, guid: 5738899bb7886644c9a0d4ede00e4f10, type: 3}
 --- !u!114 &5832367072225687540
 MonoBehaviour:
   m_ObjectHideFlags: 0

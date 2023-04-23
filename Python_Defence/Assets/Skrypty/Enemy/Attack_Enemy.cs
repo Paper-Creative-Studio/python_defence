@@ -26,7 +26,6 @@ public abstract class Attack_Enemy : MonoBehaviour
     protected Animator anim;
     public Collider2D[] hitPlayer;
 
-
     // Start is called before the first frame update
     protected virtual void Start()
     {
