@@ -5,36 +5,55 @@ using static UnityEngine.GraphicsBuffer;
 
 public class Skeleton_Attack : Attack_Enemy
 {
-    
+    bool boosted = false;
     bool coroutineAllowed = true;
+
+    public int hitArrows = 0;
 
     private float CurveTime = 0f;
     private float arrowspeed;
+    [SerializeField] float boostDuration = 5f;
 
     Vector3 target;
     Vector3 arrowNextPos;
-
+    
     GameObject createdArrow;
     [SerializeField] GameObject arrow;
+    private enemyarrow arrowScript;
 
     [SerializeField] Transform controlPoint;
 
-    
-
     // Update is called once per frame
+    
     protected override void Update()
     {
         if (canAttack && !stunned)
         {
             isattacking = true;
             canAttack = false;
-            attackcooldown = Random.Range(minAS, maxAS);
+            if(!boosted)
+            {
+                attackcooldown = Random.Range(minAS, maxAS);
+            }
+            
             hitPlayer = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, playerLayer);
 
 
             if (hitPlayer.Length != 0)
             {
-                anim.SetTrigger("Attacking");
+                if(hitArrows >2 && !boosted)
+                {
+                    StartCoroutine(BoostDuration());
+                }
+                if(boosted)
+                {
+                    anim.SetTrigger("Boost");
+                }
+                else
+                {
+                    anim.SetTrigger("Attacking");
+                }
+                
             }
             StartCoroutine(Cooldown());
         }
@@ -42,11 +61,14 @@ public class Skeleton_Attack : Attack_Enemy
     public override void attack()
     {
         createdArrow = (GameObject)Instantiate(arrow, attackPoint.position, Quaternion.identity);
+        arrowScript = createdArrow.GetComponent<enemyarrow>();
+        arrowScript.attack = this;
         target = hitPlayer[0].transform.position;
         if (coroutineAllowed)
         {
             StartCoroutine(ArrowMove());
         }
+        
         CurveTime = 0f;
     }
 
@@ -101,5 +123,13 @@ public class Skeleton_Attack : Attack_Enemy
 
         CurveTime = 0f;
         coroutineAllowed = true;
+    }
+    IEnumerator BoostDuration()
+    {
+        attackcooldown = 0;
+        boosted = true;
+        hitArrows = 0;
+        yield return new WaitForSeconds(boostDuration);
+        boosted = false;
     }
 }

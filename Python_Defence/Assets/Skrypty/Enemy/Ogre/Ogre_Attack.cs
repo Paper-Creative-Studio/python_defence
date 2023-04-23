@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Ogre_Attack : Attack_Enemy
 {
-
+   
     // Update is called once per frame
     protected override void Update()
     {

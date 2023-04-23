@@ -9,7 +9,7 @@ public class Mage_Attack : Attack_Enemy
 
     private GameObject spell;
     public GameObject bullet;
-
+    
     // Update is called once per frame
     protected override void Update()
     {
