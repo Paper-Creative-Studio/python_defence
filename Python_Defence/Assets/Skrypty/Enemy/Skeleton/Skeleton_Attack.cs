@@ -3,17 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using static UnityEngine.GraphicsBuffer;
 
-public class Skeleton_Attack : MonoBehaviour
+public class Skeleton_Attack : Attack_Enemy
 {
-    public bool canAttack = true;
-    public bool stunned = false;
-    public bool isattacking = false;
+    
     bool coroutineAllowed = true;
 
-    float attackcooldown;
-    [SerializeField] float minAS;
-    [SerializeField] float maxAS;
-    [SerializeField] float attackRange;
     private float CurveTime = 0f;
     private float arrowspeed;
 
@@ -23,21 +17,12 @@ public class Skeleton_Attack : MonoBehaviour
     GameObject createdArrow;
     [SerializeField] GameObject arrow;
 
-    [SerializeField] Transform attackPoint;
     [SerializeField] Transform controlPoint;
 
-    private Collider2D[] hitPlayer;
-
-    Animator anim;
-
-    [SerializeField] LayerMask playerLayer;
-    void Start()
-    {
-        anim= GetComponent<Animator>();
-    }
+    
 
     // Update is called once per frame
-    void Update()
+    protected override void Update()
     {
         if (canAttack && !stunned)
         {
@@ -54,7 +39,7 @@ public class Skeleton_Attack : MonoBehaviour
             StartCoroutine(Cooldown());
         }
     }
-    public void shootArrow()
+    public override void attack()
     {
         createdArrow = (GameObject)Instantiate(arrow, attackPoint.position, Quaternion.identity);
         target = hitPlayer[0].transform.position;
@@ -63,12 +48,6 @@ public class Skeleton_Attack : MonoBehaviour
             StartCoroutine(ArrowMove());
         }
         CurveTime = 0f;
-    }
-
-    IEnumerator Cooldown()
-    {
-        yield return new WaitForSeconds(attackcooldown);
-        canAttack = true;
     }
 
     IEnumerator ArrowMove()

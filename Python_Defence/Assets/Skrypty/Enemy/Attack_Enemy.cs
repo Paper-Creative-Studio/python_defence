@@ -9,22 +9,22 @@ using static UnityEngine.GraphicsBuffer;
 
 public abstract class Attack_Enemy : MonoBehaviour
 {
-    [SerializeField] private int damage;
+    [SerializeField] protected int damage;
 
     public bool isattacking = false;
     public bool canAttack = true;
     public bool stunned = false;
 
-    [SerializeField] private float minAS;
-    [SerializeField] private float maxAS;
-    [SerializeField] private float attackRange;
-    private float attackcooldown;
+    [SerializeField] protected float minAS;
+    [SerializeField] protected float maxAS;
+    [SerializeField] protected float attackRange;
+    protected float attackcooldown;
 
-    [SerializeField] private Transform attackPoint;
-    [SerializeField] private LayerMask playerLayer;
+    [SerializeField] protected Transform attackPoint;
+    [SerializeField] protected LayerMask playerLayer;
 
-    private Animator anim;
-    private Collider2D[] hitPlayer;
+    protected Animator anim;
+    protected Collider2D[] hitPlayer;
 
 
     // Start is called before the first frame update
@@ -53,7 +53,7 @@ public abstract class Attack_Enemy : MonoBehaviour
         }
     }
     
-    protected void attack()
+    public virtual void attack()
     {
         foreach (Collider2D player in hitPlayer)
         {
