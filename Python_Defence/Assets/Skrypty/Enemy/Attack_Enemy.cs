@@ -35,6 +35,7 @@ public class Attack_Enemy : MonoBehaviour
     public bool printuj = false;
     private float arrowspeed;
     public bool stunned = false;
+    private int attackCounter = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -55,8 +56,18 @@ public class Attack_Enemy : MonoBehaviour
 
             if (hitPlayer.Length != 0)
             {
+                attackCounter++;
+                Debug.Log(attackCounter);
+                if(attackCounter > 2)
+                {
+                    attackCounter = 0;
+                    anim.SetTrigger("DoubleSlash");
+                }
+                else
+                {
+                    anim.SetTrigger("Attacking");
+                }
                 
-                anim.SetTrigger("Attacking");
                 
 
                 

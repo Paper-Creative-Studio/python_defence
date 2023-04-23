@@ -26,7 +26,7 @@ public class enemyarrow : MonoBehaviour
         {
             collision.gameObject.GetComponent<Health>().TakeDamage(damage);
         }
-        Debug.Log(collision.gameObject.layer);
+        
         Destroy(gameObject);
 
 

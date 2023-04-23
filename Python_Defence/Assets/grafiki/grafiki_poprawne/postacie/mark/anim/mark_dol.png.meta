@@ -121,11 +121,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 60
-        width: 60
-        height: 60
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        y: 64
+        width: 78
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5278802, y: 0.4184506}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -143,10 +143,10 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 60
-        height: 60
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 78
+        height: 64
+      alignment: 9
+      pivot: {x: 0.52602154, y: 0.42071578}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -162,12 +162,12 @@ TextureImporter:
       name: mark_dol_2
       rect:
         serializedVersion: 2
-        x: 60
+        x: 78
         y: 0
-        width: 60
-        height: 60
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 78
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5223041, y: 0.4184505}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

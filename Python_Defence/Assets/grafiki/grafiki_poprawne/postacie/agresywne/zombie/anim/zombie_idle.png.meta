@@ -122,10 +122,10 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 64
+        width: 90
         height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.3163627, y: 0.5566315}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -141,12 +141,12 @@ TextureImporter:
       name: zombie_idle_1
       rect:
         serializedVersion: 2
-        x: 64
+        x: 90
         y: 0
-        width: 64
+        width: 90
         height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.31636277, y: 0.51132625}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
