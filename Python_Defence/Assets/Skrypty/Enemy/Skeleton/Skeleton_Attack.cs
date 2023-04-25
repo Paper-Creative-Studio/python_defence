@@ -26,7 +26,6 @@ public class Skeleton_Attack : Attack_Enemy
     
     protected override void Update()
     {
-        Debug.Log(hitArrows);
         if (canAttack && !stunned)
         {
             isattacking = true;

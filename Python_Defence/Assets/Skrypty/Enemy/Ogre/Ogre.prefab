@@ -229,7 +229,7 @@ MonoBehaviour:
   version: 1
   target: {fileID: 0}
   SecondaryTarget: {fileID: 0}
-  viewRange: 7
+  viewRange: 10
   lostRange: 12
   anim: {fileID: 5832367072225687541}
   CastleSpeed: 0.5

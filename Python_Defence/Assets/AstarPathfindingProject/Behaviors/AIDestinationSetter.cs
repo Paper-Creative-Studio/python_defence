@@ -57,6 +57,7 @@ namespace Pathfinding
 		/// <summary>Updates the AI's destination every frame</summary>
 		void Update () 
 		{
+           
 			if(target != null)
 			{
                 dist = Vector3.Distance(SecondaryTarget.position, enemyObject.position);

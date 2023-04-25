@@ -11,7 +11,11 @@ public class Ogre_Attack : Attack_Enemy
     private Transform player;
     private AIDestinationSetter ogreAI;
     [SerializeField] GameObject spike;
-    float lerpedValue;
+    Vector3 spawnPos;
+    float neededSpikes;
+    float distanceToPlayer;
+    float lerpedValue = 0;
+    Vector3 target;
     private new void Start()
     {
         base.Start();
@@ -21,6 +25,9 @@ public class Ogre_Attack : Attack_Enemy
     // Update is called once per frame
     protected override void Update()
     {
+        
+       
+        
         if (canAttack && !stunned)
         {
             //Creates circle that is enemy attack range and it determines if there is target or not
@@ -34,12 +41,11 @@ public class Ogre_Attack : Attack_Enemy
                 
                 anim.SetTrigger("Attacking");
             }
-            else if(dist < 12f && dist > attackRange && ogreAI.ai.destination == player.position)
+            else if(dist > attackRange && ogreAI.ai.destination == player.position)
             {
-                
-                rng = Random.Range(1,5);
-                Debug.Log("losowanie " + rng);
-                if (rng == 4)
+                rng = Random.Range(1,3);
+               
+                if (rng == 2)
                 {
                     Shockwave();
                     
@@ -53,7 +59,7 @@ public class Ogre_Attack : Attack_Enemy
         ogreAI.ai.canMove = false;
         ogreAI.canChange = false;
         anim.SetTrigger("Shockwave");
-    }
+    } 
     public void EnableMove()
     {
         ogreAI.ai.canMove = true;
@@ -61,13 +67,22 @@ public class Ogre_Attack : Attack_Enemy
     }
     public void SpawnSpikes()
     {
-        int neededSpikes = Mathf.RoundToInt(Vector3.Distance(transform.position, player.position));
-        float distanceToPlayer = 1 / neededSpikes;
+        neededSpikes = Mathf.RoundToInt(Vector3.Distance(transform.position, player.position));
+        distanceToPlayer = 1 / neededSpikes;
+        lerpedValue = 0;
+        target = player.position;
+        StartCoroutine(SpikeWave());
+        
+        
+    }
+    IEnumerator SpikeWave()
+    {
         for (int i = 0; i < neededSpikes; i++)
         {
             lerpedValue += distanceToPlayer;
-            Vector3 spawnPos = Vector3.Lerp(transform.position, player.position, lerpedValue);
+            spawnPos = Vector3.Lerp(transform.position, target, lerpedValue);
             Instantiate(spike, spawnPos, Quaternion.identity);
+            yield return new WaitForSeconds(0.2f);
         }
     }
 }
