@@ -32946,6 +32946,7 @@ MonoBehaviour:
   rollPower: 500
   dashDuration: 0.1
   rollDuration: 0.1
+  input: {x: 0, y: 0, z: 0}
   anim_controller: {fileID: 1398872389}
   dashSlider: {fileID: 193851029}
   moving: 1
@@ -32979,7 +32980,7 @@ Rigidbody2D:
   m_GameObject: {fileID: 1398872383}
   m_BodyType: 0
   m_Simulated: 1
-  m_UseFullKinematicContacts: 0
+  m_UseFullKinematicContacts: 1
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0

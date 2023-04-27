@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting.Dependencies.NCalc;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.XR;
 
 public class movement : MonoBehaviour
 {
@@ -15,7 +16,7 @@ public class movement : MonoBehaviour
     [SerializeField] private float rollDuration;
     
 
-    private Vector3 input;
+    public Vector3 input;
     private Vector3 smoothmove;
     private Vector3 smoothInputVelocity;
 
@@ -96,7 +97,7 @@ public class movement : MonoBehaviour
             }
             else
             {
-                rb.velocity = Vector2.zero;
+                //rb.velocity = new Vector3(0, rb.velocity.y, 0);
             }
             
         }
@@ -104,13 +105,15 @@ public class movement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if(dashing || dodging)
+        
+        if (dashing || dodging)
         {
             return;
         }
         if (health.alive)
         {
             Move();
+            
         }
     }
 
@@ -120,6 +123,7 @@ public class movement : MonoBehaviour
         if (moving)
         {
             rb.velocity = smoothmove * speed;
+            
         }
     }
 

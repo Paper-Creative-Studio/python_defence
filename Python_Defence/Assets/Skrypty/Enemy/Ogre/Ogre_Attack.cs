@@ -16,6 +16,7 @@ public class Ogre_Attack : Attack_Enemy
     float distanceToPlayer;
     float lerpedValue = 0;
     Vector3 target;
+    bool canShock = true;
     private new void Start()
     {
         base.Start();
@@ -26,8 +27,8 @@ public class Ogre_Attack : Attack_Enemy
     protected override void Update()
     {
         
-       
-        
+
+
         if (canAttack && !stunned)
         {
             //Creates circle that is enemy attack range and it determines if there is target or not
@@ -44,11 +45,12 @@ public class Ogre_Attack : Attack_Enemy
             else if(dist > attackRange && ogreAI.ai.destination == player.position)
             {
                 rng = Random.Range(1,3);
-               
-                if (rng == 2)
+
+                if (rng == 2 && canShock)
                 {
                     Shockwave();
-                    
+                    canShock = true;
+                    StartCoroutine(CooldownShock());
                 }
             }
             StartCoroutine(Cooldown());
@@ -67,10 +69,12 @@ public class Ogre_Attack : Attack_Enemy
     }
     public void SpawnSpikes()
     {
-        neededSpikes = Mathf.RoundToInt(Vector3.Distance(transform.position, player.position));
+        target = transform.InverseTransformPoint(player.position) * 2;
+        target = transform.TransformPoint(target);
+        neededSpikes = Mathf.RoundToInt(Vector3.Distance(transform.position, target));
         distanceToPlayer = 1 / neededSpikes;
         lerpedValue = 0;
-        target = player.position;
+        
         StartCoroutine(SpikeWave());
         
         
@@ -82,7 +86,12 @@ public class Ogre_Attack : Attack_Enemy
             lerpedValue += distanceToPlayer;
             spawnPos = Vector3.Lerp(transform.position, target, lerpedValue);
             Instantiate(spike, spawnPos, Quaternion.identity);
-            yield return new WaitForSeconds(0.2f);
+            yield return new WaitForSeconds(0.1f);
         }
+    }
+    IEnumerator CooldownShock()
+    {
+        yield return new WaitForSeconds(5f);
+        canShock = true;
     }
 }
