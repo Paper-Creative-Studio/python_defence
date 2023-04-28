@@ -26,7 +26,7 @@ public class spikes : MonoBehaviour
     {
         if (prevY != 0 && letcheck)
             Debug.Log(hitPlayer.transform.position.y + " " + prevY);
-        if (hitPlayer.transform.position.y == prevY && letcheck)
+        if (hitPlayer.transform.position.y <= prevY && letcheck)
         {
             playerRB.gravityScale = 0;
             hitPlayer.GetComponent<movement>().moving = true;
@@ -38,7 +38,7 @@ public class spikes : MonoBehaviour
         Destroy(GetComponent<SpriteRenderer>());
         Destroy(GetComponent<Collider2D>());
 
-        //Destroy(gameObject, 3f);
+        Destroy(gameObject, 3f);
 
     }
     public void UnsetTrigger()
@@ -55,7 +55,7 @@ public class spikes : MonoBehaviour
             Debug.Log("trafiony");
             hit = true;
             prevY = hitPlayer.transform.position.y;
-            moveScript.input = Vector3.zero;
+            playerRB.velocity = Vector2.zero;
             moveScript.moving = false;
             
             playerRB.gravityScale = 1;
