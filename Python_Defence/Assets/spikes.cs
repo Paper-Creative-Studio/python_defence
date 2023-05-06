@@ -15,23 +15,23 @@ public class spikes : MonoBehaviour
     bool letcheck;
     movement moveScript;
     // Start is called before the first frame update
+    
     void Start()
     {
         
         col = GetComponent<Collider2D>();
-        hitPlayer = GameObject.FindGameObjectWithTag("Player");
-        Physics2D.IgnoreCollision(hitPlayer.GetComponent<Collider2D>(), col);
+        
+       
     }
     private void Update()
     {
-        if (prevY != 0 && letcheck)
-            Debug.Log(hitPlayer.transform.position.y + " " + prevY);
-        if (hitPlayer.transform.position.y <= prevY && letcheck)
-        {
-            playerRB.gravityScale = 0;
-            hitPlayer.GetComponent<movement>().moving = true;
+        if (hitPlayer != null)
+            if (hitPlayer.transform.position.y <= prevY && letcheck)
+            {
+                playerRB.gravityScale = 0;
+                hitPlayer.GetComponent<movement>().moving = true;
             
-        }
+            }
     }
     public void Destroy()
     {
@@ -47,8 +47,9 @@ public class spikes : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(!hit)
+        if(!hit && collision.gameObject.layer == 8)
         {
+            hitPlayer = GameObject.FindGameObjectWithTag("Player");
             Physics2D.IgnoreCollision(collision, col);
             playerRB = hitPlayer.GetComponent<Rigidbody2D>();
             moveScript = hitPlayer.GetComponent<movement>();

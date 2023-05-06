@@ -86,7 +86,7 @@ public class Ogre_Attack : Attack_Enemy
             lerpedValue += distanceToPlayer;
             spawnPos = Vector3.Lerp(transform.position, target, lerpedValue);
             Instantiate(spike, spawnPos, Quaternion.identity);
-            yield return new WaitForSeconds(0.1f);
+            yield return new WaitForSeconds(0.05f);
         }
     }
     IEnumerator CooldownShock()

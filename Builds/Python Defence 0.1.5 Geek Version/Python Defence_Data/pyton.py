@@ -1,3 +1,5 @@
-i = 3
-if i==3 or i==4:
-	print("Horse")
+list = []
+for z in range (1,31):
+	if z % 3 == 0:
+		list.append(z)
+print(list)
