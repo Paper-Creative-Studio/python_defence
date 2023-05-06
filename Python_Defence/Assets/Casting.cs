@@ -77,7 +77,7 @@ public class Casting : MonoBehaviour
             if (startMovement)
             {
                 
-                fb_object.transform.position = Vector3.MoveTowards(fb_object.transform.position, mousepos, fb_speed * Time.fixedDeltaTime);
+                fb_object.transform.position = Vector3.MoveTowards(fb_object.transform.position, mousepos, fb_speed * Time.deltaTime);
                
                 if (fb_object.transform.position == mousepos)
                 {
