@@ -1,7 +1,9 @@
 
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using static IronPython.Modules.PythonIterTools;
 using static UnityEngine.GraphicsBuffer;
 
 public class Mage_Attack : Attack_Enemy
@@ -10,7 +12,10 @@ public class Mage_Attack : Attack_Enemy
 
     private GameObject spell;
     public GameObject bullet;
-    
+    [SerializeField] GameObject Field;
+    [SerializeField] GameObject Plama;
+    Vector3 playerpos;
+    [SerializeField] int plamaSpawnCount;
     // Update is called once per frame
     protected override void Update()
     {
@@ -28,8 +33,8 @@ public class Mage_Attack : Attack_Enemy
                     anim.SetTrigger("Attacking");
                 else
                 {
-                    //anim.SetTrigger("Pole");
-                    //PoleAttack();
+                    anim.SetTrigger("Pole");
+                    PoleAttack();
                 }
                     
             }
@@ -45,6 +50,25 @@ public class Mage_Attack : Attack_Enemy
     }
     void PoleAttack()
     {
-
+        playerpos = hitPlayer[0].transform.position;
+        Instantiate(Field, playerpos, Quaternion.identity);
+        
+        StartCoroutine(SpawnPlama());
     }
+    IEnumerator SpawnPlama()
+    {
+       
+        yield return new WaitForSeconds(1);
+        int spawned = 0;
+        do
+        {
+            Vector2 randSpawnPos = new Vector2(playerpos.x + Random.Range(-3, 3), playerpos.y + Random.Range(-3, 3));
+            Instantiate(Plama, randSpawnPos, Quaternion.identity);
+            spawned++;
+            yield return new WaitForSeconds(1);
+        } while (spawned < plamaSpawnCount);
+        Destroy(Field);
+        
+    }
+
 }
