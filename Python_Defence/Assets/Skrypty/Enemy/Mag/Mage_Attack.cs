@@ -15,7 +15,9 @@ public class Mage_Attack : Attack_Enemy
     [SerializeField] GameObject Field;
     [SerializeField] GameObject Plama;
     Vector3 playerpos;
+    GameObject createdField;
     [SerializeField] int plamaSpawnCount;
+    bool canSpecial = true;
     // Update is called once per frame
     protected override void Update()
     {
@@ -33,8 +35,14 @@ public class Mage_Attack : Attack_Enemy
                     anim.SetTrigger("Attacking");
                 else
                 {
-                    anim.SetTrigger("Pole");
-                    PoleAttack();
+                    if(canSpecial)
+                    {
+                        anim.SetTrigger("Pole");
+                        PoleAttack();
+                        canSpecial = false;
+                        StartCoroutine(SpecialCooldown());
+                    }
+                        
                 }
                     
             }
@@ -51,24 +59,28 @@ public class Mage_Attack : Attack_Enemy
     void PoleAttack()
     {
         playerpos = hitPlayer[0].transform.position;
-        Instantiate(Field, playerpos, Quaternion.identity);
+        createdField = Instantiate(Field, playerpos, Quaternion.identity);
         
         StartCoroutine(SpawnPlama());
     }
     IEnumerator SpawnPlama()
     {
        
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(1f);
         int spawned = 0;
         do
         {
-            Vector2 randSpawnPos = new Vector2(playerpos.x + Random.Range(-3, 3), playerpos.y + Random.Range(-3, 3));
+            Vector2 randSpawnPos = new Vector2(playerpos.x + Random.Range(-2.5f, 2.5f), playerpos.y + Random.Range(-2.5f, 2.5f));
             Instantiate(Plama, randSpawnPos, Quaternion.identity);
             spawned++;
-            yield return new WaitForSeconds(1);
+            yield return new WaitForSeconds(0.5f);
         } while (spawned < plamaSpawnCount);
-        Destroy(Field);
-        
+        Destroy(createdField);
+    }
+    IEnumerator SpecialCooldown()
+    {
+        yield return new WaitForSeconds(10f);
+        canSpecial = true;
     }
 
 }

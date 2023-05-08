@@ -345,7 +345,7 @@ MonoBehaviour:
   bullet: {fileID: 8312402596195369198, guid: 13e552566735da8458e90bc016560467, type: 3}
   Field: {fileID: 5270019035180056083, guid: affaed3205c9eda45b6a6da5ee7b4bb1, type: 3}
   Plama: {fileID: 2926094884920870421, guid: 119544ac737043449a721261f727f0e4, type: 3}
-  plamaSpawnCount: 5
+  plamaSpawnCount: 10
 --- !u!114 &1259090575754961539
 MonoBehaviour:
   m_ObjectHideFlags: 0

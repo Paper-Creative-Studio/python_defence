@@ -17,24 +17,26 @@ public class attack : MonoBehaviour
     {
         
     }
-  
-   private void OnCollisionEnter2D(Collision2D collision)
-   {
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        Debug.Log("przed");
         if (canCheck)
         {
+            Debug.Log("pog");
             if (collision.gameObject.layer == 8)
             {
                 collision.gameObject.GetComponent<Health>().TakeDamage(damage);
-                canCheck= false;
+                canCheck = false;
             }
         }
-        
-
-
-   }
+    }
    public void CanCheck()
     {
         canCheck= true;
     }
-    
+    public void Destroy()
+    {
+        Destroy(gameObject);
+    }
+
 }
