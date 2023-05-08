@@ -34,6 +34,7 @@ public class movement : MonoBehaviour
     private bool dodging = false;
     private bool canDash = true;
     private bool dashing = false;
+    public bool canRoll = true;
 
     
     void Start()
@@ -88,9 +89,11 @@ public class movement : MonoBehaviour
                         dashSlider.value = dashSlider.maxValue;
                         StartCoroutine(SliderCooldown());
                     }
-                    if (Input.GetKeyDown(KeyCode.Space) && !dodging)
+                    if (Input.GetKeyDown(KeyCode.Space) && !dodging && canRoll)
                     {
+                        canRoll= false;
                         StartCoroutine(Rollin());
+                        
                     }
                 }
                 
@@ -129,10 +132,11 @@ public class movement : MonoBehaviour
 
     private void HandleAnimations()
     {
-        if (!health.hitable)
+        if (!health.hitable || !moving)
         {
             DisableAnimations();
         }
+        
         else
         {
            
@@ -183,48 +187,109 @@ public class movement : MonoBehaviour
 
     private IEnumerator Dash()
     {
-        
-        anim_controller.SetTrigger("StartDash");
-        
-        canDash = false;
-        dashing = true;
-        tr.emitting = true;
-        if(input != new Vector3(0,0,0))
+        if (input.x == 0 && input.y == 1)
         {
-            rb.AddForce(input * dashPower);
+            anim_controller.SetTrigger("UpStart");
+
+            canDash = false;
+            dashing = true;
+            tr.emitting = true;
+            if (input != new Vector3(0, 0, 0))
+            {
+                rb.AddForce(input * dashPower);
+            }
+            else
+            {
+                rb.AddForce(new Vector2(transform.localScale.x * -1, 0) * dashPower);
+            }
+            yield return new WaitForSeconds(dashDuration);
+            tr.emitting = false;
+            anim_controller.SetTrigger("UpEnd");
+            dashing = false;
+
+            yield return new WaitForSeconds(dashCooldown);
+            canDash = true;
+        }
+        else if (input.x == 0 && input.y == -1)
+        {
+            anim_controller.SetTrigger("DownStart");
+
+            canDash = false;
+            dashing = true;
+            tr.emitting = true;
+            if (input != new Vector3(0, 0, 0))
+            {
+                rb.AddForce(input * dashPower);
+            }
+            else
+            {
+                rb.AddForce(new Vector2(transform.localScale.x * -1, 0) * dashPower);
+            }
+            yield return new WaitForSeconds(dashDuration);
+            tr.emitting = false;
+            anim_controller.SetTrigger("DownEnd");
+            dashing = false;
+
+            yield return new WaitForSeconds(dashCooldown);
+            canDash = true;
         }
         else
         {
-            rb.AddForce(new Vector2(transform.localScale.x * -1, 0) * dashPower );
+            anim_controller.SetTrigger("StartDash");
+
+            canDash = false;
+            dashing = true;
+            tr.emitting = true;
+            if (input != new Vector3(0, 0, 0))
+            {
+                rb.AddForce(input * dashPower);
+            }
+            else
+            {
+                rb.AddForce(new Vector2(transform.localScale.x * -1, 0) * dashPower);
+            }
+            yield return new WaitForSeconds(dashDuration);
+            tr.emitting = false;
+            anim_controller.SetTrigger("EndDash");
+            dashing = false;
+
+            yield return new WaitForSeconds(dashCooldown);
+            canDash = true;
         }
-        yield return new WaitForSeconds(dashDuration);
-        tr.emitting = false;
-        anim_controller.SetTrigger("EndDash");
-        dashing = false;
+
         
-        yield return new WaitForSeconds(dashCooldown);
-        canDash = true;
     }
     private IEnumerator Rollin()
     {
-        anim_controller.SetTrigger("Roll");
-        dodging = true;
-        if (input != new Vector3(0, 0, 0))
+        if (input.x == 0 && input.y == 1)
         {
-            rb.AddForce(input * rollPower);
+            anim_controller.SetTrigger("UpRoll");
+        }
+        else if (input.x == 0 && input.y == -1)
+        {
+            anim_controller.SetTrigger("DownRoll");
         }
         else
         {
-            rb.AddForce(new Vector2(transform.localScale.x * -1, 0) * rollPower);
+            anim_controller.SetTrigger("Roll");
         }
-        yield return new WaitForSeconds(dashDuration);
+            
+            dodging = true;
+            if (input != new Vector3(0, 0, 0))
+            {
+                rb.AddForce(input * rollPower);
+            }
+            else
+            {
+                rb.AddForce(new Vector2(transform.localScale.x * -1, 0) * rollPower);
+            }
+            yield return new WaitForSeconds(dashDuration);
         
 
         
-        dodging = false;
-        
+         dodging = false;
+         
     }
-
     IEnumerator SliderCooldown()
     {
         float counter = 0;

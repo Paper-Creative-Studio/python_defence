@@ -18,11 +18,13 @@ public class Health : MonoBehaviour
     [TextArea]
     public string tiptext;
     public bool hitable = true;
+    movement movescript;
     // Start is called before the first frame update
     void Start()
     {
         currentHealth = maxHealth;
         healthbar.SetMaxHealth(currentHealth);
+        movescript = GetComponent<movement>();
     }
     private void Update()
     {
@@ -64,6 +66,6 @@ public class Health : MonoBehaviour
     private void StopRoll()
     {
         hitable = true;
-
+        movescript.canRoll= true;
     }
 }
