@@ -20,7 +20,7 @@ public class movement : MonoBehaviour
     private Vector3 smoothmove;
     private Vector3 smoothInputVelocity;
 
-    private Rigidbody2D rb;
+    [HideInInspector] public Rigidbody2D rb;
     [SerializeField] private Animator anim_controller;
     private List<RaycastHit2D> hits = new List<RaycastHit2D>();
     private BoxCollider2D playerCollider;
@@ -97,10 +97,6 @@ public class movement : MonoBehaviour
                     }
                 }
                 
-            }
-            else
-            {
-                //rb.velocity = new Vector3(0, rb.velocity.y, 0);
             }
             
         }

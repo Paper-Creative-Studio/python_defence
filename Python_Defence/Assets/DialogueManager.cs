@@ -38,8 +38,9 @@ public class DialogueManager : MonoBehaviour
         {
             npcscript.talking = true;
         }
-        
         playermove.moving = false;
+        playermove.rb.velocity = Vector2.zero;
+        playermove.DisableAnimations();
         playerattack.canAttack = false;
         
         sentences.Clear();
