@@ -44,7 +44,7 @@ public class Casting : MonoBehaviour
     public float lt_cooldown = 5f;
     private GameObject lt_object;
     [SerializeField] private Slider lt_slider;
-
+    float dist;
 
     void Start()
     {
@@ -56,7 +56,6 @@ public class Casting : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
         if (fb_unlocked && Input.GetKeyDown(KeyCode.Z) && fb_canCast && fb_slider.value < 0.1f)
         {
             moveScript.moving = false;
@@ -74,6 +73,19 @@ public class Casting : MonoBehaviour
         }
         if(fb_object != null)
         {
+             dist = mousepos.x - castPoint.position.x;
+            if (dist > 0)
+            {
+                Vector3 fb_scale = fb_object.transform.localScale;
+                fb_scale.x = -3;
+                fb_object.transform.localScale = fb_scale;
+            }
+            else
+            {
+                Vector3 fb_scale = fb_object.transform.localScale;
+                fb_scale.x = 3;
+                fb_object.transform.localScale = fb_scale;
+            }
             if (startMovement)
             {
                 
@@ -106,10 +118,6 @@ public class Casting : MonoBehaviour
         }
         
         
-    }
-    void DisableAnimations()
-    {
-
     }
     void letMove()
     {

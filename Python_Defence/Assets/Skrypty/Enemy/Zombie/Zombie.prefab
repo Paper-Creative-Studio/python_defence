@@ -33,12 +33,12 @@ RectTransform:
   - {fileID: 1919005006881036456}
   - {fileID: 1919005005942956918}
   m_Father: {fileID: 1919005006452398047}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -5.750183, y: 0.00078582764}
-  m_SizeDelta: {x: 64.9899, y: 9}
+  m_AnchoredPosition: {x: -6.51, y: -0.6633}
+  m_SizeDelta: {x: 60.8, y: 12.8328}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1919005005072297190
 MonoBehaviour:
@@ -182,7 +182,7 @@ MonoBehaviour:
   m_UiScaleMode: 0
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 876, y: 493}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -246,16 +246,16 @@ RectTransform:
   m_GameObject: {fileID: 1919005005513392322}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2.1399999, y: 1.9899998, z: 2.4696665}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.78, y: 0.725327, z: 0.9001588}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1919005006452398047}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.049621582, y: 0.0008010864}
-  m_SizeDelta: {x: -81.42078, y: -9.229004}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 76.16, y: 8.52}
+  m_SizeDelta: {x: 192, y: 64}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1919005005513392349
 CanvasRenderer:
@@ -285,7 +285,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 2034c77374c2f2f45b1d132ad51244d3, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1d5c1f93490d2a243a2375a05bb622b6, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -599,8 +599,8 @@ RectTransform:
   m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
   m_ConstrainProportionsScale: 1
   m_Children:
-  - {fileID: 1919005005513392323}
   - {fileID: 1919005005072297188}
+  - {fileID: 1919005005513392323}
   m_Father: {fileID: 1919005005352769265}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -805,9 +805,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 10
+  isattacking: 0
   canAttack: 1
   stunned: 0
-  isattacking: 0
   minAS: 0.3
   maxAS: 1
   attackRange: 1
@@ -815,6 +815,7 @@ MonoBehaviour:
   playerLayer:
     serializedVersion: 2
     m_Bits: 256
+  hitPlayer: []
 --- !u!114 &1919005006836502603
 MonoBehaviour:
   m_ObjectHideFlags: 0

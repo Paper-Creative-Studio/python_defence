@@ -19,12 +19,14 @@ public class Health : MonoBehaviour
     public string tiptext;
     public bool hitable = true;
     movement movescript;
+    SpriteRenderer sprite;
     // Start is called before the first frame update
     void Start()
     {
         currentHealth = maxHealth;
         healthbar.SetMaxHealth(currentHealth);
         movescript = GetComponent<movement>();
+        sprite = GetComponent<SpriteRenderer>();
     }
     private void Update()
     {
@@ -55,6 +57,8 @@ public class Health : MonoBehaviour
         {
             currentHealth -= damage;
             healthbar.SetHealth(currentHealth);
+            
+            StartCoroutine(MigajSprite());
         }
         
     }
@@ -67,5 +71,19 @@ public class Health : MonoBehaviour
     {
         hitable = true;
         movescript.canRoll= true;
+    }
+    IEnumerator MigajSprite()
+    {
+        hitable = false;
+        for (int i = 0; i < 5; i++)
+        {
+            sprite.enabled = false;
+            yield return new WaitForSeconds(0.2f);
+            sprite.enabled = true;
+            yield return new WaitForSeconds(0.2f);
+
+        }
+        hitable = true;
+        
     }
 }
