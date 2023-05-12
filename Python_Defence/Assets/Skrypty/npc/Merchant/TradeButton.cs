@@ -55,6 +55,7 @@ public class TradeButton : MonoBehaviour
         mainCanvas.SetActive(true);
         player.GetComponent<Attacking>().canAttack = true;
         player.gameObject.GetComponent<movement>().moving = true;
+        Time.timeScale = 1;
     }
     
 }

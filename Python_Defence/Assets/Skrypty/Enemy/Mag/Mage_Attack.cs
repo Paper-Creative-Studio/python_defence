@@ -37,7 +37,7 @@ public class Mage_Attack : Attack_Enemy
                 {
                     if(canSpecial)
                     {
-                        anim.SetTrigger("Pole");
+                        anim.SetTrigger("special");
                         PoleAttack();
                         canSpecial = false;
                         StartCoroutine(SpecialCooldown());

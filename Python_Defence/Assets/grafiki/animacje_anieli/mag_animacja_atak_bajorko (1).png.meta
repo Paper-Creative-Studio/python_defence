@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: fc54bdee4c48cdd4cba165857d8aa073
+guid: 1fe6328203f081f418b58f7451adfb99
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -117,85 +117,148 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: mag_prawo_0
+      name: mag_animacja_atak_bajorko (1)_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 192
+        width: 100
+        height: 64
+      alignment: 9
+      pivot: {x: 0.35476634, y: 0.54088974}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ad186e81ffc4b6f4eb636a9604843239
+      internalID: 1113435403
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mag_animacja_atak_bajorko (1)_1
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 192
+        width: 100
+        height: 64
+      alignment: 9
+      pivot: {x: 0.35531676, y: 0.5395}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 88650221138260844abafbca6189d738
+      internalID: -1012473285
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mag_animacja_atak_bajorko (1)_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 128
+        width: 100
+        height: 64
+      alignment: 9
+      pivot: {x: 0.35479394, y: 0.5475862}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 71e49bd52e5f7b3429aabd07f51870d6
+      internalID: -429253468
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mag_animacja_atak_bajorko (1)_3
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 128
+        width: 100
+        height: 64
+      alignment: 9
+      pivot: {x: 0.3547014, y: 0.54501534}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da5db8bfb0b5f11478c683c517c8b16e
+      internalID: -1438530872
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mag_animacja_atak_bajorko (1)_4
       rect:
         serializedVersion: 2
         x: 0
         y: 64
-        width: 64
+        width: 100
         height: 64
       alignment: 9
-      pivot: {x: 0.49156642, y: 0.5432606}
+      pivot: {x: 0.35646972, y: 0.5458027}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 36649c02b92ad6b4a9fc5662b397c0b2
-      internalID: -1095877307
+      spriteID: a68444cc4f51b964a8a8d63f44a26e0e
+      internalID: -863375296
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mag_prawo_1
+      name: mag_animacja_atak_bajorko (1)_5
       rect:
         serializedVersion: 2
-        x: 64
+        x: 100
         y: 64
-        width: 64
+        width: 100
         height: 64
       alignment: 9
-      pivot: {x: 0.5075046, y: 0.5432606}
+      pivot: {x: 0.35614336, y: 0.5457965}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 22454923a3edf194fbbdd500ce106cce
-      internalID: -528284321
+      spriteID: c632fc6371716b249b6de5e0d4595542
+      internalID: -1939905517
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mag_prawo_2
+      name: mag_animacja_atak_bajorko (1)_6
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 64
+        width: 100
         height: 64
       alignment: 9
-      pivot: {x: 0.5553187, y: 0.54781425}
+      pivot: {x: 0.35409984, y: 0.539987}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7dfbd7aa0f1a8654a97d29a46d58ae16
-      internalID: -595265961
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: mag_prawo_3
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 0
-        width: 64
-        height: 64
-      alignment: 9
-      pivot: {x: 0.5097815, y: 0.54553735}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c75fd151bf5556c40a13fdc5bff66dd4
-      internalID: -190266348
+      spriteID: 3c2ee093c98624c4598aa0faa2de1bed
+      internalID: -915571320
       vertices: []
       indices: 
       edges: []
@@ -211,10 +274,13 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      mag_prawo_0: -1095877307
-      mag_prawo_1: -528284321
-      mag_prawo_2: -595265961
-      mag_prawo_3: -190266348
+      mag_animacja_atak_bajorko (1)_3: -1438530872
+      mag_animacja_atak_bajorko (1)_5: -1939905517
+      mag_animacja_atak_bajorko (1)_2: -429253468
+      mag_animacja_atak_bajorko (1)_6: -915571320
+      mag_animacja_atak_bajorko (1)_1: -1012473285
+      mag_animacja_atak_bajorko (1)_4: -863375296
+      mag_animacja_atak_bajorko (1)_0: 1113435403
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
