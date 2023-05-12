@@ -1,9 +1,7 @@
-i = 3
-if i ==3:
-	animal="Horse"
-elif i ==4:
-	animal="Sheep"
-else:
-	animal="Dunkey"
-if animal == "Horse" or "Sheep" or "Donkey":
-	print("It's correct")
+x=5
+y=24
+
+list = []
+for x in range(6,24):
+	list.append(x)
+print(list)

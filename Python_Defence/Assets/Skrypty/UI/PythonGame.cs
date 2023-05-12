@@ -48,6 +48,7 @@ public class PythonGame : MonoBehaviour
     [SerializeField] UnityEngine.UI.Button buildButton;
     [SerializeField] private List<int> stage1Costs;
     [SerializeField] private List<int> stage2Costs;
+    
 
     public void CheckCondition()
     {
@@ -162,12 +163,24 @@ public class PythonGame : MonoBehaviour
                         building.sprite = stages[0];
                         Debug.Log(building.sprite);
                         stages.RemoveAt(0);
-                        if (stages.Count <=1)
+                        var kolizje = building.gameObject.GetComponentsInChildren<Collider2D>();
+                        if (stages.Count==1)
                         {
-                            building.gameObject.GetComponent<Collider2D>().enabled = true;
-                            building.gameObject.GetComponent<BoxCollider2D>().enabled = true;
+                            kolizje[0].enabled = true;
+                            kolizje[1].enabled = true;
+                            kolizje[2].enabled = true;
+                            kolizje[3].enabled = true;
+                            for (int i = 4; i < kolizje.Length; i++)
+                            {
+                                kolizje[i].enabled = false;
+                            }
                             
+                        }else if(stages.Count ==0)
+                        {
 
+                            kolizje[2].enabled = false;
+                            kolizje[3].enabled = false;
+                            kolizje[kolizje.Length].enabled = true;
                         }
                     }
                     
