@@ -31,11 +31,11 @@ public class movement : MonoBehaviour
 
     private bool facingLeft = true;
     public bool moving = true;
-    private bool dodging = false;
+    public bool dodging = false;
     private bool canDash = true;
-    private bool dashing = false;
+    public bool dashing = false;
     public bool canRoll = true;
-
+    [HideInInspector] public bool blockInput = false;
     
     void Start()
     {
@@ -64,7 +64,8 @@ public class movement : MonoBehaviour
         {
             if (moving)
             {
-                input = new Vector3(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical") ,0).normalized;
+                if(!blockInput)
+                    input = new Vector3(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical") ,0).normalized;
                 smoothmove = Vector3.SmoothDamp(smoothmove, input, ref smoothInputVelocity, smoothing_speed);
 
                 if (Input.GetAxisRaw("Horizontal") > 0 && facingLeft)

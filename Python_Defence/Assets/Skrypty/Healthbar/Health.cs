@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UI;
 
 public class Health : MonoBehaviour
 {
@@ -20,6 +21,8 @@ public class Health : MonoBehaviour
     public bool hitable = true;
     movement movescript;
     SpriteRenderer sprite;
+    [SerializeField] Material mask;
+    [SerializeField] Material materialdef;
     // Start is called before the first frame update
     void Start()
     {
@@ -77,9 +80,9 @@ public class Health : MonoBehaviour
         hitable = false;
         for (int i = 0; i < 5; i++)
         {
-            sprite.enabled = false;
+            sprite.material = mask;
             yield return new WaitForSeconds(0.2f);
-            sprite.enabled = true;
+            sprite.material = materialdef;
             yield return new WaitForSeconds(0.2f);
 
         }

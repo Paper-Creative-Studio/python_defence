@@ -17,11 +17,20 @@ public class Attacking : MonoBehaviour
     public int damage;
     public bool canAttack = true;
     private Health health;
+    private Queue<string> animationQueue = new Queue<string>();
+    private string currentAttack = "";
+    bool resetattack = false;
+    int changes = 0;
+    Coroutine currentTimer;
+    Coroutine moveTimer;
+    movement movement;
     // Start is called before the first frame update
     void Start()
     {
+        LoadAttacks();
         source = GetComponent<AudioSource>();  
         health = GetComponent<Health>();
+        movement = GetComponent<movement>();
     }
 
     // Update is called once per frame
@@ -29,18 +38,55 @@ public class Attacking : MonoBehaviour
     {
        if(health.alive)
         {
-            if (Input.GetButtonDown("Fire1") && canAttack && health.hitable)
+            if (Input.GetButtonDown("Fire1") && canAttack && !movement.dodging && !movement.dashing)
             {
+                if(resetattack)
+                {
+                    if(animationQueue.Count != 0)
+                    {
+                        for (int i = 0; i <= animationQueue.Count; i++) //wywal wszystko z queue
+                        {
+                            animationQueue.Dequeue();
+                        }
+                    }
+                    
+                    LoadAttacks();
 
+
+                    resetattack = false;
+                }
+                if(animationQueue.Count == 0)
+                {
+                    LoadAttacks();
+                }
+                currentAttack = animationQueue.Dequeue();
+                changes++;
+                AttackMove();
+                anim_controller.SetTrigger(currentAttack);
+
+                if(currentTimer!=null)
+                    StopCoroutine(currentTimer);
+                currentTimer = StartCoroutine(ChangeTimer());
                 canAttack = false;
-                
-                anim_controller.SetTrigger("Attacking");
-
                 StartCoroutine(Cooldown());
 
             }
         }
         
+    }
+    public void LoadAttacks()
+    {
+        animationQueue.Enqueue("atak1");
+        animationQueue.Enqueue("atak2");
+        animationQueue.Enqueue("atak3");
+    }
+    public void AttackMove()
+    {
+        movement.blockInput = true;
+        movement.input = Vector3.left * transform.localScale.x;
+        if (moveTimer != null)
+            StopCoroutine(moveTimer);
+        moveTimer = StartCoroutine(Moveattack());
     }
     public void Attack()
     {
@@ -57,10 +103,22 @@ public class Attacking : MonoBehaviour
     {
         source.PlayOneShot(woosh_sound);
     }
+    IEnumerator Moveattack()
+    {
+        yield return new WaitForSeconds(0.25f);
+        movement.input = Vector3.zero;
+        movement.blockInput = false;
+    }
     IEnumerator Cooldown()
     {
         yield return new WaitForSeconds(attackCooldown);
         canAttack = true;
+    }
+    IEnumerator ChangeTimer()
+    {
+        yield return new WaitForSeconds(3f);
+            resetattack = true;
+        Debug.Log("reset");
     }
 
     //private void OnDrawGizmosSelected()
