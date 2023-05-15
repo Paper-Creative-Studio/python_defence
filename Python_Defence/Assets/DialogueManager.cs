@@ -81,7 +81,7 @@ public class DialogueManager : MonoBehaviour
                 eqscript.giveHajs(10);
                 eqscript.zaznaczHajs();
                 main_Canvas.SetActive(true);
-                farmerdialtrig.index = 1;
+                farmerdialtrig.Farmerindex = 1;
                 farma.Zbierz();
             }
             else

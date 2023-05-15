@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
+
 using UnityEngine.Events;
-using UnityEngine.UIElements;
+
 
 public class PythonGame : MonoBehaviour
 {
@@ -48,12 +48,12 @@ public class PythonGame : MonoBehaviour
     [SerializeField] UnityEngine.UI.Button buildButton;
     [SerializeField] private List<int> stage1Costs;
     [SerializeField] private List<int> stage2Costs;
-    
+    int index;
 
     public void CheckCondition()
     {
         
-        if (parsedInfo[0] >= parsedNeed[0] && parsedInfo[1] >= parsedNeed[1] && parsedInfo[2] >= parsedNeed[2])
+        if (parsedInfo[0] >= parsedNeed[0] && parsedInfo[1] >= parsedNeed[1] && parsedInfo[2] >= parsedNeed[2] && parsedInfo[3] >= parsedNeed[3])
         {
             for (int i = 0; i < parsedInfo.Count; i++)
             {
@@ -86,7 +86,7 @@ public class PythonGame : MonoBehaviour
     {
         if(reqCanvas.activeSelf)
         {
-            if(Input.GetKeyDown(KeyCode.Escape))
+            if(UnityEngine.Input.GetKeyDown(KeyCode.Escape))
             {
                 reqCanvas.SetActive(false);
                 hpCanvas.SetActive(true);
@@ -115,9 +115,9 @@ public class PythonGame : MonoBehaviour
                     {
                         objectiveScript.NextObjective();
                     }
-                    tasks[dialTrigger.index].onSuccesful.Invoke();
-                    previousindex = dialTrigger.index;
-                    dialTrigger.index = 3;
+                    tasks[index].onSuccesful.Invoke();
+                    previousindex = index;
+                    index = 3;
                     hpCanvas.SetActive(true);
                     Debug.Log("hp canvas jest true");
                     neededwaves = wavescript.doneWaves + 3;
@@ -148,11 +148,11 @@ public class PythonGame : MonoBehaviour
                         previousindex = 2;
                     }
                     
-                    if (dialTrigger.index != 2)
+                    if (index != 2)
                     {
 
                         
-                        dialTrigger.index = previousindex;
+                        index = previousindex;
                     }
                     
                     
@@ -196,7 +196,7 @@ public class PythonGame : MonoBehaviour
         {
             if(!talking)
             {
-                if (Input.GetKeyDown(KeyCode.E))
+                if (UnityEngine.Input.GetKeyDown(KeyCode.E))
                 {
                     if (!coding)
                     {
@@ -264,15 +264,54 @@ public class PythonGame : MonoBehaviour
     }
     public void PythonCanvas()
     {
+        Debug.Log(index);
         skrypt.scriptwyw = this;
         coding = true;
-        skrypt.addition = tasks[dialTrigger.index].addition;
         canvas.SetActive(true);
-        skrypt.desiredOutput = tasks[dialTrigger.index].output;
-        skrypt.secOutput = tasks[dialTrigger.index].secondaryoutput;
-        skrypt.polecenie = tasks[dialTrigger.index].Polecenie;
-        skrypt.stale = tasks[dialTrigger.index].stale;
-        skrypt.condition = tasks[dialTrigger.index].condition;
+        if (gameObject.name == "Ksiadz") //top 10 bug fix - numer 11
+            skrypt.addition = tasks[dialTrigger.Ksiadzindex].addition;
+            skrypt.desiredOutput = tasks[dialTrigger.Ksiadzindex].output;
+            skrypt.secOutput = tasks[dialTrigger.Ksiadzindex].secondaryoutput;
+            skrypt.polecenie = tasks[dialTrigger.Ksiadzindex].Polecenie;
+            skrypt.stale = tasks[dialTrigger.Ksiadzindex].stale;
+            skrypt.condition = tasks[dialTrigger.Ksiadzindex].condition;
+        if (gameObject.name == "Gornik")
+            skrypt.addition = tasks[dialTrigger.Ksiadzindex].addition;
+            skrypt.desiredOutput = tasks[dialTrigger.Gornikindex].output;
+            skrypt.secOutput = tasks[dialTrigger.Gornikindex].secondaryoutput;
+            skrypt.polecenie = tasks[dialTrigger.Gornikindex].Polecenie;
+            skrypt.stale = tasks[dialTrigger.Gornikindex].stale;
+            skrypt.condition = tasks[dialTrigger.Gornikindex].condition;
+        if (gameObject.name == "Kowal")
+            skrypt.addition = tasks[dialTrigger.Ksiadzindex].addition;
+            skrypt.desiredOutput = tasks[dialTrigger.Kowalindex].output;
+            skrypt.secOutput = tasks[dialTrigger.Kowalindex].secondaryoutput;
+            skrypt.polecenie = tasks[dialTrigger.Kowalindex].Polecenie;
+            skrypt.stale = tasks[dialTrigger.Kowalindex].stale;
+            skrypt.condition = tasks[dialTrigger.Kowalindex].condition;
+        if (gameObject.name == "TypOdStajni")
+            skrypt.addition = tasks[dialTrigger.Stajniaindex].addition;
+            skrypt.desiredOutput = tasks[dialTrigger.Stajniaindex].output;
+            skrypt.secOutput = tasks[dialTrigger.Stajniaindex].secondaryoutput;
+            skrypt.polecenie = tasks[dialTrigger.Stajniaindex].Polecenie;
+            skrypt.stale = tasks[dialTrigger.Stajniaindex].stale;
+            skrypt.condition = tasks[dialTrigger.Stajniaindex].condition;
+        if (gameObject.name == "ArcherZbrojowania")
+            skrypt.addition = tasks[dialTrigger.Archerindex].addition;
+            skrypt.desiredOutput = tasks[dialTrigger.Archerindex].output;
+            skrypt.secOutput = tasks[dialTrigger.Archerindex].secondaryoutput;
+            skrypt.polecenie = tasks[dialTrigger.Archerindex].Polecenie;
+            skrypt.stale = tasks[dialTrigger.Archerindex].stale;
+            skrypt.condition = tasks[dialTrigger.Archerindex].condition;
+        if (gameObject.name == "Farmer")
+            skrypt.addition = tasks[dialTrigger.Farmerindex].addition;
+            skrypt.desiredOutput = tasks[dialTrigger.Farmerindex].output;
+            skrypt.secOutput = tasks[dialTrigger.Farmerindex].secondaryoutput;
+            skrypt.polecenie = tasks[dialTrigger.Farmerindex].Polecenie;
+            skrypt.stale = tasks[dialTrigger.Farmerindex].stale;
+            skrypt.condition = tasks[dialTrigger.Farmerindex].condition;
+
+
         onNewTask.Invoke();
         hpCanvas.SetActive(false);
         Time.timeScale = 0;

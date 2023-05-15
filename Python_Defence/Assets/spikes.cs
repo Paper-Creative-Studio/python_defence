@@ -82,6 +82,7 @@ public class spikes : MonoBehaviour
             playerRB = hitPlayer.GetComponent<Rigidbody2D>();
             moveScript = hitPlayer.GetComponent<movement>();
             playerAnim = hitPlayer.GetComponent<Animator>();
+            hitPlayer.GetComponent<Health>().TakeDamage(15);
             Debug.Log("trafiony");
             hit = true;
             prevY = hitPlayer.transform.position.y;

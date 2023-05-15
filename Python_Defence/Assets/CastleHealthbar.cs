@@ -14,7 +14,12 @@ public class CastleHealthbar : MonoBehaviour
     }
     public void SetMaxHealth(int health)
     {
-        slider.maxValue = health;
-        slider.value = health;
+        if(slider != null)
+        {
+
+            slider.maxValue = health;
+            slider.value = health;
+        }
+
     }
 }

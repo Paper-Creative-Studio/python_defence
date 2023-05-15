@@ -71,7 +71,7 @@ public class Casting : MonoBehaviour
             moveScript.moving = false;
             moveScript.DisableAnimations();
             anim.SetTrigger("CastLightning");
-            
+            StartCoroutine(startMove());
         }
         if(fb_object != null)
         {
@@ -120,6 +120,11 @@ public class Casting : MonoBehaviour
         }
         
         
+    }
+    IEnumerator startMove()
+    {
+        yield return new WaitForSeconds(1.5f);
+        moveScript.moving = true;
     }
     void letMove()
     {

@@ -141,7 +141,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   aoeRange: 5
-  damage: 10
+  damage: 7
   enemyLayers:
     serializedVersion: 2
     m_Bits: 64
