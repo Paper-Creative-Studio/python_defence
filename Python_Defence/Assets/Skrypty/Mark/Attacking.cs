@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Attacking : MonoBehaviour
 {
@@ -24,6 +25,7 @@ public class Attacking : MonoBehaviour
     Coroutine currentTimer;
     Coroutine moveTimer;
     movement movement;
+    [HideInInspector] public bool stunned = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -37,9 +39,10 @@ public class Attacking : MonoBehaviour
     void Update()
     {
        if(health.alive)
-        {
-            if (Input.GetButtonDown("Fire1") && canAttack && !movement.dodging && !movement.dashing)
+       {
+            if (Input.GetButtonDown("Fire1") && canAttack && !movement.dodging && !movement.dashing && !stunned)
             {
+                movement.attacking= true;
                 if(resetattack)
                 {
                     if(animationQueue.Count != 0)
@@ -73,6 +76,11 @@ public class Attacking : MonoBehaviour
             }
         }
         
+    }
+    public void EndAttack()
+    {
+        movement.attacking = false;
+        Debug.Log("asd");
     }
     public void LoadAttacks()
     {
@@ -120,7 +128,6 @@ public class Attacking : MonoBehaviour
             resetattack = true;
         Debug.Log("reset");
     }
-
     //private void OnDrawGizmosSelected()
     //{
     //    Gizmos.DrawSphere(attackPoint.position, attackRange);

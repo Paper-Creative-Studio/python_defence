@@ -16,7 +16,31 @@ public class Ogre_Attack : Attack_Enemy
     float distanceToPlayer;
     float lerpedValue = 0;
     Vector3 target;
+    List<GameObject> szpikes=new List<GameObject>();
     bool canShock = true;
+    private void OnDestroy()
+    {
+        if(szpikes.Count != 0)
+        {
+            foreach (var szpikee in szpikes)
+            {
+                if(szpikee !=null)
+                {
+                    if(hitPlayer !=null)
+                    {
+                        szpikee.GetComponent<spikes>().hitPlayer.GetComponent<movement>().moving = true;
+                        szpikee.GetComponent<spikes>().hitPlayer.GetComponent<Casting>().stunned = false;
+                        szpikee.GetComponent<spikes>().hitPlayer.GetComponent<Attacking>().stunned = false;
+                        szpikee.GetComponent<spikes>().hitPlayer.GetComponent<movement>().blockInput = false;
+                        szpikee.GetComponent<spikes>().hitPlayer = null;
+                    }
+                    
+                }
+                
+            }
+        }
+        
+    }
     private new void Start()
     {
         base.Start();
@@ -85,7 +109,8 @@ public class Ogre_Attack : Attack_Enemy
         {
             lerpedValue += distanceToPlayer;
             spawnPos = Vector3.Lerp(transform.position, target, lerpedValue);
-            Instantiate(spike, spawnPos, Quaternion.identity);
+            GameObject szpike = Instantiate(spike, spawnPos, Quaternion.identity);
+            szpikes.Add(szpike);
             yield return new WaitForSeconds(0.05f);
         }
     }

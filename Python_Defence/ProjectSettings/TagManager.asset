@@ -11,6 +11,7 @@ TagManager:
   - npc
   - Enemy
   - explosion
+  - env
   layers:
   - Default
   - TransparentFX

@@ -67,7 +67,7 @@ public class PythonGame : MonoBehaviour
         }
         else
         {
-            errortext.text = "Not enough materials";
+            errortext.text = "Not \r\nenough \r\nmaterials";
             errortext.color = Color.red;
             bought = false;
         }
@@ -156,7 +156,7 @@ public class PythonGame : MonoBehaviour
                     }
                     
                     
-                    if (!loop)
+                    if (!loop && stages.Count !=0)
                     {
                         Debug.Log(building.sprite);
                         
@@ -180,7 +180,7 @@ public class PythonGame : MonoBehaviour
 
                             kolizje[2].enabled = false;
                             kolizje[3].enabled = false;
-                            kolizje[kolizje.Length].enabled = true;
+                            kolizje[kolizje.Length-1].enabled = true;
                         }
                     }
                     
@@ -236,7 +236,7 @@ public class PythonGame : MonoBehaviour
     public void LaunchPython()
     {
         buildButton.onClick.AddListener(this.CheckCondition);
-        if (!bought)
+        if (!bought && !loop)
         {
             Time.timeScale = 0;
             for (int i = 0; i < resources.Count; i++)

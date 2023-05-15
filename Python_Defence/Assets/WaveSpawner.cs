@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 
 using UnityEngine;
-
+using UnityEngine.UI;
 
 public class WaveSpawner : MonoBehaviour
 {
@@ -111,6 +111,7 @@ public class WaveSpawner : MonoBehaviour
                     waveCount = 1;
                 }
                 transform.position = new Vector3(transform.position.x, transform.position.y, 1);
+                gameObject.GetComponent<Button>().interactable = true;
 
             }
             
@@ -125,6 +126,7 @@ public class WaveSpawner : MonoBehaviour
     {
         SpawnWave(waveCount);
         transform.position = new Vector3 (transform.position.x, transform.position.y, -1);
+        gameObject.GetComponent<Button>().interactable= false;
         waveseeker.enemy = true;
        
         if (objectivescript.objectives[0].internalTitle != "Wave")

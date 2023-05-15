@@ -35,6 +35,7 @@ public class movement : MonoBehaviour
     private bool canDash = true;
     public bool dashing = false;
     public bool canRoll = true;
+    public bool attacking = false;
     [HideInInspector] public bool blockInput = false;
     
     void Start()
@@ -83,7 +84,9 @@ public class movement : MonoBehaviour
                 
                 if (Time.timeScale == 1)
                 {
-                    HandleAnimations();
+                    
+
+                        HandleAnimations();
                     if (Input.GetKeyDown(KeyCode.LeftShift) && !dodging && canDash && dashSlider.value < 0.1f)
                     {
                         StartCoroutine(Dash());
@@ -129,7 +132,7 @@ public class movement : MonoBehaviour
 
     private void HandleAnimations()
     {
-        if (!health.hitable || !moving)
+        if (!health.hitable || !moving || attacking)
         {
             DisableAnimations();
         }

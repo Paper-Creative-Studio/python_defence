@@ -45,7 +45,7 @@ public class Casting : MonoBehaviour
     private GameObject lt_object;
     [SerializeField] private Slider lt_slider;
     float dist;
-
+    public bool stunned = false;
     void Start()
     {
         health= GetComponent<Health>();
@@ -56,16 +56,18 @@ public class Casting : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (fb_unlocked && Input.GetKeyDown(KeyCode.Z) && fb_canCast && fb_slider.value < 0.1f)
+        if (fb_unlocked && Input.GetKeyDown(KeyCode.Z) && fb_canCast && fb_slider.value < 0.1f && !stunned && Time.timeScale == 1)
         {
+            
             moveScript.moving = false;
             moveScript.DisableAnimations();
             anim.SetTrigger("CastFireball");
             
             
         }
-        if (lt_unlocked && Input.GetKeyDown(KeyCode.X) && lt_canCast && lt_slider.value < 0.1f)
+        if (lt_unlocked && Input.GetKeyDown(KeyCode.X) && lt_canCast && lt_slider.value < 0.1f & !stunned && Time.timeScale == 1)
         {
+            
             moveScript.moving = false;
             moveScript.DisableAnimations();
             anim.SetTrigger("CastLightning");
@@ -169,6 +171,7 @@ public class Casting : MonoBehaviour
                 }
                 
             }
+            counter++;
             yield return new WaitForSeconds(1f);
         }
         

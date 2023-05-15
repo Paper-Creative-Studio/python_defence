@@ -60,7 +60,7 @@ public class Mage_Attack : Attack_Enemy
     {
         playerpos = hitPlayer[0].transform.position;
         createdField = Instantiate(Field, playerpos, Quaternion.identity);
-        
+        createdField.GetComponent<field>().father = gameObject;
         StartCoroutine(SpawnPlama());
     }
     IEnumerator SpawnPlama()
