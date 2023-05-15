@@ -21,6 +21,14 @@ public class DialogueTrigger : MonoBehaviour
     {
         pg = GetComponent<PythonGame>();
         tn = GetComponent<TradeNPC>();
+        
+    }
+    private void Update()
+    {
+        //Debug.Log(gameObject.name + " " + index);
+    }
+    public void TriggerDialogue()
+    {
         if (gameObject.name == "Ksiadz")
             index = Ksiadzindex;
         if (gameObject.name == "Gornik")
@@ -33,13 +41,6 @@ public class DialogueTrigger : MonoBehaviour
             index = Archerindex;
         if (gameObject.name == "Farmer")
             index = Farmerindex;
-    }
-    private void Update()
-    {
-        //Debug.Log(gameObject.name + " " + index);
-    }
-    public void TriggerDialogue()
-    {
         dialogueCanvas.SetActive(true);
         dialmanager.npcscript = pg;
         dialmanager.tradescript = tn;

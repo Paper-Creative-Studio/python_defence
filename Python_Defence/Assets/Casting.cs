@@ -58,7 +58,7 @@ public class Casting : MonoBehaviour
     {
         if (fb_unlocked && Input.GetKeyDown(KeyCode.Z) && fb_canCast && fb_slider.value < 0.1f && !stunned && Time.timeScale == 1)
         {
-            
+            fb_canCast = false;
             moveScript.moving = false;
             moveScript.DisableAnimations();
             anim.SetTrigger("CastFireball");
@@ -67,7 +67,7 @@ public class Casting : MonoBehaviour
         }
         if (lt_unlocked && Input.GetKeyDown(KeyCode.X) && lt_canCast && lt_slider.value < 0.1f & !stunned && Time.timeScale == 1)
         {
-            
+            lt_canCast = false;
             moveScript.moving = false;
             moveScript.DisableAnimations();
             anim.SetTrigger("CastLightning");
