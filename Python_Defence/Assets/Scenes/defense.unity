@@ -5446,12 +5446,7 @@ MonoBehaviour:
     - avatar: {fileID: 21300000, guid: 750e9a42182aeb5418962770958b11f2, type: 3}
       sentence: Good luck learning Python!
     aftermath: 
-  Ksiadzindex: 0
-  Gornikindex: 0
-  Kowalindex: 0
-  Stajniaindex: 0
-  Archerindex: 0
-  Farmerindex: 0
+  index: 0
   dialogueCanvas: {fileID: 1797485694}
   dialmanager: {fileID: 1584948959}
 --- !u!114 &350650185
@@ -5569,6 +5564,7 @@ MonoBehaviour:
   needResources: []
   errortext: {fileID: 0}
   pythonCanvas: {fileID: 0}
+  bought: 0
   reqCanvas: {fileID: 1754264300}
   buildButton: {fileID: 0}
   stage1Costs: 
@@ -7247,12 +7243,7 @@ MonoBehaviour:
     - avatar: {fileID: 21300000, guid: b19b85a032f1d5f48963621392681696, type: 3}
       sentence: No problem. I'll be back in some time
     aftermath: 
-  Ksiadzindex: 0
-  Gornikindex: 0
-  Kowalindex: 0
-  Stajniaindex: 0
-  Archerindex: 0
-  Farmerindex: 0
+  index: 0
   dialogueCanvas: {fileID: 1797485694}
   dialmanager: {fileID: 1584948959}
 --- !u!114 &433536007
@@ -7396,6 +7387,7 @@ MonoBehaviour:
   - {fileID: 1041528158}
   errortext: {fileID: 273758380}
   pythonCanvas: {fileID: 2017472308}
+  bought: 0
   reqCanvas: {fileID: 1754264300}
   buildButton: {fileID: 279007572}
   stage1Costs: 140000000c0000000a0000000a000000
@@ -15643,12 +15635,7 @@ MonoBehaviour:
     - avatar: {fileID: 21300000, guid: f9f269a86a6508d408cebf6bdfea75c8, type: 3}
       sentence: You can harvest plants after some waves
     aftermath: 
-  Ksiadzindex: 0
-  Gornikindex: 0
-  Kowalindex: 0
-  Stajniaindex: 0
-  Archerindex: 0
-  Farmerindex: 0
+  index: 0
   dialogueCanvas: {fileID: 1797485694}
   dialmanager: {fileID: 1584948959}
 --- !u!114 &677196822
@@ -15775,6 +15762,7 @@ MonoBehaviour:
   - {fileID: 1041528158}
   errortext: {fileID: 273758380}
   pythonCanvas: {fileID: 2017472308}
+  bought: 0
   reqCanvas: {fileID: 1754264300}
   buildButton: {fileID: 279007572}
   stage1Costs: 00000000000000000000000000000000
@@ -17198,6 +17186,8 @@ GameObject:
   - component: {fileID: 763941364}
   - component: {fileID: 763941366}
   - component: {fileID: 763941365}
+  - component: {fileID: 763941368}
+  - component: {fileID: 763941367}
   m_Layer: 0
   m_Name: Kopalnia
   m_TagString: Untagged
@@ -17346,6 +17336,58 @@ EdgeCollider2D:
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
   m_UseAdjacentEndPoint: 0
+--- !u!61 &763941367
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 763941361}
+  m_Enabled: 0
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.07362169, y: 0.7270044}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 3.4375, y: 3.4375}
+    newSize: {x: 4.5833335, y: 4.5833335}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.7074188, y: 1.1000507}
+  m_EdgeRadius: 0
+--- !u!61 &763941368
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 763941361}
+  m_Enabled: 0
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.024622709, y: 0.5245899}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 3.4375, y: 3.4375}
+    newSize: {x: 4.5833335, y: 4.5833335}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.983653, y: 0.31900978}
+  m_EdgeRadius: 0
 --- !u!1 &778865920
 GameObject:
   m_ObjectHideFlags: 0
@@ -19881,6 +19923,7 @@ MonoBehaviour:
   - {fileID: 1041528158}
   errortext: {fileID: 273758380}
   pythonCanvas: {fileID: 2017472308}
+  bought: 0
   reqCanvas: {fileID: 1754264300}
   buildButton: {fileID: 279007572}
   stage1Costs: 0a000000050000000200000002000000
@@ -19946,12 +19989,7 @@ MonoBehaviour:
     - avatar: {fileID: 21300000, guid: b19b85a032f1d5f48963621392681696, type: 3}
       sentence: No problem. I'll be back in some time
     aftermath: 
-  Ksiadzindex: 0
-  Gornikindex: 0
-  Kowalindex: 0
-  Stajniaindex: 0
-  Archerindex: 0
-  Farmerindex: 0
+  index: 0
   dialogueCanvas: {fileID: 1797485694}
   dialmanager: {fileID: 1584948959}
 --- !u!1 &938016281
@@ -21185,12 +21223,7 @@ MonoBehaviour:
     - avatar: {fileID: 21300000, guid: b19b85a032f1d5f48963621392681696, type: 3}
       sentence: No problem. I'll be back in some time
     aftermath: 
-  Ksiadzindex: 0
-  Gornikindex: 0
-  Kowalindex: 0
-  Stajniaindex: 0
-  Archerindex: 0
-  Farmerindex: 0
+  index: 0
   dialogueCanvas: {fileID: 1797485694}
   dialmanager: {fileID: 1584948959}
 --- !u!114 &997326385
@@ -21322,6 +21355,7 @@ MonoBehaviour:
   - {fileID: 1041528158}
   errortext: {fileID: 273758380}
   pythonCanvas: {fileID: 2017472308}
+  bought: 0
   reqCanvas: {fileID: 1754264300}
   buildButton: {fileID: 279007572}
   stage1Costs: 050000000c0000000500000005000000
@@ -23311,12 +23345,7 @@ MonoBehaviour:
     - avatar: {fileID: 21300000, guid: f2d062533037e9a45a316ed5ee44ab62, type: 3}
       sentence: I'm gonna need more time
     aftermath: 
-  Ksiadzindex: 0
-  Gornikindex: 0
-  Kowalindex: 0
-  Stajniaindex: 0
-  Archerindex: 0
-  Farmerindex: 0
+  index: 0
   dialogueCanvas: {fileID: 1797485694}
   dialmanager: {fileID: 1584948959}
 --- !u!114 &1094362093
@@ -23422,6 +23451,7 @@ MonoBehaviour:
   - {fileID: 1041528158}
   errortext: {fileID: 273758380}
   pythonCanvas: {fileID: 2017472308}
+  bought: 0
   reqCanvas: {fileID: 1754264300}
   buildButton: {fileID: 279007572}
   stage1Costs: 0a000000050000000200000002000000
@@ -32368,12 +32398,7 @@ MonoBehaviour:
     - avatar: {fileID: 21300000, guid: b19b85a032f1d5f48963621392681696, type: 3}
       sentence: No problem. I'll be back in some time
     aftermath: 
-  Ksiadzindex: 0
-  Gornikindex: 0
-  Kowalindex: 0
-  Stajniaindex: 0
-  Archerindex: 0
-  Farmerindex: 0
+  index: 0
   dialogueCanvas: {fileID: 1797485694}
   dialmanager: {fileID: 1584948959}
 --- !u!114 &1346207674
@@ -32506,6 +32531,7 @@ MonoBehaviour:
   - {fileID: 1041528158}
   errortext: {fileID: 273758380}
   pythonCanvas: {fileID: 2017472308}
+  bought: 0
   reqCanvas: {fileID: 1754264300}
   buildButton: {fileID: 279007572}
   stage1Costs: 0a000000050000000200000002000000
@@ -33484,10 +33510,10 @@ MonoBehaviour:
   goldText: {fileID: 1568439999}
   Hajstext: {fileID: 1512259129}
   Silatext: {fileID: 272825737}
-  kamienCount: 50
-  srebroCount: 20
-  GoldCount: 10
-  HajsCount: 5
+  kamienCount: 1000
+  srebroCount: 1000
+  GoldCount: 1000
+  HajsCount: 1000
   silaCount: 0
 --- !u!82 &1398872398
 AudioSource:
@@ -46187,12 +46213,7 @@ MonoBehaviour:
     - avatar: {fileID: 21300000, guid: b19b85a032f1d5f48963621392681696, type: 3}
       sentence: Show me your goods
     aftermath: Shop
-  Ksiadzindex: 0
-  Gornikindex: 0
-  Kowalindex: 0
-  Stajniaindex: 0
-  Archerindex: 0
-  Farmerindex: 0
+  index: 0
   dialogueCanvas: {fileID: 1797485694}
   dialmanager: {fileID: 1584948959}
 --- !u!1 &1892981873

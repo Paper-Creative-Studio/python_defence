@@ -1,9 +1,7 @@
-def addition(a,b):
-	return a+b
-a=5
-b=6
-wynik = addition(a, b)
-if a + b == addition(a, b):
-	print("Returned value is addition result of two arguments")
+list = ['supports', 'minecart', 'pickaxe', 'shovel']
+list.append("tracks")
+correct = ['supports', 'minecart', 'pickaxe', 'shovel', 'tracks']
+if all(value in list for value in correct):
+	print("List contains all needed materials")
 else:
-	print("Returned value is not addition result of two arguments")
+	print("List does not contains all needed materials")

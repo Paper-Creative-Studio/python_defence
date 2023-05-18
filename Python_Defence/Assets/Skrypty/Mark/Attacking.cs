@@ -80,7 +80,6 @@ public class Attacking : MonoBehaviour
     public void EndAttack()
     {
         movement.attacking = false;
-        Debug.Log("asd");
     }
     public void LoadAttacks()
     {
@@ -126,20 +125,5 @@ public class Attacking : MonoBehaviour
     {
         yield return new WaitForSeconds(3f);
             resetattack = true;
-        Debug.Log("reset");
     }
-    //private void OnDrawGizmosSelected()
-    //{
-    //    Gizmos.DrawSphere(attackPoint.position, attackRange);
-    //}
-    //private void OnTriggerEnter2D(Collider2D collision)
-    //{
-        
-    //    collision.gameObject.GetComponent<AIDestinationSetter>().move = false;
-    //}
-    //private void OnTriggerExit2D(Collider2D collision)
-    //{
-        
-    //    collision.gameObject.GetComponent<AIDestinationSetter>().move = true;
-    //}
 }
