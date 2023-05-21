@@ -25,5 +25,6 @@ public class PauseButton : MonoBehaviour
     {
         //save
         SceneManager.LoadScene("Menu");
+        Time.timeScale = 1;
     }
 }

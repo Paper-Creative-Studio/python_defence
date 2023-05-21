@@ -77,7 +77,7 @@ public class Health : MonoBehaviour
     }
     IEnumerator MigajSprite()
     {
-        hitable = false;
+       
         for (int i = 0; i < 5; i++)
         {
             sprite.material = mask;
@@ -86,7 +86,6 @@ public class Health : MonoBehaviour
             yield return new WaitForSeconds(0.2f);
 
         }
-        hitable = true;
         
     }
 }

@@ -261,6 +261,7 @@ public class movement : MonoBehaviour
     }
     private IEnumerator Rollin()
     {
+
         if (input.x == 0 && input.y == 1)
         {
             anim_controller.SetTrigger("UpRoll");

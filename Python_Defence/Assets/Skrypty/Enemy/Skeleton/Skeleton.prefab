@@ -353,8 +353,8 @@ MonoBehaviour:
   isattacking: 0
   canAttack: 1
   stunned: 0
-  minAS: 2
-  maxAS: 3
+  minAS: 1
+  maxAS: 1.5
   attackRange: 8
   attackPoint: {fileID: 1361046920271281186}
   playerLayer:
@@ -580,8 +580,8 @@ MonoBehaviour:
   viewRange: 9
   lostRange: 10
   anim: {fileID: 1361046918946888068}
-  CastleSpeed: 0.7
-  PlayerSpeed: 0.9
+  CastleSpeed: 1
+  PlayerSpeed: 1.2
   stopRange: 8
   move: 0
   aipath: {fileID: 7175899123042887932}
