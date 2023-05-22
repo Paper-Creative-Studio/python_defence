@@ -74,6 +74,7 @@ public class Health : MonoBehaviour
     {
         hitable = true;
         movescript.canRoll= true;
+        movescript.dodging= false;
     }
     IEnumerator MigajSprite()
     {

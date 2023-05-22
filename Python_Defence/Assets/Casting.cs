@@ -46,33 +46,41 @@ public class Casting : MonoBehaviour
     [SerializeField] private Slider lt_slider;
     float dist;
     public bool stunned = false;
+    public bool casting = false;
     void Start()
     {
         health= GetComponent<Health>();
         anim = GetComponent<Animator>();
         moveScript = GetComponent<movement>();
     }
-
     // Update is called once per frame
     void Update()
     {
-        if (fb_unlocked && Input.GetKeyDown(KeyCode.Z) && fb_canCast && fb_slider.value < 0.1f && !stunned && Time.timeScale == 1)
+        if (fb_slider.value < 0.1f)
+            fb_canCast= true;
+        if(lt_slider.value < 0.1f)
+            fb_canCast = true;
+        if (fb_unlocked && Input.GetKeyDown(KeyCode.Z) && fb_canCast && fb_slider.value < 0.1f && !stunned && Time.timeScale == 1 && !moveScript.dashing && !moveScript.dodging && !casting)
         {
-            fb_canCast = false;
-            moveScript.moving = false;
             moveScript.DisableAnimations();
+            moveScript.moving= false;
+            casting = true;
+
+            fb_canCast = false;
+            
             anim.SetTrigger("CastFireball");
             
-            
         }
-        if (lt_unlocked && Input.GetKeyDown(KeyCode.X) && lt_canCast && lt_slider.value < 0.1f & !stunned && Time.timeScale == 1)
+        else if (lt_unlocked && Input.GetKeyDown(KeyCode.X) && lt_canCast && lt_slider.value < 0.1f & !stunned && Time.timeScale == 1 && !moveScript.dashing && !moveScript.dodging  && !casting)
         {
-            lt_canCast = false;
-            moveScript.moving = false;
             moveScript.DisableAnimations();
+            moveScript.moving = false;
+            casting = true;
+            lt_canCast = false;
+            
             anim.SetTrigger("CastLightning");
-            StartCoroutine(startMove());
         }
+
         if(fb_object != null)
         {
              dist = mousepos.x - castPoint.position.x;
@@ -121,15 +129,13 @@ public class Casting : MonoBehaviour
         
         
     }
-    IEnumerator startMove()
+    
+    void DisableCast()
     {
-        yield return new WaitForSeconds(1.5f);
+        casting = false;
         moveScript.moving = true;
     }
-    void letMove()
-    {
-        moveScript.moving = true;
-    }
+    
     void CastFireball()
     {
         fb_slider.value = fb_slider.maxValue;

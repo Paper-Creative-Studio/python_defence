@@ -1,8 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting.Dependencies.NCalc;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.UIElements.Experimental;
 using UnityEngine.XR;
 
 public class movement : MonoBehaviour
@@ -37,6 +39,7 @@ public class movement : MonoBehaviour
     public bool canRoll = true;
     public bool attacking = false;
     [HideInInspector] public bool blockInput = false;
+    Casting cast;
     
     void Start()
     {
@@ -44,11 +47,13 @@ public class movement : MonoBehaviour
         health= GetComponent<Health>();
         playerCollider= GetComponent<BoxCollider2D>();
         tr = GetComponent<TrailRenderer>();
+        cast = GetComponent<Casting>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        Debug.Log(dodging + " " + canRoll + " " + cast.casting);
         if (!health.hitable)
         {
             
@@ -87,13 +92,13 @@ public class movement : MonoBehaviour
                     
 
                         HandleAnimations();
-                    if (Input.GetKeyDown(KeyCode.LeftShift) && !dodging && canDash && dashSlider.value < 0.1f)
+                    if (Input.GetKeyDown(KeyCode.LeftShift) && !dodging && canDash && dashSlider.value < 0.1f && !cast.casting)
                     {
                         StartCoroutine(Dash());
                         dashSlider.value = dashSlider.maxValue;
                         StartCoroutine(SliderCooldown());
                     }
-                    if (Input.GetKeyDown(KeyCode.Space) && !dodging && canRoll)
+                    if (Input.GetKeyDown(KeyCode.Space) && !dodging && canRoll && !cast.casting)
                     {
                         canRoll= false;
                         StartCoroutine(Rollin());
@@ -105,7 +110,14 @@ public class movement : MonoBehaviour
             
         }
     }
-
+    void DisableCaast()
+    {
+        cast.casting = false;
+        dodging = false;
+        dashing = false;
+        health.hitable= true;
+        canRoll= true;
+    }
     private void FixedUpdate()
     {
         
@@ -252,7 +264,7 @@ public class movement : MonoBehaviour
             tr.emitting = false;
             anim_controller.SetTrigger("EndDash");
             dashing = false;
-
+            
             yield return new WaitForSeconds(dashCooldown);
             canDash = true;
         }
@@ -285,10 +297,9 @@ public class movement : MonoBehaviour
                 rb.AddForce(new Vector2(transform.localScale.x * -1, 0) * rollPower);
             }
             yield return new WaitForSeconds(dashDuration);
-        
+            
 
-        
-         dodging = false;
+        dodging = false;
          
     }
     IEnumerator SliderCooldown()
