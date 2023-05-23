@@ -11,7 +11,7 @@ public class Eq : MonoBehaviour
     [SerializeField] private TMP_Text goldText;
     [SerializeField] private TMP_Text Hajstext;
     [SerializeField] private TMP_Text Silatext;
-
+    //DataService dataService = new JsonDataService();
     public int kamienCount;
     public int srebroCount;
     public int GoldCount;
