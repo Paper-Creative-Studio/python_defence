@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 public class MenuButton : MonoBehaviour
 {
     // Start is called before the first frame update
+    [SerializeField] GameObject mainCanvas;
+    [SerializeField] GameObject HTPCanvas;
     void Start()
     {
         
@@ -19,9 +21,16 @@ public class MenuButton : MonoBehaviour
     {
         SceneManager.LoadScene("Defense");
     }
-    public void OptionButton()
+    public void HTPButton()
     {
-        //nie wiem
+        
+        HTPCanvas.SetActive(true);
+        mainCanvas.SetActive(false);
+    }
+    public void ExitHTPButton()
+    {
+        mainCanvas.SetActive(true);
+        HTPCanvas.SetActive(false);
     }
     public void ExitButton()
     {

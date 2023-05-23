@@ -22,7 +22,7 @@ public class Condition : MonoBehaviour
     }
     public bool Check()
     {
-        if(movement.dodging || movement.dashing || movement.attacking || attacking.stunned || casting.casting)
+        if(movement.dodging || movement.dashing || movement.attacking || attacking.stunned || casting.casting || Time.timeScale ==0)
         {
             return false;
         }

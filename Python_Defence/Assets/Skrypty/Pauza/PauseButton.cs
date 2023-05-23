@@ -7,19 +7,23 @@ public class PauseButton : MonoBehaviour
 {
     [SerializeField] private GameObject parentCanvas;
     [SerializeField] private GameObject hpCanvas;
+    [SerializeField] GameObject mainPause;
+    [SerializeField] GameObject HTPPause;
     public void Resume()
     {
         parentCanvas.SetActive(false);
         Time.timeScale = 1;
         hpCanvas.SetActive(true);
     }
-    public void Options()
+    public void HTPButton()
     {
-        // cos
+       HTPPause.SetActive(true);
+       mainPause.SetActive(false);
     }
-    public void Save()
+    public void ExitHTPButton()
     {
-
+        HTPPause.SetActive(false);
+        mainPause.SetActive(true);
     }
     public void SaveandQuit()
     {
