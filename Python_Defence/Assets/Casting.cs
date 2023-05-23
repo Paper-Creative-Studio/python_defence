@@ -47,11 +47,13 @@ public class Casting : MonoBehaviour
     float dist;
     public bool stunned = false;
     public bool casting = false;
+    Condition condition;
     void Start()
     {
         health= GetComponent<Health>();
         anim = GetComponent<Animator>();
         moveScript = GetComponent<movement>();
+        condition= GetComponent<Condition>();
     }
     // Update is called once per frame
     void Update()
@@ -59,8 +61,8 @@ public class Casting : MonoBehaviour
         if (fb_slider.value < 0.1f)
             fb_canCast= true;
         if(lt_slider.value < 0.1f)
-            fb_canCast = true;
-        if (fb_unlocked && Input.GetKeyDown(KeyCode.Z) && fb_canCast && fb_slider.value < 0.1f && !stunned && Time.timeScale == 1 && !moveScript.dashing && !moveScript.dodging && !casting)
+            lt_canCast = true;
+        if (fb_unlocked && Input.GetKeyDown(KeyCode.Z) && fb_canCast && fb_slider.value < 0.1f && !stunned && Time.timeScale == 1 && condition.Check())
         {
             moveScript.DisableAnimations();
             moveScript.moving= false;
@@ -71,7 +73,7 @@ public class Casting : MonoBehaviour
             anim.SetTrigger("CastFireball");
             
         }
-        else if (lt_unlocked && Input.GetKeyDown(KeyCode.X) && lt_canCast && lt_slider.value < 0.1f & !stunned && Time.timeScale == 1 && !moveScript.dashing && !moveScript.dodging  && !casting)
+        else if (lt_unlocked && Input.GetKeyDown(KeyCode.X) && lt_canCast && lt_slider.value < 0.1f & !stunned && Time.timeScale == 1 && condition.Check())
         {
             moveScript.DisableAnimations();
             moveScript.moving = false;

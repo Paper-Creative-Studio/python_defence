@@ -2,6 +2,7 @@ using Microsoft.Scripting;
 using Pathfinding;
 using System.Collections;
 using System.Collections.Generic;
+using System.Dynamic;
 using System.Threading;
 using UnityEngine;
 using UnityEngine.UI;
@@ -26,6 +27,7 @@ public class Attacking : MonoBehaviour
     Coroutine moveTimer;
     movement movement;
     [HideInInspector] public bool stunned = false;
+    Condition condition;
     // Start is called before the first frame update
     void Start()
     {
@@ -33,6 +35,7 @@ public class Attacking : MonoBehaviour
         source = GetComponent<AudioSource>();  
         health = GetComponent<Health>();
         movement = GetComponent<movement>();
+       condition= GetComponent<Condition>();
     }
 
     // Update is called once per frame
@@ -40,7 +43,7 @@ public class Attacking : MonoBehaviour
     {
        if(health.alive)
        {
-            if (Input.GetButtonDown("Fire1") && canAttack && !movement.dodging && !movement.dashing && !stunned)
+            if (Input.GetButtonDown("Fire1") && canAttack && condition.Check())
             {
                 movement.attacking= true;
                 if(resetattack)

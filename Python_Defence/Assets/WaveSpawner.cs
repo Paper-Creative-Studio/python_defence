@@ -97,7 +97,7 @@ public class WaveSpawner : MonoBehaviour
                     playerHP.healthbar.SetHealth(playerHP.currentHealth);
                     doneWaves++;
                     waveCount++;
-                    
+                    Debug.Log("leci");
                     
                 }
                 objectivescript.description.text = objectivescript.objectives[0].CoZrobic;
@@ -105,7 +105,7 @@ public class WaveSpawner : MonoBehaviour
                 waveseeker.enemy = false;
                 lose = false;
                 wave = false;
-                
+                Debug.Log("stop");
                 if (waveCount > 10)
                 {
                     waveCount = 1;

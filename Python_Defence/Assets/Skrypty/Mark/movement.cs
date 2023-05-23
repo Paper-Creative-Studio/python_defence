@@ -40,7 +40,7 @@ public class movement : MonoBehaviour
     public bool attacking = false;
     [HideInInspector] public bool blockInput = false;
     Casting cast;
-    
+    Condition condition;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -48,12 +48,13 @@ public class movement : MonoBehaviour
         playerCollider= GetComponent<BoxCollider2D>();
         tr = GetComponent<TrailRenderer>();
         cast = GetComponent<Casting>();
+        condition= GetComponent<Condition>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(dodging + " " + canRoll + " " + cast.casting);
+     //   Debug.Log(dodging + " " + canRoll + " " + cast.casting +  " " + moving + " " + blockInput + " "+canDash);
         if (!health.hitable)
         {
             
@@ -92,13 +93,13 @@ public class movement : MonoBehaviour
                     
 
                         HandleAnimations();
-                    if (Input.GetKeyDown(KeyCode.LeftShift) && !dodging && canDash && dashSlider.value < 0.1f && !cast.casting)
+                    if (Input.GetKeyDown(KeyCode.LeftShift) && canDash && dashSlider.value < 0.1f && condition.Check())
                     {
                         StartCoroutine(Dash());
                         dashSlider.value = dashSlider.maxValue;
                         StartCoroutine(SliderCooldown());
                     }
-                    if (Input.GetKeyDown(KeyCode.Space) && !dodging && canRoll && !cast.casting)
+                    if (Input.GetKeyDown(KeyCode.Space) &&  canRoll && condition.Check())
                     {
                         canRoll= false;
                         StartCoroutine(Rollin());
@@ -117,6 +118,7 @@ public class movement : MonoBehaviour
         dashing = false;
         health.hitable= true;
         canRoll= true;
+        attacking = false;
     }
     private void FixedUpdate()
     {
@@ -309,7 +311,6 @@ public class movement : MonoBehaviour
         while (counter < dashCooldown)
         {
             counter += Time.deltaTime;
-
 
             float time = dashSlider.value / (dashCooldown - counter) * Time.deltaTime;
             dashSlider.value = Mathf.MoveTowards(dashSlider.value, dashSlider.minValue, time);

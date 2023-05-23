@@ -24,6 +24,7 @@ public class ObjectiveSetter : MonoBehaviour
     }
     public void NextObjective()
     {
+        gameObject.SetActive(true);
         objectives.RemoveAt(0);
         description.text = objectives[0].CoZrobic;
         title.text = objectives[0].Title;

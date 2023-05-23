@@ -65,7 +65,8 @@ public class enemyarrow : MonoBehaviour
             
            
 
-
+            if(attack != null)
+            {
                 if (target.x - attack.gameObject.transform.position.x <= 4.5f && target.x - attack.gameObject.transform.position.x >= -4.5f)
                 {
                     arrowspeed = 1.5f;
@@ -93,6 +94,8 @@ public class enemyarrow : MonoBehaviour
                     arrowspeed = 1.25f; //default gravity to -9.14
 
                 }
+            }
+                
 
             
 

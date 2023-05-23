@@ -16511,7 +16511,8 @@ EdgeCollider2D:
   m_Points:
   - {x: 1.684744, y: -0.18347491}
   - {x: 1.686497, y: -0.21053848}
-  - {x: -1.298945, y: -0.21579799}
+  - {x: 1.7356614, y: -0.8143608}
+  - {x: -1.3343399, y: -0.81748235}
   - {x: -1.0296708, y: 0.46518338}
   - {x: 1.4259996, y: 0.4777065}
   - {x: 1.7059641, y: -0.22768685}
@@ -26126,7 +26127,8 @@ EdgeCollider2D:
   m_Points:
   - {x: 1.684744, y: -0.18347491}
   - {x: 1.686497, y: -0.21053848}
-  - {x: -1.298945, y: -0.21579799}
+  - {x: 1.7262493, y: -0.8029411}
+  - {x: -1.309517, y: -0.80779684}
   - {x: -1.0296708, y: 0.46518338}
   - {x: 1.4259996, y: 0.4777065}
   - {x: 1.7059641, y: -0.22768685}
@@ -33257,6 +33259,7 @@ GameObject:
   - component: {fileID: 1398872398}
   - component: {fileID: 1398872399}
   - component: {fileID: 1398872400}
+  - component: {fileID: 1398872401}
   m_Layer: 8
   m_Name: Mark
   m_TagString: Player
@@ -33748,6 +33751,19 @@ MonoBehaviour:
   lt_cooldown: 5
   lt_slider: {fileID: 590673492}
   stunned: 0
+  casting: 0
+--- !u!114 &1398872401
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1398872383}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b08de5e0eda31246ac2d0b7206c6b74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1407676408
 GameObject:
   m_ObjectHideFlags: 0
