@@ -209,6 +209,7 @@ public class PythonGame : MonoBehaviour
         {
             for (int i = 0; i < parsedInfo.Count; i++)
             {
+                Debug.Log(i);
                 parsedInfo[i] -= parsedNeed[i];
                 resources[i].text = parsedInfo[i].ToString();
             }
@@ -230,6 +231,8 @@ public class PythonGame : MonoBehaviour
         buildButton.onClick.RemoveAllListeners();
         if (!bought && !loop)
         {
+            parsedInfo.Clear();
+            parsedNeed.Clear();
             Time.timeScale = 0;
             for (int i = 0; i < resources.Count; i++)
             {
