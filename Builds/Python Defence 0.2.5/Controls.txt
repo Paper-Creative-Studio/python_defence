@@ -1,0 +1,10 @@
+Controls:
+WSAD - movement
+Tab - objectives
+E - interact
+Esc - Pause/Exit tutorial
+LMB - Attack, skip dialogue
+Space - short dash
+L Shift - dash
+Z - fireball
+X - lightning
