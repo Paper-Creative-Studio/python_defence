@@ -1,34 +1,36 @@
-using System.Collections;
-using System.Collections.Generic;
+using PythonDefence.Mark;
 using UnityEngine;
 
-public class Condition : MonoBehaviour
+namespace PythonDefence
 {
-    // Start is called before the first frame update
-    movement movement;
-    Attacking attacking;
-    Casting casting;
-    void Start()
+    public class Condition : MonoBehaviour
     {
-        movement = GetComponent<movement>();
-        attacking = GetComponent<Attacking>();
-        casting = GetComponent<Casting>();
-    }
-
-    // Update is called once per frame
-    void Update() 
-    {
-        
-    }
-    public bool Check()
-    {
-        if(movement.dodging || movement.dashing || movement.attacking || attacking.stunned || casting.casting || Time.timeScale ==0)
+        // Start is called before the first frame update
+        movement movement;
+        Attacking attacking;
+        Casting casting;
+        void Start()
         {
-            return false;
+            movement = GetComponent<movement>();
+            attacking = GetComponent<Attacking>();
+            casting = GetComponent<Casting>();
         }
-        else
+
+        // Update is called once per frame
+        void Update() 
         {
-            return true;
+        
+        }
+        public bool Check()
+        {
+            if(movement.dodging || movement.dashing || movement.attacking || attacking.stunned || casting.casting || Time.timeScale ==0)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
         }
     }
 }

@@ -1,69 +1,66 @@
-using Microsoft.Scripting.Utils;
-using Pathfinding;
 using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
-
 using UnityEngine;
-using static UnityEngine.GraphicsBuffer;
-
-public abstract class Attack_Enemy : MonoBehaviour
+using PythonDefence.Mark;
+namespace PythonDefence.Enemy
 {
-    [SerializeField] protected int damage;
-
-    public bool isattacking = false;
-    public bool canAttack = true;
-    public bool stunned = false;
-
-    [SerializeField] protected float minAS;
-    [SerializeField] protected float maxAS;
-    [SerializeField] protected float attackRange;
-    protected float attackcooldown;
-
-    [SerializeField] protected Transform attackPoint;
-    [SerializeField] protected LayerMask playerLayer;
-
-    protected Animator anim;
-    public Collider2D[] hitPlayer;
-    // Start is called before the first frame update
-    protected virtual void Start()
+    public abstract class Attack_Enemy : MonoBehaviour
     {
-        anim= GetComponent<Animator>();
-    }
+        [SerializeField] protected int damage;
 
-    // Update is called once per frame
-    protected virtual void Update()
-    {
-        
-        if (canAttack && !stunned)
+        public bool isattacking = false;
+        public bool canAttack = true;
+        public bool stunned = false;
+
+        [SerializeField] protected float minAS;
+        [SerializeField] protected float maxAS;
+        [SerializeField] protected float attackRange;
+        protected float attackcooldown;
+
+        [SerializeField] protected Transform attackPoint;
+        [SerializeField] protected LayerMask playerLayer;
+
+        protected Animator anim;
+        public Collider2D[] hitPlayer;
+        // Start is called before the first frame update
+        protected virtual void Start()
         {
-            isattacking= true;
-            canAttack = false;
-            attackcooldown = Random.Range(minAS, maxAS);
-            hitPlayer = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, playerLayer);
+            anim= GetComponent<Animator>();
+        }
 
-
-            if (hitPlayer.Length != 0)
+        // Update is called once per frame
+        protected virtual void Update()
+        {
+        
+            if (canAttack && !stunned)
             {
-                anim.SetTrigger("Attacking");
-            }
-            StartCoroutine(Cooldown());
-        }
-    }
-    
-    public virtual void attack()
-    {
-        foreach (Collider2D player in hitPlayer)
-        {
-            player.GetComponent<Health>().TakeDamage(damage);
-        }
-    }
+                isattacking= true;
+                canAttack = false;
+                attackcooldown = Random.Range(minAS, maxAS);
+                hitPlayer = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, playerLayer);
 
-    protected IEnumerator Cooldown()
-    {
-        yield return new WaitForSeconds(attackcooldown);
-        canAttack = true;
-    }
+
+                if (hitPlayer.Length != 0)
+                {
+                    anim.SetTrigger("Attacking");
+                }
+                StartCoroutine(Cooldown());
+            }
+        }
+    
+        public virtual void attack()
+        {
+            foreach (Collider2D player in hitPlayer)
+            {
+                player.GetComponent<Health>().TakeDamage(damage);
+            }
+        }
+
+        protected IEnumerator Cooldown()
+        {
+            yield return new WaitForSeconds(attackcooldown);
+            canAttack = true;
+        }
         
 
+    }
 }

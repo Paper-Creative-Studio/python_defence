@@ -1,78 +1,79 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using static UnityEngine.GraphicsBuffer;
 
-public class Skeleton_Attack : Attack_Enemy
+namespace PythonDefence.Enemy
 {
-    public bool boosted = false;
-    
-
-    public int hitArrows = 0;
-    
-    
-    
-    [SerializeField] float boostDuration = 5f;
-
-    
-    
-    
-    [SerializeField] GameObject arrow;
-    private enemyarrow arrowScript;
-    GameObject CA;
-    [SerializeField] Transform controlPoint;
-
-    // Update is called once per frame
-    
-    protected override void Update()
+    public class Skeleton_Attack : Attack_Enemy
     {
-        if (canAttack && !stunned)
+        public bool boosted = false;
+    
+
+        public int hitArrows = 0;
+    
+    
+    
+        [SerializeField] float boostDuration = 5f;
+
+    
+    
+    
+        [SerializeField] GameObject arrow;
+        private enemyarrow arrowScript;
+        GameObject CA;
+        [SerializeField] Transform controlPoint;
+
+        // Update is called once per frame
+    
+        protected override void Update()
         {
-            isattacking = true;
-            canAttack = false;
-            if(!boosted)
+            if (canAttack && !stunned)
             {
-                attackcooldown = Random.Range(minAS, maxAS);
-            }
+                isattacking = true;
+                canAttack = false;
+                if(!boosted)
+                {
+                    attackcooldown = Random.Range(minAS, maxAS);
+                }
             
-            hitPlayer = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, playerLayer);
+                hitPlayer = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, playerLayer);
 
 
-            if (hitPlayer.Length != 0)
-            {
-                if(hitArrows >2 && !boosted)
+                if (hitPlayer.Length != 0)
                 {
-                    StartCoroutine(BoostDuration());
-                }
-                if(boosted)
-                {
-                    anim.SetTrigger("Boost");
-                }
-                else
-                {
-                    anim.SetTrigger("Attacking");
-                }
+                    if(hitArrows >2 && !boosted)
+                    {
+                        StartCoroutine(BoostDuration());
+                    }
+                    if(boosted)
+                    {
+                        anim.SetTrigger("Boost");
+                    }
+                    else
+                    {
+                        anim.SetTrigger("Attacking");
+                    }
                 
+                }
+                StartCoroutine(Cooldown());
             }
-            StartCoroutine(Cooldown());
         }
-    }
-    public override void attack()
-    {
-        CA = Instantiate(arrow, attackPoint.position, Quaternion.identity);
-        arrowScript = CA.GetComponent<enemyarrow>();
-        arrowScript.attack = this;
-        arrowScript.attackPoint = attackPoint;
-        arrowScript.controlPoint = controlPoint;
-    }
+        public override void attack()
+        {
+            CA = Instantiate(arrow, attackPoint.position, Quaternion.identity);
+            arrowScript = CA.GetComponent<enemyarrow>();
+            arrowScript.attack = this;
+            arrowScript.attackPoint = attackPoint;
+            arrowScript.controlPoint = controlPoint;
+        }
 
     
-    IEnumerator BoostDuration()
-    {
-        attackcooldown = 0;
-        boosted = true;
-        hitArrows = 0;
-        yield return new WaitForSeconds(boostDuration);
-        boosted = false;
+        IEnumerator BoostDuration()
+        {
+            attackcooldown = 0;
+            boosted = true;
+            hitArrows = 0;
+            yield return new WaitForSeconds(boostDuration);
+            boosted = false;
+        }
     }
 }

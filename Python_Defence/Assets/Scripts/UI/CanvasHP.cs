@@ -1,25 +1,26 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class CanvasHP : MonoBehaviour
+namespace PythonDefence.UI
 {
-    [SerializeField] private GameObject pauseCanvas;
-    [SerializeField] private GameObject TablicaCanvas;
-    // Start is called before the first frame update
-    void Start()
+    public class CanvasHP : MonoBehaviour
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if(Input.GetKeyDown(KeyCode.Escape) && !TablicaCanvas.activeSelf)
+        [SerializeField] private GameObject pauseCanvas;
+        [SerializeField] private GameObject TablicaCanvas;
+        // Start is called before the first frame update
+        void Start()
         {
-            gameObject.SetActive(false);
-            Time.timeScale = 0;
-            pauseCanvas.SetActive(true);
+        
+        }
+
+        // Update is called once per frame
+        void Update()
+        {
+            if(Input.GetKeyDown(KeyCode.Escape) && !TablicaCanvas.activeSelf)
+            {
+                gameObject.SetActive(false);
+                Time.timeScale = 0;
+                pauseCanvas.SetActive(true);
+            }
         }
     }
 }
