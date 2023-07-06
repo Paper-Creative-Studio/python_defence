@@ -3,6 +3,7 @@ using PythonDefence.Castle;
 using PythonDefence.Objective;
 using PythonDefence.UI;
 using PythonDefence.Mark;
+using PythonDefence.Resources;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -29,7 +30,7 @@ namespace PythonDefence.Wave
         private int waveCount = 1;
         public bool lose = false;
         public List<GameObject> aliveEnemies = new List<GameObject>();
-        [SerializeField] private Eq eqscript;
+        [SerializeField] private Stats eqscript;
         [SerializeField] private playmusic musicPlayer;
         [SerializeField] private AudioClip villageMusic;
         [SerializeField] private AudioClip BattleMusic;
@@ -96,11 +97,11 @@ namespace PythonDefence.Wave
                 
                     if (!lose)
                     {
-                        eqscript.giveHajs((doneWaves +1) * 2);
                         playerHP.currentHealth = playerHP.maxHealth;
                         playerHP.healthbar.SetHealth(playerHP.currentHealth);
                         doneWaves++;
                         waveCount++;
+                        eqscript.Money.GiveResource(doneWaves * 2);
                         Debug.Log("leci");
                     
                     }

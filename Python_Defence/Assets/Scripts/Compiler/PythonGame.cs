@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using PythonDefence.Building;
 using PythonDefence.Compiler;
 using PythonDefence.Dialogue;
 using PythonDefence.NPC;
@@ -12,7 +13,7 @@ namespace PythonDefence.Compiler
 {
     public class PythonGame : MonoBehaviour
     {
-
+        private buildREQ requirements;
 
 
         public List<Task> tasks;
@@ -48,7 +49,7 @@ namespace PythonDefence.Compiler
         private List<int> parsedInfo = new List<int>();
         private List<int> parsedNeed = new List<int>();
         public bool bought = false;
-        [SerializeField] GameObject reqCanvas;
+        
         [SerializeField] UnityEngine.UI.Button buildButton;
         public List<int> stage1Costs;
         public List<int> stage2Costs;
@@ -58,7 +59,7 @@ namespace PythonDefence.Compiler
         // Start is called before the first frame update
         void Start()
         {
-        
+            requirements = GetComponent<buildREQ>();
             skrypt = canvas.transform.GetChild(0).GetChild(0).GetComponent<compiler>();
             wavescript = waveSpawner.GetComponent<WaveSpawner>();
         }
@@ -77,7 +78,7 @@ namespace PythonDefence.Compiler
             }
             if (canvas.activeSelf == true)
             {
-                coding = true;
+                coding = true; 
             }
             else
             {
@@ -138,7 +139,6 @@ namespace PythonDefence.Compiler
                     
                         if (!loop && stages.Count !=0)
                         {
-                            Debug.Log("halo");
                             building.sprite = stages[0];
                             stages.RemoveAt(0);
                             var kolizje = building.gameObject.GetComponentsInChildren<Collider2D>();
@@ -185,75 +185,13 @@ namespace PythonDefence.Compiler
             }
         }
     
-    
-        private void OnTriggerEnter2D(Collider2D collision)
-        {
-            if (collision.CompareTag("Player"))
-            {
-            
-                talk = true;
-            }
-        }
-        private void OnTriggerExit2D(Collider2D collision)
-        {
-            if (collision.CompareTag("Player"))
-            {
-            
-            
-                talk = false;
-            
-            }
-        }
-        public void CheckCondition()
-        {
-            errortext.text = string.Empty;
-            Debug.Log(parsedInfo.Count);
-            if (parsedInfo[0] >= parsedNeed[0] && parsedInfo[1] >= parsedNeed[1] && parsedInfo[2] >= parsedNeed[2] && parsedInfo[3] >= parsedNeed[3])
-            {
-                for (int i = 0; i < parsedInfo.Count; i++)
-                {
-                    Debug.Log(i);
-                    parsedInfo[i] -= parsedNeed[i];
-                    resources[i].text = parsedInfo[i].ToString();
-                }
-
-                bought = true;
-                reqCanvas.SetActive(false);
-                PythonCanvas();
-            }
-            else
-            {
-                errortext.text = "Not \r\nenough \r\nmaterials";
-                errortext.color = Color.red;
-                bought = false;
-            }
-
-        }
-        public void LaunchPython()
+        public void LaunchPython() // tu skonczyles / finito
         {
             buildButton.onClick.RemoveAllListeners();
             if (!bought && !loop)
             {
-                parsedInfo.Clear();
-                parsedNeed.Clear();
-                Time.timeScale = 0;
-                for (int i = 0; i < resources.Count; i++)
-                {
-                    if (stages.Count > 1)
-                    {
-                        needResources[i].text = stage1Costs[i].ToString();
-                    }
-                    else
-                    {
-                        needResources[i].text = stage2Costs[i].ToString();
-                    }
-
-                    reqResources[i].text = resources[i].text;
-                    parsedInfo.Add(int.Parse(reqResources[i].text));
-                    parsedNeed.Add(int.Parse(needResources[i].text));
-                }
-                reqCanvas.SetActive(true);
-                buildButton.onClick.AddListener(this.CheckCondition);
+                requirements.reqCanvas.SetActive(true);
+                buildButton.onClick.AddListener(requirements.CheckCondition);
             }
             else
             {
@@ -268,7 +206,7 @@ namespace PythonDefence.Compiler
             coding = true;
             canvas.SetActive(true);
        
-            this.LoadTaskDets();
+            LoadTaskDets();
             onNewTask.Invoke();
 
             hpCanvas.SetActive(false);
@@ -276,7 +214,6 @@ namespace PythonDefence.Compiler
         }
         void LoadTaskDets()
         {
-            Debug.Log(dialTrigger.index + " " + gameObject.name);
             skrypt.addition = tasks[dialTrigger.index].addition;
             skrypt.desiredOutput = tasks[dialTrigger.index].output;
             skrypt.secOutput = tasks[dialTrigger.index].secondaryoutput;
@@ -284,5 +221,21 @@ namespace PythonDefence.Compiler
             skrypt.stale = tasks[dialTrigger.index].stale;
             skrypt.condition = tasks[dialTrigger.index].condition;
         }
+        
+        private void OnTriggerEnter2D(Collider2D collision)
+        {
+            if (collision.CompareTag("Player"))
+            {
+                talk = true;
+            }
+        }
+        private void OnTriggerExit2D(Collider2D collision)
+        {
+            if (collision.CompareTag("Player"))
+            {
+                talk = false;
+            }
+        }
+       
     }
 }

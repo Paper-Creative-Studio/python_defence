@@ -78,6 +78,7 @@ namespace PythonDefence.Compiler
                 {
 
                     scriptwyw.result = false;
+                    output.text = "Your code doesn't meet condition given";
                     output.color = Color.red;
                 
                 }

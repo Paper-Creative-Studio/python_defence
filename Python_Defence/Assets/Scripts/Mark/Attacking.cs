@@ -29,6 +29,8 @@ namespace PythonDefence.Mark
         // Start is called before the first frame update
         void Start()
         {
+            // silaCount = attackScript.damage * 3;
+            // Silatext.text = silaCount.ToString();
             LoadAttacks();
             source = GetComponent<AudioSource>();  
             health = GetComponent<Health>();
@@ -127,5 +129,6 @@ namespace PythonDefence.Mark
             yield return new WaitForSeconds(3f);
             resetattack = true;
         }
+        
     }
 }

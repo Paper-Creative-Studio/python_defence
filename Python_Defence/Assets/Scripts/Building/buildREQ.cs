@@ -1,5 +1,7 @@
+using System;
 using System.Collections.Generic;
-using PythonDefence.NPC;
+using PythonDefence.Compiler;
+using PythonDefence.Resources;
 using TMPro;
 using UnityEngine;
 
@@ -7,31 +9,36 @@ namespace PythonDefence.Building
 {
     public class buildREQ : MonoBehaviour
     {
-        public ItemUIHandler resources;
-        [SerializeField] private List<TMP_Text> infoResources;
-        [SerializeField] private List<TMP_Text> needResources;
-        [SerializeField] private TMP_Text errortext;
+        [SerializeField] private int[] stage1Costs = new int[3];
+        [SerializeField] private int[] stage2Costs = new int[3];
+        
         [SerializeField] private GameObject pythonCanvas;
-        private List<int> parsedInfo;
-        private List<int> parsedNeed;
+        public GameObject reqCanvas;
+        
+        [SerializeField] private TMP_Text errorText;
+        
+        [SerializeField] private TMP_Text[] needResources;
+        [SerializeField] private TMP_Text[] infoResources;
+        
+        [SerializeField] private Stats stats;
+        private PythonGame pythonScript;
         private bool bought = false;
-        List<string> mainList = new List<string>();
+
+        private void Awake()
+        {
+            pythonScript = GetComponent<PythonGame>();
+        }
+
         private void OnEnable()
         {
-            mainList.Add(resources.mainSrebro.text);
-            mainList.Add(resources.mainKamien.text);
-            mainList.Add(resources.mainHajs.text);
-            infoResources[0].text = resources.mainSrebro.text;
-            infoResources[1].text = resources.mainKamien.text;
-            infoResources[2].text = resources.mainHajs.text;
-            int index = 0;
-            foreach (var item in infoResources)
+            infoResources[0].text = stats.Stone.counter.text;
+            infoResources[1].text = stats.Iron.counter.text;
+            infoResources[2].text = stats.Money.counter.text;
+
+            for (int i = 0; i <= needResources.Length; i++)
             {
-                parsedInfo[index] = int.Parse(item.text);
-            }
-            foreach (var item in needResources)
-            {
-                parsedNeed[index] = int.Parse(item.text);
+                //dodaj tu że w zaleznosci od zmiennej stage (tablica 2 wymiarowa -> stage, req)
+                needResources[i].text = stage1Costs.ToString();
             }
             if(bought)
             {
@@ -41,22 +48,26 @@ namespace PythonDefence.Building
         }
         public void CheckCondition()
         {
-            for (int i = 0; i < parsedInfo.Count; i++)
+            errorText.text = string.Empty;
+            for (int i = 0; i <= stats.AllResources.Length; i++) //sprawdzanie pokolei kazdego resourca, jesli za malo, returnuje i nie wykonuje dalszej czesci programu
             {
-                if (parsedInfo[i] >= parsedNeed[i])
+                if (stats.AllResources[i].count < stage1Costs[i])
                 {
-                    bought = true;
-                    parsedInfo[i] -= parsedNeed[i];
-                    mainList[i] = parsedInfo[i].ToString();
-                    pythonCanvas.SetActive(true);
-                    gameObject.SetActive(false);
-                }
-                else
-                {
-                    errortext.text = "Not enough minerals";
-                    errortext.color = Color.red;
+                    errorText.text = "Not \r\nenough \r\nmaterials";
+                    errorText.color = Color.red;
+                    bought = false;
+                    return;
                 }
             }
+            for (int i = 0; i <= stats.AllResources.Length; i++) //zmiana ilosci resourcow
+            {
+                stats.AllResources[i].SetResource(stats.AllResources[i].GetResource() - stage1Costs[i]);
+            }
+                
+            //zmiana statusu i wyswietlenie canvasa pythona
+            bought = true;
+            reqCanvas.SetActive(false);
+            pythonScript.PythonCanvas();
         }
 
     

@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using PythonDefence.Mark;
 using PythonDefence.NPC;
 using PythonDefence.Compiler;
+using PythonDefence.Resources;
 using PythonDefence.UI;
 using TMPro;
 using UnityEngine;
@@ -27,7 +28,7 @@ namespace PythonDefence.Dialogue
         private movement playermove;
         private Attacking playerattack;
         private string aftermath;
-        [SerializeField] private Eq eqscript;
+        [SerializeField] private Stats eqscript;
         [SerializeField] private farmamanagement farma;
         private void Start()
         {
@@ -83,8 +84,7 @@ namespace PythonDefence.Dialogue
                 }
                 else if (aftermath == "Harvest")
                 {
-                    eqscript.giveHajs(10);
-                    eqscript.zaznaczHajs();
+                    eqscript.Money.GiveResource(10);
                     main_Canvas.SetActive(true);
                     farmerdialtrig.index = 1;
                     farma.Zbierz();
