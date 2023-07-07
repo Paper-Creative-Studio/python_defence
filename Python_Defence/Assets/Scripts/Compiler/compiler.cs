@@ -27,7 +27,7 @@ namespace PythonDefence.Compiler
         public string condition;
         public string stale;
         public TMP_Text textplace;
-        public PythonGame scriptwyw;
+        public NPCProperties NPCCaller;
         // Start is called before the first frame update
         void Start()
         {
@@ -77,7 +77,7 @@ namespace PythonDefence.Compiler
                 if (!tmpro.text.Contains(condition))
                 {
 
-                    scriptwyw.result = false;
+                    
                     output.text = "Your code doesn't meet condition given";
                     output.color = Color.red;
                 
@@ -89,22 +89,20 @@ namespace PythonDefence.Compiler
                         if (replacement == desiredOutput)
                         {
                         
-                            scriptwyw.result = true;
+                            NPCCaller.TaskPassed();
                             output.color = Color.green;
                             StartCoroutine(WaitSeconds());
                         }
                         else if (replacement == secOutput)
                         {
                        
-                            scriptwyw.result = true;
+                            NPCCaller.TaskPassed();
                             output.color = Color.green;
                             StartCoroutine(WaitSeconds());
 
                         }
                         else
                         {
-                        
-                            scriptwyw.result = false;
                             output.color = Color.red;
                         }
                     }
@@ -113,14 +111,12 @@ namespace PythonDefence.Compiler
                         if (replacement == desiredOutput)
                         {
                         
-                            scriptwyw.result = true;
+                            NPCCaller.TaskPassed();
                             output.color = Color.green;
                             StartCoroutine(WaitSeconds());
                         }
                         else
                         {
-                        
-                            scriptwyw.result = false;
                             output.color = Color.red;
                         }
                     }
@@ -134,23 +130,21 @@ namespace PythonDefence.Compiler
                 {
                     if (replacement == desiredOutput)
                     {
-                   
-                        scriptwyw.result = true;
+                        
+                        NPCCaller.TaskPassed();
                         output.color = Color.green;
                         StartCoroutine(WaitSeconds());
                     }
                     else if (replacement == secOutput)
                     {
                     
-                        scriptwyw.result = true;
+                        NPCCaller.TaskPassed();
                         output.color = Color.green;
                         StartCoroutine(WaitSeconds());
 
                     }
                     else
                     {
-                    
-                        scriptwyw.result = false;
                         output.color = Color.red;
                     }
                 }
@@ -159,14 +153,12 @@ namespace PythonDefence.Compiler
                     if (replacement == desiredOutput)
                     {
                     
-                        scriptwyw.result = true;
+                        NPCCaller.TaskPassed();
                         output.color = Color.green;
                         StartCoroutine(WaitSeconds());
                     }
                     else
                     {
-                    
-                        scriptwyw.result = false;
                         output.color = Color.red;
                     }
                 }

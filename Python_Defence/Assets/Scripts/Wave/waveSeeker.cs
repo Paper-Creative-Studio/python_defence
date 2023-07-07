@@ -7,12 +7,12 @@ namespace PythonDefence.Wave
     {
         [SerializeField] private GameObject wavebutton;
         [SerializeField] private ObjectiveSetter objectiveScript;
-        private WaveSpawner wavespawner;
+        private WaveHandler wavespawner;
         public bool enemy = false;
         // Start is called before the first frame update
         void Start()
         {
-            wavespawner = wavebutton.GetComponent<WaveSpawner>();
+            wavespawner = wavebutton.GetComponent<WaveHandler>();
         }
 
         // Update is called once per frame

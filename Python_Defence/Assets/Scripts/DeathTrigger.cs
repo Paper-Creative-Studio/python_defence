@@ -3,6 +3,7 @@ using PythonDefence.Wave;
 using PythonDefence.Mark;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 namespace PythonDefence
@@ -20,7 +21,7 @@ namespace PythonDefence
         public string texttext;
         [TextArea]
         public string tiptext;
-        public WaveSpawner spawner;
+        [FormerlySerializedAs("spawner")] public WaveHandler handler;
     
         // Start is called before the first frame update
         void Start()
@@ -35,12 +36,12 @@ namespace PythonDefence
         }
         public void RollIn()
         {
-            for (int i = 0; i < spawner.aliveEnemies.Count; i++)
+            for (int i = 0; i < handler.aliveEnemies.Count; i++)
             {
 
-                Destroy(spawner.aliveEnemies[i].gameObject);
+                Destroy(handler.aliveEnemies[i].gameObject);
             }
-            spawner.lose = true;
+            handler.lose = true;
             icon.sprite = iconSprite;
         
             text.text = texttext;
@@ -52,12 +53,12 @@ namespace PythonDefence
         }
         public void CastleRollIn()
         {
-            for(int i =0; i< spawner.aliveEnemies.Count; i++)
+            for(int i =0; i< handler.aliveEnemies.Count; i++)
             {
             
-                Destroy(spawner.aliveEnemies[i].gameObject);
+                Destroy(handler.aliveEnemies[i].gameObject);
             }
-            spawner.lose = true;
+            handler.lose = true;
             icon.sprite = iconSprite;
 
             text.text = texttext;

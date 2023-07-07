@@ -9,7 +9,7 @@ using UnityEngine.UI;
 
 namespace PythonDefence.Wave
 {
-    public class WaveSpawner : MonoBehaviour
+    public class WaveHandler : MonoBehaviour
     {
         public Transform spawnPoint;
         public GameObject[] enemies;
@@ -26,7 +26,7 @@ namespace PythonDefence.Wave
         public Transform[] spawnPoints;
         [SerializeField] private ObjectiveSetter objectivescript;
         public waveSeeker waveseeker;
-        public int doneWaves = 0;
+        public int doneWaves,neededwaves = 0;
         private int waveCount = 1;
         public bool lose = false;
         public List<GameObject> aliveEnemies = new List<GameObject>();

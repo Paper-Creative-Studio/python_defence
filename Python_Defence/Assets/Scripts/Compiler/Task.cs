@@ -14,6 +14,6 @@ namespace PythonDefence.Compiler
         [TextArea]public string stale;
         [TextArea]public string addition;
         [TextArea]public string condition;
-        public UnityEvent onSuccesful;
+        public UnityEvent Effect;
     }
 }

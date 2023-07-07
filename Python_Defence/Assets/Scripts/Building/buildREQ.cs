@@ -9,10 +9,10 @@ namespace PythonDefence.Building
 {
     public class buildREQ : MonoBehaviour
     {
-        [SerializeField] private int[] stage1Costs = new int[3];
-        [SerializeField] private int[] stage2Costs = new int[3];
+        [SerializeField] private int[,] costs = new int[2, 3];
         
         [SerializeField] private GameObject pythonCanvas;
+        [SerializeField] private GameObject hpCanvas;
         public GameObject reqCanvas;
         
         [SerializeField] private TMP_Text errorText;
@@ -23,7 +23,7 @@ namespace PythonDefence.Building
         [SerializeField] private Stats stats;
         private PythonGame pythonScript;
         private bool bought = false;
-
+        [SerializeField] private int currentStage;
         private void Awake()
         {
             pythonScript = GetComponent<PythonGame>();
@@ -37,8 +37,7 @@ namespace PythonDefence.Building
 
             for (int i = 0; i <= needResources.Length; i++)
             {
-                //dodaj tu że w zaleznosci od zmiennej stage (tablica 2 wymiarowa -> stage, req)
-                needResources[i].text = stage1Costs.ToString();
+                needResources[i].text = costs[currentStage,i].ToString();
             }
             if(bought)
             {
@@ -46,12 +45,26 @@ namespace PythonDefence.Building
                 gameObject.SetActive(false);
             }
         }
+
+        private void Update()
+        {
+            if(reqCanvas.activeSelf)
+            {
+                if(Input.GetKeyDown(KeyCode.Escape))
+                {
+                    reqCanvas.SetActive(false);
+                    hpCanvas.SetActive(true);
+                    Time.timeScale = 1;
+                }
+            }
+        }
+
         public void CheckCondition()
         {
             errorText.text = string.Empty;
             for (int i = 0; i <= stats.AllResources.Length; i++) //sprawdzanie pokolei kazdego resourca, jesli za malo, returnuje i nie wykonuje dalszej czesci programu
             {
-                if (stats.AllResources[i].count < stage1Costs[i])
+                if (stats.AllResources[i].count < costs[currentStage,i])
                 {
                     errorText.text = "Not \r\nenough \r\nmaterials";
                     errorText.color = Color.red;
@@ -61,7 +74,7 @@ namespace PythonDefence.Building
             }
             for (int i = 0; i <= stats.AllResources.Length; i++) //zmiana ilosci resourcow
             {
-                stats.AllResources[i].SetResource(stats.AllResources[i].GetResource() - stage1Costs[i]);
+                stats.AllResources[i].SetResource(stats.AllResources[i].GetResource() - costs[currentStage,i]);
             }
                 
             //zmiana statusu i wyswietlenie canvasa pythona
@@ -69,7 +82,7 @@ namespace PythonDefence.Building
             reqCanvas.SetActive(false);
             pythonScript.PythonCanvas();
         }
-
+    
     
     }
 }

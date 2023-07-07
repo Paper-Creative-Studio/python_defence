@@ -33874,8 +33874,8 @@ MonoBehaviour:
   texttext: YOU DIED
   tiptext: Try upgrading your character
   hitable: 1
-  mask: {fileID: 10758, guid: 0000000000000000f000000000000000, type: 0}
-  materialdef: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  mask: {fileID: 10758, guid: 0000000000000000f000000000000000, type: 3}
+  materialdef: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 3}
 --- !u!114 &1398872397
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -33888,16 +33888,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40e03729211b4f04eaafaf8225c0e353, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  kamienText: {fileID: 1800832240}
-  srebroText: {fileID: 1828708917}
-  goldText: {fileID: 1568439999}
-  Hajstext: {fileID: 1512259129}
-  Silatext: {fileID: 272825737}
-  kamienCount: 20
-  srebroCount: 15
-  GoldCount: 10
-  HajsCount: 5
-  silaCount: 0
+  Stone: {fileID: 0}
+  Iron: {fileID: 0}
+  Gold: {fileID: 0}
+  Money: {fileID: 0}
+  Strength: {fileID: 0}
+  stoneCount: 0
+  ironCount: 0
+  goldCount: 0
+  moneyCount: 0
+  counters: []
+  AllResources: []
 --- !u!82 &1398872398
 AudioSource:
   m_ObjectHideFlags: 0
@@ -34203,14 +34204,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6488948ff7fcf444eab008983a1bffbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainKamien: {fileID: 0}
-  mainSrebro: {fileID: 0}
-  mainGold: {fileID: 0}
-  mainHajs: {fileID: 0}
-  tradeKamien: {fileID: 508531266}
-  tradeSrebro: {fileID: 1959872847}
-  tradeGold: {fileID: 1044610535}
-  tradeHajs: {fileID: 1943904691}
+  stats: {fileID: 0}
+  tradeResources: []
 --- !u!114 &1407676411
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -41196,14 +41191,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6488948ff7fcf444eab008983a1bffbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainKamien: {fileID: 0}
-  mainSrebro: {fileID: 0}
-  mainGold: {fileID: 0}
-  mainHajs: {fileID: 0}
-  tradeKamien: {fileID: 452465623}
-  tradeSrebro: {fileID: 93320889}
-  tradeGold: {fileID: 69283257}
-  tradeHajs: {fileID: 1725805689}
+  stats: {fileID: 0}
+  tradeResources: []
 --- !u!114 &1662218968
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -51044,14 +51033,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6488948ff7fcf444eab008983a1bffbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainKamien: {fileID: 1800832240}
-  mainSrebro: {fileID: 1828708917}
-  mainGold: {fileID: 1568439999}
-  mainHajs: {fileID: 1512259129}
-  tradeKamien: {fileID: 1275971301}
-  tradeSrebro: {fileID: 380586354}
-  tradeGold: {fileID: 1760025102}
-  tradeHajs: {fileID: 311611484}
+  stats: {fileID: 0}
+  tradeResources: []
 --- !u!1 &2134754940
 GameObject:
   m_ObjectHideFlags: 0
