@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 6896554337611540552}
   - component: {fileID: 3305087516034276382}
   - component: {fileID: 3926605160107768958}
-  - component: {fileID: 2560989630456013585}
   - component: {fileID: 8671065578914377946}
+  - component: {fileID: 8800206385750787098}
   m_Layer: 0
   m_Name: Plama
   m_TagString: Untagged
@@ -107,19 +107,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
---- !u!114 &2560989630456013585
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2926094884920870421}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b23cf0d8a22d8d548a951992d2302bef, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damage: 10
 --- !u!61 &8671065578914377946
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -146,3 +133,16 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.76816726, y: 0.7587327}
   m_EdgeRadius: 0
+--- !u!114 &8800206385750787098
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2926094884920870421}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0fb9a0281bca56f43a336da54eda9523, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 0

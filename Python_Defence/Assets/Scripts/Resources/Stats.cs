@@ -1,3 +1,4 @@
+using System.Collections;
 using PythonDefence.Mark;
 using TMPro;
 using UnityEngine;
@@ -6,12 +7,12 @@ namespace PythonDefence.Resources
 {
     public class Stats : MonoBehaviour
     {
-        public Resource Stone,Iron,Gold,Money,Strength;
+        [HideInInspector] public Resource Stone,Iron,Gold,Money,Strength;
         [SerializeField] private int stoneCount, ironCount, goldCount, moneyCount;
         [SerializeField] private TMP_Text[] counters;
         private Attacking attack;
 
-        public Resource[] AllResources;
+        [HideInInspector] public Resource[] AllResources;
         // Start is called before the first frame update
         void Awake()
         {
@@ -28,6 +29,24 @@ namespace PythonDefence.Resources
         {
             attack.damage += count;
             Strength.AddResource(count);
+        }
+        
+        
+        public void HighlightResource(Resource res, int howLong)
+        {
+            res.counter.color = Color.green;
+            StartCoroutine(SetColorToWhite(res,howLong));
+        }
+        public void GiveResource(Resource res,int count)
+        {
+            res.AddResource(count);
+            HighlightResource(res,2);
+        }
+
+        IEnumerator SetColorToWhite(Resource res, int howLong)
+        {
+            yield return new WaitForSeconds(howLong);
+            res.counter.color = Color.white;
         }
         //public void giveGold(int count = 2)
         //{

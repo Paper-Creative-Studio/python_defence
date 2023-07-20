@@ -4,7 +4,7 @@ using System.IO;
 using System.Text;
 using System.Text.RegularExpressions;
 using IronPython.Hosting;
-using PythonDefence.UI;
+using PythonDefence.NPC;
 using TMPro;
 using UnityEngine;
 
@@ -28,6 +28,8 @@ namespace PythonDefence.Compiler
         public string stale;
         public TMP_Text textplace;
         public NPCProperties NPCCaller;
+
+        [SerializeField] private GameObject hpCanvas;
         // Start is called before the first frame update
         void Start()
         {
@@ -185,6 +187,7 @@ namespace PythonDefence.Compiler
             tmpro.text = kod;
             Time.timeScale = 1; 
             transform.parent.parent.gameObject.SetActive(false);
+            hpCanvas.SetActive(true);
         
         }
    

@@ -30,11 +30,11 @@ namespace PythonDefence.Wave
         private int waveCount = 1;
         public bool lose = false;
         public List<GameObject> aliveEnemies = new List<GameObject>();
-        [SerializeField] private Stats eqscript;
         [SerializeField] private playmusic musicPlayer;
         [SerializeField] private AudioClip villageMusic;
         [SerializeField] private AudioClip BattleMusic;
         [SerializeField] private Health playerHP;
+        [SerializeField] private Stats playerStats;
         [SerializeField] private CastleHealth castleHP;
         int wavesToHeal = 5;
         bool donce = true;
@@ -101,7 +101,7 @@ namespace PythonDefence.Wave
                         playerHP.healthbar.SetHealth(playerHP.currentHealth);
                         doneWaves++;
                         waveCount++;
-                        eqscript.Money.GiveResource(doneWaves * 2);
+                        playerStats.GiveResource(playerStats.Money, doneWaves*2);
                         Debug.Log("leci");
                     
                     }

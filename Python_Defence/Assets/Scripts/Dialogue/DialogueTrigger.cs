@@ -12,11 +12,11 @@ namespace PythonDefence.Dialogue
         public int index = 0;
         public GameObject dialogueCanvas;
         [SerializeField] private DialogueManager dialmanager;
-        private PythonGame pg;
+        private NPCProperties pg;
         private TradeNPC tn;
         private void Start()
         {
-            pg = GetComponent<PythonGame>();
+            pg = GetComponent<NPCProperties>();
             tn = GetComponent<TradeNPC>();
         
         }

@@ -23,18 +23,19 @@ namespace PythonDefence.Dialogue
         private Queue<string> sentences= new Queue<string>();
         private Queue<Sprite> avatars= new Queue<Sprite>();
         [SerializeField] private DialogueTrigger farmerdialtrig;
-        public PythonGame npcscript;
+        public NPCProperties npcscript;
         public TradeNPC tradescript;
         private movement playermove;
         private Attacking playerattack;
+        private Stats playerStats;
         private string aftermath;
         [SerializeField] private Stats eqscript;
         [SerializeField] private farmamanagement farma;
         private void Start()
         {
-            //npcscript = npc.GetComponent<PythonGame>();
             playermove = player.GetComponent<movement>();
             playerattack = player.GetComponent<Attacking>();
+            playerStats = player.GetComponent<Stats>();
         }
         public void StartDialogue(Dialogue dialogue)
         {
@@ -74,17 +75,13 @@ namespace PythonDefence.Dialogue
                 {
                     npcscript.LaunchPython();
                 }
-                else if (aftermath == "Python")
-                {
-                    tradescript.StartShop();
-                }
                 else if(aftermath == "Shop")
                 {
                     tradescript.StartShop();
                 }
                 else if (aftermath == "Harvest")
                 {
-                    eqscript.Money.GiveResource(10);
+                    playerStats.GiveResource(playerStats.Money, 10);
                     main_Canvas.SetActive(true);
                     farmerdialtrig.index = 1;
                     farma.Zbierz();

@@ -3620,7 +3620,7 @@ GameObject:
   - component: {fileID: 272825738}
   - component: {fileID: 272825737}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: StrengthCounter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5617,6 +5617,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92fb23e443f56ae4aab0970205e4ca5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buildingProp: {fileID: 0}
+  DependantBuilding: {fileID: 0}
   tasks:
   - Polecenie: To a list of materials needed for building a mine add "tracks"
     output: List contains all needed materials
@@ -5628,7 +5630,7 @@ MonoBehaviour:
       all(value in list for value in correct):\r\n\tprint(\"List contains all needed
       materials\")\r\nelse:\r\n\tprint(\"List does not contains all needed materials\")"
     condition: 
-    onSuccesful:
+    Effect:
       m_PersistentCalls:
         m_Calls: []
   - Polecenie: From a list containing all things needed for bulding a mine delete
@@ -5639,7 +5641,7 @@ MonoBehaviour:
     addition: "\nif list == ['minecart', 'pickaxe', 'shovel', 'supports', 'tracks']:\r\n\tprint(\"List
       is organized\")\r\nelse:\r\n\tprint(\"List is not organized\")"
     condition: 
-    onSuccesful:
+    Effect:
       m_PersistentCalls:
         m_Calls: []
   - Polecenie: 'Count all gold that is contained in a list using for loop
@@ -5654,28 +5656,11 @@ MonoBehaviour:
 '
     addition: 
     condition: for
-    onSuccesful:
+    Effect:
       m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1398872397}
-          m_TargetAssemblyTypeName: Eq, Assembly-CSharp
-          m_MethodName: giveGold
-          m_Mode: 3
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 2
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
+        m_Calls: []
   canvas: {fileID: 2017472308}
   hpCanvas: {fileID: 1550929144}
-  result: 0
-  building: {fileID: 763941363}
-  stages:
-  - {fileID: 21300000, guid: 9e6102a74d4362442b3103aa333cf820, type: 3}
-  - {fileID: 21300000, guid: e0e4aab4ee580ad469943bd5feaf8873, type: 3}
   talking: 0
   onInteract:
     m_PersistentCalls:
@@ -5712,16 +5697,9 @@ MonoBehaviour:
   objectiveScript: {fileID: 1790772530}
   dialTrigger: {fileID: 350650184}
   ownTask: Miner
-  loop: 0
+  isNotFarmer: 0
   farma: {fileID: 0}
-  FirstCollider: {fileID: 0}
-  resources: []
-  reqResources: []
-  needResources: []
-  errortext: {fileID: 0}
-  pythonCanvas: {fileID: 0}
   bought: 0
-  reqCanvas: {fileID: 1754264300}
   buildButton: {fileID: 0}
   stage1Costs: 
   stage2Costs: 
@@ -7493,6 +7471,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92fb23e443f56ae4aab0970205e4ca5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buildingProp: {fileID: 1870755754}
+  DependantBuilding: {fileID: 1870755747}
   tasks:
   - Polecenie: 'Write for loop which will append to list all numbers between x and
       y
@@ -7511,7 +7491,7 @@ MonoBehaviour:
 '
     addition: 
     condition: 'for '
-    onSuccesful:
+    Effect:
       m_PersistentCalls:
         m_Calls: []
   - Polecenie: 'Write for loop which will append all numbers divisible by 3 between
@@ -7525,7 +7505,7 @@ MonoBehaviour:
 '
     addition: 
     condition: for
-    onSuccesful:
+    Effect:
       m_PersistentCalls:
         m_Calls: []
   - Polecenie: 'Using for loop append to given list word "archer" for variable being
@@ -7544,28 +7524,11 @@ MonoBehaviour:
     addition: "\nif list == ['archer', 'archer', 'archer', 'archer']:\n\tprint(\"That's
       good amount of archers\")\nelse:\n\tprint(\"Something is not right\")\n\n"
     condition: for
-    onSuccesful:
+    Effect:
       m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1120368050}
-          m_TargetAssemblyTypeName: SpawnArcher, Assembly-CSharp
-          m_MethodName: SpawnArch
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
+        m_Calls: []
   canvas: {fileID: 2017472308}
   hpCanvas: {fileID: 1550929144}
-  result: 0
-  building: {fileID: 1870755747}
-  stages:
-  - {fileID: 21300000, guid: 315606530e53ce9418614c9d2c643e3f, type: 3}
-  - {fileID: 21300000, guid: ee39c5bde11fbf74abcf4f86d8dc9e79, type: 3}
   talking: 0
   onInteract:
     m_PersistentCalls:
@@ -7602,28 +7565,9 @@ MonoBehaviour:
   objectiveScript: {fileID: 1790772530}
   dialTrigger: {fileID: 433536006}
   ownTask: Archer
-  loop: 0
+  isNotFarmer: 0
   farma: {fileID: 0}
-  FirstCollider: {fileID: 0}
-  resources:
-  - {fileID: 1828708917}
-  - {fileID: 1800832240}
-  - {fileID: 1512259129}
-  - {fileID: 1568439999}
-  reqResources:
-  - {fileID: 638644083}
-  - {fileID: 1339560162}
-  - {fileID: 1053767696}
-  - {fileID: 1054855782}
-  needResources:
-  - {fileID: 1488613852}
-  - {fileID: 1898577036}
-  - {fileID: 1428116556}
-  - {fileID: 1041528158}
-  errortext: {fileID: 273758380}
-  pythonCanvas: {fileID: 2017472308}
   bought: 0
-  reqCanvas: {fileID: 1754264300}
   buildButton: {fileID: 279007572}
   stage1Costs: 140000000c0000000a0000000a000000
   stage2Costs: 1e00000028000000140000000f000000
@@ -15166,7 +15110,7 @@ GameObject:
   - component: {fileID: 638644084}
   - component: {fileID: 638644083}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: IronCounter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16020,6 +15964,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92fb23e443f56ae4aab0970205e4ca5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buildingProp: {fileID: 0}
+  DependantBuilding: {fileID: 0}
   tasks:
   - Polecenie: To given variable add 5
     output: Good job!
@@ -16030,21 +15976,9 @@ MonoBehaviour:
     addition: "\nif i == 8:\r\n\tprint(\"Good job!\")\r\nelse:\r\n\tprint(\"Something
       is not right\")"
     condition: +
-    onSuccesful:
+    Effect:
       m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 837157222}
-          m_TargetAssemblyTypeName: farmamanagement, Assembly-CSharp
-          m_MethodName: zasiej
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
+        m_Calls: []
   - Polecenie: Multiply given variable by 7 and substract 3
     output: Good job!
     secondaryoutput: 
@@ -16054,28 +15988,11 @@ MonoBehaviour:
     addition: "\nif i == 102:\r\n\tprint(\"Good job!\")\r\nelse:\r\n\tprint(\"Something
       is not right\")"
     condition: '*'
-    onSuccesful:
+    Effect:
       m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 837157222}
-          m_TargetAssemblyTypeName: farmamanagement, Assembly-CSharp
-          m_MethodName: zasiej
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
+        m_Calls: []
   canvas: {fileID: 2017472308}
   hpCanvas: {fileID: 1550929144}
-  result: 0
-  building: {fileID: 1776843681}
-  stages:
-  - {fileID: 21300000, guid: 03c79320114970846b93993aa7d304c3, type: 3}
-  - {fileID: 21300000, guid: 6970e3350a1167443ab19b9defc6ea51, type: 3}
   talking: 0
   onInteract:
     m_PersistentCalls:
@@ -16112,28 +16029,9 @@ MonoBehaviour:
   objectiveScript: {fileID: 1790772530}
   dialTrigger: {fileID: 677196821}
   ownTask: Farmer
-  loop: 1
+  isNotFarmer: 0
   farma: {fileID: 837157222}
-  FirstCollider: {fileID: 0}
-  resources:
-  - {fileID: 1828708917}
-  - {fileID: 1800832240}
-  - {fileID: 1512259129}
-  - {fileID: 1568439999}
-  reqResources:
-  - {fileID: 638644083}
-  - {fileID: 1339560162}
-  - {fileID: 1053767696}
-  - {fileID: 1054855782}
-  needResources:
-  - {fileID: 1488613852}
-  - {fileID: 1898577036}
-  - {fileID: 1428116556}
-  - {fileID: 1041528158}
-  errortext: {fileID: 273758380}
-  pythonCanvas: {fileID: 2017472308}
   bought: 0
-  reqCanvas: {fileID: 1754264300}
   buildButton: {fileID: 279007572}
   stage1Costs: 00000000000000000000000000000000
   stage2Costs: 0a000000050000000200000005000000
@@ -16288,6 +16186,7 @@ GameObject:
   - component: {fileID: 684148395}
   - component: {fileID: 684148394}
   - component: {fileID: 684148393}
+  - component: {fileID: 684148396}
   - component: {fileID: 684148392}
   m_Layer: 0
   m_Name: Kosciol
@@ -16309,7 +16208,7 @@ Transform:
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1299488594}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &684148388
 SpriteRenderer:
@@ -16426,17 +16325,17 @@ EdgeCollider2D:
   m_Offset: {x: 0, y: 0}
   m_EdgeRadius: 0
   m_Points:
-  - {x: 1.6845357, y: -0.72507167}
-  - {x: -1.2483754, y: -0.7258339}
-  - {x: -1.1976013, y: -0.027009487}
-  - {x: 0.15105009, y: -0.022732258}
+  - {x: 1.3115337, y: -0.04393792}
+  - {x: 0.1463275, y: -0.028482437}
+  - {x: 0.15655804, y: -0.010792255}
+  - {x: 0.037528038, y: -0.0551672}
   - {x: 0.15331697, y: 0.47396946}
   - {x: 0.21712923, y: 1.2044373}
   - {x: 1.2047524, y: 1.214881}
   - {x: 1.2756495, y: 0.4355073}
   - {x: 1.2678161, y: -0.019497395}
-  - {x: 1.6226239, y: -0.020364285}
-  - {x: 1.6848395, y: -0.7274265}
+  - {x: 1.3469267, y: -0.012255669}
+  - {x: 1.2712934, y: -0.02196598}
   m_AdjacentStartPoint: {x: 0, y: 0}
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
@@ -16510,8 +16409,11 @@ EdgeCollider2D:
   m_Offset: {x: 0, y: 0}
   m_EdgeRadius: 0
   m_Points:
-  - {x: -0.71033883, y: -0.4374342}
-  - {x: -0.52905774, y: -0.36452818}
+  - {x: -1.2130806, y: 0.057198524}
+  - {x: 1.6693816, y: 0.06461191}
+  - {x: 1.6766992, y: -0.6681633}
+  - {x: -1.2497911, y: -0.6801648}
+  - {x: -1.2588437, y: 0.06523466}
   m_AdjacentStartPoint: {x: 0, y: 0}
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
@@ -16540,6 +16442,49 @@ EdgeCollider2D:
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
   m_UseAdjacentEndPoint: 0
+--- !u!114 &684148396
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 684148386}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec5078eb774fd0e48917ac50576a37c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pythonCanvas: {fileID: 2017472308}
+  hpCanvas: {fileID: 1550929144}
+  reqCanvas: {fileID: 1754264300}
+  errorText: {fileID: 273758380}
+  needResources:
+  - {fileID: 1898577036}
+  - {fileID: 1488613852}
+  - {fileID: 1041528158}
+  - {fileID: 1428116556}
+  infoResources:
+  - {fileID: 1339560162}
+  - {fileID: 638644083}
+  - {fileID: 1054855782}
+  - {fileID: 1053767696}
+  stats: {fileID: 1398872397}
+  stages:
+  - nextStageCost: 0a00000005000000020000000f000000
+    colliders:
+    - {fileID: 684148390}
+    - {fileID: 684148395}
+    - {fileID: 684148394}
+    - {fileID: 684148393}
+    sprite: {fileID: 21300000, guid: 5968338052b6ef747b50fa0438845618, type: 3}
+  - nextStageCost: 19000000140000000a0000001e000000
+    colliders:
+    - {fileID: 684148391}
+    - {fileID: 684148390}
+    - {fileID: 684148394}
+    sprite: {fileID: 21300000, guid: 41c1d91a8ff348a4085e79f8fd576651, type: 3}
+  Controllingnpc: {fileID: 937017156}
+  currentStage: 0
 --- !u!1 &692102569
 GameObject:
   m_ObjectHideFlags: 0
@@ -17555,10 +17500,8 @@ GameObject:
   - component: {fileID: 763941362}
   - component: {fileID: 763941363}
   - component: {fileID: 763941364}
-  - component: {fileID: 763941366}
   - component: {fileID: 763941365}
-  - component: {fileID: 763941368}
-  - component: {fileID: 763941367}
+  - component: {fileID: 763941369}
   m_Layer: 0
   m_Name: Kopalnia
   m_TagString: Untagged
@@ -17579,7 +17522,7 @@ Transform:
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1299488594}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &763941363
 SpriteRenderer:
@@ -17622,7 +17565,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 17ac251d042d96249a699d130aaf672e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e0e4aab4ee580ad469943bd5feaf8873, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -17640,7 +17583,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 763941361}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -17685,80 +17628,44 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.0398897, y: 0.5838237}
   m_EdgeRadius: 0
---- !u!68 &763941366
-EdgeCollider2D:
+--- !u!114 &763941369
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 763941361}
-  m_Enabled: 0
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_EdgeRadius: 0
-  m_Points:
-  - {x: 0.1315769, y: 1.0684983}
-  - {x: 0.31145722, y: 1.003348}
-  m_AdjacentStartPoint: {x: 0, y: 0}
-  m_AdjacentEndPoint: {x: 0, y: 0}
-  m_UseAdjacentStartPoint: 0
-  m_UseAdjacentEndPoint: 0
---- !u!61 &763941367
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 763941361}
-  m_Enabled: 0
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.07362169, y: 0.7270044}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 3.4375, y: 3.4375}
-    newSize: {x: 4.5833335, y: 4.5833335}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1.7074188, y: 1.1000507}
-  m_EdgeRadius: 0
---- !u!61 &763941368
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 763941361}
-  m_Enabled: 0
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.024622709, y: 0.5245899}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 3.4375, y: 3.4375}
-    newSize: {x: 4.5833335, y: 4.5833335}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.983653, y: 0.31900978}
-  m_EdgeRadius: 0
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec5078eb774fd0e48917ac50576a37c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pythonCanvas: {fileID: 2017472308}
+  hpCanvas: {fileID: 1550929144}
+  reqCanvas: {fileID: 1754264300}
+  errorText: {fileID: 273758380}
+  needResources:
+  - {fileID: 1898577036}
+  - {fileID: 1488613852}
+  - {fileID: 1041528158}
+  - {fileID: 1428116556}
+  infoResources:
+  - {fileID: 1339560162}
+  - {fileID: 638644083}
+  - {fileID: 1054855782}
+  - {fileID: 1053767696}
+  stats: {fileID: 1398872397}
+  stages:
+  - nextStageCost: 0a00000005000000020000000f000000
+    colliders:
+    - {fileID: 763941364}
+    sprite: {fileID: 21300000, guid: 9e6102a74d4362442b3103aa333cf820, type: 3}
+  - nextStageCost: 19000000140000000a0000001e000000
+    colliders:
+    - {fileID: 763941364}
+    sprite: {fileID: 21300000, guid: e0e4aab4ee580ad469943bd5feaf8873, type: 3}
+  Controllingnpc: {fileID: 1346207674}
+  currentStage: 0
 --- !u!1 &778865920
 GameObject:
   m_ObjectHideFlags: 0
@@ -20206,6 +20113,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92fb23e443f56ae4aab0970205e4ca5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buildingProp: {fileID: 684148396}
+  DependantBuilding: {fileID: 684148388}
   tasks:
   - Polecenie: 'Write a function called "addition" that takes 2 arguments (name them
       a,b ), adds them together and returns this value '
@@ -20216,7 +20125,7 @@ MonoBehaviour:
       b):\r\n\tprint(\"Returned value is addition result of two arguments\")\r\nelse:\r\n\tprint(\"Returned
       value is not addition result of two arguments\")"
     condition: 
-    onSuccesful:
+    Effect:
       m_PersistentCalls:
         m_Calls: []
   - Polecenie: Write a function called "first" which will return first letter of
@@ -20228,16 +20137,11 @@ MonoBehaviour:
       first letter of given word\")\r\nelse:\r\n\tprint(\"It does not returns first
       letter of given word\")"
     condition: 
-    onSuccesful:
+    Effect:
       m_PersistentCalls:
         m_Calls: []
   canvas: {fileID: 2017472308}
   hpCanvas: {fileID: 1550929144}
-  result: 0
-  building: {fileID: 684148388}
-  stages:
-  - {fileID: 21300000, guid: 5968338052b6ef747b50fa0438845618, type: 3}
-  - {fileID: 21300000, guid: 41c1d91a8ff348a4085e79f8fd576651, type: 3}
   talking: 0
   onInteract:
     m_PersistentCalls:
@@ -20274,28 +20178,9 @@ MonoBehaviour:
   objectiveScript: {fileID: 1790772530}
   dialTrigger: {fileID: 937017158}
   ownTask: Priest
-  loop: 0
+  isNotFarmer: 0
   farma: {fileID: 0}
-  FirstCollider: {fileID: 0}
-  resources:
-  - {fileID: 1828708917}
-  - {fileID: 1800832240}
-  - {fileID: 1512259129}
-  - {fileID: 1568439999}
-  reqResources:
-  - {fileID: 638644083}
-  - {fileID: 1339560162}
-  - {fileID: 1053767696}
-  - {fileID: 1054855782}
-  needResources:
-  - {fileID: 1488613852}
-  - {fileID: 1898577036}
-  - {fileID: 1428116556}
-  - {fileID: 1041528158}
-  errortext: {fileID: 273758380}
-  pythonCanvas: {fileID: 2017472308}
   bought: 0
-  reqCanvas: {fileID: 1754264300}
   buildButton: {fileID: 279007572}
   stage1Costs: 0a000000050000000200000002000000
   stage2Costs: 0a000000050000000200000005000000
@@ -21611,6 +21496,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92fb23e443f56ae4aab0970205e4ca5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buildingProp: {fileID: 1776843689}
+  DependantBuilding: {fileID: 1776843681}
   tasks:
   - Polecenie: Append all integers from 1 to 20 to a list and print that list
     output: '[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19,
@@ -21621,7 +21508,7 @@ MonoBehaviour:
 '
     addition: 
     condition: 
-    onSuccesful:
+    Effect:
       m_PersistentCalls:
         m_Calls: []
   - Polecenie: Append every 5 integer from 5 to 100 to a list starting with 5. Print
@@ -21634,7 +21521,7 @@ MonoBehaviour:
 '
     addition: 
     condition: 
-    onSuccesful:
+    Effect:
       m_PersistentCalls:
         m_Calls: []
   - Polecenie: 'Write if statement which in case of variable "i" being equal to 3
@@ -21650,28 +21537,11 @@ MonoBehaviour:
     addition: "\nif animal == \"Horse\" or \"Sheep\" or \"Donkey\":\r\n\tprint(\"It's
       correct\")"
     condition: if
-    onSuccesful:
+    Effect:
       m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1398872397}
-          m_TargetAssemblyTypeName: Eq, Assembly-CSharp
-          m_MethodName: ChangeStrength
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
+        m_Calls: []
   canvas: {fileID: 2017472308}
   hpCanvas: {fileID: 1550929144}
-  result: 0
-  building: {fileID: 1776843681}
-  stages:
-  - {fileID: 21300000, guid: 03c79320114970846b93993aa7d304c3, type: 3}
-  - {fileID: 21300000, guid: 6970e3350a1167443ab19b9defc6ea51, type: 3}
   talking: 0
   onInteract:
     m_PersistentCalls:
@@ -21708,28 +21578,9 @@ MonoBehaviour:
   objectiveScript: {fileID: 1790772530}
   dialTrigger: {fileID: 997326384}
   ownTask: Kowal
-  loop: 0
+  isNotFarmer: 0
   farma: {fileID: 0}
-  FirstCollider: {fileID: 1776843682}
-  resources:
-  - {fileID: 1828708917}
-  - {fileID: 1800832240}
-  - {fileID: 1512259129}
-  - {fileID: 1568439999}
-  reqResources:
-  - {fileID: 638644083}
-  - {fileID: 1339560162}
-  - {fileID: 1053767696}
-  - {fileID: 1054855782}
-  needResources:
-  - {fileID: 1488613852}
-  - {fileID: 1898577036}
-  - {fileID: 1428116556}
-  - {fileID: 1041528158}
-  errortext: {fileID: 273758380}
-  pythonCanvas: {fileID: 2017472308}
   bought: 0
-  reqCanvas: {fileID: 1754264300}
   buildButton: {fileID: 279007572}
   stage1Costs: 050000000c0000000500000005000000
   stage2Costs: 1e00000028000000140000000f000000
@@ -22139,13 +21990,14 @@ MonoBehaviour:
   objectivescript: {fileID: 1790772530}
   waveseeker: {fileID: 1473518008}
   doneWaves: 0
+  neededwaves: 0
   lose: 0
   aliveEnemies: []
-  eqscript: {fileID: 1398872397}
   musicPlayer: {fileID: 1550929151}
   villageMusic: {fileID: 8300000, guid: 6db8c93d664c1ee4db85453dc46448f3, type: 3}
   BattleMusic: {fileID: 8300000, guid: d58afa0d86d180a49bda181601ef5f3c, type: 3}
   playerHP: {fileID: 1398872396}
+  playerStats: {fileID: 1398872397}
   castleHP: {fileID: 1761619390}
 --- !u!114 &1028385551
 MonoBehaviour:
@@ -22461,7 +22313,7 @@ GameObject:
   - component: {fileID: 1041528159}
   - component: {fileID: 1041528158}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: GoldCounter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -22866,7 +22718,7 @@ GameObject:
   - component: {fileID: 1053767697}
   - component: {fileID: 1053767696}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: MoneyCounter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -23001,7 +22853,7 @@ GameObject:
   - component: {fileID: 1054855783}
   - component: {fileID: 1054855782}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: GoldCounter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -23641,7 +23493,6 @@ GameObject:
   - component: {fileID: 1094362094}
   - component: {fileID: 1094362093}
   - component: {fileID: 1094362092}
-  - component: {fileID: 1094362091}
   m_Layer: 0
   m_Name: TypOdStajni
   m_TagString: npc
@@ -23664,18 +23515,6 @@ Transform:
   m_Father: {fileID: 1391568766}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1094362091
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1094362089}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 170c8f8f96ad11a4889abab3311f517d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1094362092
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23733,6 +23572,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92fb23e443f56ae4aab0970205e4ca5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buildingProp: {fileID: 2068751351}
+  DependantBuilding: {fileID: 2068751343}
   tasks:
   - Polecenie: 'Write if operation that prints word "Horse"
 
@@ -23745,7 +23586,7 @@ MonoBehaviour:
     stale: 
     addition: 
     condition: if
-    onSuccesful:
+    Effect:
       m_PersistentCalls:
         m_Calls: []
   - Polecenie: 'Write if operation that in case variable ''i'' is even number will
@@ -23758,16 +23599,11 @@ MonoBehaviour:
     stale: 
     addition: 
     condition: if
-    onSuccesful:
+    Effect:
       m_PersistentCalls:
         m_Calls: []
   canvas: {fileID: 2017472308}
   hpCanvas: {fileID: 1550929144}
-  result: 0
-  building: {fileID: 2068751343}
-  stages:
-  - {fileID: 21300000, guid: fe7dc815ddec5f841896e2daccf786e1, type: 3}
-  - {fileID: 21300000, guid: 7a658695143563e40b0cae95d54be6a5, type: 3}
   talking: 0
   onInteract:
     m_PersistentCalls:
@@ -23804,28 +23640,9 @@ MonoBehaviour:
   objectiveScript: {fileID: 1790772530}
   dialTrigger: {fileID: 1094362092}
   ownTask: Stajnia
-  loop: 0
+  isNotFarmer: 0
   farma: {fileID: 0}
-  FirstCollider: {fileID: 0}
-  resources:
-  - {fileID: 1828708917}
-  - {fileID: 1800832240}
-  - {fileID: 1512259129}
-  - {fileID: 1568439999}
-  reqResources:
-  - {fileID: 638644083}
-  - {fileID: 1339560162}
-  - {fileID: 1053767696}
-  - {fileID: 1054855782}
-  needResources:
-  - {fileID: 1488613852}
-  - {fileID: 1898577036}
-  - {fileID: 1428116556}
-  - {fileID: 1041528158}
-  errortext: {fileID: 273758380}
-  pythonCanvas: {fileID: 2017472308}
   bought: 0
-  reqCanvas: {fileID: 1754264300}
   buildButton: {fileID: 279007572}
   stage1Costs: 0a000000050000000200000002000000
   stage2Costs: 14000000070000000500000005000000
@@ -24546,7 +24363,7 @@ Transform:
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1299488594}
-  m_RootOrder: 0
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1126898964
 SpriteRenderer:
@@ -25159,7 +24976,7 @@ MonoBehaviour:
   iconSprite: {fileID: 0}
   texttext: 
   tiptext: 
-  spawner: {fileID: 1028385550}
+  handler: {fileID: 1028385550}
 --- !u!1 &1141579173
 GameObject:
   m_ObjectHideFlags: 0
@@ -32155,17 +31972,17 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1126898963}
   - {fileID: 684148387}
   - {fileID: 1776843680}
   - {fileID: 2068751342}
   - {fileID: 763941362}
+  - {fileID: 1870755743}
   - {fileID: 68730575}
   - {fileID: 1129419119}
   - {fileID: 2083338952}
   - {fileID: 1806506250}
   - {fileID: 1637483781}
-  - {fileID: 1870755743}
+  - {fileID: 1126898963}
   - {fileID: 1511131743}
   - {fileID: 783706390}
   m_Father: {fileID: 1761619387}
@@ -32567,7 +32384,7 @@ GameObject:
   - component: {fileID: 1339560163}
   - component: {fileID: 1339560162}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: StoneCounter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -32794,6 +32611,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92fb23e443f56ae4aab0970205e4ca5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buildingProp: {fileID: 763941369}
+  DependantBuilding: {fileID: 763941363}
   tasks:
   - Polecenie: To a list of materials needed for building a mine add "tracks"
     output: List contains all needed materials
@@ -32805,7 +32624,7 @@ MonoBehaviour:
       all(value in list for value in correct):\r\n\tprint(\"List contains all needed
       materials\")\r\nelse:\r\n\tprint(\"List does not contains all needed materials\")"
     condition: 
-    onSuccesful:
+    Effect:
       m_PersistentCalls:
         m_Calls: []
   - Polecenie: Make a list contain only things needed for building a mine (delete
@@ -32819,7 +32638,7 @@ MonoBehaviour:
     addition: "\nif list == ['minecart', 'pickaxe', 'shovel', 'supports', 'tracks']:\r\n\tprint(\"List
       is organized\")\r\nelse:\r\n\tprint(\"List is not organized\")"
     condition: 
-    onSuccesful:
+    Effect:
       m_PersistentCalls:
         m_Calls: []
   - Polecenie: 'Count all gold that is contained in a list using for loop
@@ -32834,28 +32653,11 @@ MonoBehaviour:
 '
     addition: 
     condition: for
-    onSuccesful:
+    Effect:
       m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1398872397}
-          m_TargetAssemblyTypeName: Eq, Assembly-CSharp
-          m_MethodName: giveGold
-          m_Mode: 3
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 2
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
+        m_Calls: []
   canvas: {fileID: 2017472308}
   hpCanvas: {fileID: 1550929144}
-  result: 0
-  building: {fileID: 763941363}
-  stages:
-  - {fileID: 21300000, guid: 9e6102a74d4362442b3103aa333cf820, type: 3}
-  - {fileID: 21300000, guid: e0e4aab4ee580ad469943bd5feaf8873, type: 3}
   talking: 0
   onInteract:
     m_PersistentCalls:
@@ -32892,28 +32694,9 @@ MonoBehaviour:
   objectiveScript: {fileID: 1790772530}
   dialTrigger: {fileID: 1346207673}
   ownTask: Miner
-  loop: 0
+  isNotFarmer: 0
   farma: {fileID: 0}
-  FirstCollider: {fileID: 0}
-  resources:
-  - {fileID: 1828708917}
-  - {fileID: 1800832240}
-  - {fileID: 1512259129}
-  - {fileID: 1568439999}
-  reqResources:
-  - {fileID: 638644083}
-  - {fileID: 1339560162}
-  - {fileID: 1053767696}
-  - {fileID: 1054855782}
-  needResources:
-  - {fileID: 1488613852}
-  - {fileID: 1898577036}
-  - {fileID: 1428116556}
-  - {fileID: 1041528158}
-  errortext: {fileID: 273758380}
-  pythonCanvas: {fileID: 2017472308}
   bought: 0
-  reqCanvas: {fileID: 1754264300}
   buildButton: {fileID: 279007572}
   stage1Costs: 0a000000050000000200000002000000
   stage2Costs: 0f0000000a0000000400000007000000
@@ -33630,17 +33413,17 @@ GameObject:
   m_Component:
   - component: {fileID: 1398872386}
   - component: {fileID: 1398872385}
-  - component: {fileID: 1398872387}
-  - component: {fileID: 1398872389}
-  - component: {fileID: 1398872395}
   - component: {fileID: 1398872392}
   - component: {fileID: 1398872393}
+  - component: {fileID: 1398872389}
+  - component: {fileID: 1398872387}
+  - component: {fileID: 1398872395}
   - component: {fileID: 1398872396}
   - component: {fileID: 1398872397}
-  - component: {fileID: 1398872398}
-  - component: {fileID: 1398872399}
   - component: {fileID: 1398872400}
   - component: {fileID: 1398872401}
+  - component: {fileID: 1398872399}
+  - component: {fileID: 1398872398}
   m_Layer: 8
   m_Name: Mark
   m_TagString: Player
@@ -33874,8 +33657,8 @@ MonoBehaviour:
   texttext: YOU DIED
   tiptext: Try upgrading your character
   hitable: 1
-  mask: {fileID: 10758, guid: 0000000000000000f000000000000000, type: 3}
-  materialdef: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 3}
+  mask: {fileID: 10758, guid: 0000000000000000f000000000000000, type: 0}
+  materialdef: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
 --- !u!114 &1398872397
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -33888,17 +33671,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40e03729211b4f04eaafaf8225c0e353, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Stone: {fileID: 0}
-  Iron: {fileID: 0}
-  Gold: {fileID: 0}
-  Money: {fileID: 0}
-  Strength: {fileID: 0}
-  stoneCount: 0
-  ironCount: 0
-  goldCount: 0
-  moneyCount: 0
-  counters: []
-  AllResources: []
+  stoneCount: 500
+  ironCount: 500
+  goldCount: 500
+  moneyCount: 500
+  counters:
+  - {fileID: 1800832240}
+  - {fileID: 1828708917}
+  - {fileID: 1568439999}
+  - {fileID: 1512259129}
+  - {fileID: 272825737}
 --- !u!82 &1398872398
 AudioSource:
   m_ObjectHideFlags: 0
@@ -34414,7 +34196,7 @@ GameObject:
   - component: {fileID: 1428116557}
   - component: {fileID: 1428116556}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: MoneyCounter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -35058,7 +34840,7 @@ GameObject:
   - component: {fileID: 1488613853}
   - component: {fileID: 1488613852}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: IronCounter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -35436,7 +35218,7 @@ GameObject:
   - component: {fileID: 1512259130}
   - component: {fileID: 1512259129}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: MoneyCounter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -35904,7 +35686,7 @@ GameObject:
   - component: {fileID: 1568440000}
   - component: {fileID: 1568439999}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: GoldCounter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -43066,6 +42848,7 @@ GameObject:
   - component: {fileID: 1776843684}
   - component: {fileID: 1776843688}
   - component: {fileID: 1776843687}
+  - component: {fileID: 1776843689}
   - component: {fileID: 1776843686}
   - component: {fileID: 1776843685}
   m_Layer: 0
@@ -43088,7 +42871,7 @@ Transform:
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1299488594}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1776843681
 SpriteRenderer:
@@ -43326,6 +43109,47 @@ EdgeCollider2D:
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
   m_UseAdjacentEndPoint: 0
+--- !u!114 &1776843689
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1776843679}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec5078eb774fd0e48917ac50576a37c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pythonCanvas: {fileID: 2017472308}
+  hpCanvas: {fileID: 1550929144}
+  reqCanvas: {fileID: 1754264300}
+  errorText: {fileID: 273758380}
+  needResources:
+  - {fileID: 1898577036}
+  - {fileID: 1488613852}
+  - {fileID: 1041528158}
+  - {fileID: 1428116556}
+  infoResources:
+  - {fileID: 1339560162}
+  - {fileID: 638644083}
+  - {fileID: 1054855782}
+  - {fileID: 1053767696}
+  stats: {fileID: 1398872397}
+  stages:
+  - nextStageCost: 0a00000005000000020000000f000000
+    colliders:
+    - {fileID: 1776843687}
+    - {fileID: 1776843684}
+    - {fileID: 1776843682}
+    sprite: {fileID: 21300000, guid: 03c79320114970846b93993aa7d304c3, type: 3}
+  - nextStageCost: 19000000140000000a0000001e000000
+    colliders:
+    - {fileID: 1776843682}
+    - {fileID: 1776843684}
+    sprite: {fileID: 21300000, guid: 6970e3350a1167443ab19b9defc6ea51, type: 3}
+  Controllingnpc: {fileID: 997326385}
+  currentStage: 0
 --- !u!1 &1779322580
 GameObject:
   m_ObjectHideFlags: 0
@@ -43807,7 +43631,7 @@ GameObject:
   - component: {fileID: 1800832241}
   - component: {fileID: 1800832240}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: StoneCounter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -44759,7 +44583,8 @@ MonoBehaviour:
   condition: 
   stale: 
   textplace: {fileID: 0}
-  scriptwyw: {fileID: 0}
+  NPCCaller: {fileID: 0}
+  hpCanvas: {fileID: 1550929144}
 --- !u!114 &1825767133
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -44866,7 +44691,7 @@ GameObject:
   - component: {fileID: 1828708918}
   - component: {fileID: 1828708917}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: IronCounter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -45931,6 +45756,7 @@ GameObject:
   - component: {fileID: 1870755746}
   - component: {fileID: 1870755744}
   - component: {fileID: 1870755752}
+  - component: {fileID: 1870755754}
   - component: {fileID: 1870755753}
   - component: {fileID: 1870755751}
   - component: {fileID: 1870755750}
@@ -45957,7 +45783,7 @@ Transform:
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1299488594}
-  m_RootOrder: 10
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &1870755744
 BoxCollider2D:
@@ -46272,6 +46098,48 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 4.1824703, y: 1.3167737}
   m_EdgeRadius: 0
+--- !u!114 &1870755754
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1870755742}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec5078eb774fd0e48917ac50576a37c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pythonCanvas: {fileID: 2017472308}
+  hpCanvas: {fileID: 1550929144}
+  reqCanvas: {fileID: 1754264300}
+  errorText: {fileID: 273758380}
+  needResources:
+  - {fileID: 1898577036}
+  - {fileID: 1488613852}
+  - {fileID: 1041528158}
+  - {fileID: 1428116556}
+  infoResources:
+  - {fileID: 1339560162}
+  - {fileID: 638644083}
+  - {fileID: 1054855782}
+  - {fileID: 1053767696}
+  stats: {fileID: 1398872397}
+  stages:
+  - nextStageCost: 0a00000005000000020000000f000000
+    colliders:
+    - {fileID: 1870755744}
+    - {fileID: 1870755752}
+    - {fileID: 1870755753}
+    - {fileID: 1870755751}
+    sprite: {fileID: 21300000, guid: 315606530e53ce9418614c9d2c643e3f, type: 3}
+  - nextStageCost: 19000000140000000a0000001e000000
+    colliders:
+    - {fileID: 1870755745}
+    - {fileID: 1870755744}
+    sprite: {fileID: 21300000, guid: ee39c5bde11fbf74abcf4f86d8dc9e79, type: 3}
+  Controllingnpc: {fileID: 433536007}
+  currentStage: 0
 --- !u!1 &1886411320
 GameObject:
   m_ObjectHideFlags: 0
@@ -47010,7 +46878,7 @@ GameObject:
   - component: {fileID: 1898577037}
   - component: {fileID: 1898577036}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: StoneCounter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -49849,6 +49717,7 @@ GameObject:
   - component: {fileID: 2068751345}
   - component: {fileID: 2068751344}
   - component: {fileID: 2068751350}
+  - component: {fileID: 2068751351}
   - component: {fileID: 2068751349}
   - component: {fileID: 2068751348}
   - component: {fileID: 2068751347}
@@ -49872,7 +49741,7 @@ Transform:
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1299488594}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &2068751343
 SpriteRenderer:
@@ -50134,6 +50003,47 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.8435946, y: 0.16434479}
   m_EdgeRadius: 0
+--- !u!114 &2068751351
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2068751341}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec5078eb774fd0e48917ac50576a37c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pythonCanvas: {fileID: 2017472308}
+  hpCanvas: {fileID: 1550929144}
+  reqCanvas: {fileID: 1754264300}
+  errorText: {fileID: 273758380}
+  needResources:
+  - {fileID: 1898577036}
+  - {fileID: 1488613852}
+  - {fileID: 1041528158}
+  - {fileID: 1428116556}
+  infoResources:
+  - {fileID: 1339560162}
+  - {fileID: 638644083}
+  - {fileID: 1054855782}
+  - {fileID: 1053767696}
+  stats: {fileID: 1398872397}
+  stages:
+  - nextStageCost: 0a00000005000000020000000f000000
+    colliders:
+    - {fileID: 2068751345}
+    - {fileID: 2068751350}
+    - {fileID: 2068751349}
+    sprite: {fileID: 21300000, guid: fe7dc815ddec5f841896e2daccf786e1, type: 3}
+  - nextStageCost: 19000000140000000a0000001e000000
+    colliders:
+    - {fileID: 2068751346}
+    - {fileID: 2068751345}
+    sprite: {fileID: 21300000, guid: 7a658695143563e40b0cae95d54be6a5, type: 3}
+  Controllingnpc: {fileID: 1094362093}
+  currentStage: 0
 --- !u!1 &2070029171
 GameObject:
   m_ObjectHideFlags: 0

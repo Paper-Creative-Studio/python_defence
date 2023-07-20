@@ -83,7 +83,7 @@ namespace PythonDefence.Enemy
                 moveScript = hitPlayer.GetComponent<movement>();
                 playerAnim = hitPlayer.GetComponent<Animator>();
                 hitPlayer.GetComponent<Health>().TakeDamage(15);
-                Debug.Log("trafiony");
+                
                 hit = true;
                 prevY = hitPlayer.transform.position.y;
                 playerRB.velocity = Vector2.zero;
@@ -94,7 +94,7 @@ namespace PythonDefence.Enemy
                 hitPlayer.GetComponent<Attacking>().stunned= true;
                 playerRB.gravityScale = 1;
                 playerRB.AddForce(Vector2.up * power, ForceMode2D.Impulse);
-                playerAnim.SetTrigger("KnockedUp");
+                
                 StartCoroutine(LetCheck());
             
             }
